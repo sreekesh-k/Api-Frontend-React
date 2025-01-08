@@ -1,19 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import { APP_NAME } from './constants';
+import { useState } from "react";
+import "./App.css";
+import { APP_NAME } from "./constants";
+import { Button } from 'antd';
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>Welcome to {APP_NAME}</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+      <div style={{ padding: "20px" }}>
+        <h1>Hello Welcome to {APP_NAME}</h1>
+        <Button type="primary">Primary Button</Button>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
