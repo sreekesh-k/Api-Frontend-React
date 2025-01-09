@@ -183,7 +183,7 @@ function VendorTable(props) {
 
     return transformedData;
   };
-  useEffect((offset, columnName = "", sortDirection = 0) => {
+  function getVendorData(offset, columnName = "", sortDirection = 0) {
     setLoading(true);
     let filterData = [];
     if (props.FilterOptions)
@@ -224,15 +224,15 @@ function VendorTable(props) {
         setTotalRecords(10);
       })
       .finally(() => setLoading(false));
-  }, []);
+  }
   useEffect(() => {
     localStorage.setItem("isViewMode", JSON.stringify(true)); // restores the mdoe to view only in all the tabs
     sessionStorage.removeItem("vendorDetails");
   }, []);
 
-  //   useEffect(() => {
-  //     getVendorData((currentPage - 1) * recordsLimit, "", 0);
-  //   }, [props.FilterOptions, searchValue]);
+  useEffect(() => {
+    getVendorData((currentPage - 1) * recordsLimit, "", 0);
+  }, [props.FilterOptions]);
 
   sessionStorage.setItem("activeTabId", "VendorDetails");
   // CHANGE_PAGE
@@ -254,29 +254,6 @@ function VendorTable(props) {
   //     sessionStorage.setItem("vendorType", record.Type);
   //     window.location = `/Vendor/VendorDetails?id=${record.Id}`;
   //   };
-
-  const TableFooter = () => {
-    return (
-      <div
-        style={{ display: "flex", justifyContent: "space-between" }}
-        id="vendorTableFooter"
-      >
-        <div>
-          <p>{`Showing ${vendorData.length} of ${totalRecords} Records`}</p>
-        </div>
-        <div>
-          <Pagination
-            defaultCurrent={currentPage}
-            current={currentPage}
-            showSizeChanger={false}
-            total={totalRecords}
-            pageSize={pageSize}
-            onChange={handlePageChange}
-          />
-        </div>
-      </div>
-    );
-  };
   return (
     <div style={{ cursor: "pointer" }}>
       <div
@@ -306,7 +283,28 @@ function VendorTable(props) {
               },
             };
           }}
-          footer={() => <TableFooter />}
+          footer={() => {
+            return (
+              <div
+                style={{ display: "flex", justifyContent: "space-between" }}
+                id="vendorTableFooter"
+              >
+                <div>
+                  <p>{`Showing ${vendorData.length} of ${totalRecords} Records`}</p>
+                </div>
+                <div>
+                  <Pagination
+                    defaultCurrent={currentPage}
+                    current={currentPage}
+                    showSizeChanger={false}
+                    total={totalRecords}
+                    pageSize={pageSize}
+                    onChange={handlePageChange}
+                  />
+                </div>
+              </div>
+            );
+          }}
         />
       </div>
     </div>
