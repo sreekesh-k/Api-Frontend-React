@@ -5,8 +5,8 @@ import Vendor from "./pages/Vendor";
 function App() {
   return (
     <div>
-      <VendorApp />
-      {/* <Vendor/> */}
+      {/* <VendorApp /> */}
+      <Vendor/>
     </div>
   );
 }

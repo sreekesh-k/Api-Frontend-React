@@ -213,10 +213,10 @@ function VendorTable(props) {
     setCurrentPage(e);
   };
 
-    // const handleRowClick = (record) => {
-    //   sessionStorage.setItem("vendorType", record.Type);
-    //   window.location = `/Vendor/VendorDetails?id=${record.Id}`;
-    // };
+    const handleRowClick = (record) => {
+      sessionStorage.setItem("vendorType", record.Type);
+      window.location = `/Vendor/VendorDetails?id=${record.Id}`;
+    };
 
   return (
     <div style={{ cursor: "pointer" }}>
