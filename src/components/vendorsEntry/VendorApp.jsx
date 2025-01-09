@@ -5,9 +5,12 @@ import VendorCategorization from "./VendorCategorization";
 import AdditionalDetails from "./AdditionalDetails";
 import VendorRating from "./VendorRating";
 import Review from "./Review";
+import { useNavigate } from "react-router-dom";
+import ClauseModel from "./ClauseModel";
 // import { HistoryButton } from "antd";
 function VendorApp(props) {
   const [isLoadingFinish, setIsLoadingFinish] = useState(false);
+  const navigate = useNavigate();
   //const _vendorDetails = JSON.parse(sessionStorage.getItem("vendorDetails"));
   //let _vendorId = _vendorDetails.VendorId;
   const [
@@ -122,27 +125,27 @@ function VendorApp(props) {
   const tabData = [
     {
       id: "VendorDetails",
-      saveURL: "/Vendor/UpdateVendor?Id=" + vendorId,
+      // saveURL: "/Vendor/UpdateVendor?Id=" + vendorId,
       title: "Vendor Details",
     },
     {
       id: "VendorCategorizationScoring",
-      saveURL: "/Vendor/SaveScoring",
+      // saveURL: "/Vendor/SaveScoring",
       title: "Vendor Categorization",
     },
     {
       id: "VendorAdditionlaDetails",
-      saveURL: "/Vendor/UpdateVendorAdditionalDetails?Id=" + vendorId,
+      // saveURL: "/Vendor/UpdateVendorAdditionalDetails?Id=" + vendorId,
       title: "Additional Details",
     },
     {
       id: "VendorRating",
-      saveURL: "/Vendor/SaveVendorRating",
+      // saveURL: "/Vendor/SaveVendorRating",
       title: "Vendor Rating",
     },
     {
       id: "reviewId",
-      saveURL: "/Stages/AddVendorStages",
+      // saveURL: "/Stages/AddVendorStages",
       title: "Vendor Review",
     },
   ];
@@ -162,21 +165,19 @@ function VendorApp(props) {
   const hasCentrilizedAccess = useCheckHasCentrilizedAccess();
 
   const saveTabChange = (tabId, tabName) => {
-    // if (tabId !== null && tabId !== activeTab) {
-    //   dispatch({
-    //     type: "CHANGE_TAB",
-    //     payload: tabId,
-    //   });
-    //   sessionStorage.setItem("activeTabId", tabId);
-    // }
-    // if (tabName) {
-    //   sessionStorage.setItem("activeTabName", tabName);
-    // }
+    if (tabId !== null && tabId !== activeTab) {
+      setState((prev) => ({ ...prev, activeTab: tabId }));
+      sessionStorage.setItem("activeTabId", tabId);
+    }
+    if (tabName) {
+      sessionStorage.setItem("activeTabName", tabName);
+    }
   };
   const handleClick = (e) => {
-    if (!isInViewMode) {
-      handleSaveBtnClick(e.target.id);
-    } else saveTabChange(e.target.id, e.target.title);
+    // if (!isInViewMode) {
+    //   handleSaveBtnClick(e.target.id);
+    // } else 
+    saveTabChange(e.target.id, e.target.title);
   };
   // VALIDATE CATEGORIZATION DATA
   const validateScoringData = () => {
@@ -221,12 +222,12 @@ function VendorApp(props) {
       .then((data) => {
         //console.log(data)
         if (data.Status == "success") {
-          //toastr.success(data.message);
+          //console.success(data.message);
         } else {
-          toastr.error(data.Message);
+          // console.error(data.Message);
         }
-      })
-      .catch((err) => toastr.error(err.message));
+      });
+    // .catch((err) => console.error(err.message));
   };
 
   //SAVE CATEGORIZATION DATA
@@ -274,13 +275,13 @@ function VendorApp(props) {
     });
     if (arr.length > 0) {
       if (_ids.length < 1) {
-        toastr.error("Please select reviewers!");
+        // console.error("Please select reviewers!");
         return;
       }
       saveData(JSON.stringify(arr), saveURL, nextTabId, isFinish);
       handleSaveReviewers();
     } else {
-      toastr.error("Please select the values!");
+      // console.error("Please select the values!");
       setIsLoadingFinish(false);
       return;
     }
@@ -412,18 +413,12 @@ function VendorApp(props) {
 
   // SAVE_VENDOR_NAME
   const saveVendorName = (name) => {
-    dispatch({
-      type: "CHANGE_VENDOR_NAME",
-      payload: name,
-    });
+    setState((prev) => ({ ...prev, VdVendorName: name }));
   };
   const DataMessage = (data, tabId, isFinish) => {
     if (data.Status == "success" || data.StatusCode == 201) {
       if (data.data) {
-        dispatch({
-          type: "SAVE_VENDOR_ID",
-          payload: data.data.VendorId,
-        });
+        setState((prev) => ({ ...prev, vendorId: data.data.VendorId }));
         saveVendorName(data.data.VendorName);
         sessionStorage.setItem(
           "vendorDetails",
@@ -448,10 +443,10 @@ function VendorApp(props) {
 
       if (isFinish) {
         handleFinishBtnClick();
-      } else toastr.success(data.message);
-      return;
+      } //console.success(data.message);
+      else return;
     } else {
-      toastr.error(data.message);
+      // console.error(data.message);
     }
   };
   // SAVE_FINANCIAL_FORM
@@ -513,7 +508,7 @@ function VendorApp(props) {
       .then((res) => res.json())
       .then((data) => {
         if (data.data.Status == "success" || data.StatusCode == 201) {
-          //toastr.success(data.data.message)
+          //console.success(data.data.message)
           saveDataWithoutContent(
             vrRatingFormDataObj,
             saveURL,
@@ -521,12 +516,12 @@ function VendorApp(props) {
             isFinish
           );
         } else {
-          toastr.error(data.data.message);
+          //console.error(data.data.message);
         }
       })
       .catch((err) => {
         //console.log(err)
-        toastr.error("Unable To Save Data");
+        // console.error("Unable To Save Data");
       });
   };
 
@@ -545,7 +540,7 @@ function VendorApp(props) {
         //console.log(response)
         DataMessage(response, nextTabId, isFinish);
       })
-      .catch((err) => toastr.error(err.message));
+      .catch((err) => console.error(err.message));
   };
   // SAVE DATA -- rating also calles same function
   const saveDataWithoutContent = (data, api, nextTabId, isFinish) => {
@@ -557,7 +552,7 @@ function VendorApp(props) {
       .then((response) => {
         DataMessage(response, nextTabId, isFinish);
       })
-      .catch((err) => toastr.error(err.message));
+      .catch((err) => console.error(err.message));
   };
 
   const handleFinishBtnClick = () => {
@@ -568,17 +563,17 @@ function VendorApp(props) {
         .then((res) => res.json())
         .then((data) => {
           if (data.Status == "success") {
-            toastr.success(data.message);
+            console.success(data.message);
             window.location = "/Vendor/Vendor";
             setIsLoadingFinish(false);
           } else {
-            toastr.error(data.message);
+            console.error(data.message);
             setIsLoadingFinish(false);
           }
         })
-        .catch((err) => toastr.error(err.message));
+        .catch((err) => console.error(err.message));
     } else {
-      toastr.error("Unable To Finish, Save First");
+      console.error("Unable To Finish, Save First");
     }
   };
   const vendorDetailsErrorHandling = (detailsData) => {
@@ -705,7 +700,7 @@ function VendorApp(props) {
         errorMessage += await vendorDetailsErrorHandling(detailsData);
         errorMessage += await dynamicFormErrorHandling(detailsData);
         if (errorMessage !== "") {
-          toastr.error(errorMessage);
+          console.error(errorMessage);
         } else {
           var formDataObj = new FormData();
           if (detailsData.InActivationEvidence[0]) {
@@ -742,7 +737,7 @@ function VendorApp(props) {
         let errorMessage = "";
         errorMessage += await dynamicFormErrorHandling(additionalDetailsData);
         if (errorMessage !== "") {
-          toastr.error(errorMessage);
+          console.error(errorMessage);
         } else {
           var formJSon = await handleCircularObject(
             additionalDetailsData.FilledFormJson
@@ -773,7 +768,7 @@ function VendorApp(props) {
       let errorMessage = "";
       errorMessage += await reviewErrorHandling(reviewData);
       if (errorMessage !== "") {
-        toastr.error(errorMessage);
+        console.error(errorMessage);
       } else {
         if (hasCentrilizedAccess)
           saveData(
@@ -838,27 +833,24 @@ function VendorApp(props) {
       } else handleSaveBtnClick(prevTab);
     }
   };
-//   useEffect(() => {
-//     if (vendorId) {
-//       dispatch({
-//         type: "SAVE_VENDOR_ID",
-//         payload: vendorId,
-//       });
-//     } else {
-//       //console.log("else part called")
-//       dispatch({
-//         type: "CHANGE_TAB",
-//         payload: "VendorDetails",
-//       });
-//     }
-//   }, [activeTab]);
+  // useEffect(() => {
+  //   if (vendorId) {
+  //     dispatch({
+  //       type: "SAVE_VENDOR_ID",
+  //       payload: vendorId,
+  //     });
+  //   } else {
+  //     //console.log("else part called")
+  //     dispatch({
+  //       type: "CHANGE_TAB",
+  //       payload: "VendorDetails",
+  //     });
+  //   }
+  // }, [activeTab]);
 
   const handleEditAccess = () => {
-    // localStorage.setItem("isViewMode", JSON.stringify(false));
-    // dispatch({
-    //   type: "UPDATE_EDIT_ACCESS",
-    //   payload: { isInViewMode: false },
-    // });
+    localStorage.setItem("isViewMode", JSON.stringify(false));
+    setState((prev) => ({ ...prev, isInViewMode: false }));
   };
 
   useEffect(() => {
@@ -866,11 +858,11 @@ function VendorApp(props) {
       handleEditAccess();
     }
   }, []);
-//   useEffect(() => {
-//     updateTitle(
-//       `VENDOR MASTER ${VdVendorName !== "" ? `: ${VdVendorName}` : ""}`
-//     );
-//   }, [VdVendorName]);
+  // useEffect(() => {
+  //   updateTitle(
+  //     `VENDOR MASTER ${VdVendorName !== "" ? `: ${VdVendorName}` : ""}`
+  //   );
+  // }, [VdVendorName]);
 
   const LoadingSvg = () => {
     return (
@@ -890,125 +882,138 @@ function VendorApp(props) {
   };
   // crate separate component here
   return (
-    <div className="action-centre-nav">
-      <div style={{ position: "relative" }}>
-        <ul
-          className="vd-actionTabs"
-          style={{ position: "sticky", top: "0px", zIndex: "1000" }}
-        >
-          {tabData.map((tab) => {
-            return (
-              <li
-                className={activeTab === tab.id ? "active-tab" : ""}
-                key={tab.id}
-                style={{ width: "14vw" }}
+    <div
+      style={{
+        position: "relative",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: "1.5rem",
+      }}
+    >
+      <div className="action-centre-nav">
+        <div style={{ position: "relative" }}>
+          <ul
+            className="vd-actionTabs"
+            style={{ position: "sticky", top: "0px", zIndex: "1000" }}
+          >
+            {tabData.map((tab) => {
+              return (
+                <li
+                  className={activeTab === tab.id ? "active-tab" : ""}
+                  key={tab.id}
+                  style={{ width: "14vw" }}
+                >
+                  <button onClick={handleClick} id={tab.id} title={tab.title}>
+                    {tab.title}
+                  </button>
+                </li>
+              );
+            })}
+            <div style={{ position: "relative" }}>
+              <div
+                className="control-panel"
+
               >
-                <button onClick={handleClick} id={tab.id} title={tab.title}>
-                  {tab.title}
-                </button>
-              </li>
-            );
-          })}
-          <div style={{ position: "absolute", right: "1px" }}>
-            <div
-              className="control-panel"
-              style={{ marginLeft: "1.1vw", marginRight: "1.1vw" }}
-            >
-              <div className="vd-action-btn ">
-                <button
-                  onClick={() => (window.location = "/Vendor/Vendor")}
-                  style={{ backgroundColor: "#4E4E4E" }}
-                >
-                  Close
-                </button>
-              </div>
-              <div className="vd-action-btn ">
-                <button
-                  onClick={() => handleTabChange("prev")}
-                  disabled={activeTab === "VendorDetails"}
-                  style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-                  className={
-                    activeTab === "VendorDetails" ? "DcButton disabled" : ""
-                  }
-                >
-                  <i
-                    id=""
-                    className="glyphicon glyphicon-chevron-left vd-arrow"
-                  ></i>
-                </button>
-              </div>
-              <div className="vd-action-btn ">
-                <button
-                  onClick={() => handleTabChange("next")}
-                  disabled={activeTab === "reviewId"}
-                  style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-                  className={
-                    activeTab === "reviewId" ? "DcButton disabled" : ""
-                  }
-                >
-                  <i
-                    id=""
-                    className="glyphicon glyphicon-chevron-right vd-arrow"
-                  ></i>
-                </button>
-              </div>
-              {hasCentrilizedAccess && (
-                <React.Fragment>
-                  {
-                    //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
-                    !isInViewMode || viewType === "NEW" ? (
-                      <div style={{ display: "flex" }}>
-                        <div className="vd-action-btn">
-                          <button
-                            onClick={() => handleSaveBtnClick(activeTab)}
-                            style={{ backgroundColor: "#FFB63B" }}
-                          >
-                            Save
-                          </button>
+                <div className="vd-action-btn ">
+                  <button
+                    onClick={() => navigate("/")}
+                    style={{ backgroundColor: "#4E4E4E" }}
+                  >
+                    Close
+                  </button>
+                </div>
+                {/* <div className="vd-action-btn ">
+                  <button
+                    onClick={() => handleTabChange("prev")}
+                    disabled={activeTab === "VendorDetails"}
+                    style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                    className={
+                      activeTab === "VendorDetails" ? "DcButton disabled" : ""
+                    }
+                  >
+                    <i
+                      id=""
+                      className="glyphicon glyphicon-chevron-left vd-arrow"
+                    ></i>
+                  </button>
+                </div>
+                <div className="vd-action-btn ">
+                  <button
+                    onClick={() => handleTabChange("next")}
+                    disabled={activeTab === "reviewId"}
+                    style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                    className={
+                      activeTab === "reviewId" ? "DcButton disabled" : ""
+                    }
+                  >
+                    <i
+                      id=""
+                      className="glyphicon glyphicon-chevron-right vd-arrow"
+                    ></i>
+                  </button>
+                </div> */}
+                {hasCentrilizedAccess && (
+                  <React.Fragment>
+                    {
+                      //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
+                      !isInViewMode || viewType === "NEW" ? (
+                        <div style={{ display: "flex" }}>
+                          <div className="vd-action-btn">
+                            <button
+                              onClick={() => handleSaveBtnClick(activeTab)}
+                              style={{ backgroundColor: "#FFB63B" }}
+                            >
+                              Save
+                            </button>
+                          </div>
+                          <div className="vd-action-btn ">
+                            <button
+                              disabled={isLoadingFinish}
+                              style={{
+                                backgroundColor: "#00C24D",
+                                cursor: !isLoadingFinish
+                                  ? "pointer"
+                                  : "not-allowed",
+                              }}
+                              onClick={() =>
+                                handleSaveBtnClick(activeTab, true)
+                              }
+                            >
+                              {!isLoadingFinish ? "Finish" : <LoadingSvg />}
+                            </button>
+                          </div>
                         </div>
+                      ) : (
                         <div className="vd-action-btn ">
-                          <button
-                            disabled={isLoadingFinish}
-                            style={{
-                              backgroundColor: "#00C24D",
-                              cursor: !isLoadingFinish
-                                ? "pointer"
-                                : "not-allowed",
-                            }}
-                            onClick={() => handleSaveBtnClick(activeTab, true)}
-                          >
-                            {!isLoadingFinish ? "Finish" : <LoadingSvg />}
-                          </button>
+                          {viewType == "EDIT" && (
+                            <button
+                              style={{ backgroundColor: "#00C24D" }}
+                              onClick={handleEditAccess}
+                            >
+                              Edit
+                            </button>
+                          )}
                         </div>
-                      </div>
-                    ) : (
-                      <div className="vd-action-btn ">
-                        {viewType == "EDIT" && (
-                          <button
-                            style={{ backgroundColor: "#00C24D" }}
-                            onClick={handleEditAccess}
-                          >
-                            Edit
-                          </button>
-                        )}
-                      </div>
-                    )
-                  }
-                </React.Fragment>
-              )}
+                      )
+                    }
+                  </React.Fragment>
+                )}
+              </div>
             </div>
-          </div>
-        </ul>
-      </div>
-      <div className="historyBtn-wrapper">
+          </ul>
+        </div>
+        {/* <div className="historyBtn-wrapper"> */}
         {/* <HistoryButton
           api={
             "/Vendor/GetHistory?vendorId=" + vendorId + "&tabName=" + activeTab
           }
-        />
-        {activeTab === "VendorCategorizationScoring" && <ClauseModel />} */}
+        /> */}
+        {activeTab === "VendorCategorizationScoring" && <ClauseModel />}
+        {/* </div> */}
+        <div>{renderSections[activeTab]}</div>
       </div>
-      <div>{renderSections[activeTab]}</div>
     </div>
   );
 }
