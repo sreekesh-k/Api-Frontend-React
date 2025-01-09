@@ -1,5 +1,5 @@
 import React from "react";
-import VendorApp from "./pages/VendorApp";
+import VendorEntry from "./pages/VendorEntry";
 import Vendor from "./pages/Vendor";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -8,7 +8,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Vendor />} />
-        <Route path="/vendordetail" element={<VendorApp />} />
+        <Route path="/vendordetail" element={<VendorEntry />} />
       </Routes>
     </Router>
   );

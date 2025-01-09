@@ -219,16 +219,43 @@ function VendorTable(props) {
       })
       .finally(() => setLoading(false));
   };
-  useEffect(() => {
-    localStorage.setItem("isViewMode", JSON.stringify(true)); // restores the mdoe to view only in all the tabs
-    sessionStorage.removeItem("vendorDetails");
-  }, []);
+  // useEffect(() => {
+  //   localStorage.setItem("isViewMode", JSON.stringify(true)); // restores the mdoe to view only in all the tabs
+  //   sessionStorage.removeItem("vendorDetails");
+  // }, []);
 
   // useEffect(() => {
   //   getVendorData((currentPage - 1) * recordsLimit, "", 0);
   // }, []);
 
   sessionStorage.setItem("activeTabId", "VendorDetails");
+  sessionStorage.setItem("vendorDetails", {
+    Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
+    URN: "V0260",
+    VendorName: "VN001",
+    VendorCode: "VC002",
+    Type: "DSA",
+    Department: "Test Dept",
+    NatureOfService: "Cash handling",
+    State: "Andra Pradesh",
+    MaterialityDate: "2024-10-29T00:00:00",
+    Status: "Inactive",
+    FilledFormId: "00000000-0000-0000-0000-000000000000",
+    TemplateId: "00000000-0000-0000-0000-000000000000",
+    TaskId: "00000000-0000-0000-0000-000000000000",
+    FilledForm: null,
+    TotalNumberOfRecords: 291,
+    InActivationEvidence: "",
+    InActivationDate: null,
+    ReasonOfInactivation: "",
+    Version: "Live",
+    CreatedBy: "Surya narayanan",
+    ModifiedBy: "Surya narayanan",
+    ModifiedDate: "2024-11-21T13:07:21.037",
+    CreatedDate: "0001-01-01T00:00:00",
+    Materiality: "2024-10-29T00:00:00",
+    id: "653a",
+  });
   // CHANGE_PAGE
   const handlePageChange = (e) => {
     if (e === 1) {
