@@ -3,10 +3,41 @@ import { Pagination } from "antd";
 import { Tooltip } from "antd";
 import { Tag } from "antd";
 import { useState, useEffect } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function VendorTable(props) {
-  const [loading, setLoading] = useState(true);
-  const [vendorData, setVendorData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const [vendorData, setVendorData] = useState([
+    {
+      Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
+      URN: "V0260",
+      VendorName: "VN001",
+      VendorCode: "VC002",
+      Type: "DSA",
+      Department: "Test Dept",
+      NatureOfService: "Cash handling",
+      State: "Andra Pradesh",
+      MaterialityDate: "2024-10-29T00:00:00",
+      Status: "Inactive",
+      FilledFormId: "00000000-0000-0000-0000-000000000000",
+      TemplateId: "00000000-0000-0000-0000-000000000000",
+      TaskId: "00000000-0000-0000-0000-000000000000",
+      FilledForm: null,
+      TotalNumberOfRecords: 291,
+      InActivationEvidence: "",
+      InActivationDate: null,
+      ReasonOfInactivation: "",
+      Version: "Live",
+      CreatedBy: "Surya narayanan",
+      ModifiedBy: "Surya narayanan",
+      ModifiedDate: "2024-11-21T13:07:21.037",
+      CreatedDate: "0001-01-01T00:00:00",
+      Materiality: "2024-10-29T00:00:00",
+      id: "653a",
+    },
+  ]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalRecords, setTotalRecords] = useState();
   const recordsLimit = 10;
@@ -193,9 +224,9 @@ function VendorTable(props) {
     sessionStorage.removeItem("vendorDetails");
   }, []);
 
-  useEffect(() => {
-    getVendorData((currentPage - 1) * recordsLimit, "", 0);
-  }, []);
+  // useEffect(() => {
+  //   getVendorData((currentPage - 1) * recordsLimit, "", 0);
+  // }, []);
 
   sessionStorage.setItem("activeTabId", "VendorDetails");
   // CHANGE_PAGE
@@ -213,10 +244,10 @@ function VendorTable(props) {
     setCurrentPage(e);
   };
 
-    const handleRowClick = (record) => {
-      sessionStorage.setItem("vendorType", record.Type);
-      window.location = `/Vendor/VendorDetails?id=${record.Id}`;
-    };
+  const handleRowClick = (record) => {
+    sessionStorage.setItem("vendorType", record.Type);
+    navigate(`/vendordetail?id=${record.Id}`);
+  };
 
   return (
     <div style={{ cursor: "pointer" }}>
