@@ -8,17 +8,9 @@ function VendorTable(props) {
   const [loading, setLoading] = useState(true);
   const [vendorData, setVendorData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalRecords, setTotalRecords] = useState(0);
+  const [totalRecords, setTotalRecords] = useState();
   const recordsLimit = 10;
   const pageSize = 10;
-
-  // SEARCH NEEDS MORE OPTIMIZATION, currently it is done this way because input field change does not reflct while typing
-  // let searchInput = document.getElementById("HeaderFilterSearch")
-  // searchInput.addEventListener("change", (e) => {
-  //     setCurrentPage(1);
-  //     //console.log(e.target.value)
-  //     setSearchValue(e.target.value);
-  // })
 
   let locale = {
     emptyText: loading ? "Processing..." : "No Data",
@@ -183,48 +175,19 @@ function VendorTable(props) {
 
     return transformedData;
   };
-  function getVendorData(offset, columnName = "", sortDirection = 0) {
+  const getVendorData = (page = 1, columnName = "", sortDirection = 0) => {
     setLoading(true);
-    let filterData = [];
-    if (props.FilterOptions)
-      filterData = filterDataFormat(JSON.parse(props.FilterOptions));
-    fetch(`http://localhost:5000/vendors`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      //   body: JSON.stringify({
-      //     Draw: 0,
-      //     Start: offset,
-      //     Length: 10,
-      //     Columns: [
-      //       {
-      //         Data: columnName,
-      //         Name: "",
-      //         Searchable: true,
-      //         Orderable: true,
-      //         Search: {
-      //           Value: "",
-      //           IsRegexValue: true,
-      //         },
-      //         IsOrdered: true,
-      //         OrderNumber: 0,
-      //         SortDirection: sortDirection,
-      //       },
-      //     ],
-      //     FilterParams: JSON.stringify(filterData),
-      //   }),
-    })
+
+    fetch(`http://localhost:5000/vendors?_start=${page}&_limit=${recordsLimit}`)
       .then((response) => {
+        setTotalRecords(291);
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         setVendorData(data);
-        setTotalRecords(10);
       })
       .finally(() => setLoading(false));
-  }
+  };
   useEffect(() => {
     localStorage.setItem("isViewMode", JSON.stringify(true)); // restores the mdoe to view only in all the tabs
     sessionStorage.removeItem("vendorDetails");
@@ -232,7 +195,7 @@ function VendorTable(props) {
 
   useEffect(() => {
     getVendorData((currentPage - 1) * recordsLimit, "", 0);
-  }, [props.FilterOptions]);
+  }, []);
 
   sessionStorage.setItem("activeTabId", "VendorDetails");
   // CHANGE_PAGE
@@ -250,18 +213,15 @@ function VendorTable(props) {
     setCurrentPage(e);
   };
 
-  //   const handleRowClick = (record) => {
-  //     sessionStorage.setItem("vendorType", record.Type);
-  //     window.location = `/Vendor/VendorDetails?id=${record.Id}`;
-  //   };
   return (
     <div style={{ cursor: "pointer" }}>
       <div
         style={{
-          width: "94.45vw",
-          marginTop: "4vh",
-          marginLeft: ".5vw",
-          marginBottom: "3vh",
+          width: "100%",
+          display: "flex",
+          justifyContent:"center",
+          alignItems:"center",
+          paddingTop:"2rem",
         }}
         id="vendorTableWrapper"
       >
