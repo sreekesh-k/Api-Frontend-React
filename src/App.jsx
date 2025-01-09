@@ -1,10 +1,10 @@
 import React from "react";
-import Vendor from "./pages/Vendor";
+import VendorApp from "./pages/VendorApp";
 
 function App() {
   return (
     <div>
-      <Vendor />
+      <VendorApp />
     </div>
   );
 }

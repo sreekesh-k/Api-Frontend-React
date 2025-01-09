@@ -1,0 +1,191 @@
+﻿function VendorDetailsForm(props) {
+    //Imports
+    const Form = window["antd"].Form;
+    const Button = window["antd"].Button;
+    const Upload = window["antd"].Upload;
+    const Select = window["antd"].Select;
+    const { Option } = Select;
+    const Input = window["antd"].Input;
+    const { TextArea } = Input;
+    const [issuanceDate, setIssuanceDate] = React.useState("")
+    const [isLoading, setIsLoading] = React.useState(true);
+ 
+    //Redux
+    const dispatch = ReactRedux.useDispatch();
+    const { FormData, IsActive, URN, InActivationDate, ReasonOfInactivation, InActivationEvidence, isInViewMode, vendorId, isCentrilized } = ReactRedux.useSelector((state) => {
+        return {
+            FormData: state.vendor.details.FormData,
+            IsActive: state.vendor.details.IsActive,
+            URN: state.vendor.details.URN,
+            InActivationDate: state.vendor.details.InActivationDate,
+            ReasonOfInactivation: state.vendor.details.ReasonOfInactivation,
+            InActivationEvidence: state.vendor.details.InActivationEvidence,
+            isInViewMode: state.vendor.editAccess.isInViewMode,
+            vendorId: state.vendor.vendorId,
+            isCentrilized: state.vendor.isUserCentrilized,
+        };
+    })
+    const handleFileChange = ({ fileList }) => {
+        if (fileList.length !== 0) {
+            //To upload only 1 file at a time
+            file = [fileList[fileList.length - 1]];
+            dispatch({
+                type: "SET_INACTIVATION",
+                payload: { InActivationEvidence: file }
+            })
+        }
+        else {
+           //If the current file is deleted
+            dispatch({
+                type: "SET_INACTIVATION",
+                payload: { InActivationEvidence: "" }
+            })
+        }
+    };
+    //To Fetch the URN , when selected Vendor Type is one of the DD types
+    const fetchLatestURN = () => {
+        //Fetch URN
+        fetch("/Vendor/GetLatestURN")
+            .then((response) => response.json())
+            .then((res) => {
+                if (res.Status == "success") {
+                    dispatch({
+                        type: "SET_URN",
+                        payload: { URN: res.data }
+                    })
+                }
+                else {
+                    toastr.error(res.Message);
+                }
+            })
+            .catch((err) => toastr.error("URN Fetch Failure"))
+
+    }
+
+ 
+
+    React.useEffect(() => {
+        //Fetch Filled Data
+        fetch("/Vendor/GetVendorById?Id=" + vendorId)
+            .then((response) => response.json())
+            .then((res) => {
+                if (res.Status == "success") {
+                    let data = JSON.parse(res.Data.FormData || res.Data.JsonForm);
+                    updateTitle(`VENDOR MASTER: ${res.Data.Name}`);                   
+                    if (data.action) {
+                        dataCopy = props.getData(data.action)
+                        dispatch({
+                            type: "CHANGE_VENOR_DETAILS_FORM",
+                            payload: { FormData: dataCopy, IsActive: res.Data.IsActive }
+                        })
+                    }
+                    else {
+                        dataCopy = props.getData(data)
+                        dispatch({
+                            type: "CHANGE_VENOR_DETAILS_FORM",
+                            payload: { FormData: dataCopy, IsActive: res.Data.IsActive }
+                        })
+                    }
+                    if (res.Data.MaterialityDate != null) {
+                         setIssuanceDate( moment(res.Data.MaterialityDate).format('DD-MM-YYYY'))
+                    }
+                    if (res.Data.URN) {
+                        dispatch({
+                            type: "SET_URN",
+                            payload: { URN: res.Data.URN }
+                        })
+                    }
+                    else {
+                        fetchLatestURN()
+                    }
+                    if (res.Data.IsActive == false) {
+                        if(res.Data.InActivationDate)
+                        IDate = (moment(res.Data.InActivationDate).format('YYYY-MM-DD'))
+                        dispatch({
+                            type: "SET_INACTIVATION",
+                            payload: { InActivationDate: IDate, ReasonOfInactivation: res.Data.ReasonOfInactivation, InActivationEvidence: [res.Data.ReasonOfInactivationFiles] }
+                        })
+                    }
+                    if (res.Data.IsTemplateChanged)
+                        InfoPopup({ title: "Template", msg: "Template has changed" });
+                }
+                else {
+                    toastr.error(res.Message);
+                }
+            })
+            .catch((err) => toastr.error("Form Fetch Failure"))
+            .finally(() => setIsLoading(false))
+    }, []);
+
+    if (isLoading) {
+        return <div className="loadingOverlayVd"><i className="fa fa-spinner fa-spin fa-3x fa-fw" style={{ left: "50%", position: "absolute", top: "40%" }}></i><span className="sr-only">Loading...</span></div>
+    }
+
+    return (
+        <React.Fragment>
+            <div className="vendorDetails-container">                
+                <Form className="vd-staticValues-container" layout="vertical">
+                    <Form.Item label="URN">
+                        <Input disabled value={URN} className="vd-input vd-w5" />
+                    </Form.Item>
+                    <Form.Item label="Materiality issuance date/Empanelment month">
+                        <Input  disabled value={issuanceDate} className="vd-input vd-w10" />
+                    </Form.Item>
+                    <Form.Item label="Status">
+                        <Select value={IsActive}
+                            disabled={isInViewMode || !isCentrilized}
+                            onChange={(e) => dispatch({
+                                type: "SET_IS_ACTIVE",
+                                payload: { IsActive: e }
+                            })} >
+                            <Option value={true}>Active</Option>
+                            <Option value={false} >InActive </Option>
+                        </Select>
+                    </Form.Item>
+                    {
+                        IsActive == false &&
+                        <React.Fragment>
+
+                            <Form.Item label="Inactivation Date">
+                                <Input type="date" className="vd-input vd-w10" value={InActivationDate}
+                                    onChange={(e) => dispatch({
+                                        type: "SET_INACTIVATION",
+                                        payload: { InActivationDate: e.target.value }
+                                    })}
+                                    disabled={isInViewMode}
+                                    />
+                            </Form.Item>
+                            <Form.Item label="Upload Inactivation Evidence">
+                                <Upload
+                                        beforeUpload={() => false}
+                                        fileList={InActivationEvidence}
+                                        onChange={handleFileChange}
+                                        maxCount={1}
+                                >
+                                        <Button disabled={isInViewMode}>Click to Upload</Button>
+                                </Upload>
+                            </Form.Item>
+
+                            <Form.Item label="Reason of Inactivation">
+                                <TextArea className="vd-input vd-w85" value={ReasonOfInactivation} onChange={(e) => dispatch({
+                                    type: "SET_INACTIVATION",
+                                    payload: { ReasonOfInactivation: e.target.value }
+                                })}
+                                 disabled={isInViewMode}
+                                    />
+                            </Form.Item>
+                        </React.Fragment>
+
+                    }
+                </Form>
+                <div id="formDesignerArea" >
+                    {(!isInViewMode && isCentrilized) && FormData && FormData.length > 0 && <FormRender data={FormData} readOnly={false} isComponentUpdate={true} />}
+
+                    {(isInViewMode || !isCentrilized) && FormData && FormData.length > 0 && <FormRender data={FormData} readOnly={true} isComponentUpdate={true} />}
+                </div>
+               
+
+            </div>
+        </React.Fragment>
+    )
+}
