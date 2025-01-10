@@ -355,7 +355,7 @@ height: 6.39vh !important;
     font-size: 2vh;
 }
 .vendorDetails-container {
-    height: 70.3vh;
+    /* height: 70.3vh; */
     /*background: #FFFFFF;*/
     margin: 1vh 1vw;
 }
