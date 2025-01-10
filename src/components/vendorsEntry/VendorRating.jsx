@@ -1,5 +1,5 @@
 ﻿import React from 'react'
-import './VendorReview.css'
+import './vendorReview.css'
 
 function VendorRating() {
   return (
