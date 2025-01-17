@@ -1,0 +1,692 @@
+{
+  "status": "success",
+  "message": "Vendor scoring fetched!",
+  "data": {
+    "message": "Rating fetched",
+    "Status": "success",
+    "Data": {
+      "vendorRatingParameter": [
+        {
+          "Id": "b10a0b92-f35b-4290-9977-67c2a5a81059",
+          "ParameterName": "Technical / Product Support",
+          "SubParams": [
+            {
+              "Id": "53c20c01-a974-478e-b673-07d63c11abc0",
+              "Title": "Response Time",
+              "ScoreModel": [
+                {
+                  "Id": "94400316-29b3-4435-99dc-5ed8da9c2e11",
+                  "label": "With minor deviation",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "52ffc5a0-2c66-423f-8ed5-88770ebfb2bb",
+                  "label": "Major deviation",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": true,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "a2fa1497-e16e-4116-8bf8-b640b1c6b12d",
+                  "label": "Escalated issues attended in a time bound manner as stated in SLA",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                }
+              ]
+            },
+            {
+              "Id": "2700d010-d533-4f3e-95ec-0a45f21c4d34",
+              "Title": "Backup and restore procedure",
+              "ScoreModel": [
+                {
+                  "Id": "4345d4ba-2a9e-4b60-ac0a-469ddeaa28ef",
+                  "label": "Not available",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "5f599fd1-85ac-4046-aa7d-96303664f23e",
+                  "label": "Available & documented and no adverse observation during internal reviews",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "b540e7a7-e37e-4512-a715-eea8e16458ac",
+                  "label": "Available but not documented and / or adverse observations during internal reviews",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                }
+              ]
+            },
+            {
+              "Id": "45f4fff6-a37a-4800-9cc3-35f33ebd8aca",
+              "Title": "Onsite Support",
+              "ScoreModel": [
+                {
+                  "Id": "274c45eb-6a1d-4eb5-a824-88cafca36031",
+                  "label": "Not available",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "c5e46095-82c9-425d-a5a6-b903a187ed8c",
+                  "label": "Available but not documented or not adequate(I,e instances of delay observed due to in adequate / less competent staff deployed  on site)",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": true,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "9a3c8cdc-3f53-4c9d-8dca-c2365b5743d8",
+                  "label": "Adequate, Available & documented",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                }
+              ]
+            },
+            {
+              "Id": "45a0686d-76e5-4845-8299-5804a650aad4",
+              "Title": "Maximum supported users",
+              "ScoreModel": [
+                {
+                  "Id": "f9f55d66-a09d-4f4f-86fd-74abd3aba0d9",
+                  "label": "Benchamrks based on specific arrangements",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "1d5931b3-89d4-4846-a7ec-8e4b50d48fbe",
+                  "label": "Benchamrks based on specific arrangements",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": true,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "f6e9a722-3991-4db3-a654-902fadbc3247",
+                  "label": "Benchamrks based on specific arrangements",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                }
+              ]
+            },
+            {
+              "Id": "98bdba30-425c-4e83-85d7-5bd1a459e041",
+              "Title": "Disaster recovery approach",
+              "ScoreModel": [
+                {
+                  "Id": "d89894e6-04ac-4ab6-9e7e-031d68788065",
+                  "label": "Available & documented",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "ec0fd068-ab63-4fb8-a44b-0d09b263e616",
+                  "label": "Not available",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": true,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "55edf40c-6f47-4b2a-a055-b297e328b6da",
+                  "label": "Available but not documented",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                }
+              ]
+            },
+            {
+              "Id": "d91e8a0a-dcdd-4b3b-beae-eb661f1124d4",
+              "Title": "Impact of incremental users",
+              "ScoreModel": [
+                {
+                  "Id": "ab20dc11-330e-4b21-982b-03823c62c1aa",
+                  "label": "High",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": true,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "8078f1ae-0c36-4639-90b8-887046e99a61",
+                  "label": "Medium",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "9001f34c-145f-4a4f-a9ba-a523ca548a05",
+                  "label": "Low",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                }
+              ]
+            }
+          ],
+          "ScoreModel": null,
+          "AverageScore": 0,
+          "IsRoundUp": true,
+          "DecimalValues": 1
+        },
+        {
+          "Id": "ed719116-a60e-40b6-8a7d-7ee9408077ad",
+          "ParameterName": "Vendor Service Evaluation",
+          "SubParams": [
+            {
+              "Id": "93cdc0bc-50c7-4bf4-9c34-2f457032aaa5",
+              "Title": "Instances of fraud",
+              "ScoreModel": [
+                {
+                  "Id": "b4f13d36-edd4-4fa9-89df-d66679a2dfda",
+                  "label": "0",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "bcc0709f-261f-4e45-afd2-ea9021360dec",
+                  "label": "More than 1",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": true,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            },
+            {
+              "Id": "ffa1542b-333b-47c2-98cd-45e688f4c339",
+              "Title": "Product Knowledge",
+              "ScoreModel": [
+                {
+                  "Id": "4ba0bab1-3a2a-4cd8-9837-c1f63be5dce5",
+                  "label": "Excellent",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "ec7de87f-a61d-428b-9c97-e2efe21e28ca",
+                  "label": "Satisfactory",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "31972332-b387-4780-802c-e48053453f7b",
+                  "label": "Poor",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            },
+            {
+              "Id": "4c5ee88b-0f0e-404f-9009-70046ef5cac8",
+              "Title": "Instances of mis selling",
+              "ScoreModel": [
+                {
+                  "Id": "b3bd4ae0-d2e8-45c2-890a-30a2eec8ec74",
+                  "label": "None",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "bb32d3f6-3311-4a2a-9525-44299b542c89",
+                  "label": "1",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": true,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "85b643e4-9800-4cee-8e26-4b0c8b0ac857",
+                  "label": "More than 1",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            },
+            {
+              "Id": "60651674-4094-42d5-a32f-c50e502ae7e5",
+              "Title": "Industry Knowledge",
+              "ScoreModel": [
+                {
+                  "Id": "f449c7a7-96cf-4934-9741-195956a51695",
+                  "label": "Satisfactory",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "3952b569-baa9-44a4-97b9-6ee4861ed0ba",
+                  "label": "Excellent",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "f8b93adf-17b8-4cb5-916d-9df310a2693e",
+                  "label": "Poor",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            }
+          ],
+          "ScoreModel": null,
+          "AverageScore": 0,
+          "IsRoundUp": false,
+          "DecimalValues": 2
+        },
+        {
+          "Id": "d0135d78-f2ea-4259-b7c5-b951031d40d1",
+          "ParameterName": "Compliance with On Boarding Terms and Conditions",
+          "SubParams": [
+            {
+              "Id": "854b416c-8a72-4dc6-90a0-310f69ee3159",
+              "Title": "Compliance with agreed terms and conditions ",
+              "ScoreModel": [
+                {
+                  "Id": "720ca0be-cca0-4fda-aaae-8b7343649be2",
+                  "label": "Non compliance observed in critcal clauses",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "24ef2ba7-6126-46b6-ba4b-ba082d43cbd3",
+                  "label": "Yes",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "b2fd1a79-6b4c-498e-b4a2-de7303ed4557",
+                  "label": "All crtical clauses were complied with",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                }
+              ]
+            }
+          ],
+          "ScoreModel": null,
+          "AverageScore": 0,
+          "IsRoundUp": false,
+          "DecimalValues": 2
+        },
+        {
+          "Id": "d2098a60-15fa-4e45-af8e-dc424c248b08",
+          "ParameterName": "Adherence to Bank's Instructions",
+          "SubParams": [
+            {
+              "Id": "c16c5b3b-8117-4ef5-ad4b-1d759112e811",
+              "Title": "Overall responsiveness",
+              "ScoreModel": [
+                {
+                  "Id": "82f8a517-fb45-4f2d-a9ac-2e4a41a8fa7a",
+                  "label": "Adhoc requirements / instructions were successfully hadled",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "321c05b3-8351-4a54-b315-f23114f2fd1b",
+                  "label": "Adhoc requirements / instructions required high participation from Bank's team",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "a1e238f1-cb57-4351-be91-ff65fb3ed074",
+                  "label": "Adhoc requirements / instructions not handled well",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            },
+            {
+              "Id": "4cf3ef53-c2d7-4aae-b455-1fdcaa4b6778",
+              "Title": "Overall quality and professionalism",
+              "ScoreModel": [
+                {
+                  "Id": "fd3a105b-d3d4-4a2a-95b7-00257ba78840",
+                  "label": "Major deviation",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": true,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "d59ede49-db3e-45a1-b78f-654b0bdbb0c8",
+                  "label": "With minor deviation",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "02eb4911-2ccd-45ec-8d48-f9c6c3d57598",
+                  "label": "Task execution in line with Service Level Agreement (SLA)",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                }
+              ]
+            },
+            {
+              "Id": "2f015e37-28ef-4cb4-90d3-4540e546c92e",
+              "Title": "Timeliness",
+              "ScoreModel": [
+                {
+                  "Id": "13369904-aa03-410b-8d4c-0ebc0d60fe29",
+                  "label": "With minor deviation",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": true,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "2cde73e9-a9a0-48e5-b231-1a9e9fb3feae",
+                  "label": "Delayed",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "7d2f5a6b-46de-4418-943a-b5c197ed96f6",
+                  "label": "With agreed timeline",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                }
+              ]
+            },
+            {
+              "Id": "7685e598-960d-48aa-abbb-4e4ccf2777c9",
+              "Title": "Completeness",
+              "ScoreModel": [
+                {
+                  "Id": "e8571c51-786d-4614-b135-5ef98c7e278e",
+                  "label": "Assignment completed within agreed timelines",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "10c388a3-5611-4b2a-bda1-7a1af4ec27eb",
+                  "label": "Assignment not completed / delayed completion with minor delay",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "6675029b-7176-4577-9bd5-fdff7009b3ac",
+                  "label": "Assignment completed with minor delay",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                }
+              ]
+            }
+          ],
+          "ScoreModel": null,
+          "AverageScore": 0,
+          "IsRoundUp": false,
+          "DecimalValues": 2
+        },
+        {
+          "Id": "cd5b3231-9af3-4225-b1ed-fe4cc8801462",
+          "ParameterName": "Vendor Performance Review",
+          "SubParams": [
+            {
+              "Id": "0e3645c7-3ecd-4b06-8f21-44fa5c6ac14d",
+              "Title": "Adherence to Suryoday Code of Conduct",
+              "ScoreModel": [
+                {
+                  "Id": "2a0761cd-03e0-44b3-8806-24f074bbbf9e",
+                  "label": "Yes",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "d38abb9a-4b8a-4ac1-afb4-766626d37a47",
+                  "label": "No",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            },
+            {
+              "Id": "20f8e794-9634-4d4f-95a0-62403fb5022d",
+              "Title": "Feedback from end users",
+              "ScoreModel": [
+                {
+                  "Id": "2dd8652b-056c-4750-9a04-34ed6120cea8",
+                  "label": "Excellent",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "d89baea6-1d6f-4209-8069-770d555c4d05",
+                  "label": "Satisfactory",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                },
+                {
+                  "Id": "43021cef-88aa-4551-8956-d2b1681cf149",
+                  "label": "Poor",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            },
+            {
+              "Id": "96e0bfb5-870a-4e7a-95ae-6406d373271e",
+              "Title": "Feedback from Internal Audit / Process Audit team",
+              "ScoreModel": [
+                {
+                  "Id": "e3d35f13-9bba-4287-a704-3ffc42d68fc9",
+                  "label": "Poor",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": true,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                },
+                {
+                  "Id": "c5ba052e-746f-4cfc-aef3-637b188060c0",
+                  "label": "Excellent",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": false,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "e2533738-40e0-40c1-a3ba-b1ee060405ec",
+                  "label": "Satisfactory",
+                  "value": "Medium Risk",
+                  "Score": 2,
+                  "IsSelected": false,
+                  "ScoreLevel": "Medium Risk",
+                  "ScoreColorLevel": "#FFFF00"
+                }
+              ]
+            },
+            {
+              "Id": "f3b0fd09-3a8d-4f64-9622-ed406aad120b",
+              "Title": "Adherence to Customer Data Confidentiality & Security",
+              "ScoreModel": [
+                {
+                  "Id": "8e4b4ddb-fbf9-41bb-82c5-64688e192761",
+                  "label": "Yes",
+                  "value": "Low Risk",
+                  "Score": 3,
+                  "IsSelected": true,
+                  "ScoreLevel": "Low Risk",
+                  "ScoreColorLevel": "#00FF00"
+                },
+                {
+                  "Id": "7bc9679a-9de6-46c0-a4dd-c0b2c4a87a80",
+                  "label": "No",
+                  "value": "High Risk",
+                  "Score": 1,
+                  "IsSelected": false,
+                  "ScoreLevel": "High Risk",
+                  "ScoreColorLevel": "#FF0000"
+                }
+              ]
+            }
+          ],
+          "ScoreModel": null,
+          "AverageScore": 0,
+          "IsRoundUp": false,
+          "DecimalValues": 2
+        }
+      ],
+      "averageVendorRatingModel": {
+        "Id": "c09f6d86-9d2d-4e09-a35d-f8757ad24364",
+        "VendorId": "2d499efe-7329-4699-800d-838e25f3df02",
+        "TotalScore": 11.7,
+        "EligibleScore": 78.0,
+        "Conculusion": "Approved",
+        "Devaitions": null,
+        "FileStream": null,
+        "FileName": "",
+        "DocType": null,
+        "FileTemp": "",
+        "FinancialFormOnTypes": "IT",
+        "FinancialFormOnNatureOfServices": "CTS,Record management company,Secured Stationery",
+        "FinacialFormBillingMaxLimit": 10000000,
+        "MaxVendorRatingScore": 15,
+        "ModifiedBy": "00000000-0000-0000-0000-000000000000",
+        "RatingFile": null
+      }
+    },
+    "vendorResponseResult": {
+      "VendorId": "2d499efe-7329-4699-800d-838e25f3df02",
+      "VendorName": "IT_3_1_2025_1",
+      "VendorType": "IT",
+      "AnnualBillingAmount": 0.0,
+      "NatureOfService": [
+        {
+          "VendorId": "2d499efe-7329-4699-800d-838e25f3df02",
+          "NatureOfService": "Cash handling"
+        }
+      ]
+    }
+  }
+}

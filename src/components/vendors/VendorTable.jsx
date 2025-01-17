@@ -5,10 +5,18 @@ import { Tag } from "antd";
 import { useState, useEffect } from "react";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+// import {useDespatch} from "react-redux";
+// impor {storeVendorDataAction} from "vendorSlice";
+// import {useSelector} from "redux-toolkit";
 
 function VendorTable(props) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  //const despatch  = useDespatch();
+
+  // const ratingData = useSelector((state) => state.vendor.rating.ratingData);
+
   const [vendorData, setVendorData] = useState([
     {
       Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
@@ -215,7 +223,8 @@ function VendorTable(props) {
         return response.json();
       })
       .then((data) => {
-        setVendorData(data);
+        despatch(storeVendorDataAction({ ratingData: data }));
+        // setVendorData(data);
       })
       .finally(() => setLoading(false));
   };
@@ -295,6 +304,7 @@ function VendorTable(props) {
           pagination={false}
           columns={columnsUserTable}
           dataSource={vendorData}
+          //          dataSource={ratingData}
           locale={locale}
           rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
           loading={loading}
