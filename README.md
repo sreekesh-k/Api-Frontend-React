@@ -21,16 +21,6 @@ This Proof of Concept (POC) involves modernizing a legacy ASP.NET Core MVC appli
 - **State Management:** React Context API (optional for shared state within the module)
 - **Build Tool:** Vite/CRA (Create React App) for bundling and development
 
-## Project Structure
-```
-src/
-|-- components/    # React components
-|-- pages/         # Page-level components
-|-- styles/        # Stylesheets or CSS modules
-|-- utils/         # Utility functions (if needed)
-|-- App.jsx        # Main React component
-|-- index.jsx      # Entry point
-```
 # Vendor Module React POC
 
 ## Project Overview
