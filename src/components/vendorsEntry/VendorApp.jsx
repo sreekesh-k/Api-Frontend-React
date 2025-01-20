@@ -106,6 +106,7 @@ function VendorApp(props) {
 
   const saveTabChange = (tabId, tabName) => {
     if (tabId !== null && tabId !== activeTab) {
+      console.log(tabName)
       dispatch(changeTab(tabId));
       sessionStorage.setItem("activeTabId", tabId);
     }
