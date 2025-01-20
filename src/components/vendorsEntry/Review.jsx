@@ -1,30 +1,23 @@
 ﻿import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectReview, setReview } from "../../slices/VendorSlice";
 
-function Review() {
+function Review(props) {
+  //Review with Redux
+  const dispatch = useDispatch();
   const [stages, setStages] = useState([]);
   const [numberOfApprovalStages, setNumberOfApprovalStages] = useState(0);
   const [stageRequired, setStageRequired] = useState(true);
   const [controls, setControls] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const { vendorId, isInViewMode, isCentrilized } = useSelector(selectReview);
   function setFormBuilderData() {
     setControls([]);
   }
-  // useEffect(() => {
-  //   dispatch({
-  //     type: "SET_REVIEW",
-  //     payload: { StageJson: stages },
-  //   });
-  // }, [stages]);
-  // const { vendorId, isInViewMode, isCentrilized } = ReactRedux.useSelector(
-  //   (state) => {
-  //     return {
-  //       vendorId: state.vendor.vendorId,
-  //       isInViewMode: state.vendor.editAccess.isInViewMode,
-  //       isCentrilized: state.vendor.isUserCentrilized,
-  //     };
-  //   }
-  // );
+  useEffect(() => {
+    dispatch(setReview({ StageJson: stages }));
+  }, [stages]);
 
   // useEffect(() => {
   //   fetch(
@@ -61,11 +54,11 @@ function Review() {
           className="fa fa-spinner fa-spin fa-3x fa-fw"
           style={{ left: "50%", position: "absolute", top: "40%" }}
         ></i>
-        <span className="sr-only">Loading...</span>
+        <span class="sr-only">Loading...</span>
       </div>
     );
   return (
-    <React.Fragment>
+    <Fragment>
       {/*<div className={(isInViewMode || !isCentrilized) ? "viewModeOnly" : "enableEdit"} />*/}
       {/* <StagesMain
         {...{ props }}
@@ -79,10 +72,10 @@ function Review() {
         setStageRequired={setStageRequired}
         setFormBuilderData={setFormBuilderData}
         isReview={true}
-        isReviewInViewMode={isInViewMode || !isCentrilized}
+        isReviewInViewMode={true}
       /> */}
-      REVIEWS DATA
-    </React.Fragment>
+      <h1>The Stage Main Component Comes Here (Not Available)</h1>
+    </Fragment>
   );
 }
 

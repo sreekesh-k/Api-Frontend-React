@@ -328,4 +328,10 @@ export const selectVendorRating = createSelector([selectVendor], (vendor) => ({
     vendor.rating.averageVendorRatingModel.FinancialFormOnTypes,
   VrvendorDetails: vendor.vendorDetails.details,
 }));
+
+export const selectReview = createSelector([selectVendor], (vendor) => ({
+  vendorId: vendor.vendorId,
+  isInViewMode: vendor.editAccess.isInViewMode,
+  isCentrilized: vendor.isUserCentrilized,
+}));
 export default vendorSlice.reducer;
