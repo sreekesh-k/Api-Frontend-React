@@ -106,7 +106,6 @@ function VendorApp(props) {
 
   const saveTabChange = (tabId, tabName) => {
     if (tabId !== null && tabId !== activeTab) {
-      console.log(tabName)
       dispatch(changeTab(tabId));
       sessionStorage.setItem("activeTabId", tabId);
     }
@@ -763,7 +762,7 @@ function VendorApp(props) {
       dispatch(saveVendorId(vendorId));
     } else {
       //console.log("else part called")
-      dispatch(changeTab("VendorDetails"));
+      // dispatch(changeTab("VendorDetails"));
     }
   }, [activeTab]);
 
