@@ -1,12 +1,16 @@
 /*const Trans = window["ReactI18next"].Trans;*/
 import { Component } from "react";
+import EventEmitter3 from "eventemitter3";
+import $ from 'jquery';
+
 export default class FormRender extends Component {
   constructor(props) {
     super(props);
-    this.props.readOnly = this.props.readOnly || false;
-    this.props.isComponentUpdate = this.props.isComponentUpdate || false;
+
     this.state = {
       formData: this.props.data,
+      readOnly: this.props.readOnly || false,
+      isComponentUpdate: this.props.isComponentUpdate || false,
       filePreviewSource: "",
     };
     window.DcFormRenderTriggers = window.DcFormRenderTriggers || [];
@@ -462,7 +466,7 @@ export default class FormRender extends Component {
       });
     }
 
-    $(".ControlDescription").tooltipSpecial();
+    // $(".ControlDescription").tooltipSpecial();
   }
 
   handleCheckboxChange = (evt, index) => {
