@@ -1,6 +1,12 @@
 ﻿import { useEffect, useState } from "react";
 import { Input, Row, Col, Select, Button } from "antd";
 import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  changeCategorizationReviewers,
+  updateCategorizationData,
+  categorizationNotificationData,
+} from "../../slices/VendorSlice";
 
 function VendorCategorization(props) {
   const { TextArea } = Input;
@@ -12,51 +18,53 @@ function VendorCategorization(props) {
   const [saveArray, setSaveArray] = useState([]);
   const [_saveData, set_SaveData] = useState([]);
 
-  const [
-    {
-      vendorType,
-      dataa,
-      isLoading,
-      vendorId,
-      isInViewMode,
-      isCentrilized,
-      ReviewerRemarks,
-      LastReviewSentOn,
-      Reviewers,
-    },
-    setState,
-  ] = useState({
-    vendorType: "DSA",
-    dataa: [],
-    isLoading: false,
-    gtScore: 0,
-    scoreRating: 0,
-    vendorId: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-    isInViewMode: true,
-    isCentrilized: true,
-    ReviewerRemarks: "",
-    LastReviewSentOn: "",
-    Reviewers: [],
+  const dispatch = useDispatch();
+
+  const {
+    vendorType,
+    dataa,
+    isLoading,
+    vendorId,
+    isInViewMode,
+    isCentrilized,
+    ReviewerRemarks,
+    LastReviewSentOn,
+    Reviewers,
+  } = useSelector((state) => {
+    return {
+      vendorType: state.vendor.vendorType,
+      dataa: state.vendor.categorization.data,
+      isLoading: state.vendor.categorization.loading,
+      gtScore: state.vendor.categorization.gtScore,
+      scoreRating: state.vendor.categorization.gtScore,
+      vendorId: state.vendor.vendorId,
+      isInViewMode: state.vendor.editAccess.isInViewMode,
+      vendorId: state.vendor.vendorId,
+      isCentrilized: state.vendor.isUserCentrilized,
+      ReviewerRemarks:
+        state.vendor.categorization.notificationData.ReviewerRemarks,
+      LastReviewSentOn:
+        state.vendor.categorization.notificationData.LastReviewSentOn,
+      Reviewers: state.vendor.categorization.notificationData.Reviewers,
+    };
   });
 
   // fetch data
   const fetchVendorCategorizationData = () => {
-    fetch(`http://localhost:3000/data`)
-      .then((response) => {
-        setLoading(true);
-        return response.json();
-      })
-      .then((data) => {
-        // dispatch({
-        //   type: "UPDATE_CATEGORIZATION_DATA",
-        //   payload: data.data.Data.vendorScoring,
-        // });
-        saveNotificationData(data.Data.InfoResult);
-        calculateGtScore(data.Data);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    // fetch(`/Vendor/GetScoring?VendorId=${vendorId}`)
+    //   .then((response) => {
+    //     setLoading(true);
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     dispatch(updateCategorizationData(data.data.Data.vendorScoring))
+    //     saveNotificationData(data.data.Data.InfoResult);
+    //     calculateGtScore(data.data.Data);
+    //   })
+    //   .finally(() => {
+    //     setLoading(false);
+    //   });
+    setLoading(false);
   };
 
   const fetchScoringGroups = () => {
@@ -73,15 +81,11 @@ function VendorCategorization(props) {
     //   .finally(() => {
     //     setLoadingScores(false);
     //   });
-    console.log("fetchScoringGroups");
   };
 
   // SAVE_NOTIFICATION_DATA
   const saveNotificationData = (data) => {
-    // dispatch({
-    //   type: "CATEGORIZATION_NOTIFICATION_DATA",
-    //   payload: data,
-    // });
+    dispatch(categorizationNotificationData(data));
   };
   // total score
   const calculateGtScore = (_data) => {
@@ -148,7 +152,7 @@ function VendorCategorization(props) {
       }
     });
     calculateGtScore(_data);
-    setState((prev) => ({ ...prev, dataa: _data }));
+    dispatch(updateCategorizationData(_data));
   };
   const handleChange2 = (value, parameterId, subParameterId) => {
     let _data = dataa;
@@ -186,7 +190,7 @@ function VendorCategorization(props) {
       }
     });
     calculateGtScore(_data);
-    setState((prev) => ({ ...prev, dataa: _data }));
+    dispatch(updateCategorizationData(_data));
   };
   const handleDataChange = (e, ScoreModels, parameterId) => {
     const _saveArray = _saveData;
@@ -206,7 +210,7 @@ function VendorCategorization(props) {
         }, {});
       arr.push(newObj);
     });
-    setState((prev) => ({ ...prev, dataa: _data }));
+    dispatch(updateCategorizationData(arr));
     // --------------
 
     const _data = dataa;
@@ -224,10 +228,7 @@ function VendorCategorization(props) {
         }
       });
     }
-    dispatch({
-      type: "UPDATE_CATEGORIZATION_DATA",
-      payload: _data,
-    });
+    dispatch(updateCategorizationData(_data));
   };
   const handleDataChange2 = (e, ScoreModels, parameterId, subParameterId) => {
     const _saveArray = _saveData;
@@ -247,7 +248,7 @@ function VendorCategorization(props) {
         }, {});
       arr.push(newObj);
     });
-    setState((prev) => ({ ...prev, dataa: _data }));
+    dispatch(updateCategorizationData(arr));
     // --------------
 
     const _data = dataa;
@@ -269,7 +270,7 @@ function VendorCategorization(props) {
         }
       });
     }
-    setState((prev) => ({ ...prev, dataa: _data }));
+    dispatch(updateCategorizationData(_data));
   };
 
   const useCalculateScoreRating = () => {
@@ -301,15 +302,39 @@ function VendorCategorization(props) {
       if (e.includes(r.value)) r.IsSelected = true;
       else r.IsSelected = false;
     });
-    setState((prev) => ({ ...prev, Reviewers: _reviewers }));
+    dispatch(changeCategorizationReviewers(_reviewers));
   };
   const reviewerIds = Reviewers.filter((r) => r.IsSelected);
   const _ids = [];
   reviewerIds.forEach((r) => _ids.push(r.Id));
   const handleSaveReviewers = () => {
     if (_ids.length < 1) {
+      //toastr.error("Please select reviewers!");
       return;
     }
+    // fetch("/Vendor/SaveVendorReviewers", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     VendorId: vendorId,
+    //     ReviewerIds: _ids,
+    //     Remarks: ReviewerRemarks,
+    //     Title: scoreRating,
+    //     TotalScore: gtScore,
+    //   }),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //     if (data.Status == "success") {
+    //       toastr.success(data.message);
+    //     } else {
+    //       toastr.error(data.Message);
+    //     }
+    //   })
+    //   .catch((err) => toastr.error(err.message));
   };
 
   const alphabetsArr = Array.from({ length: 26 }, (_, i) =>
