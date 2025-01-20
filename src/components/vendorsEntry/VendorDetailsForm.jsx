@@ -1,6 +1,7 @@
 ﻿import React, { useState, useEffect, Fragment } from "react";
 import { Form, Button, Upload, Select, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
+import { selectVendorDetailsForm } from "../../slices/VendorSlice";
 import {
   setIsActive,
   setInactivation,
@@ -27,17 +28,7 @@ function VendorDetailsForm(props) {
     isInViewMode,
     vendorId,
     isCentrilized,
-  } = useSelector((state) => ({
-    FormData: state.vendor.details.FormData,
-    IsActive: state.vendor.details.IsActive,
-    URN: state.vendor.details.URN,
-    InActivationDate: state.vendor.details.InActivationDate,
-    ReasonOfInactivation: state.vendor.details.ReasonOfInactivation,
-    InActivationEvidence: state.vendor.details.InActivationEvidence,
-    isInViewMode: state.vendor.editAccess.isInViewMode,
-    vendorId: state.vendor.vendorId,
-    isCentrilized: state.vendor.isUserCentrilized,
-  }));
+  } = useSelector(selectVendorDetailsForm);
   const handleFileChange = ({ fileList }) => {
     if (fileList.length !== 0) {
       //To upload only 1 file at a time

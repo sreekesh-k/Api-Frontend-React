@@ -55,7 +55,7 @@ const ClauseModel = (props) => {
       </Button>
       <Modal
         title="Categorization Clauses"
-        visible={isModalOpen}
+        open={isModalOpen}
         onOk={handleOk}
         footer={false}
         onCancel={handleCancel}

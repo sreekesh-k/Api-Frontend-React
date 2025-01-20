@@ -2,6 +2,7 @@
 import { Input, Row, Col, Select, Button } from "antd";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
+import { selectVendorCategorization } from "../../slices/VendorSlice";
 import {
   changeCategorizationReviewers,
   updateCategorizationData,
@@ -30,24 +31,7 @@ function VendorCategorization(props) {
     ReviewerRemarks,
     LastReviewSentOn,
     Reviewers,
-  } = useSelector((state) => {
-    return {
-      vendorType: state.vendor.vendorType,
-      dataa: state.vendor.categorization.data,
-      isLoading: state.vendor.categorization.loading,
-      gtScore: state.vendor.categorization.gtScore,
-      scoreRating: state.vendor.categorization.gtScore,
-      vendorId: state.vendor.vendorId,
-      isInViewMode: state.vendor.editAccess.isInViewMode,
-      vendorId: state.vendor.vendorId,
-      isCentrilized: state.vendor.isUserCentrilized,
-      ReviewerRemarks:
-        state.vendor.categorization.notificationData.ReviewerRemarks,
-      LastReviewSentOn:
-        state.vendor.categorization.notificationData.LastReviewSentOn,
-      Reviewers: state.vendor.categorization.notificationData.Reviewers,
-    };
-  });
+  } = useSelector(selectVendorCategorization);
 
   // fetch data
   const fetchVendorCategorizationData = () => {

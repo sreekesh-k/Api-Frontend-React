@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createSelector } from "@reduxjs/toolkit";
 
 const initialState = {
   activeTab: sessionStorage.getItem("activeTabId") || "VendorDetails",
@@ -221,5 +222,75 @@ export const {
   changeCategorizationReviewers,
   changeVendorName,
 } = vendorSlice.actions;
+
+const selectVendor = (state) => state.vendor;
+
+export const selectVendorApp = createSelector([selectVendor], (vendor) => ({
+  activeTab: vendor.activeTab,
+  vendorId: vendor.vendorId,
+  vendorType: vendor.vendorType,
+  categorizationData: vendor.categorization.data,
+  detailsData: vendor.details,
+  additionalDetailsData: vendor.additionalDetails,
+  ratingData: vendor.rating.ratingData,
+  reviewData: vendor.review,
+  hasEditAccess: vendor.editAccess.hasEditAccess,
+  isInViewMode: vendor.editAccess.isInViewMode,
+  saveRatingData: vendor.rating.ratingSaveData,
+  VrTotalScore: vendor.rating.averageVendorRatingModel.TotalScore,
+  VrEligibleScore: vendor.rating.elligibleScoreStatus.score,
+  VrConculusion: vendor.rating.elligibleScoreStatus.level,
+  VrDevaitions: vendor.rating.averageVendorRatingModel.Devaitions,
+  VrFileStream: vendor.rating.averageVendorRatingModel.FileStream,
+  VrFileName: vendor.rating.averageVendorRatingModel.FileName,
+  VrFinancialList: vendor.rating.financialForm.FinancialList,
+  VrvendorRatingFinancialInfoReadModel:
+    vendor.rating.financialForm.vendorRatingFinancialInfoReadModel,
+  VrFinacialFormBillingMaxLimit:
+    vendor.rating.averageVendorRatingModel.FinacialFormBillingMaxLimit,
+  VrFinancialFormOnNatureOfServices:
+    vendor.rating.averageVendorRatingModel.FinancialFormOnNatureOfServices,
+  VrFinancialFormOnTypes:
+    vendor.rating.averageVendorRatingModel.FinancialFormOnTypes,
+  VrvendorDetails: vendor.vendorDetails.details,
+  CReviewerRemarks: vendor.categorization.notificationData.ReviewerRemarks,
+  CReviewers: vendor.categorization.notificationData.Reviewers,
+  VdVendorName: vendor.vendorName,
+}));
+
+export const selectVendorDetailsForm = createSelector(
+  [selectVendor],
+  (vendor) => ({
+    FormData: vendor.details.FormData,
+    IsActive: vendor.details.IsActive,
+    URN: vendor.details.URN,
+    InActivationDate: vendor.details.InActivationDate,
+    ReasonOfInactivation: vendor.details.ReasonOfInactivation,
+    InActivationEvidence: vendor.details.InActivationEvidence,
+    isInViewMode: vendor.editAccess.isInViewMode,
+    vendorId: vendor.vendorId,
+    isCentrilized: vendor.isUserCentrilized,
+  })
+);
+
+export const selectVendorCategorization = createSelector(
+  [selectVendor],
+  (vendor) => ({
+    vendorType: vendor.vendorType,
+    dataa: vendor.categorization.data,
+    isLoading: vendor.categorization.loading,
+    gtScore: vendor.categorization.gtScore,
+    scoreRating: vendor.categorization.gtScore,
+    vendorId: vendor.vendorId,
+    isInViewMode: vendor.editAccess.isInViewMode,
+    vendorId: vendor.vendorId,
+    isCentrilized: vendor.isUserCentrilized,
+    ReviewerRemarks:
+      vendor.categorization.notificationData.ReviewerRemarks,
+    LastReviewSentOn:
+      vendor.categorization.notificationData.LastReviewSentOn,
+    Reviewers: vendor.categorization.notificationData.Reviewers,
+  })
+);
 
 export default vendorSlice.reducer;

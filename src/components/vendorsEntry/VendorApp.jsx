@@ -8,6 +8,7 @@ import Review from "./Review";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ClauseModel from "./ClauseModel";
+import { selectVendorApp } from "../../slices/VendorSlice";
 import {
   changeTab,
   changeVendorName,
@@ -50,43 +51,7 @@ function VendorApp(props) {
     CReviewers,
     CReviewerRemarks,
     VdVendorName,
-  } = useSelector((state) => {
-    return {
-      activeTab: state.vendor.activeTab,
-      vendorId: state.vendor.vendorId,
-      vendorType: state.vendor.vendorType,
-      categorizationData: state.vendor.categorization.data,
-      detailsData: state.vendor.details,
-      additionalDetailsData: state.vendor.additionalDetails,
-      ratingData: state.vendor.rating.ratingData,
-      reviewData: state.vendor.review,
-      hasEditAccess: state.vendor.editAccess.hasEditAccess,
-      isInViewMode: state.vendor.editAccess.isInViewMode,
-      saveRatingData: state.vendor.rating.ratingSaveData,
-      VrTotalScore: state.vendor.rating.averageVendorRatingModel.TotalScore,
-      VrEligibleScore: state.vendor.rating.elligibleScoreStatus.score,
-      VrConculusion: state.vendor.rating.elligibleScoreStatus.level,
-      VrDevaitions: state.vendor.rating.averageVendorRatingModel.Devaitions,
-      VrFileStream: state.vendor.rating.averageVendorRatingModel.FileStream,
-      VrFileName: state.vendor.rating.averageVendorRatingModel.FileName,
-      VrFinancialList: state.vendor.rating.financialForm.FinancialList,
-      VrvendorRatingFinancialInfoReadModel:
-        state.vendor.rating.financialForm.vendorRatingFinancialInfoReadModel,
-      VrFinacialFormBillingMaxLimit:
-        state.vendor.rating.averageVendorRatingModel
-          .FinacialFormBillingMaxLimit,
-      VrFinancialFormOnNatureOfServices:
-        state.vendor.rating.averageVendorRatingModel
-          .FinancialFormOnNatureOfServices,
-      VrFinancialFormOnTypes:
-        state.vendor.rating.averageVendorRatingModel.FinancialFormOnTypes,
-      VrvendorDetails: state.vendor.vendorDetails.details,
-      CReviewerRemarks:
-        state.vendor.categorization.notificationData.ReviewerRemarks,
-      CReviewers: state.vendor.categorization.notificationData.Reviewers,
-      VdVendorName: state.vendor.vendorName,
-    };
-  });
+  } = useSelector(selectVendorApp);
 
   // TAB IDS
   const tabIds = {
@@ -149,9 +114,9 @@ function VendorApp(props) {
     }
   };
   const handleClick = (e) => {
-    // if (!isInViewMode) {
-    //   handleSaveBtnClick(e.target.id);
-    // } else
+    if (!isInViewMode) {
+      handleSaveBtnClick(e.target.id);
+    } else
     saveTabChange(e.target.id, e.target.title);
   };
   // VALIDATE CATEGORIZATION DATA
