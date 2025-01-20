@@ -26,7 +26,7 @@ const initialState = {
       EligibleScore: 0,
       Conculusion: "",
       Devaitions: "",
-      FileStream: "",
+      FileStream: [],
       FileName: "",
       MaxVendorRatingScore: 0,
     },
@@ -301,4 +301,31 @@ export const selectVendorAdditionalDetails = createSelector(
   })
 );
 
+export const selectVendorRating = createSelector([selectVendor], (vendor) => ({
+  vendorType: vendor.vendorType,
+  vendorId: vendor.vendorId,
+  ratingData: vendor.rating.ratingData,
+  isInViewMode: vendor.editAccess.isInViewMode,
+  VrDevaitions: vendor.rating.averageVendorRatingModel.Devaitions,
+  vendorDetails: vendor.vendorDetails.details,
+  VrFileStream: vendor.rating.averageVendorRatingModel.FileStream,
+  VrTotalScore: vendor.rating.averageVendorRatingModel.TotalScore,
+  VrConculusion: vendor.rating.averageVendorRatingModel.Conculusion,
+  VrMaxVendorRatingScore:
+    vendor.rating.averageVendorRatingModel.MaxVendorRatingScore,
+  VrFinancialList: vendor.rating.financialForm.FinancialList,
+  VrvendorRatingFinancialInfoReadModel:
+    vendor.rating.financialForm.vendorRatingFinancialInfoReadModel,
+  VrelligibleScore: vendor.rating.elligibleScore,
+  VrElligibleLevel: vendor.rating.elligibleScoreStatus.level,
+  VrElligibleColor: vendor.rating.elligibleScoreStatus.color,
+  VrElligibilityScore: vendor.rating.elligibleScoreStatus.score,
+  VrFinacialFormBillingMaxLimit:
+    vendor.rating.averageVendorRatingModel.FinacialFormBillingMaxLimit,
+  VrFinancialFormOnNatureOfServices:
+    vendor.rating.averageVendorRatingModel.FinancialFormOnNatureOfServices,
+  VrFinancialFormOnTypes:
+    vendor.rating.averageVendorRatingModel.FinancialFormOnTypes,
+  VrvendorDetails: vendor.vendorDetails.details,
+}));
 export default vendorSlice.reducer;

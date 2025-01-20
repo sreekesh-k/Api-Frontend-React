@@ -1,127 +1,136 @@
 ﻿import { Grid, Row, Col, Select, Upload, Button, Form, Input } from "antd";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectVendorRating,
+  updateRatingElligibleScore,
+  updateRatingElligibleScoreStatus,
+  updateRatingFinancialForm,
+  updateVendorRatingModel,
+} from "../../slices/VendorSlice";
+import { setVendorRating } from "../../slices/VendorSlice";
 
 function VendorRating(props) {
   const { Option } = Select;
+  const { TextArea } = Input;
   const [loading, setLoading] = useState(false);
   const [_saveData, set_SaveData] = useState([]);
   const [deviationValue, setDeviationValue] = useState("");
 
-  const [
-    {
-      vendorId,
-      ratingData,
-      isInViewMode,
-      VrDevaitions,
-      vendorDetails,
-      VrFileStream,
-      VrTotalScore,
-      VrConculusion,
-      VrFinancialList,
-      VrvendorRatingFinancialInfoReadModel,
-      VrelligibleScore,
-      VrElligibleLevel,
-      VrElligibleColor,
-      VrElligibilityScore,
-      VrMaxVendorRatingScore,
-      VrFinacialFormBillingMaxLimit,
-      VrFinancialFormOnNatureOfServices,
-      VrFinancialFormOnTypes,
-      VrvendorDetails,
-    },
-    setState,
-  ] = useState({
-    vendorType: "DSA",
-    vendorId: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-    ratingData: [],
-    isInViewMode: true,
-    VrDevaitions: "",
-    vendorDetails: {
-      Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-      URN: "V0260",
-      VendorName: "VN001",
-      VendorCode: "VC002",
-      Type: "DSA",
-      Department: "Test Dept",
-      NatureOfService: "Cash handling",
-      State: "Andra Pradesh",
-      MaterialityDate: "2024-10-29T00:00:00",
-      Status: "Inactive",
-      FilledFormId: "00000000-0000-0000-0000-000000000000",
-      TemplateId: "00000000-0000-0000-0000-000000000000",
-      TaskId: "00000000-0000-0000-0000-000000000000",
-      FilledForm: null,
-      TotalNumberOfRecords: 291,
-      InActivationEvidence: "",
-      InActivationDate: null,
-      ReasonOfInactivation: "",
-      Version: "Live",
-      CreatedBy: "Surya narayanan",
-      ModifiedBy: "Surya narayanan",
-      ModifiedDate: "2024-11-21T13:07:21.037",
-      CreatedDate: "0001-01-01T00:00:00",
-      Materiality: "2024-10-29T00:00:00",
-      id: "653a",
-    },
-    VrFileStream: "",
-    VrTotalScore: 0,
-    VrConculusion: "",
-    VrMaxVendorRatingScore: 0,
-    VrFinancialList: [],
-    VrvendorRatingFinancialInfoReadModel: {},
-    VrelligibleScore: [],
-    VrElligibleLevel: "",
-    VrElligibleColor: "",
-    VrElligibilityScore: 0,
-    VrFinacialFormBillingMaxLimit: 0,
-    VrFinancialFormOnNatureOfServices: [],
-    VrFinancialFormOnTypes: "",
-    VrvendorDetails: {
-      Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-      URN: "V0260",
-      VendorName: "VN001",
-      VendorCode: "VC002",
-      Type: "DSA",
-      Department: "Test Dept",
-      NatureOfService: "Cash handling",
-      State: "Andra Pradesh",
-      MaterialityDate: "2024-10-29T00:00:00",
-      Status: "Inactive",
-      FilledFormId: "00000000-0000-0000-0000-000000000000",
-      TemplateId: "00000000-0000-0000-0000-000000000000",
-      TaskId: "00000000-0000-0000-0000-000000000000",
-      FilledForm: null,
-      TotalNumberOfRecords: 291,
-      InActivationEvidence: "",
-      InActivationDate: null,
-      ReasonOfInactivation: "",
-      Version: "Live",
-      CreatedBy: "Surya narayanan",
-      ModifiedBy: "Surya narayanan",
-      ModifiedDate: "2024-11-21T13:07:21.037",
-      CreatedDate: "0001-01-01T00:00:00",
-      Materiality: "2024-10-29T00:00:00",
-      id: "653a",
-    },
-  });
+  const dispatch = useDispatch();
+
+  const {
+    vendorId,
+    ratingData,
+    isInViewMode,
+    VrDevaitions,
+    vendorDetails,
+    VrFileStream,
+    VrTotalScore,
+    VrConculusion,
+    VrFinancialList,
+    VrvendorRatingFinancialInfoReadModel,
+    VrelligibleScore,
+    VrElligibleLevel,
+    VrElligibleColor,
+    VrElligibilityScore,
+    VrMaxVendorRatingScore,
+    VrFinacialFormBillingMaxLimit,
+    VrFinancialFormOnNatureOfServices,
+    VrFinancialFormOnTypes,
+    VrvendorDetails,
+  } = useSelector(selectVendorRating);
+  var allowedFileTypes = window.globalConfig
+    ? window.globalConfig.allowedFileTypes
+    : [];
+  var notAllowedFileError = window.globalConfig
+    ? window.globalConfig.notAllowedFileError
+    : "";
   // FETCH RATING
-  const fetchRating = () => {
-    console.log("fetchRating");
-  };
+  // const fetchRating = () => {
+  //   fetch(`/Vendor/GetRating?vendorId=${vendorId}`)
+  //     .then((response) => {
+  //       setLoading(true);
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       sessionStorage.setItem(
+  //         "vendorDetails",
+  //         JSON.stringify({
+  //           VendorId: data.data.vendorResponseResult.VendorId,
+  //           Type: data.data.vendorResponseResult.VendorType,
+  //           AnnualBilling: data.data.vendorResponseResult.AnnualBillingAmount,
+  //           //"NatureOfServices": data.data.NatureOfService[0].NatureOfService,
+  //           NatureOfServices:
+  //             data.data.vendorResponseResult.NatureOfService !== null
+  //               ? data.data.vendorResponseResult.NatureOfService.map(
+  //                   (n) => n.NatureOfService
+  //                 )
+  //               : [],
+  //           VendorName: data.data.vendorResponseResult.VendorName,
+  //         })
+  //       );
+  //       let averageRatingodel = data.data.Data.averageVendorRatingModel;
+  //       dispatch(
+  //         setVendorRating({
+  //           ratingData: data.data.Data.vendorRatingParameter,
+  //           ratingInitialData: JSON.stringify(
+  //             data.data.Data.vendorRatingParameter
+  //           ),
+  //         })
+  //       );
+  //       _calculateInitialScore(data.data.Data.vendorRatingParameter);
+  //       saveRatingModel(averageRatingodel);
+  //       saveRatingFileName(data);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // };
   //FETCH FINANCIAL FORM
-  const fetchFinancialForm = () => {
-   
-  };
+  // const fetchFinancialForm = () => {
+  //   fetch(`/Vendor/GetVendorFinancials?VendorId=${vendorId}`)
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       let vendorRatingFinancialInfoReadModel =
+  //         data.vendorRatingFinancialInfoReadModel;
+  //       vendorRatingFinancialInfoReadModel["FileStream"] =
+  //         data.vendorRatingFinancialInfoReadModel.FinancialFile !== "" &&
+  //         data.vendorRatingFinancialInfoReadModel.FinancialFile !== null
+  //           ? [data.vendorRatingFinancialInfoReadModel.FinancialFile]
+  //           : "";
+
+  //       dispatch(
+  //         updateRatingFinancialForm({
+  //           FinancialList: data.FinancialList,
+  //           vendorRatingFinancialInfoReadModel:
+  //             vendorRatingFinancialInfoReadModel,
+  //           finaicialListInitialData: JSON.stringify(data.FinancialList),
+  //         })
+  //       );
+  //     });
+  // };
   //console.log(VrvendorRatingFinancialInfoReadModel["FileStream"])
   // FETCH_ELLIGIBLE_SCORE
-  const fetchElligibleScore = () => {
-    console.log("fetchElligibleScore");
-  };
+  // const fetchElligibleScore = () => {
+  //   fetch("/Vendor/GetVendorRatingScoringGroup")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       calculateElligibleScore(data.data.Data);
+  //       dispatch(
+  //         updateRatingElligibleScore({ elligibleScore: data.data.Data })
+  //       );
+  //     });
+  // };
   // CHECK WHETHER TO DISPLAY FINANCIAL FORM
 
   const useCheckFinancialFormConditions = () => {
-    let _v_Details = VrvendorDetails;
+    let _v_Details = JSON.parse(sessionStorage.getItem("vendorDetails"));
     //if (VrvendorDetails === null)
     if (_v_Details === null) return false;
     const { Type, AnnualBilling, NatureOfServices } = _v_Details;
@@ -177,7 +186,7 @@ function VendorRating(props) {
               Score: sm.Score,
             });
             d.AverageScore += sm.Score;
-          }
+          }dispatch
         });
         d.AverageScore =
           d.AverageScore > 0
@@ -189,12 +198,37 @@ function VendorRating(props) {
         avg = 0;
       }
     });
-    setState((prev) => ({ ...prev, ratingData: _data }));
+    dispatch(setVendorRating({ ratingData: _data }));
     calculateTotalAverageScore(arr, avg, totalAvgScoreArr);
   };
-
+  const saveRatingFileName = (data) => {
+    dispatch(
+      updateVendorRatingModel({
+        FileName: data.data.Data.averageVendorRatingModel.FileName,
+      })
+    );
+  };
   const saveRatingModel = (averageRatingodel) => {
-    console.log("saveRatingModel");
+    dispatch(
+      updateVendorRatingModel({
+        Devaitions: averageRatingodel.Devaitions,
+        Conculusion: averageRatingodel.Conculusion,
+        TotalScore: averageRatingodel.TotalScore,
+        Conculusion: averageRatingodel.Conculusion,
+        MaxVendorRatingScore: averageRatingodel.MaxVendorRatingScore,
+        FinancialFormOnTypes: averageRatingodel.FinancialFormOnTypes,
+        FinacialFormBillingMaxLimit:
+          averageRatingodel.FinacialFormBillingMaxLimit,
+        FinancialFormOnNatureOfServices:
+          averageRatingodel.FinancialFormOnNatureOfServices.split(","),
+        //FileStream: [averageRatingodel.RatingFile]
+        FileStream:
+          averageRatingodel.RatingFile !== "" &&
+          averageRatingodel.RatingFile !== null
+            ? [averageRatingodel.RatingFile]
+            : "",
+      })
+    );
   };
 
   const calculateTotalAverageScore = (arr, avg, totalAvgScoreArr) => {
@@ -203,7 +237,7 @@ function VendorRating(props) {
     ratingData.forEach((d) => {
       score += d.AverageScore;
     });
-    setState((prev) => ({ ...prev, ratingData: _data }));
+    dispatch(updateVendorRatingModel({ TotalScore: score.toFixed(2) }));
   };
 
   //calculate sum of average scores
@@ -260,7 +294,7 @@ function VendorRating(props) {
       }
     });
 
-    setState((prev) => ({ ...prev, ratingData: _data }));
+    dispatch(setVendorRating({ ratingData: _data }));
   };
 
   // with params = [{},{}]
@@ -317,25 +351,64 @@ function VendorRating(props) {
         avg = 0;
       }
     });
-    setState((prev) => ({ ...prev, ratingData: _data }));
+    dispatch(setVendorRating({ ratingData: _data }));
   };
   // ------------------------
+
+  // REMARKS FIELDS CHANGES ---
+  const handleRemarksChange = (e, paramId, subParamId, hasSubparams) => {
+    const _data = ratingData;
+    _data.forEach((dataItem) => {
+      if (dataItem.Id !== paramId) return;
+      const updateRemarks = (scoreModels) => {
+        scoreModels.forEach((scoreModel) => {
+          if (scoreModel.IsSelected) {
+            scoreModel.Remarks = e.target.value;
+          }
+        });
+      };
+
+      if (hasSubparams) {
+        dataItem.SubParams.forEach((subParam) => {
+          if (subParam.Id === subParamId) {
+            updateRemarks(subParam.ScoreModel);
+          }
+        });
+      } else {
+        updateRemarks(dataItem.ScoreModel);
+      }
+    });
+    dispatch(selectVendorRating({ ratingData: _data }));
+  };
+
   const handleDeviationChange = (e) => {
     setDeviationValue(e.target.value);
-    setState((prev) => ({ ...prev, VrDevaitions: e.target.value }));
+    dispatch(updateVendorRatingModel({ Devaitions: e.target.value }));
   };
 
   const handleFileUploadChange = ({ fileList }) => {
-    if (fileList.length !== 0) {
+    if (fileList.length != 0) {
+      //To upload only 1 file at a time
       file = [fileList[fileList.length - 1]];
-      setState((prev) => ({ ...prev, VrFileStream: file }));
-      dispatch({
-        type: "UPDATE_VENDOR_RATING_MODEL",
-        payload: { FileStream: file, FileName: file[0].name },
-      });
-    } else {
-      setState((prev) => ({ ...prev, VrFileStream: "" }));
+      let uploadedFileType = file[0].type;
+      //Ex- For msg type of file type is null
+      if (uploadedFileType === "") {
+        uploadedFileType =
+          file[0].name.split(".")[file[0].name.split(".").length - 1];
+      }
+      if (
+        allowedFileTypes.length > 0 &&
+        !(allowedFileTypes.indexOf(uploadedFileType) >= 0)
+      ) {
+        toastr.error(file[0].name + notAllowedFileError);
+      } else {
+        dispatch(
+          updateVendorRatingModel({ FileStream: file, FileName: file[0].name })
+        );
+      }
     }
+    //If the current file is deleted
+    else dispatch(updateVendorRatingModel({ FileStream: "", FileName: "" }));
   };
   //-------------
   // FINANCIL_FORM_ONCHNGES_AND_OTHER_LOGIC
@@ -345,12 +418,18 @@ function VendorRating(props) {
       if (f.ParameterId === paramId) {
         f.SubParams.forEach((sp) => {
           if (sp.ParameterId === subParamId) {
-            sp.CurrentFinancialYear = e.target.value;
+            sp.CurrentFinancialYear = Number(e.target.value);
           }
         });
       }
     });
-    setState((prev) => ({ ...prev, VrFinancialList: _data }));
+    dispatch(
+      updateRatingFinancialForm({
+        FinancialList: _data,
+        vendorRatingFinancialInfoReadModel:
+          VrvendorRatingFinancialInfoReadModel,
+      })
+    );
   };
   const handleFformChange2 = (e, paramId, subParamId) => {
     let _data = VrFinancialList;
@@ -358,12 +437,18 @@ function VendorRating(props) {
       if (f.ParameterId === paramId) {
         f.SubParams.forEach((sp) => {
           if (sp.ParameterId === subParamId) {
-            sp.LastFinancialYear = e.target.value;
+            sp.LastFinancialYear = Number(e.target.value);
           }
         });
       }
     });
-    setState((prev) => ({ ...prev, VrFinancialList: _data }));
+    dispatch(
+      updateRatingFinancialForm({
+        FinancialList: _data,
+        vendorRatingFinancialInfoReadModel:
+          VrvendorRatingFinancialInfoReadModel,
+      })
+    );
   };
   // calculate elligible score
   const useCalculateElligibleScore = () => {
@@ -372,12 +457,13 @@ function VendorRating(props) {
     const calculate = (scores) => {
       scores.forEach((s) => {
         if (elligibleScore >= s.MinValue && elligibleScore <= s.MaxValue) {
-          setState((prev) => ({ ...prev, VrElligibleLevel: s.Level }));
-          setState((prev) => ({ ...prev, VrElligibleColor: s.Color }));
-          setState((prev) => ({
-            ...prev,
-            VrElligibilityScore: elligibleScore,
-          }));
+          dispatch(
+            updateRatingElligibleScoreStatus({
+              level: s.Level,
+              color: s.LevelColor,
+              score: elligibleScore,
+            })
+          );
         }
       });
     };
@@ -438,10 +524,12 @@ function VendorRating(props) {
     let modelObj = VrvendorRatingFinancialInfoReadModel;
     VrvendorRatingFinancialInfoReadModel[id] = e.target.value;
 
-    setState((prev) => ({
-      ...prev,
-      VrvendorRatingFinancialInfoReadModel: modelObj,
-    }));
+    dispatch(
+      updateRatingFinancialForm({
+        FinancialList: VrFinancialList,
+        vendorRatingFinancialInfoReadModel: modelObj,
+      })
+    );
   };
 
   // financial form deviation onchange
@@ -449,10 +537,12 @@ function VendorRating(props) {
     let modelObj = VrvendorRatingFinancialInfoReadModel;
     VrvendorRatingFinancialInfoReadModel["Deviation"] = e.target.value;
 
-    setState((prev) => ({
-      ...prev,
-      VrvendorRatingFinancialInfoReadModel: modelObj,
-    }));
+    dispatch(
+      updateRatingFinancialForm({
+        FinancialList: VrFinancialList,
+        vendorRatingFinancialInfoReadModel: modelObj,
+      })
+    );
   };
 
   // upload financial file
@@ -463,19 +553,36 @@ function VendorRating(props) {
       VrvendorRatingFinancialInfoReadModel["FileStream"] = file;
       VrvendorRatingFinancialInfoReadModel["FileName"] = file[0].name;
       VrvendorRatingFinancialInfoReadModel["DocType"] = file[0].type;
-      setState((prev) => ({
-        ...prev,
-        VrvendorRatingFinancialInfoReadModel: modelObj,
-      }));
+      let uploadedFileType = file[0].type;
+      //Ex- For msg type of file type is null
+      if (uploadedFileType === "") {
+        uploadedFileType =
+          file[0].name.split(".")[file[0].name.split(".").length - 1];
+      }
+      if (
+        allowedFileTypes.length > 0 &&
+        !(allowedFileTypes.indexOf(uploadedFileType) >= 0)
+      ) {
+        toastr.error(file[0].name + notAllowedFileError);
+      } else {
+        dispatch(
+          updateRatingFinancialForm({
+            FinancialList: VrFinancialList,
+            vendorRatingFinancialInfoReadModel: modelObj,
+          })
+        );
+      }
     } else {
       let modelObj = VrvendorRatingFinancialInfoReadModel;
       VrvendorRatingFinancialInfoReadModel["FileStream"] = "";
       VrvendorRatingFinancialInfoReadModel["FileName"] = "";
       VrvendorRatingFinancialInfoReadModel["DocType"] = "";
-      setState((prev) => ({
-        ...prev,
-        VrvendorRatingFinancialInfoReadModel: modelObj,
-      }));
+      dispatch(
+        updateRatingFinancialForm({
+          FinancialList: VrFinancialList,
+          vendorRatingFinancialInfoReadModel: modelObj,
+        })
+      );
     }
   };
 
@@ -522,16 +629,28 @@ function VendorRating(props) {
     }
     financialDataObj.append("model", JSON.stringify(saveDataObj));
 
-    console.log(financialDataObj);
+    fetch("/Vendor/SaveVendorFinancials", {
+      method: "POST",
+      body: financialDataObj,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.Status == "success" || data.StatusCode == 201) {
+          toastr.success(data.message);
+        } else {
+          toastr.error(data.message);
+        }
+      })
+      .catch((err) => toastr.error("Unable To Save Data"));
   };
 
   // -----------------------
 
-  useEffect(() => {
-    fetchRating();
-    fetchFinancialForm();
-    fetchElligibleScore();
-  }, []);
+  // useEffect(() => {
+  //   fetchRating();
+  //   fetchFinancialForm();
+  //   fetchElligibleScore();
+  // }, []);
   function roundUp(num, decimals) {
     const factor = Math.pow(10, decimals);
     return Math.ceil(num * factor) / factor;
@@ -555,10 +674,11 @@ function VendorRating(props) {
     >
       {/*<div className={isInViewMode ? "viewModeOnly" : "enableEdit"} />*/}
       <Row className="vendor-header">
-        <Col span="10">Scoring Parameter</Col>
-        <Col span="9">Scoring Rule</Col>
+        <Col span="6">Scoring Parameter</Col>
+        <Col span="8">Scoring Rule</Col>
+        <Col span="6">Remarks</Col>
         <Col span="2">Score</Col>
-        <Col span="3">Rating</Col>
+        <Col span="2">Rating</Col>
       </Row>
       {ratingData.map((param, key) => {
         return (
@@ -569,7 +689,7 @@ function VendorRating(props) {
           >
             <Col span="24">
               <Row gutter={20}>
-                <Col span="10" style={{ marginTop: ".5rem" }}>
+                <Col span="6" style={{ marginTop: ".5rem" }}>
                   {param.SubParams === null && (
                     <p className="vendor-parameter-name">
                       {param.ParameterName}
@@ -577,7 +697,7 @@ function VendorRating(props) {
                   )}
                 </Col>
                 <Col
-                  span="9"
+                  span="8"
                   style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
                 >
                   {param.SubParams === null && (
@@ -595,6 +715,30 @@ function VendorRating(props) {
                     />
                   )}
                 </Col>
+                <Col
+                  span="6"
+                  style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
+                >
+                  {param.SubParams === null && (
+                    <TextArea
+                      type="text"
+                      disabled={isInViewMode}
+                      className="data-input"
+                      autoSize={{ minRows: 2, maxRows: 2 }}
+                      onChange={(e) =>
+                        handleRemarksChange(
+                          e,
+                          param.Id,
+                          null,
+                          (hasSubparams = false)
+                        )
+                      }
+                      value={param.ScoreModel.filter((s) => s.IsSelected).map(
+                        (v) => v.Remarks
+                      )}
+                    />
+                  )}
+                </Col>
                 <Col span="2" style={{ marginTop: ".5rem" }}>
                   {param.SubParams === null && (
                     <Input
@@ -607,7 +751,7 @@ function VendorRating(props) {
                     />
                   )}
                 </Col>
-                <Col span="3">
+                <Col span="2">
                   {param.SubParams === null
                     ? param.ScoreModel.map((sm, key) => {
                         const scoreLevel = param.ScoreModel.filter(
@@ -634,12 +778,12 @@ function VendorRating(props) {
                   <Col span="24">
                     <Row>
                       <Col span="24" />
-                      <Col span="19">
+                      <Col span="20">
                         <div className="avg">
                           <p className="vd-avg-text">Average Score</p>
                         </div>
                       </Col>
-                      <Col span="5" style={{ paddingLeft: "4.2vw" }}>
+                      <Col span="4" style={{ paddingLeft: "4.2vw" }}>
                         <div className="avg">
                           {param.ScoreModel.map((sm) => {
                             let score = 0;
@@ -665,13 +809,13 @@ function VendorRating(props) {
                   return (
                     <Row gutter={20}>
                       <Col
-                        span="10"
+                        span="6"
                         style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
                       >
                         <p className="vendor-sub-parameter-name">{sp.Title}</p>
                       </Col>
                       <Col
-                        span="9"
+                        span="8"
                         className="vd-select-wrapper"
                         style={{ marginTop: ".5rem", marginBottom: "1rem" }}
                       >
@@ -689,6 +833,28 @@ function VendorRating(props) {
                           options={sp.ScoreModel}
                         />
                       </Col>
+                      <Col
+                        span="6"
+                        style={{ marginTop: "-.2rem", marginBottom: "1rem" }}
+                      >
+                        <TextArea
+                          type="text"
+                          disabled={isInViewMode}
+                          className="data-input"
+                          autoSize={{ minRows: 2, maxRows: 2 }}
+                          onChange={(e) =>
+                            handleRemarksChange(
+                              e,
+                              param.Id,
+                              sp.Id,
+                              (hasSubparams = true)
+                            )
+                          }
+                          value={sp.ScoreModel.filter((s) => s.IsSelected).map(
+                            (v) => v.Remarks
+                          )}
+                        />
+                      </Col>
                       <Col span="2" style={{ marginTop: ".5rem" }}>
                         {
                           <Input
@@ -701,7 +867,7 @@ function VendorRating(props) {
                           />
                         }
                       </Col>
-                      <Col span="3">
+                      <Col span="2">
                         {sp.ScoreModel.map((sm, key) => {
                           const scoreLevel = sp.ScoreModel.filter(
                             (s) => s.IsSelected
@@ -731,12 +897,12 @@ function VendorRating(props) {
                 <Col span="24">
                   <Row>
                     <Col span="24" />
-                    <Col span="19">
+                    <Col span="20">
                       <div className="avg">
                         <p className="vd-avg-text">Average Score</p>
                       </div>
                     </Col>
-                    <Col span="5" style={{ paddingLeft: "4.2vw" }}>
+                    <Col span="4" style={{ paddingLeft: "4.2vw" }}>
                       <div className="avg">{param.AverageScore}</div>
                     </Col>
                   </Row>
@@ -746,7 +912,7 @@ function VendorRating(props) {
           </Row>
         );
       })}
-      <React.Fragment>
+      <Fragment>
         <div className="rating-form-2">
           <div className="score-fields-wrapper">
             <div className="form-2-field-wrapper">
@@ -823,6 +989,7 @@ function VendorRating(props) {
                 fileList={VrFileStream}
                 onChange={handleFileUploadChange}
                 maxCount={1}
+                accept={allowedFileTypes.join(",")}
               >
                 <Button className="upload-btn" disabled={isInViewMode}>
                   <span>Attach file</span>
@@ -843,12 +1010,12 @@ function VendorRating(props) {
             </div>
           </div>
         </div>
-      </React.Fragment>
+      </Fragment>
       {/*(vendorDetails.Type === "IT" || vendorDetails.AnnualBilling > 10000000 || vendorDetails.NatureOfServices[0].Title == "Cash handling") && */}
 
       {/* ------------------- FNANCIAL_FORM --------------------- */}
       {toRenderFinancialForm && (
-        <React.Fragment>
+        <Fragment>
           <h2 style={{ textAlign: "center" }}>Financial Form</h2>
           {VrFinancialList.length > 0 &&
             VrFinancialList.map((f, i) => {
@@ -953,13 +1120,14 @@ function VendorRating(props) {
                 fileList={VrvendorRatingFinancialInfoReadModel["FileStream"]}
                 onChange={handleFinancialFileUpload}
                 maxCount={1}
+                accept={allowedFileTypes.join(",")}
               >
                 <Button className="upload-btn" disabled={isInViewMode}>
                   <span>Attach file</span>
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    strokeWidth="0"
+                    stroke-width="0"
                     viewBox="0 0 24 24"
                     height="20px"
                     width="20px"
@@ -972,7 +1140,7 @@ function VendorRating(props) {
               </Upload>
             </Col>
           </Row>
-        </React.Fragment>
+        </Fragment>
       )}
     </div>
   );
