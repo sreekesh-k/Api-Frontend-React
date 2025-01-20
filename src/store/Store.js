@@ -280,7 +280,7 @@ const vendorReducer = (state, action) => {
       return state;
   }
 };
-const store = createStore(vendorReducer, { vendor });
+const store = createStore(vendorReducer);
 
 export default store;
 //store.unsubscribe()

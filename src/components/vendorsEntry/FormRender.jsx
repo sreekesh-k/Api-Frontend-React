@@ -1,89 +1,951 @@
-import React from "react";
-import { Form, Input, Select, DatePicker } from "antd";
-import moment from "moment";
+/*const Trans = window["ReactI18next"].Trans;*/
+import { Component } from "react";
+export default class FormRender extends Component {
+  constructor(props) {
+    super(props);
+    this.props.readOnly = this.props.readOnly || false;
+    this.props.isComponentUpdate = this.props.isComponentUpdate || false;
+    this.state = {
+      formData: this.props.data,
+      filePreviewSource: "",
+    };
+    window.DcFormRenderTriggers = window.DcFormRenderTriggers || [];
+    this.allowedFileTypes = [
+      "application/pdf",
+      "image/jpeg",
+      "image/png",
+      //Rtf
+      "application/msword",
+      "application/rtf",
+      "text/rtf",
+      ".rtf",
+      //Txt
+      "text/plain",
+      //xlsx
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "xlsx",
+      //xls
+      "application/vnd.ms-excel",
+      "xls",
+      //Docx
+      "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      //Msg
+      "msg",
+      ".msg",
+      //Bin
+      "application/octet-stream",
+      "doc",
+      "docx",
+    ];
 
-const { Option } = Select;
-const { TextArea } = Input;
+    // This is used to be able to update date dependencies across all the instances.
+    // The problem is that in "Action center" and "Template hub" the pages are generated separately,
+    // so we have multiple independent instances and date relations from page to page being lost.
+    // To handle this, we need this "hack"
+    if (!window.rendererInstances) {
+      window.rendererInstances = [];
+    }
 
-function FormRender({ data }) {
-  if (!data || data.length === 0) {
-    return <div>No form data available</div>;
+    window.rendererInstances.push(this);
   }
 
-  return (
-    <Form layout="vertical">
-      {data.map((field) => {
-        const {
-          Id,
-          VendorName,
-          URN,
-          VendorCode,
-          Type,
-          Department,
-          NatureOfService,
-          State,
-          MaterialityDate,
-          Status,
-        } = field;
+  getData = () => {
+    let formData = [];
+    this.state.formData.forEach((data) => {
+      let dataCopy = {};
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const element = data[key];
+          if (key !== "eventEmitter" && key !== "isConverted") {
+            dataCopy[key] = element;
+          }
+        }
+      }
+      if (dataCopy.type === "date") dataCopy = this.getDateTimeValue(dataCopy);
+      formData.push(dataCopy);
+    });
 
-        // Render based on the field data
-        return (
-          <React.Fragment key={Id}>
-            {/* Vendor Name */}
-            <Form.Item label="Vendor Name">
-              <Input value={VendorName} disabled />
-            </Form.Item>
+    //this code is to remove special characters
+    for (let i = 0; i < formData.length; i++) {
+      if (formData[i].value) {
+        if (formData[i].type == "grid2") {
+          for (let j = 0; j < formData[i].value.data.length; j++) {
+            for (let k = 0; k < formData[i].value.data[j].length; k++) {
+              // Check type before any manipulation [6301]
+              if (
+                typeof formData[i].value.data[j][k].value.value === "string"
+              ) {
+                if (formData[i].value.data[j][k].value.type === "number") {
+                  formData[i].value.data[j][k].value.value = formData[
+                    i
+                  ].value.data[j][k].value.value.replace(/[\/\~:?]/g, "");
+                } else {
+                  formData[i].value.data[j][k].value.value = formData[
+                    i
+                  ].value.data[j][k].value.value.replace(/[\/\~.:?]/g, "");
+                }
+              }
+            }
+          }
+        } else if (typeof formData[i].value == "string") {
+          if (formData[i].type === "number") {
+            formData[i].value = formData[i].value.replace(/[\/\~:?]/g, "");
+          } else {
+            formData[i].value = formData[i].value.replace(/[~?><]/g, "");
+          }
+        }
+      }
+    }
 
-            {/* URN */}
-            <Form.Item label="URN">
-              <Input value={URN} disabled />
-            </Form.Item>
+    return formData;
+  };
 
-            {/* Vendor Code */}
-            <Form.Item label="Vendor Code">
-              <Input value={VendorCode} disabled />
-            </Form.Item>
+  getDateTimeValue(dataCopy) {
+    var val = $("#" + dataCopy.name + "id").val();
+    if (val && val != "") {
+      dataCopy.value = moment(val, dataCopy.format).format("YYYY-MM-DD");
+    } else {
+      dataCopy.value = val;
+    }
 
-            {/* Type */}
-            <Form.Item label="Type">
-              <Input value={Type} disabled />
-            </Form.Item>
+    return dataCopy;
+  }
 
-            {/* Department */}
-            <Form.Item label="Department">
-              <Input value={Department} disabled />
-            </Form.Item>
+  checkValue(element) {
+    if (element.value == "Invalid date") {
+      return false;
+    }
+    if (element.value && element.value !== "") {
+      if (typeof element.value == "object") {
+        if (element.value.length !== undefined) {
+          return element.value.length > 0;
+        }
+        return true;
+      }
+      return true;
+    }
+    return false;
+  }
 
-            {/* Nature of Service */}
-            <Form.Item label="Nature of Service">
-              <TextArea value={NatureOfService} rows={2} disabled />
-            </Form.Item>
+  runValidation() {
+    let flag = true;
+    let formData = [];
 
-            {/* State */}
-            <Form.Item label="State">
-              <Input value={State} disabled />
-            </Form.Item>
+    this.state.formData.forEach((data) => {
+      let dataCopy = {};
+      for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+          const element = data[key];
+          if (key !== "eventEmitter" && key !== "isConverted") {
+            dataCopy[key] = element;
+          }
+        }
+      }
+      if (dataCopy.type === "date") dataCopy = this.getDateTimeValue(dataCopy);
+      formData.push(dataCopy);
+    });
 
-            {/* Materiality Date */}
-            <Form.Item label="Materiality Date">
-              <DatePicker
-                value={MaterialityDate ? moment(MaterialityDate) : null}
-                disabled
-              />
-            </Form.Item>
+    let priorityObject = formData.find((o) => o.label === "Priority");
+    const userLang = navigator.language || navigator.userLanguage;
+    formData.every((element, index) => {
+      //Amrut - Check for Priority Label value if exists then check if the current element is BCPP and priority value is high or else return true
+      try {
+        if (priorityObject.value) {
+          if (
+            priorityObject.value.value === "High" &&
+            element.label === "Business Continuity Plan & Process (BCPP)"
+          ) {
+            if (element.required === true) {
+              if (this.checkValue(element)) {
+                return true;
+              } else {
+                toastr.error(
+                  "".concat(
+                    element.label,
+                    userLang != "fr" ? " is required" : " est obligatoire"
+                  )
+                );
+                flag = false;
+                return false;
+              }
+            } else return true;
+          } else {
+            return true;
+          }
+        }
+      } catch (e) {}
 
-            {/* Status */}
-            <Form.Item label="Status">
-              <Select value={Status} disabled>
-                <Option value="Active">Active</Option>
-                <Option value="Inactive">Inactive</Option>
-              </Select>
-            </Form.Item>
-          </React.Fragment>
+      // Do your thing, then:
+      if (element.required === true) {
+        if (this.checkValue(element)) {
+          return true;
+        } else {
+          toastr.error(
+            "".concat(
+              element.label,
+              userLang != "fr" ? " is required" : " est obligatoire"
+            )
+          );
+          flag = false;
+          return false;
+        }
+      } else return true;
+    });
+    return flag;
+  }
+  setFilePreview = (previewHtml) => {
+    this.setState({
+      filePreviewSource: previewHtml,
+    });
+  };
+
+  removeFile = (fileObj, fieldName) => {
+    let formData = this.state.formData;
+    var url =
+      window.location.origin +
+      "/ActionCentre/DeleteEvidenceFile/?fileId=" +
+      fileObj.fileId +
+      "&deleteFile=" +
+      fileObj.deleteUrl;
+    fetch(url, {
+      method: "GET",
+    })
+      .then((response) => {
+        response
+          .json()
+          .then((responseData) => {
+            for (let i = 0; i < formData.length; i++) {
+              if (formData[i].name === fieldName) {
+                var temp = new Array();
+                for (let j = 0; j < formData[i].value.length; j++) {
+                  if (
+                    formData[i].value[j].fileId !== responseData.deletedFileId
+                  ) {
+                    temp.push(formData[i].value[j]);
+                  }
+                }
+                formData[i].value = temp;
+              }
+            }
+
+            this.setState({ formData: formData });
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+
+        // Your code for handling the data you get from the API
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  closePreview = () => {
+    this.setState({
+      filePreviewSource: "",
+    });
+  };
+  checkDigitsNo = (evt, value, max, index) => {
+    let key = evt.which || evt.KeyCode;
+    let finalValue = value == undefined ? event.key : value + event.key;
+    if (parseInt(finalValue) > parseInt(max) && key > 47 && key < 58) {
+      value = finalValue.slice(0, finalValue.length - 1);
+      evt.target.value = value;
+      let formData = this.state.formData;
+      let obj = formData[index];
+      if (obj.type === "number") {
+        obj.value = value;
+      }
+      evt.preventDefault();
+    }
+  };
+  handleChange = (val, index) => {
+    let formData = this.state.formData;
+
+    let obj = formData[index];
+    if (obj.type === "currency") {
+      obj.value = val.value;
+      obj.currencyValue = val.currencyValue;
+    } else {
+      obj.value = val;
+    }
+
+    if (obj.type == "radio-group") {
+      $("input[name=" + obj.name + "]").removeAttr("checked");
+    }
+
+    if (Array.isArray(obj.value) && obj.value.length === 0) {
+      delete obj.value;
+    }
+
+    obj.isConverted = true;
+
+    if (this.props.selectedControl) {
+      if (
+        this.props.selectedControl.behaviourType == "E" &&
+        this.props.selectedControl.workflowCategory.trim() == "CW"
+      ) {
+        let dataObj = formData.reduce(
+          (obj, v, index) => ({ ...obj, [v.label]: { ...v, index } }),
+          {}
         );
-      })}
-    </Form>
-  );
-}
+        let ins = [
+          "Overpayment or Underpayment",
+          "Workstream",
+          "Cause",
+          "Facilities / Environmental Activity",
+          "Location",
+          "Legal/Policy Breach or Exception",
+          "Policy",
+          "Finance System Name",
+          "Payment Value",
+        ];
 
-export default FormRender;
+        let valueToBeSet = ins
+          .map(
+            (e) =>
+              dataObj[e] &&
+              dataObj[e].value &&
+              (e == "Finance System Name"
+                ? dataObj[e].value
+                : e == "Payment Value"
+                ? dataObj[e].currencyValue + " " + dataObj[e].value
+                : dataObj[e].value.label)
+          )
+          .filter((s) => (s || "") != "")
+          .join(" - ");
+
+        if (valueToBeSet) {
+          $(`input.form-control#taskTitle`).val(valueToBeSet);
+        }
+      }
+    }
+    if (obj.type === "date" && this.props.isComponentUpdate != true) {
+      const newFormData = formData.map((e) => {
+        if (e.type !== "date") {
+          return e;
+        }
+
+        DatePicker.getChangedDatepickerId(obj.name);
+
+        return DatePicker.getMinMax(e, formData);
+      });
+      this.setState({ formData: newFormData });
+    } else {
+      this.setState({ formData: formData });
+    }
+    setTimeout(() => {
+      this.state.formData.forEach((element, index) => {
+        if (element.presetValue) {
+          let formulaParts = element.mathematicalFormula.split(" ");
+          formulaParts.forEach((part, index) => {
+            if (
+              part.charAt(0) === "{" &&
+              part.charAt(part.length - 1) === "}"
+            ) {
+              let fieldName = part.slice(1, part.length - 1);
+              this.state.formData.forEach((e, i) => {
+                if (e.name === fieldName && e.value) {
+                  formulaParts[index] = e.value;
+                }
+              });
+            }
+          });
+          try {
+            element.value = math.eval(formulaParts.join(" "));
+            let formData = this.state.formData;
+            this.setState({ formData: formData });
+            element.eventEmitter.emit("propsChanged", element);
+          } catch (error) {
+            element.value = "";
+            this.setState({ formData: formData });
+            element.eventEmitter.emit("propsChanged", element);
+          }
+        }
+      }, 100);
+    });
+    setTimeout(() => {
+      this.state.formData.forEach((element, index) => {
+        if (element.dependency) {
+          if (element.dependencyRelation === "isEmpty") {
+            this.state.formData.forEach((e, i) => {
+              if (e.name === element.dependencyField) {
+                if (e.value) {
+                  element.hidden = true;
+                  let formData = this.state.formData;
+                  this.setState({ formData: formData });
+                  element.eventEmitter.emit("propsChanged", element);
+                } else {
+                  element.hidden = false;
+                  let formData = this.state.formData;
+                  this.setState({ formData: formData });
+                  element.eventEmitter.emit("propsChanged", element);
+                }
+              }
+            });
+          } else if (element.dependencyRelation === "isNotEmpty") {
+            this.state.formData.forEach((e, i) => {
+              if (e.name === element.dependencyField) {
+                if (e.value) {
+                  element.hidden = false;
+                  let formData = this.state.formData;
+                  this.setState({ formData: formData });
+                  element.eventEmitter.emit("propsChanged", element);
+                } else {
+                  element.hidden = true;
+                  let formData = this.state.formData;
+                  this.setState({ formData: formData });
+                  element.eventEmitter.emit("propsChanged", element);
+                }
+              }
+            });
+          }
+        }
+      });
+    }, 50);
+
+    let triggers = window.DcFormRenderTriggers.filter(function (t) {
+      return t.refField === obj.name;
+    });
+
+    triggers.forEach((trigger) => {
+      if (trigger && trigger.field) {
+        var compareval;
+        if (typeof val == "object") {
+          compareval = val.label;
+        } else {
+          compareval = val;
+        }
+        if (trigger.refValue == compareval) {
+          if (trigger.display === "hide") $("#" + trigger.field + "Div").hide();
+          else $("#" + trigger.field + "Div").show();
+        } else {
+          if (trigger.display === "hide") $("#" + trigger.field + "Div").show();
+          else $("#" + trigger.field + "Div").hide();
+        }
+      }
+    });
+  };
+  componentDidUpdate(pre, curr) {
+    if (this.props.isComponentUpdate == true) {
+      if (pre.data !== this.props.data) {
+        this.setState({ formData: this.props.data });
+      }
+    }
+  }
+  componentDidMount() {
+    if (window.DcFormRenderTriggers.length) {
+      window.DcFormRenderTriggers.forEach((t) => {
+        const triggerField = t.refField;
+        const triggerValue = t.refValue;
+        const currentElement = this.state.formData.find(
+          (i) => i.name === triggerField
+        );
+
+        if (currentElement) {
+          const currentValue =
+            currentElement.type === "select"
+              ? // By logic, we should take select value to compare with, but by requirements comparing with label
+                currentElement.value
+                ? currentElement.value.label
+                : currentElement.value // for select we have an object like { label: 'label', value: 'value'}
+              : currentElement.value;
+
+          if (triggerValue !== currentValue && t.display === "show") {
+            $("#" + t.field + "Div").hide();
+          }
+          if (triggerValue === currentValue && t.display === "hide") {
+            $("#" + t.field + "Div").hide();
+          }
+        }
+      });
+    }
+
+    $(".ControlDescription").tooltipSpecial();
+  }
+
+  handleCheckboxChange = (evt, index) => {
+    let formData = this.state.formData;
+    let newValue = formData[index].values || [];
+    let indexArr = newValue.findIndex((x) => x.value == evt.value);
+    if (evt.checked) {
+      newValue = newValue.concat(evt.value);
+      if (indexArr > -1) {
+        newValue[indexArr].selected = true;
+      }
+    } else {
+      newValue = newValue.filter((v) => v !== evt.value);
+      if (indexArr > -1) {
+        newValue[indexArr].selected = false;
+      }
+    }
+    formData[index].value = newValue;
+    this.setState({ formData: formData });
+  };
+
+  handleGrid2Change = (index) => (value) => {
+    const formData = this.state.formData;
+    formData[index].value = value;
+    this.setState({ formData: formData });
+  };
+
+  handleFileChange = (uploadedFiles, index) => {
+    let flag = true;
+    let files = new FormData();
+    for (let i = 0; i < uploadedFiles.length; i++) {
+      let uploadedFileType = uploadedFiles[i].type;
+      if (uploadedFileType === "") {
+        uploadedFileType =
+          uploadedFiles[i].name.split(".")[
+            uploadedFiles[i].name.split(".").length - 1
+          ];
+      }
+      if (!(this.allowedFileTypes.indexOf(uploadedFileType) >= 0)) {
+        toastr.error(
+          uploadedFiles[i].name +
+            " is an invalid file type. Only 'PDF / PNG / JPEG / RTF / DOCX / XLSX / TXT / MSG' files are allowed."
+        );
+        flag = false;
+        return false;
+      } else {
+        files.append("files", uploadedFiles.item(i));
+      }
+    }
+
+    if (flag === false) {
+      return false;
+    } else {
+      let formData = this.state.formData;
+      fetch(
+        window.location.protocol +
+          "//" +
+          window.location.host +
+          "/ActionCentre/UploadFiles",
+        {
+          // Your POST endpoint
+          method: "POST",
+          headers: {
+            dataType: "json",
+            processData: false,
+          },
+          body: files, // This is your file object
+        }
+      )
+        .then((response) => {
+          response
+            .json()
+            .then((responseData) => {
+              if (formData[index].multiple === true) {
+                formData[index].value = formData[index].value
+                  ? [...formData[index].value, ...responseData]
+                  : responseData;
+              } else {
+                formData[index].value = responseData;
+              }
+              this.setState({ formData: formData });
+            })
+            .catch((error) => {
+              console.error(error);
+            });
+
+          // Your code for handling the data you get from the API
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  };
+
+  getControlStyle = (props = {}) => {
+    return {
+      width: props.controlWidth,
+      maxWidth: props.controlWidth,
+      margin: props.controlMargin,
+      height: props.controlHeight,
+      maxHeight: props.controlHeight,
+    };
+  };
+
+  generateControl(obj, i, formRender) {
+    let readOnly =
+      formRender.props.readOnly === undefined
+        ? false
+        : formRender.props.readOnly;
+    // // it is not supposed to be here and should be moved to the constructor
+    // // For now, as a workaround, just check if there is no "trigger" for this field
+    if (
+      obj.conditioanalField &&
+      window.DcFormRenderTriggers.findIndex((t) => t.field === obj.name) === -1
+    ) {
+      window.DcFormRenderTriggers.push({
+        field: obj.name,
+        display: obj.conditioanalDisplay,
+        refField: obj.conditioanalField,
+        refValue: obj.conditioanalValue,
+      });
+    }
+
+    const controlStyle = this.getControlStyle(obj);
+    switch (obj.type) {
+      case "select":
+        if (obj.parentName) {
+          let flag = false;
+          let parentObjData = {};
+          formRender.state.formData.every(function (parentObj) {
+            if (parentObj.name) {
+              if (obj.parentName.trim() === parentObj.name.trim()) {
+                parentObjData = jQuery.extend(true, {}, parentObj);
+                flag = true;
+                return false;
+              } else {
+                return true;
+              }
+            } else {
+              return true;
+            }
+          });
+          if (flag === false) return null;
+          else {
+            return (
+              <DependentDropdown
+                readOnly={readOnly}
+                handleDropdownChange={formRender.handleChange}
+                parentObjData={parentObjData}
+                index={i}
+                key={i}
+                {...obj}
+                controlStyle={controlStyle}
+              />
+            );
+          }
+        } else
+          return (
+            <DropDown
+              readOnly={readOnly}
+              handleDropdownChange={formRender.handleChange}
+              index={i}
+              key={i}
+              value={obj.value ? obj.value : ""}
+              {...obj}
+              controlStyle={controlStyle}
+            />
+          );
+      case "text": {
+        return (
+          <TextBox
+            readOnly={readOnly}
+            index={i}
+            handleInput={formRender.handleChange}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      }
+      case "date": {
+        if (!obj.isConverted) {
+          //obj.value = moment(obj.value).format(obj.format || "DD-MMMM-YYYY");;
+          obj.isConverted = true;
+        }
+        return (
+          <DatePicker
+            readOnly={readOnly}
+            index={i}
+            handleInput={formRender.handleChange}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      }
+      case "textarea":
+        return (
+          <TextArea
+            readOnly={readOnly}
+            index={i}
+            handleInput={formRender.handleChange}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "paragraph":
+        return (
+          <Paragraph index={i} key={i} {...obj} controlStyle={controlStyle} />
+        );
+      case "header":
+        return (
+          <Header index={i} key={i} {...obj} controlStyle={controlStyle} />
+        );
+      case "checkbox-group":
+        return (
+          <CheckBox
+            readOnly={readOnly}
+            handleCheckChange={formRender.handleCheckboxChange}
+            index={i}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "radio-group":
+        return (
+          <RadioBox
+            readOnly={readOnly}
+            handleRadioChange={formRender.handleChange}
+            index={i}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "number":
+        return (
+          <NumberBox
+            readOnly={readOnly}
+            checkDigitsNo={formRender.checkDigitsNo}
+            handleInput={formRender.handleChange}
+            index={i}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "file":
+        return (
+          <FileUpload
+            readOnly={readOnly}
+            setFilePreview={formRender.setFilePreview}
+            removeFile={formRender.removeFile}
+            handleInput={formRender.handleFileChange}
+            index={i}
+            key={i}
+            allowedFileTypes={formRender.allowedFileTypes}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "section":
+        return (
+          <Section
+            index={i}
+            key={"section" + i}
+            formRender={formRender}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "inlineGroup":
+        return (
+          <InlineGroup
+            index={i}
+            key={"InlineGroup" + i}
+            formRender={formRender}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "dynamicFields": {
+        if (!obj.finalElements) {
+          obj.finalElements = obj.elements.length;
+        }
+        return (
+          <DynamicFields
+            readOnly={readOnly}
+            index={i}
+            key={"dynamicFields" + i}
+            formRender={formRender}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      }
+      case "page":
+        return (
+          <Page
+            index={i}
+            key={"page" + i}
+            formRender={formRender}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "table":
+        return (
+          <Table
+            index={i}
+            key={"table" + i}
+            formRender={formRender}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      case "currency": {
+        return (
+          <Currency
+            readOnly={formRender.props.readOnly}
+            index={i}
+            key={i}
+            value={
+              obj.value
+                ? obj.value.value === "undefine"
+                  ? obj.value
+                  : obj.value.value
+                : ""
+            }
+            currencyValue={obj.currencyValue ? obj.currencyValue : ""}
+            min={formRender.props.min}
+            max={formRender.props.max}
+            handleCurrencyChange={formRender.handleChange}
+            {...obj}
+            controlStyle={controlStyle}
+          />
+        );
+      }
+      case "grid":
+        return (
+          <Grid
+            readOnly={readOnly}
+            index={i}
+            key={"grid" + i}
+            formRender={formRender}
+            {...obj}
+            onChange={(...args) => formRender.handleGridChange(i, ...args)}
+            controlStyle={controlStyle}
+          />
+        );
+      case "grid2":
+        return (
+          <Grid2
+            readOnly={readOnly}
+            index={i}
+            key={"grid2" + i}
+            formRender={formRender}
+            {...obj}
+            onChange={formRender.handleGrid2Change(i)}
+            controlStyle={controlStyle}
+          />
+        );
+      default:
+        return null;
+    }
+  }
+  generateLayout(layout, formRender) {
+    return layout.elements.map((element, i) => {
+      let obj = null;
+      let index = 0;
+      if (
+        element.type === "section" ||
+        element.type === "inlineGroup" ||
+        element.type === "dynamicFields" ||
+        element.type === "page" ||
+        element.type === "table" ||
+        element.type === "grid2"
+      ) {
+        obj = element;
+        index = 1000000 + i;
+      } else {
+        for (let j = 0; j < formRender.state.formData.length; j++) {
+          if (formRender.state.formData[j].name !== element.name) continue;
+          obj = formRender.state.formData[j];
+          index = j;
+          break;
+        }
+      }
+
+      if (obj) {
+        return formRender.generateControl(obj, index, formRender);
+      } else return null;
+    });
+  }
+
+  generateDynamicLayout(elements, formRender) {
+    return elements.map((element, i) => {
+      let obj = null;
+      let index = 0;
+      for (let j = 0; j < formRender.state.formData.length; j++) {
+        if (formRender.state.formData[j].name !== element.name) continue;
+        obj = formRender.state.formData[j];
+        index = j;
+        break;
+      }
+
+      if (obj) {
+        return formRender.generateControl(obj, index, formRender);
+      } else return null;
+    });
+  }
+
+  generateForm() {
+    let formRender = this;
+
+    if (!formRender.state || !formRender.state.formData) return;
+
+    let layout = null;
+    for (let j = 0; j < formRender.state.formData.length; j++) {
+      if (formRender.state.formData[j].type !== "layout") continue;
+      layout = formRender.state.formData[j];
+      break;
+    }
+
+    if (layout && layout.elements) {
+      return formRender.generateLayout(layout, formRender);
+    } else
+      return formRender.state.formData.map((obj, i) => {
+        return formRender.generateControl(obj, i, formRender);
+      });
+  }
+  render() {
+    if (this.props.data) {
+      this.props.data.forEach((d, index) => {
+        if (d.dependency && d.dependencyRelation === "isNotEmpty") {
+          this.props.data.forEach((e, i) => {
+            if (e.name === this.props.data[index].dependencyField) {
+              if (e.value) {
+                this.props.data[index].hidden = false;
+              } else {
+                this.props.data[index].hidden = true;
+              }
+            }
+          });
+        } else {
+          this.props.data.forEach((e, i) => {
+            if (e.name === this.props.data[index].dependencyField) {
+              if (e.value) {
+                this.props.data[index].hidden = true;
+              } else {
+                this.props.data[index].hidden = false;
+              }
+            }
+          });
+        }
+
+        if (d.type === "date") {
+          this.props.data[index] = DatePicker.getMinMax(d, this.props.data);
+        }
+
+        this.props.data[index].eventEmitter = new EventEmitter3();
+      });
+    }
+    window.DcFormRenderTriggers = window.DcFormRenderTriggers || [];
+
+    return (
+      <div>
+        <div>{this.generateForm()}</div>
+        {this.state.filePreviewSource !== "" && (
+          <div className="filePreview" onClick={this.closePreview}>
+            <div
+              className="filePreviewContent"
+              dangerouslySetInnerHTML={{ __html: this.state.filePreviewSource }}
+            />
+            <span className="filePreviewClose">
+              <i className="glyphicon glyphicon-remove p-t-5" />
+              <span className="bold">Close File</span>
+            </span>
+          </div>
+        )}
+      </div>
+    );
+  }
+}
