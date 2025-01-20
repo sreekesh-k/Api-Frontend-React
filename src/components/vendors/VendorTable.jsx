@@ -59,16 +59,17 @@ function VendorTable(props) {
     emptyText: loading ? "Processing..." : "No Data",
   };
   const handleTableChnge = (_, __, sorter) => {
-    const columnName = sorter.columnKey;
-    const order = sorter.order;
-    const orderValue = order == "ascend" ? 0 : 1;
-    if (order) {
-      getVendorData(0, columnName, orderValue);
-      setCurrentPage(1);
-    } else {
-      getVendorData(0, "", 0);
-      setCurrentPage(1);
-    }
+    // const columnName = sorter.columnKey;
+    // const order = sorter.order;
+    // const orderValue = order == "ascend" ? 0 : 1;
+    // if (order) {
+    //   getVendorData(0, columnName, orderValue);
+    //   setCurrentPage(1);
+    // } else {
+    //   getVendorData(0, "", 0);
+    //   setCurrentPage(1);
+    // }
+    console.log("handleTableChange");
   };
   const columnsUserTable = [
     {

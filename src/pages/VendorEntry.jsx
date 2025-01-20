@@ -1,6 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import VendorApp from "../components/vendorsEntry/VendorApp";
+import { Provider } from "react-redux";
+import store from "../store/Store";
 
 function VendorEntry() {
   // Get query params from the URL
@@ -12,7 +14,12 @@ function VendorEntry() {
 
   return (
     <>
-      <VendorApp />
+      <Provider store={store}>
+        <VendorApp />
+        {/* <VendorApp VendorDetailsForm={VendorDetailsForm} VendorCategorization={VendorCategorization} VendorRating={VendorRating} /> */}
+      </Provider>
+
+      {/* Display the vendor details (DEBUG)*/}
       {/* <div>
         <h1>Vendor Details</h1>
         <p>Vendor ID: {vendorId}</p>
