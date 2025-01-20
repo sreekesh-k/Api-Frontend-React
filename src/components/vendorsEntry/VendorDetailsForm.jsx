@@ -1,5 +1,6 @@
-﻿import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect, Fragment } from "react";
 import { Form, Button, Upload, Select, Input } from "antd";
+import { useSelector, useDispatch } from "react-redux";
 import FormRender from "./FormRender";
 function VendorDetailsForm(props) {
   //Imports
@@ -9,70 +10,118 @@ function VendorDetailsForm(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   //Redux
-  // const dispatch = ReactRedux.useDispatch();
-  const [
-    {
-      FormData,
-      IsActive,
-      URN,
-      InActivationDate,
-      ReasonOfInactivation,
-      InActivationEvidence,
-      isInViewMode,
-      vendorId,
-      isCentrilized,
-    },
-    setState,
-  ] = useState({
-    FormData: [
-      {
-        Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-        URN: "V0260",
-        VendorName: "VN001",
-        VendorCode: "VC002",
-        Type: "DSA",
-        Department: "Test Dept",
-        NatureOfService: "Cash handling",
-        State: "Andra Pradesh",
-        MaterialityDate: "2024-10-29T00:00:00",
-        Status: "Inactive",
-        FilledFormId: "00000000-0000-0000-0000-000000000000",
-        TemplateId: "00000000-0000-0000-0000-000000000000",
-        TaskId: "00000000-0000-0000-0000-000000000000",
-        FilledForm: null,
-        TotalNumberOfRecords: 291,
-        InActivationEvidence: "",
-        InActivationDate: null,
-        ReasonOfInactivation: "",
-        Version: "Live",
-        CreatedBy: "Surya narayanan",
-        ModifiedBy: "Surya narayanan",
-        ModifiedDate: "2024-11-21T13:07:21.037",
-        CreatedDate: "0001-01-01T00:00:00",
-        Materiality: "2024-10-29T00:00:00",
-        id: "653a",
-      },
-    ],
-    IsActive: true,
-    URN: "",
-    InActivationDate: "",
-    ReasonOfInactivation: "",
-    InActivationEvidence: "",
-    isInViewMode: true,
-    vendorId: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-    isCentrilized: true,
-  });
+  const dispatch = useDispatch();
+  const {
+    FormData,
+    IsActive,
+    URN,
+    InActivationDate,
+    ReasonOfInactivation,
+    InActivationEvidence,
+    isInViewMode,
+    vendorId,
+    isCentrilized,
+  } = useSelector((state) => ({
+    FormData: state.details.FormData,
+    IsActive: state.details.IsActive,
+    URN: state.details.URN,
+    InActivationDate: state.details.InActivationDate,
+    ReasonOfInactivation: state.details.ReasonOfInactivation,
+    InActivationEvidence: state.details.InActivationEvidence,
+    isInViewMode: state.editAccess.isInViewMode,
+    vendorId: state.vendorId,
+    isCentrilized: state.isUserCentrilized,
+  }));
   const handleFileChange = ({ fileList }) => {
     if (fileList.length !== 0) {
       //To upload only 1 file at a time
       file = [fileList[fileList.length - 1]];
-      setState((prev) => ({ ...prev, InActivationEvidence: file }));
+      dispatch({
+        type: "SET_INACTIVATION",
+        payload: { InActivationEvidence: file },
+      });
     } else {
       //If the current file is deleted
-      setState((prev) => ({ ...prev, InActivationEvidence: "" }));
+      dispatch({
+        type: "SET_INACTIVATION",
+        payload: { InActivationEvidence: "" },
+      });
     }
   };
   //To Fetch the URN , when selected Vendor Type is one of the DD types
+  // const fetchLatestURN = () => {
+  //   //Fetch URN
+  //   fetch("/Vendor/GetLatestURN")
+  //     .then((response) => response.json())
+  //     .then((res) => {
+  //       if (res.Status == "success") {
+  //         dispatch({
+  //           type: "SET_URN",
+  //           payload: { URN: res.data },
+  //         });
+  //       } else {
+  //         toastr.error(res.Message);
+  //       }
+  //     })
+  //     .catch((err) => toastr.error("URN Fetch Failure"));
+  // };
+
+  // useEffect(() => {
+  //   //Fetch Filled Data
+  //   fetch("/Vendor/GetVendorById?Id=" + vendorId)
+  //     .then((response) => response.json())
+  //     .then((res) => {
+  //       if (res.Status == "success") {
+  //         let data = JSON.parse(res.Data.FormData || res.Data.JsonForm);
+  //         updateTitle(`VENDOR MASTER: ${res.Data.Name}`);
+  //         if (data.action) {
+  //           dataCopy = props.getData(data.action);
+  //           dispatch({
+  //             type: "CHANGE_VENOR_DETAILS_FORM",
+  //             payload: { FormData: dataCopy, IsActive: res.Data.IsActive },
+  //           });
+  //         } else {
+  //           dataCopy = props.getData(data);
+  //           dispatch({
+  //             type: "CHANGE_VENOR_DETAILS_FORM",
+  //             payload: { FormData: dataCopy, IsActive: res.Data.IsActive },
+  //           });
+  //         }
+  //         if (res.Data.MaterialityDate != null) {
+  //           setIssuanceDate(
+  //             moment(res.Data.MaterialityDate).format("DD-MM-YYYY")
+  //           );
+  //         }
+  //         if (res.Data.URN) {
+  //           dispatch({
+  //             type: "SET_URN",
+  //             payload: { URN: res.Data.URN },
+  //           });
+  //         } else {
+  //           fetchLatestURN();
+  //         }
+  //         if (res.Data.IsActive == false) {
+  //           if (res.Data.InActivationDate)
+  //             IDate = moment(res.Data.InActivationDate).format("YYYY-MM-DD");
+  //           dispatch({
+  //             type: "SET_INACTIVATION",
+  //             payload: {
+  //               InActivationDate: IDate,
+  //               ReasonOfInactivation: res.Data.ReasonOfInactivation,
+  //               InActivationEvidence: [res.Data.ReasonOfInactivationFiles],
+  //             },
+  //           });
+  //         }
+  //         if (res.Data.IsTemplateChanged)
+  //           InfoPopup({ title: "Template", msg: "Template has changed" });
+  //       } else {
+  //         toastr.error(res.Message);
+  //       }
+  //     })
+  //     .catch((err) => toastr.error("Form Fetch Failure"))
+  //     .finally(() => setIsLoading(false));
+  // }, []);
+
   if (isLoading) {
     return (
       <div className="loadingOverlayVd">
@@ -86,7 +135,7 @@ function VendorDetailsForm(props) {
   }
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div className="vendorDetails-container">
         <Form className="vd-staticValues-container" layout="vertical">
           <Form.Item label="URN">
@@ -100,10 +149,10 @@ function VendorDetailsForm(props) {
               value={IsActive}
               disabled={isInViewMode || !isCentrilized}
               onChange={(e) =>
-                setState((prev) => ({
-                  ...prev,
-                  IsActive: e.target.value,
-                }))
+                dispatch({
+                  type: "SET_IS_ACTIVE",
+                  payload: { IsActive: e },
+                })
               }
             >
               <Option value={true}>Active</Option>
@@ -111,17 +160,17 @@ function VendorDetailsForm(props) {
             </Select>
           </Form.Item>
           {IsActive == false && (
-            <React.Fragment>
+            <Fragment>
               <Form.Item label="Inactivation Date">
                 <Input
                   type="date"
                   className="vd-input vd-w10"
                   value={InActivationDate}
                   onChange={(e) =>
-                    setState((prev) => ({
-                      ...prev,
-                      InActivationDate: e.target.value,
-                    }))
+                    dispatch({
+                      type: "SET_INACTIVATION",
+                      payload: { InActivationDate: e.target.value },
+                    })
                   }
                   disabled={isInViewMode}
                 />
@@ -142,29 +191,41 @@ function VendorDetailsForm(props) {
                   className="vd-input vd-w85"
                   value={ReasonOfInactivation}
                   onChange={(e) =>
-                    setState((prev) => ({
-                      ...prev,
-                      ReasonOfInactivation: e.target.value,
-                    }))
+                    dispatch({
+                      type: "SET_INACTIVATION",
+                      payload: { ReasonOfInactivation: e.target.value },
+                    })
                   }
                   disabled={isInViewMode}
                 />
               </Form.Item>
-            </React.Fragment>
+            </Fragment>
           )}
         </Form>
         <div id="formDesignerArea">
           {!isInViewMode &&
             isCentrilized &&
             FormData &&
-            FormData.length > 0 && <FormRender data={FormData} />}
+            FormData.length > 0 && (
+              <FormRender
+                data={FormData}
+                readOnly={false}
+                isComponentUpdate={true}
+              />
+            )}
 
           {(isInViewMode || !isCentrilized) &&
             FormData &&
-            FormData.length > 0 && <FormRender data={FormData} />}
+            FormData.length > 0 && (
+              <FormRender
+                data={FormData}
+                readOnly={true}
+                isComponentUpdate={true}
+              />
+            )}
         </div>
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 }
 
