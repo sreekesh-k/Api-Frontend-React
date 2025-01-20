@@ -1,54 +1,47 @@
 ﻿import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import FormRender from "./FormRender";
+import { useDispatch, useSelector } from "react-redux";
+import { selectVendorAdditionalDetails } from "../../slices/VendorSlice";
 
 function AdditionalDetails(props) {
   const [isTemplateUpdated, setIsTemplateUpdated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const [{ FilledFormJson, isInViewMode, vendorId, isCentrilized }, setState] =
-    useState({
-      FilledFormJson: [],
-      isInViewMode: true,
-      vendorId: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-      isCentrilized: true,
-    });
+  const dispatch = useDispatch();
+  const { FilledFormJson, isInViewMode, vendorId, isCentrilized } = useSelector(
+    selectVendorAdditionalDetails
+  );
 
-  useEffect(() => {
-    //Fetch Form
-    setState((props) => ({
-      ...props,
-      FilledFormJson: [
-        {
-          Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-          URN: "V0260",
-          VendorName: "VN001",
-          VendorCode: "VC002",
-          Type: "DSA",
-          Department: "Test Dept",
-          NatureOfService: "Cash handling",
-          State: "Andra Pradesh",
-          MaterialityDate: "2024-10-29T00:00:00",
-          Status: "Inactive",
-          FilledFormId: "00000000-0000-0000-0000-000000000000",
-          TemplateId: "00000000-0000-0000-0000-000000000000",
-          TaskId: "00000000-0000-0000-0000-000000000000",
-          FilledForm: null,
-          TotalNumberOfRecords: 291,
-          InActivationEvidence: "",
-          InActivationDate: null,
-          ReasonOfInactivation: "",
-          Version: "Live",
-          CreatedBy: "Surya narayanan",
-          ModifiedBy: "Surya narayanan",
-          ModifiedDate: "2024-11-21T13:07:21.037",
-          CreatedDate: "0001-01-01T00:00:00",
-          Materiality: "2024-10-29T00:00:00",
-          id: "653a",
-        },
-      ],
-    }));
-  }, []);
+  // useEffect(() => {
+  //   //Fetch Form
+  //   fetch("/Vendor/GetVendorAdditionalDetailsByVendorId?VendorId=" + vendorId)
+  //     .then((response) => response.json())
+  //     .then((val) => {
+  //       if (val.status == "success") {
+  //         res = val.data;
+  //         //setIsTemplateUpdated(res.IsTemplateChanged)
+  //         let data = JSON.parse(res.FilledFormJson);
+  //         if (data.action) {
+  //           dataCopy = props.getData(data.action);
+  //           dispatch({
+  //             type: "ADDITIONAL_DETAILS_FORM",
+  //             payload: { FilledFormJson: dataCopy },
+  //           });
+  //         } else {
+  //           dataCopy = props.getData(data);
+  //           dispatch({
+  //             type: "ADDITIONAL_DETAILS_FORM",
+  //             payload: { FilledFormJson: dataCopy },
+  //           });
+  //         }
+  //       } else {
+  //         toastr.error(val.message);
+  //       }
+  //     })
+  //     .catch((err) => toastr.error("Form Fetch Failure"))
+  //     .finally(() => setIsLoading(false));
+  // }, []);
 
   if (isLoading)
     return (
@@ -62,7 +55,7 @@ function AdditionalDetails(props) {
     );
 
   return (
-    <React.Fragment>
+    <Fragment>
       <div className="vendorAdditionalDetails-container">
         {isTemplateUpdated != false && (
           <InfoPopup
@@ -73,13 +66,25 @@ function AdditionalDetails(props) {
 
         {FilledFormJson &&
           (isInViewMode || !isCentrilized) &&
-          FilledFormJson.length > 0 && <FormRender data={FilledFormJson} />}
+          FilledFormJson.length > 0 && (
+            <FormRender
+              data={FilledFormJson}
+              readOnly={true}
+              isComponentUpdate={true}
+            />
+          )}
         {FilledFormJson &&
           !isInViewMode &&
           isCentrilized &&
-          FilledFormJson.length > 0 && <FormRender data={FilledFormJson} />}
+          FilledFormJson.length > 0 && (
+            <FormRender
+              data={FilledFormJson}
+              readOnly={false}
+              isComponentUpdate={true}
+            />
+          )}
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 }
 

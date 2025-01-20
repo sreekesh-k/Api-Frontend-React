@@ -285,11 +285,19 @@ export const selectVendorCategorization = createSelector(
     isInViewMode: vendor.editAccess.isInViewMode,
     vendorId: vendor.vendorId,
     isCentrilized: vendor.isUserCentrilized,
-    ReviewerRemarks:
-      vendor.categorization.notificationData.ReviewerRemarks,
-    LastReviewSentOn:
-      vendor.categorization.notificationData.LastReviewSentOn,
+    ReviewerRemarks: vendor.categorization.notificationData.ReviewerRemarks,
+    LastReviewSentOn: vendor.categorization.notificationData.LastReviewSentOn,
     Reviewers: vendor.categorization.notificationData.Reviewers,
+  })
+);
+
+export const selectVendorAdditionalDetails = createSelector(
+  [selectVendor],
+  (vendor) => ({
+    FilledFormJson: vendor.additionalDetails.FilledFormJson,
+    isInViewMode: vendor.editAccess.isInViewMode,
+    vendorId: vendor.vendorId,
+    isCentrilized: vendor.isUserCentrilized,
   })
 );
 
