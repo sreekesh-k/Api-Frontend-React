@@ -11,10 +11,10 @@ function Vendor() {
   return (
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
       <VendorTable />
-      <div style={{ padding: "20px" }}>
+      {/* <div style={{ padding: "20px" }}>
         <FormBuilder onSave={setFormSchema} />
         {formSchema.length > 0 && <FormRenderer schema={formSchema} />}
-      </div>
+      </div> */}
     </div>
   );
 }

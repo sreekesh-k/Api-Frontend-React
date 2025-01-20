@@ -12,11 +12,6 @@ import { useNavigate } from "react-router-dom";
 function VendorTable(props) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
-  //const despatch  = useDespatch();
-
-  // const ratingData = useSelector((state) => state.vendor.rating.ratingData);
-
   const [vendorData, setVendorData] = useState([
     {
       Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
@@ -47,9 +42,18 @@ function VendorTable(props) {
     },
   ]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalRecords, setTotalRecords] = useState();
+  const [totalRecords, setTotalRecords] = useState(0);
+  const [searchValue, setSearchValue] = useState("");
   const recordsLimit = 10;
   const pageSize = 10;
+
+  // SEARCH NEEDS MORE OPTIMIZATION, currently it is done this way because input field change does not reflct while typing
+  let searchInput = document.getElementById("HeaderFilterSearch");
+  // searchInput.addEventListener("change", (e) => {
+  //   setCurrentPage(1);
+  //   //console.log(e.target.value)
+  //   setSearchValue(e.target.value);
+  // });
 
   let locale = {
     emptyText: loading ? "Processing..." : "No Data",
@@ -81,18 +85,18 @@ function VendorTable(props) {
       key: "VendorName",
       responsive: ["lg"],
       width: "10vw",
-      //   render: (text, data) => {
-      //     return (
-      //       <Tooltip title={text}>
-      //         {text !== null
-      //           ? text.length > 13
-      //             ? text.slice(0, 13)
-      //             : text
-      //           : text}
-      //         {text !== null && text.length > 14 ? ".." : ""}
-      //       </Tooltip>
-      //     );
-      //   },
+      // render: (text, data) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text !== null
+      //         ? text.length > 13
+      //           ? text.slice(0, 13)
+      //           : text
+      //         : text}
+      //       {text !== null && text.length > 14 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"Vendor code".toUpperCase()}</b>,
@@ -123,15 +127,15 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       width: "10vw",
-      //   render: (text, data) => {
-      //     return (
-      //       <Tooltip title={text}>
-      //         {text !== null ? text.slice(0, 12) : text}
-      //         {text !== null && text.length > 12 ? ".." : ""}
-      //       </Tooltip>
-      //     );
-      //     // return <Tooltip title={text}>{text}</Tooltip>
-      //   },
+      // render: (text, data) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text !== null ? text.slice(0, 12) : text}
+      //       {text !== null && text.length > 12 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      //   // return <Tooltip title={text}>{text}</Tooltip>
+      // },
     },
     {
       title: (
@@ -142,14 +146,14 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       width: "13.5vw",
-      //   render: (text, data) => {
-      //     return (
-      //       <Tooltip title={text}>
-      //         {text !== null ? text.slice(0, 18) : text}
-      //         {text !== null && text.length > 18 ? ".." : ""}
-      //       </Tooltip>
-      //     );
-      //   },
+      // render: (text, data) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text !== null ? text.slice(0, 18) : text}
+      //       {text !== null && text.length > 18 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"State".toUpperCase()}</b>,
@@ -158,25 +162,25 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       width: "9vw",
-      //   render: (text) => {
-      //     return (
-      //       <Tooltip title={text}>
-      //         {text != null ? text.slice(0, 10) : text}
-      //         {text !== null && text.length > 10 ? ".." : ""}
-      //       </Tooltip>
-      //     );
-      //   },
+      // render: (text) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text != null ? text.slice(0, 10) : text}
+      //       {text !== null && text.length > 10 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"Materiality".toUpperCase()}</b>,
       dataIndex: "Materiality",
       key: "Materiality",
       responsive: ["lg"],
-      //   render: function (data) {
-      //     if (data != null) {
-      //       return moment(data).format("DD-MM-YYYY");
-      //     }
-      //   },
+      // render: function (data) {
+      //   if (data != null) {
+      //     return moment(data).format("DD-MM-YYYY");
+      //   }
+      // },
       width: "9vw",
     },
     {
@@ -214,57 +218,62 @@ function VendorTable(props) {
 
     return transformedData;
   };
-  const getVendorData = (page = 1, columnName = "", sortDirection = 0) => {
-    setLoading(true);
+  // const getVendorData = (offset, columnName = "", sortDirection = 0) => {
+  //   setLoading(true);
+  //   let filterData = [];
+  //   if (props.FilterOptions)
+  //     filterData = filterDataFormat(JSON.parse(props.FilterOptions));
+  //   fetch(`/Vendor/GetAllVendorsDynamic`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       Draw: 0,
+  //       Start: offset,
+  //       Length: 10,
+  //       Search: {
+  //         Value: searchValue,
+  //         IsRegexValue: true,
+  //       },
+  //       Columns: [
+  //         {
+  //           Data: columnName,
+  //           Name: "",
+  //           Searchable: true,
+  //           Orderable: true,
+  //           Search: {
+  //             Value: "",
+  //             IsRegexValue: true,
+  //           },
+  //           IsOrdered: true,
+  //           OrderNumber: 0,
+  //           SortDirection: sortDirection,
+  //         },
+  //       ],
+  //       FilterParams: JSON.stringify(filterData),
+  //     }),
+  //   })
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       setVendorData(data.data);
+  //       setTotalRecords(data.recordsTotal);
+  //     })
+  //     .finally(() => setLoading(false));
+  // };
 
-    fetch(`http://localhost:5000/vendors?_start=${page}&_limit=${recordsLimit}`)
-      .then((response) => {
-        setTotalRecords(291);
-        return response.json();
-      })
-      .then((data) => {
-        despatch(storeVendorDataAction({ ratingData: data }));
-        // setVendorData(data);
-      })
-      .finally(() => setLoading(false));
-  };
-  // useEffect(() => {
-  //   localStorage.setItem("isViewMode", JSON.stringify(true)); // restores the mdoe to view only in all the tabs
-  //   sessionStorage.removeItem("vendorDetails");
-  // }, []);
+  useEffect(() => {
+    localStorage.setItem("isViewMode", JSON.stringify(true)); // restores the mdoe to view only in all the tabs
+    sessionStorage.removeItem("vendorDetails");
+  }, []);
 
   // useEffect(() => {
   //   getVendorData((currentPage - 1) * recordsLimit, "", 0);
-  // }, []);
+  // }, [props.FilterOptions, searchValue]);
 
   sessionStorage.setItem("activeTabId", "VendorDetails");
-  sessionStorage.setItem("vendorDetails", {
-    Id: "3ae603b5-6d6d-4b47-88d1-010ebf671ffb",
-    URN: "V0260",
-    VendorName: "VN001",
-    VendorCode: "VC002",
-    Type: "DSA",
-    Department: "Test Dept",
-    NatureOfService: "Cash handling",
-    State: "Andra Pradesh",
-    MaterialityDate: "2024-10-29T00:00:00",
-    Status: "Inactive",
-    FilledFormId: "00000000-0000-0000-0000-000000000000",
-    TemplateId: "00000000-0000-0000-0000-000000000000",
-    TaskId: "00000000-0000-0000-0000-000000000000",
-    FilledForm: null,
-    TotalNumberOfRecords: 291,
-    InActivationEvidence: "",
-    InActivationDate: null,
-    ReasonOfInactivation: "",
-    Version: "Live",
-    CreatedBy: "Surya narayanan",
-    ModifiedBy: "Surya narayanan",
-    ModifiedDate: "2024-11-21T13:07:21.037",
-    CreatedDate: "0001-01-01T00:00:00",
-    Materiality: "2024-10-29T00:00:00",
-    id: "653a",
-  });
   // CHANGE_PAGE
   const handlePageChange = (e) => {
     if (e === 1) {
@@ -282,18 +291,40 @@ function VendorTable(props) {
 
   const handleRowClick = (record) => {
     sessionStorage.setItem("vendorType", record.Type);
+    // window.location = `/Vendor/VendorDetails?id=${record.Id}`;
     navigate(`/vendordetail?id=${record.Id}`);
   };
 
+  const TableFooter = () => {
+    return (
+      <div
+        style={{ display: "flex", justifyContent: "space-between" }}
+        id="vendorTableFooter"
+      >
+        <div>
+          <p>{`Showing ${vendorData.length} of ${totalRecords} Records`}</p>
+        </div>
+        <div>
+          <Pagination
+            defaultCurrent={currentPage}
+            current={currentPage}
+            showSizeChanger={false}
+            total={totalRecords}
+            pageSize={pageSize}
+            onChange={handlePageChange}
+          />
+        </div>
+      </div>
+    );
+  };
   return (
     <div style={{ cursor: "pointer" }}>
       <div
         style={{
-          width: "100%",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingTop: "2rem",
+          width: "94.45vw",
+          marginTop: "4vh",
+          marginLeft: ".5vw",
+          marginBottom: "3vh",
         }}
         id="vendorTableWrapper"
       >
@@ -304,7 +335,6 @@ function VendorTable(props) {
           pagination={false}
           columns={columnsUserTable}
           dataSource={vendorData}
-          //          dataSource={ratingData}
           locale={locale}
           rowClassName={(record, index) => (index % 2 === 0 ? "even" : "odd")}
           loading={loading}
@@ -316,28 +346,7 @@ function VendorTable(props) {
               },
             };
           }}
-          footer={() => {
-            return (
-              <div
-                style={{ display: "flex", justifyContent: "space-between" }}
-                id="vendorTableFooter"
-              >
-                <div>
-                  <p>{`Showing ${vendorData.length} of ${totalRecords} Records`}</p>
-                </div>
-                <div>
-                  <Pagination
-                    defaultCurrent={currentPage}
-                    current={currentPage}
-                    showSizeChanger={false}
-                    total={totalRecords}
-                    pageSize={pageSize}
-                    onChange={handlePageChange}
-                  />
-                </div>
-              </div>
-            );
-          }}
+          footer={() => <TableFooter />}
         />
       </div>
     </div>
