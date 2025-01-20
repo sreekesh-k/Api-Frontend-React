@@ -3,7 +3,9 @@ import { Form, Button, Upload, Select, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
 import {
   setIsActive,
-  setInactivation
+  setInactivation,
+  changeVendorDetailsForm,
+  setURN,
 } from "../../slices/VendorSlice";
 import FormRender from "./FormRender";
 function VendorDetailsForm(props) {
@@ -53,12 +55,9 @@ function VendorDetailsForm(props) {
   //     .then((response) => response.json())
   //     .then((res) => {
   //       if (res.Status == "success") {
-  //         dispatch({
-  //           type: "SET_URN",
-  //           payload: { URN: res.data },
-  //         });
+  //         dispatch(setURN({ URN: res.data }));
   //       } else {
-  //         toastr.error(res.Message);
+  //         ///toastr.error(res.Message);
   //       }
   //     })
   //     .catch((err) => toastr.error("URN Fetch Failure"));
@@ -74,16 +73,20 @@ function VendorDetailsForm(props) {
   //         updateTitle(`VENDOR MASTER: ${res.Data.Name}`);
   //         if (data.action) {
   //           dataCopy = props.getData(data.action);
-  //           dispatch({
-  //             type: "CHANGE_VENOR_DETAILS_FORM",
-  //             payload: { FormData: dataCopy, IsActive: res.Data.IsActive },
-  //           });
+  //           dispatch(
+  //             changeVendorDetailsForm({
+  //               FormData: dataCopy,
+  //               IsActive: res.Data.IsActive,
+  //             })
+  //           );
   //         } else {
   //           dataCopy = props.getData(data);
-  //           dispatch({
-  //             type: "CHANGE_VENOR_DETAILS_FORM",
-  //             payload: { FormData: dataCopy, IsActive: res.Data.IsActive },
-  //           });
+  //           dispatch(
+  //             changeVendorDetailsForm({
+  //               FormData: dataCopy,
+  //               IsActive: res.Data.IsActive,
+  //             })
+  //           );
   //         }
   //         if (res.Data.MaterialityDate != null) {
   //           setIssuanceDate(
@@ -91,24 +94,20 @@ function VendorDetailsForm(props) {
   //           );
   //         }
   //         if (res.Data.URN) {
-  //           dispatch({
-  //             type: "SET_URN",
-  //             payload: { URN: res.Data.URN },
-  //           });
+  //           dispatch(setURN({ URN: res.Data.URN }));
   //         } else {
   //           fetchLatestURN();
   //         }
   //         if (res.Data.IsActive == false) {
   //           if (res.Data.InActivationDate)
   //             IDate = moment(res.Data.InActivationDate).format("YYYY-MM-DD");
-  //           dispatch({
-  //             type: "SET_INACTIVATION",
-  //             payload: {
+  //           dispatch(
+  //             setInactivation({
   //               InActivationDate: IDate,
   //               ReasonOfInactivation: res.Data.ReasonOfInactivation,
   //               InActivationEvidence: [res.Data.ReasonOfInactivationFiles],
-  //             },
-  //           });
+  //             })
+  //           );
   //         }
   //         if (res.Data.IsTemplateChanged)
   //           InfoPopup({ title: "Template", msg: "Template has changed" });
