@@ -1,0 +1,225 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  activeTab: sessionStorage.getItem("activeTabId") || "VendorDetails",
+  vendorType:
+    sessionStorage.getItem("vendorType") !== null
+      ? sessionStorage.getItem("vendorType")
+      : "DSA",
+  vendorId:
+    sessionStorage.getItem("vendorDetails") !== null
+      ? JSON.parse(sessionStorage.getItem("vendorDetails")).VendorId
+      : "",
+  isUserCentrilized: true,
+  vendorName:
+    sessionStorage.getItem("vendorDetails") !== null
+      ? JSON.parse(sessionStorage.getItem("vendorDetails")).VendorName
+      : "",
+  rating: {
+    ratingData: [],
+    ratingSaveData: [],
+    averageVendorRatingModel: {
+      Id: "",
+      VendorId: "",
+      TotalScore: 0,
+      EligibleScore: 0,
+      Conculusion: "",
+      Devaitions: "",
+      FileStream: "",
+      FileName: "",
+      MaxVendorRatingScore: 0,
+    },
+    financialForm: {
+      FinancialList: [],
+      vendorRatingFinancialInfoReadModel: {},
+      conditions: {
+        FinancialFormOnTypes: "",
+        FinancialFormOnNatureOfServices: [],
+        FinacialFormBillingMaxLimit: 0,
+      },
+    },
+    elligibleScore: [],
+    elligibleScoreStatus: {
+      level: "",
+      color: "",
+      score: 0,
+    },
+  },
+  categorization: {
+    data: [],
+    gtScore: 0,
+    loading: false,
+    scoreRating: "",
+    notificationData: {
+      ReviewerRemarks: "",
+      LastReviewSentOn: "",
+      Reviewers: [],
+    },
+  },
+  details: {
+    FormData: [],
+    URN: "",
+    IsActive: true,
+    InActivationDate: "",
+    ReasonOfInactivation: "",
+    InActivationEvidence: "",
+  },
+  additionalDetails: {
+    FilledFormJson: [],
+  },
+  review: {
+    StageJson: [],
+  },
+  editAccess: {
+    hasEditAccess: false,
+    isInViewMode:
+      localStorage.getItem("isViewMode") !== null
+        ? JSON.parse(localStorage.getItem("isViewMode"))
+        : true,
+  },
+  vendorDetails: {
+    details: JSON.parse(sessionStorage.getItem("vendorDetails")),
+  },
+};
+
+const vendorSlice = createSlice({
+  name: "vendor",
+  initialState,
+  reducers: {
+    changeTab: (state, action) => {
+      state.activeTab = action.payload;
+    },
+    saveVendorId: (state, action) => {
+      state.vendorId = action.payload;
+    },
+    changeVendorDetails: (state, action) => {
+      const { vendorType, vendorDepartment } = action.payload;
+      state.vendorType = vendorType;
+      state.vendorDepartment = vendorDepartment;
+    },
+    updateRatingData: (state, action) => {
+      state.rating.vendorData = action.payload.vendorData;
+    },
+    updateCategorizationData: (state, action) => {
+      state.categorization.data = action.payload;
+    },
+    updateSavingCategorizationData: (state, action) => {
+      state.categorization.saveData = action.payload;
+    },
+    changeVendorDetailsForm: (state, action) => {
+      const { FormData, IsActive, URN, Type } = action.payload;
+      state.details.FormData = FormData;
+      state.details.Type = Type;
+      if (IsActive !== undefined) state.details.IsActive = IsActive;
+      if (URN !== undefined) state.details.URN = URN;
+    },
+    setURN: (state, action) => {
+      state.details.URN = action.payload.URN;
+    },
+    setIsActive: (state, action) => {
+      state.details.IsActive = action.payload.IsActive;
+      if (action.payload.IsActive) {
+        state.details.InActivationDate = "";
+        state.details.ReasonOfInactivation = "";
+        state.details.InActivationEvidence = "";
+      }
+    },
+    setInactivation: (state, action) => {
+      const { InActivationDate, ReasonOfInactivation, InActivationEvidence } =
+        action.payload;
+      if (InActivationDate !== undefined)
+        state.details.InActivationDate = InActivationDate;
+      if (ReasonOfInactivation !== undefined)
+        state.details.ReasonOfInactivation = ReasonOfInactivation;
+      if (InActivationEvidence !== undefined)
+        state.details.InActivationEvidence = InActivationEvidence;
+    },
+    additionalDetailsForm: (state, action) => {
+      state.additionalDetails.FilledFormJson = action.payload.FilledFormJson;
+    },
+    setReview: (state, action) => {
+      state.review.StageJson = action.payload.StageJson;
+    },
+    setVendorRating: (state, action) => {
+      state.rating.ratingData = action.payload.ratingData;
+    },
+    updateEditAccess: (state, action) => {
+      state.editAccess.isInViewMode = action.payload.isInViewMode;
+      localStorage.setItem(
+        "isViewMode",
+        JSON.stringify(action.payload.isInViewMode)
+      );
+    },
+    updateSavingRatingData: (state, action) => {
+      state.rating.ratingSaveData = action.payload;
+    },
+    updateVendorRatingModel: (state, action) => {
+      const model = state.rating.averageVendorRatingModel;
+      Object.keys(action.payload).forEach((key) => {
+        if (action.payload[key] !== undefined) {
+          model[key] = action.payload[key];
+        }
+      });
+    },
+    updateRatingFinancialForm: (state, action) => {
+      const { FinancialList, vendorRatingFinancialInfoReadModel } =
+        action.payload;
+      state.rating.financialForm.FinancialList = FinancialList;
+      state.rating.financialForm.vendorRatingFinancialInfoReadModel =
+        vendorRatingFinancialInfoReadModel;
+    },
+    updateRatingElligibleScore: (state, action) => {
+      state.rating.elligibleScore = action.payload.elligibleScore;
+    },
+    updateRatingElligibleScoreStatus: (state, action) => {
+      const { level, color, score } = action.payload;
+      state.rating.elligibleScoreStatus = { level, color, score };
+    },
+    categorizationNotificationData: (state, action) => {
+      const { ReviewerRemarks, LastReviewSentOn, Reviewers } =
+        action.payload[0];
+      state.categorization.notificationData = {
+        ReviewerRemarks,
+        LastReviewSentOn,
+        Reviewers,
+      };
+    },
+    changeCategorizationReview: (state, action) => {
+      state.categorization.notificationData.ReviewerRemarks = action.payload;
+    },
+    changeCategorizationReviewers: (state, action) => {
+      state.categorization.notificationData.Reviewers = action.payload;
+    },
+    changeVendorName: (state, action) => {
+      state.vendorName = action.payload;
+    },
+  },
+});
+
+export const {
+  changeTab,
+  saveVendorId,
+  changeVendorDetails,
+  updateRatingData,
+  updateCategorizationData,
+  updateSavingCategorizationData,
+  changeVendorDetailsForm,
+  setURN,
+  setIsActive,
+  setInactivation,
+  additionalDetailsForm,
+  setReview,
+  setVendorRating,
+  updateEditAccess,
+  updateSavingRatingData,
+  updateVendorRatingModel,
+  updateRatingFinancialForm,
+  updateRatingElligibleScore,
+  updateRatingElligibleScoreStatus,
+  categorizationNotificationData,
+  changeCategorizationReview,
+  changeCategorizationReviewers,
+  changeVendorName,
+} = vendorSlice.actions;
+
+export default vendorSlice.reducer;

@@ -8,6 +8,12 @@ import Review from "./Review";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ClauseModel from "./ClauseModel";
+import {
+  changeTab,
+  changeVendorName,
+  saveVendorId,
+  updateEditAccess,
+} from "../../slices/VendorSlice";
 
 function VendorApp(props) {
   const dispatch = useDispatch();
@@ -46,36 +52,39 @@ function VendorApp(props) {
     VdVendorName,
   } = useSelector((state) => {
     return {
-      activeTab: state.activeTab,
-      vendorId: state.vendorId,
-      vendorType: state.vendorType,
-      categorizationData: state.categorization.data,
-      detailsData: state.details,
-      additionalDetailsData: state.additionalDetails,
-      ratingData: state.rating.ratingData,
-      reviewData: state.review,
-      hasEditAccess: state.editAccess.hasEditAccess,
-      isInViewMode: state.editAccess.isInViewMode,
-      saveRatingData: state.rating.ratingSaveData,
-      VrTotalScore: state.rating.averageVendorRatingModel.TotalScore,
-      VrEligibleScore: state.rating.elligibleScoreStatus.score,
-      VrConculusion: state.rating.elligibleScoreStatus.level,
-      VrDevaitions: state.rating.averageVendorRatingModel.Devaitions,
-      VrFileStream: state.rating.averageVendorRatingModel.FileStream,
-      VrFileName: state.rating.averageVendorRatingModel.FileName,
-      VrFinancialList: state.rating.financialForm.FinancialList,
+      activeTab: state.vendor.activeTab,
+      vendorId: state.vendor.vendorId,
+      vendorType: state.vendor.vendorType,
+      categorizationData: state.vendor.categorization.data,
+      detailsData: state.vendor.details,
+      additionalDetailsData: state.vendor.additionalDetails,
+      ratingData: state.vendor.rating.ratingData,
+      reviewData: state.vendor.review,
+      hasEditAccess: state.vendor.editAccess.hasEditAccess,
+      isInViewMode: state.vendor.editAccess.isInViewMode,
+      saveRatingData: state.vendor.rating.ratingSaveData,
+      VrTotalScore: state.vendor.rating.averageVendorRatingModel.TotalScore,
+      VrEligibleScore: state.vendor.rating.elligibleScoreStatus.score,
+      VrConculusion: state.vendor.rating.elligibleScoreStatus.level,
+      VrDevaitions: state.vendor.rating.averageVendorRatingModel.Devaitions,
+      VrFileStream: state.vendor.rating.averageVendorRatingModel.FileStream,
+      VrFileName: state.vendor.rating.averageVendorRatingModel.FileName,
+      VrFinancialList: state.vendor.rating.financialForm.FinancialList,
       VrvendorRatingFinancialInfoReadModel:
-        state.rating.financialForm.vendorRatingFinancialInfoReadModel,
+        state.vendor.rating.financialForm.vendorRatingFinancialInfoReadModel,
       VrFinacialFormBillingMaxLimit:
-        state.rating.averageVendorRatingModel.FinacialFormBillingMaxLimit,
+        state.vendor.rating.averageVendorRatingModel
+          .FinacialFormBillingMaxLimit,
       VrFinancialFormOnNatureOfServices:
-        state.rating.averageVendorRatingModel.FinancialFormOnNatureOfServices,
+        state.vendor.rating.averageVendorRatingModel
+          .FinancialFormOnNatureOfServices,
       VrFinancialFormOnTypes:
-        state.rating.averageVendorRatingModel.FinancialFormOnTypes,
-      VrvendorDetails: state.vendorDetails.details,
-      CReviewerRemarks: state.categorization.notificationData.ReviewerRemarks,
-      CReviewers: state.categorization.notificationData.Reviewers,
-      VdVendorName: state.vendorName,
+        state.vendor.rating.averageVendorRatingModel.FinancialFormOnTypes,
+      VrvendorDetails: state.vendor.vendorDetails.details,
+      CReviewerRemarks:
+        state.vendor.categorization.notificationData.ReviewerRemarks,
+      CReviewers: state.vendor.categorization.notificationData.Reviewers,
+      VdVendorName: state.vendor.vendorName,
     };
   });
 
@@ -132,10 +141,7 @@ function VendorApp(props) {
 
   const saveTabChange = (tabId, tabName) => {
     if (tabId !== null && tabId !== activeTab) {
-      dispatch({
-        type: "CHANGE_TAB",
-        payload: tabId,
-      });
+      dispatch(changeTab(tabId));
       sessionStorage.setItem("activeTabId", tabId);
     }
     if (tabName) {
@@ -360,18 +366,12 @@ function VendorApp(props) {
 
   // SAVE_VENDOR_NAME
   const saveVendorName = (name) => {
-    dispatch({
-      type: "CHANGE_VENDOR_NAME",
-      payload: name,
-    });
+    dispatch(changeVendorName(name));
   };
   const DataMessage = (data, tabId, isFinish) => {
     if (data.Status == "success" || data.StatusCode == 201) {
       if (data.data) {
-        dispatch({
-          type: "SAVE_VENDOR_ID",
-          payload: data.data.VendorId,
-        });
+        dispatch(saveVendorId(data.data.VendorId));
         saveVendorName(data.data.VendorName);
         sessionStorage.setItem(
           "vendorDetails",
@@ -794,25 +794,16 @@ function VendorApp(props) {
   };
   useEffect(() => {
     if (vendorId) {
-      dispatch({
-        type: "SAVE_VENDOR_ID",
-        payload: vendorId,
-      });
+      dispatch(saveVendorId(vendorId));
     } else {
       //console.log("else part called")
-      dispatch({
-        type: "CHANGE_TAB",
-        payload: "VendorDetails",
-      });
+      dispatch(changeTab("VendorDetails"));
     }
   }, [activeTab]);
 
   const handleEditAccess = () => {
     localStorage.setItem("isViewMode", JSON.stringify(false));
-    dispatch({
-      type: "UPDATE_EDIT_ACCESS",
-      payload: { isInViewMode: false },
-    });
+    dispatch(updateEditAccess({ isInViewMode: false }));
   };
 
   useEffect(() => {

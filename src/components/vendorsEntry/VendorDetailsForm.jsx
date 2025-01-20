@@ -1,6 +1,10 @@
 ﻿import React, { useState, useEffect, Fragment } from "react";
 import { Form, Button, Upload, Select, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
+import {
+  setIsActive,
+  setInactivation
+} from "../../slices/VendorSlice";
 import FormRender from "./FormRender";
 function VendorDetailsForm(props) {
   //Imports
@@ -22,30 +26,24 @@ function VendorDetailsForm(props) {
     vendorId,
     isCentrilized,
   } = useSelector((state) => ({
-    FormData: state.details.FormData,
-    IsActive: state.details.IsActive,
-    URN: state.details.URN,
-    InActivationDate: state.details.InActivationDate,
-    ReasonOfInactivation: state.details.ReasonOfInactivation,
-    InActivationEvidence: state.details.InActivationEvidence,
-    isInViewMode: state.editAccess.isInViewMode,
-    vendorId: state.vendorId,
-    isCentrilized: state.isUserCentrilized,
+    FormData: state.vendor.details.FormData,
+    IsActive: state.vendor.details.IsActive,
+    URN: state.vendor.details.URN,
+    InActivationDate: state.vendor.details.InActivationDate,
+    ReasonOfInactivation: state.vendor.details.ReasonOfInactivation,
+    InActivationEvidence: state.vendor.details.InActivationEvidence,
+    isInViewMode: state.vendor.editAccess.isInViewMode,
+    vendorId: state.vendor.vendorId,
+    isCentrilized: state.vendor.isUserCentrilized,
   }));
   const handleFileChange = ({ fileList }) => {
     if (fileList.length !== 0) {
       //To upload only 1 file at a time
       file = [fileList[fileList.length - 1]];
-      dispatch({
-        type: "SET_INACTIVATION",
-        payload: { InActivationEvidence: file },
-      });
+      dispatch(setInactivation({ InActivationEvidence: file }));
     } else {
       //If the current file is deleted
-      dispatch({
-        type: "SET_INACTIVATION",
-        payload: { InActivationEvidence: "" },
-      });
+      dispatch(setInactivation({ InActivationEvidence: "" }));
     }
   };
   //To Fetch the URN , when selected Vendor Type is one of the DD types
@@ -148,12 +146,7 @@ function VendorDetailsForm(props) {
             <Select
               value={IsActive}
               disabled={isInViewMode || !isCentrilized}
-              onChange={(e) =>
-                dispatch({
-                  type: "SET_IS_ACTIVE",
-                  payload: { IsActive: e },
-                })
-              }
+              onChange={(e) => dispatch(setIsActive({ IsActive: e }))}
             >
               <Option value={true}>Active</Option>
               <Option value={false}>InActive </Option>
@@ -167,10 +160,9 @@ function VendorDetailsForm(props) {
                   className="vd-input vd-w10"
                   value={InActivationDate}
                   onChange={(e) =>
-                    dispatch({
-                      type: "SET_INACTIVATION",
-                      payload: { InActivationDate: e.target.value },
-                    })
+                    dispatch(
+                      setInactivation({ InActivationDate: e.target.value })
+                    )
                   }
                   disabled={isInViewMode}
                 />
@@ -191,10 +183,9 @@ function VendorDetailsForm(props) {
                   className="vd-input vd-w85"
                   value={ReasonOfInactivation}
                   onChange={(e) =>
-                    dispatch({
-                      type: "SET_INACTIVATION",
-                      payload: { ReasonOfInactivation: e.target.value },
-                    })
+                    dispatch(
+                      setInactivation({ ReasonOfInactivation: e.target.value })
+                    )
                   }
                   disabled={isInViewMode}
                 />
