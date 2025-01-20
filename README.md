@@ -237,6 +237,96 @@ dispatch(setVendors(vendors));
 
 This approach simplifies state management and encourages scalability.
 
+### Implimented The CreateSelector to handle Memorization which avoids multiple renders
+
+```ts
+import { createSelector } from "@reduxjs/toolkit";
+
+const selector = createSelector(
+  inputSelectors, // One or more input selectors
+  resultFunction // A function to compute the result based on input
+);
+```
+
+- `inputSelectors`: One or more selectors that extract values from the Redux state.
+- `resultFunction`: A function that takes the outputs of the input selectors and computes a derived result.
+
+## Example
+
+### State Example
+
+Consider the following state structure for a user profile application:
+
+```ts
+const initialState = {
+  users: [
+    { id: 1, name: "John", age: 30 },
+    { id: 2, name: "Jane", age: 25 },
+  ],
+  filter: { minAge: 28 },
+};
+```
+
+### Basic Selector
+
+```ts
+// A simple selector to get all users
+const selectUsers = (state) => state.users;
+
+// A selector to get the filter criteria
+const selectFilter = (state) => state.filter;
+```
+
+### Memoized Selector with `createSelector`
+
+Using `createSelector`, we can create a memoized selector that filters users based on the age:
+
+```ts
+import { createSelector } from "@reduxjs/toolkit";
+
+// A selector that filters users based on the minimum age from the filter
+const selectFilteredUsers = createSelector(
+  [selectUsers, selectFilter], // Input selectors
+  (users, filter) => {
+    return users.filter((user) => user.age >= filter.minAge);
+  } // Result function
+);
+```
+
+### Usage
+
+To use the selector in your component, use `useSelector` from `react-redux`:
+
+```tsx
+import React from "react";
+import { useSelector } from "react-redux";
+
+const UserList = () => {
+  const filteredUsers = useSelector(selectFilteredUsers);
+
+  return (
+    <div>
+      <h2>Filtered Users</h2>
+      <ul>
+        {filteredUsers.map((user) => (
+          <li key={user.id}>
+            {user.name} ({user.age} years old)
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default UserList;
+```
+
+### Benefits of `createSelector`
+
+- **Memoization**: Prevents unnecessary recalculations of the derived data when the inputs haven't changed.
+- **Performance Optimization**: Reduces recomputations by tracking the state of inputs.
+- **Readable Code**: Cleanly separates the logic of computing derived state from the rest of your components or reducers.
+
 ## Future Enhancements
 
 - **API Integration:** Replace static data with API calls once the ASP.NET Core Web API is provided.
