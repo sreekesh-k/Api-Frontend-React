@@ -8,7 +8,7 @@ import {
   updateCategorizationData,
   categorizationNotificationData,
 } from "../../slices/VendorSlice";
-
+import { API_URL } from "../../constants";
 function VendorCategorization(props) {
   const { TextArea } = Input;
   const [gtScore, setGtScore] = useState(0);
@@ -35,14 +35,14 @@ function VendorCategorization(props) {
 
   // fetch data
   const fetchVendorCategorizationData = () => {
-    fetch(`https://rcapi.gieom.com/Vendor/GetScoring?VendorId=${vendorId}`)
+    fetch(`${API_URL}/Vendor/GetScoring/${vendorId}`)
       .then((response) => {
         setLoading(true);
         return response.json();
       })
       .then((data) => {
-        dispatch(updateCategorizationData(data.data.Data.vendorScoring))
-        saveNotificationData(data.data.Data.InfoResult);
+        dispatch(updateCategorizationData(data.data.vendorScoring));
+        saveNotificationData(data.data.InfoResult);
         calculateGtScore(data.data.Data);
       })
       .finally(() => {
@@ -53,7 +53,7 @@ function VendorCategorization(props) {
 
   const fetchScoringGroups = () => {
     // setLoading(true);
-    // fetch(`/Vendor/GetScoringGroups`)
+    // fetch(`${API_URL}/Vendor/GetScoringGroups`)
     //   .then((response) => {
     //     setLoadingScores(true);
     //     return response.json();
@@ -296,7 +296,7 @@ function VendorCategorization(props) {
       //toastr.error("Please select reviewers!");
       return;
     }
-    fetch("https://rcapi.gieom.com/Vendor/SaveVendorReviewers", {
+    fetch(`${API_URL}/Vendor/SaveVendorReviewers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

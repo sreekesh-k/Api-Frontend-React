@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Modal, Button, Table, Pagination } from "antd";
+import { API_URL } from "../../constants";
 
 function ClauseModel(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -102,7 +103,7 @@ function ClauseModel(props) {
     },
   ];
   const getClauseData = () => {
-    // fetch("https://rcapi.gieom.com/MasterData/GetAllDropdownValues/vcc")
+    // fetch(`${API_URL}/MasterData/GetAllDropdownValues/vcc`)
     //   .then((res) => res.json())
     //   .then((data) => {
     //     //console.log(data)
@@ -224,7 +225,7 @@ function ClauseModel(props) {
       </Button>
       <Modal
         title="Info"
-        visible={isModalOpen}
+        open={isModalOpen}
         onOk={handleOk}
         footer={false}
         onCancel={handleCancel}

@@ -8,6 +8,7 @@ import {
   changeVendorDetailsForm,
   setURN,
 } from "../../slices/VendorSlice";
+import { API_URL } from "../../constants";
 import FormRender from "./FormRender";
 function VendorDetailsForm(props) {
   //Imports
@@ -42,7 +43,7 @@ function VendorDetailsForm(props) {
   //To Fetch the URN , when selected Vendor Type is one of the DD types
   const fetchLatestURN = () => {
     //Fetch URN
-    fetch("https://rcapi.gieom.com/Vendor/GetLatestURN")
+    fetch(`${API_URL}/Vendor/GetLatestURN`)
       .then((response) => response.json())
       .then((res) => {
         if (res.Status == "success") {
@@ -57,9 +58,9 @@ function VendorDetailsForm(props) {
   };
 
   useEffect(() => {
-    console.log(vendorId)
+    console.log(vendorId);
     //Fetch Filled Data
-    fetch("https://rcapi.gieom.com/Vendor/GetVendorByIdPOC/" + vendorId)
+    fetch(`${API_URL}/Vendor/GetVendorByIdPOC/${vendorId}`)
       .then((response) => response.json())
       .then((res) => {
         if (res.Status == "success") {

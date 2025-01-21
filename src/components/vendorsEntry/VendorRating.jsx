@@ -1,6 +1,7 @@
 ﻿import { Grid, Row, Col, Select, Upload, Button, Form, Input } from "antd";
 import React, { useState, useEffect, Fragment } from "react";
 import moment from "moment";
+import { API_URL } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectVendorRating,
@@ -49,7 +50,7 @@ function VendorRating(props) {
     : "";
   // FETCH RATING
   const fetchRating = () => {
-    fetch(`https://rcapi.gieom.com/Vendor/GetRatingPOC?vendorId=${vendorId}`)
+    fetch(`${API_URL}/Vendor/GetRatingPOC?vendorId=${vendorId}`)
       .then((response) => {
         setLoading(true);
         return response.json();
@@ -90,7 +91,7 @@ function VendorRating(props) {
   };
   //FETCH FINANCIAL FORM
   const fetchFinancialForm = () => {
-    fetch(`https://rcapi.gieom.com/Vendor/GetVendorFinancials?VendorId=${vendorId}`)
+    fetch(`${API_URL}/Vendor/GetVendorFinancials?VendorId=${vendorId}`)
       .then((response) => {
         return response.json();
       })
@@ -116,7 +117,7 @@ function VendorRating(props) {
   // console.log(VrvendorRatingFinancialInfoReadModel["FileStream"])
   // FETCH_ELLIGIBLE_SCORE
   const fetchElligibleScore = () => {
-    fetch("https://rcapi.gieom.com/Vendor/GetVendorRatingScoringGroup")
+    fetch(`${API_URL}/Vendor/GetVendorRatingScoringGroup`)
       .then((response) => {
         return response.json();
       })
@@ -628,7 +629,7 @@ function VendorRating(props) {
     }
     financialDataObj.append("model", JSON.stringify(saveDataObj));
 
-    fetch("https://rcapi.gieom.com/Vendor/SaveVendorFinancials", {
+    fetch(`${API_URL}/Vendor/SaveVendorFinancials`, {
       method: "POST",
       body: financialDataObj,
     })

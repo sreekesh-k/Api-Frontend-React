@@ -1,23 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import VendorApp from "../components/vendorsEntry/VendorApp";
-import { Provider } from "react-redux";
-import store from "../store/Store";
-
+// import { useDispatch } from "react-redux";
+// import { saveVendorId } from "../slices/VendorSlice";
 function VendorEntry() {
   // Get query params from the URL
-  // const location = useLocation();
+  const location = useLocation();
+  // const dispatch = useDispatch();
   // const queryParams = new URLSearchParams(location.search);
   // const vendorId = queryParams.get("id");
+  // useEffect(() => {
+  //   dispatch(saveVendorId(vendorId));
+  // }, []);
   // // Retrieve the vendor type from sessionStorage
   // const vendorType = sessionStorage.getItem("vendorType");
 
   return (
     <>
-      <Provider store={store}>
-        <VendorApp />
-        {/* <VendorApp VendorDetailsForm={VendorDetailsForm} VendorCategorization={VendorCategorization} VendorRating={VendorRating} /> */}
-      </Provider>
+      <VendorApp />
+      {/* <VendorApp VendorDetailsForm={VendorDetailsForm} VendorCategorization={VendorCategorization} VendorRating={VendorRating} /> */}
 
       {/* Display the vendor details (DEBUG)*/}
       {/* <div>

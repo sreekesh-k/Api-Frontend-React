@@ -3,7 +3,7 @@ import { useEffect, useState, Fragment } from "react";
 import FormRender from "./FormRender";
 import { useDispatch, useSelector } from "react-redux";
 import { selectVendorAdditionalDetails } from "../../slices/VendorSlice";
-
+import { API_URL } from "../../constants";
 function AdditionalDetails(props) {
   const [isTemplateUpdated, setIsTemplateUpdated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,9 @@ function AdditionalDetails(props) {
 
   useEffect(() => {
     //Fetch Form
-    fetch("https://rcapi.gieom.com/Vendor/GetVendorAdditionalDetailsByVendorIdPOC?VendorId=" + vendorId)
+    fetch(
+      `${API_URL}/Vendor/GetVendorAdditionalDetailsByVendorIdPOC/${vendorId}`
+    )
       .then((response) => response.json())
       .then((val) => {
         if (val.status == "success") {

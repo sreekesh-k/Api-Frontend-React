@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ClauseModel from "./ClauseModel";
 import { selectVendorApp } from "../../slices/VendorSlice";
+import { API_URL } from "../../constants";
 import {
   changeTab,
   changeVendorName,
@@ -65,27 +66,27 @@ function VendorApp(props) {
   const tabData = [
     {
       id: "VendorDetails",
-      saveURL: "https://rcapi.gieom.com/Vendor/UpdateVendor?Id=" + vendorId,
+      saveURL: `${API_URL}/Vendor/UpdateVendor/${vendorId}`,
       title: "Vendor Details",
     },
     {
       id: "VendorCategorizationScoring",
-      saveURL: "https://rcapi.gieom.com/Vendor/SaveScoring",
+      saveURL: `${API_URL}/Vendor/SaveScoring`,
       title: "Vendor Categorization",
     },
     {
       id: "VendorAdditionlaDetails",
-      saveURL: "https://rcapi.gieom.com/Vendor/UpdateVendorAdditionalDetails?Id=" + vendorId,
+      saveURL: `${API_URL}/Vendor/UpdateVendorAdditionalDetails/${vendorId}`,
       title: "Additional Details",
     },
     {
       id: "VendorRating",
-      //saveURL: "https://rcapi.gieom.com/Vendor/SaveVendorRating",
+      //saveURL: `${API_URL}/Vendor/SaveVendorRating`
       title: "Vendor Rating",
     },
     {
       id: "reviewId",
-      //saveURL: "https://rcapi.gieom.com/Stages/AddVendorStages",
+      //saveURL: `${API_URL}/Stages/AddVendorStages`,
       title: "Vendor Review",
     },
   ];
@@ -116,8 +117,7 @@ function VendorApp(props) {
   const handleClick = (e) => {
     if (!isInViewMode) {
       handleSaveBtnClick(e.target.id);
-    } else
-    saveTabChange(e.target.id, e.target.title);
+    } else saveTabChange(e.target.id, e.target.title);
   };
   // VALIDATE CATEGORIZATION DATA
   const validateScoringData = () => {
@@ -144,7 +144,7 @@ function VendorApp(props) {
   const _ids = [];
   reviewerIds.forEach((r) => _ids.push(r.Id));
   const handleSaveReviewers = () => {
-    fetch("https://rcapi.gieom.com/Vendor/SaveVendorReviewers", {
+    fetch(`${API_URL}/Vendor/SaveVendorReviewers`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -420,7 +420,7 @@ function VendorApp(props) {
     }
     financialDataObj.append("model", JSON.stringify(saveDataObj));
 
-    fetch("https://rcapi.gieom.com/Vendor/SaveVendorFinancials", {
+    fetch(`${API_URL}/Vendor/SaveVendorFinancials`, {
       method: "POST",
       body: financialDataObj,
     })
@@ -481,7 +481,7 @@ function VendorApp(props) {
 
   const handleFinishBtnClick = () => {
     if (vendorId) {
-      fetch("https://rcapi.gieom.com/Vendor/FinishVendor?VendorId=" + vendorId, {
+      fetch(`${API_URL}/Vendor/FinishVendor/${vendorId}`, {
         method: "POST",
       })
         .then((res) => res.json())
