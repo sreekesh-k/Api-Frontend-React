@@ -51,12 +51,15 @@ function VendorDetailsForm(props) {
           ///toastr.error(res.Message);
         }
       })
-      .catch((err) => toastr.error("URN Fetch Failure"));
+      .catch((err) => {
+        //toastr.error("URN Fetch Failure")
+      });
   };
 
   useEffect(() => {
+    console.log(vendorId)
     //Fetch Filled Data
-    fetch("https://rcapi.gieom.com/Vendor/GetVendorByIdPOC?Id=" + vendorId)
+    fetch("https://rcapi.gieom.com/Vendor/GetVendorByIdPOC/" + vendorId)
       .then((response) => response.json())
       .then((res) => {
         if (res.Status == "success") {
@@ -103,10 +106,12 @@ function VendorDetailsForm(props) {
           if (res.Data.IsTemplateChanged)
             InfoPopup({ title: "Template", msg: "Template has changed" });
         } else {
-          toastr.error(res.Message);
+          // toastr.error(res.Message);
         }
       })
-      .catch((err) => toastr.error("Form Fetch Failure"))
+      .catch((err) => {
+        //toastr.error("Form Fetch Failure")
+      })
       .finally(() => setIsLoading(false));
   }, []);
 
