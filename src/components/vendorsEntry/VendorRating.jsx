@@ -212,7 +212,6 @@ function VendorRating(props) {
     dispatch(
       updateVendorRatingModel({
         Devaitions: averageRatingodel.Devaitions,
-        Conculusion: averageRatingodel.Conculusion,
         TotalScore: averageRatingodel.TotalScore,
         Conculusion: averageRatingodel.Conculusion,
         MaxVendorRatingScore: averageRatingodel.MaxVendorRatingScore,
