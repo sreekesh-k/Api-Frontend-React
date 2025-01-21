@@ -15,7 +15,7 @@ import { setVendorRating } from "../../slices/VendorSlice";
 function VendorRating(props) {
   const { Option } = Select;
   const { TextArea } = Input;
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [_saveData, set_SaveData] = useState([]);
   const [deviationValue, setDeviationValue] = useState("");
 
@@ -59,29 +59,27 @@ function VendorRating(props) {
         sessionStorage.setItem(
           "vendorDetails",
           JSON.stringify({
-            VendorId: data.data.vendorResponseResult.VendorId,
-            Type: data.data.vendorResponseResult.VendorType,
-            AnnualBilling: data.data.vendorResponseResult.AnnualBillingAmount,
+            VendorId: data.vendorResponseResult.vendorId,
+            Type: data.vendorResponseResult.vendorType,
+            AnnualBilling: data.vendorResponseResult.annualBillingAmount,
             //"NatureOfServices": data.data.NatureOfService[0].NatureOfService,
             NatureOfServices:
-              data.data.vendorResponseResult.NatureOfService !== null
-                ? data.data.vendorResponseResult.NatureOfService.map(
-                    (n) => n.NatureOfService
+              data.vendorResponseResult.natureOfService !== null
+                ? data.vendorResponseResult.natureOfService.map(
+                    (n) => n.natureOfService
                   )
                 : [],
-            VendorName: data.data.vendorResponseResult.VendorName,
+            VendorName: data.vendorResponseResult.vendorName,
           })
         );
-        let averageRatingodel = data.data.Data.averageVendorRatingModel;
+        let averageRatingodel = data.data.averageVendorRatingModel;
         dispatch(
           setVendorRating({
-            ratingData: data.data.Data.vendorRatingParameter,
-            ratingInitialData: JSON.stringify(
-              data.data.Data.vendorRatingParameter
-            ),
+            ratingData: data.data.vendorRatingParameter,
+            ratingInitialData: JSON.stringify(data.data.vendorRatingParameter),
           })
         );
-        _calculateInitialScore(data.data.Data.vendorRatingParameter);
+        _calculateInitialScore(data.data.vendorRatingParameter);
         saveRatingModel(averageRatingodel);
         saveRatingFileName(data);
       })
@@ -91,7 +89,7 @@ function VendorRating(props) {
   };
   //FETCH FINANCIAL FORM
   const fetchFinancialForm = () => {
-    fetch(`${API_URL}/Vendor/GetVendorFinancials?VendorId=${vendorId}`)
+    fetch(`${API_URL}/Vendor/GetVendorFinancials/${vendorId}`)
       .then((response) => {
         return response.json();
       })
@@ -99,17 +97,17 @@ function VendorRating(props) {
         let vendorRatingFinancialInfoReadModel =
           data.vendorRatingFinancialInfoReadModel;
         vendorRatingFinancialInfoReadModel["FileStream"] =
-          data.vendorRatingFinancialInfoReadModel.FinancialFile !== "" &&
-          data.vendorRatingFinancialInfoReadModel.FinancialFile !== null
-            ? [data.vendorRatingFinancialInfoReadModel.FinancialFile]
+          data.vendorRatingFinancialInfoReadModel.financialFile !== "" &&
+          data.vendorRatingFinancialInfoReadModel.financialFile !== null
+            ? [data.vendorRatingFinancialInfoReadModel.financialFile]
             : "";
 
         dispatch(
           updateRatingFinancialForm({
-            FinancialList: data.FinancialList,
+            FinancialList: data.financialList,
             vendorRatingFinancialInfoReadModel:
-              vendorRatingFinancialInfoReadModel,
-            finaicialListInitialData: JSON.stringify(data.FinancialList),
+              data.vendorRatingFinancialInfoReadModel,
+            finaicialListInitialData: JSON.stringify(data.financialList),
           })
         );
       });
@@ -122,10 +120,8 @@ function VendorRating(props) {
         return response.json();
       })
       .then((data) => {
-        calculateElligibleScore(data.data.Data);
-        dispatch(
-          updateRatingElligibleScore({ elligibleScore: data.data.Data })
-        );
+        calculateElligibleScore(data.data);
+        dispatch(updateRatingElligibleScore({ elligibleScore: data.data }));
       });
   };
   // CHECK WHETHER TO DISPLAY FINANCIAL FORM
@@ -153,49 +149,50 @@ function VendorRating(props) {
   const _calculateInitialScore = (data) => {
     let arr = [];
     let avg = 0;
-    totalAvgScoreArr = [];
+    let totalAvgScoreArr = [];
     let _data = data;
     _data.forEach((d) => {
-      if (d.SubParams !== null) {
-        d.AverageScore = 0;
-        d.SubParams.forEach((sp) => {
-          sp.ScoreModel.forEach((sm) => {
-            if (sm.IsSelected) {
+      if (d.subParams !== null) {
+        d.averageScore = 0;
+        d.subParams.forEach((sp) => {
+          sp.scoreModel.forEach((sm) => {
+            if (sm.isSelected) {
               avg += 1;
               arr.push({
-                Score: sm.Score,
+                Score: sm.score,
               });
-              d.AverageScore += sm.Score;
+              d.averageScore += sm.score;
             }
           });
         });
-        d.AverageScore =
-          d.AverageScore > 0
-            ? d.IsRoundUp
-              ? roundUp(d.AverageScore / avg, 1)
-              : parseFloat((d.AverageScore / avg).toFixed(2))
-            : d.AverageScore;
-        totalAvgScoreArr.push(d.AverageScore);
+        d.averageScore =
+          d.averageScore > 0
+            ? d.isRoundUp
+              ? roundUp(d.averageScore / avg, 1)
+              : parseFloat((d.averageScore / avg).toFixed(2))
+            : d.averageScore;
+        totalAvgScoreArr.push(d.averageScore);
         avg = 0;
       }
-      if (d.SubParams === null) {
-        d.AverageScore = 0;
-        d.ScoreModel.forEach((sm) => {
-          if (sm.IsSelected) {
+      if (d.subParams === null) {
+        d.averageScore = 0;
+        d.scoreModel.forEach((sm) => {
+          if (sm.isSelected) {
             avg += 1;
             arr.push({
-              Score: sm.Score,
+              Score: sm.score,
             });
-            d.AverageScore += sm.Score;
-          }dispatch
+            d.averageScore += sm.score;
+          }
+          dispatch;
         });
-        d.AverageScore =
-          d.AverageScore > 0
-            ? d.IsRoundUp
-              ? roundUp(d.AverageScore / avg, 1)
-              : parseFloat((d.AverageScore / avg).toFixed(2))
-            : d.AverageScore;
-        totalAvgScoreArr.push(d.AverageScore);
+        d.averageScore =
+          d.averageScore > 0
+            ? d.isRoundUp
+              ? roundUp(d.averageScore / avg, 1)
+              : parseFloat((d.averageScore / avg).toFixed(2))
+            : d.averageScore;
+        totalAvgScoreArr.push(d.averageScore);
         avg = 0;
       }
     });
@@ -205,27 +202,27 @@ function VendorRating(props) {
   const saveRatingFileName = (data) => {
     dispatch(
       updateVendorRatingModel({
-        FileName: data.data.Data.averageVendorRatingModel.FileName,
+        FileName: data.data.averageVendorRatingModel.fileName,
       })
     );
   };
   const saveRatingModel = (averageRatingodel) => {
     dispatch(
       updateVendorRatingModel({
-        Devaitions: averageRatingodel.Devaitions,
-        TotalScore: averageRatingodel.TotalScore,
-        Conculusion: averageRatingodel.Conculusion,
-        MaxVendorRatingScore: averageRatingodel.MaxVendorRatingScore,
-        FinancialFormOnTypes: averageRatingodel.FinancialFormOnTypes,
+        Devaitions: averageRatingodel.devaitions,
+        TotalScore: averageRatingodel.totalScore,
+        Conculusion: averageRatingodel.conculusion,
+        MaxVendorRatingScore: averageRatingodel.maxVendorRatingScore,
+        FinancialFormOnTypes: averageRatingodel.financialFormOnTypes,
         FinacialFormBillingMaxLimit:
-          averageRatingodel.FinacialFormBillingMaxLimit,
+          averageRatingodel.finacialFormBillingMaxLimit,
         FinancialFormOnNatureOfServices:
-          averageRatingodel.FinancialFormOnNatureOfServices.split(","),
+          averageRatingodel.financialFormOnNatureOfServices.split(","),
         //FileStream: [averageRatingodel.RatingFile]
         FileStream:
-          averageRatingodel.RatingFile !== "" &&
-          averageRatingodel.RatingFile !== null
-            ? [averageRatingodel.RatingFile]
+          averageRatingodel.ratingFile !== "" &&
+          averageRatingodel.ratingFile !== null
+            ? [averageRatingodel.ratingFile]
             : "",
       })
     );
@@ -235,7 +232,7 @@ function VendorRating(props) {
     let avgArr = arr;
     let score = 0;
     ratingData.forEach((d) => {
-      score += d.AverageScore;
+      score += d.averageScore;
     });
     dispatch(updateVendorRatingModel({ TotalScore: score.toFixed(2) }));
   };
@@ -248,11 +245,11 @@ function VendorRating(props) {
     const _data = ratingData;
     _data.forEach((p) => {
       if (p.Id === paramId) {
-        p.ScoreModel.forEach((s) => {
+        p.scoreModel.forEach((s) => {
           if (s.value === e) {
-            s.IsSelected = true;
+            s.isSelected = true;
           } else {
-            s.IsSelected = false;
+            s.isSelected = false;
           }
         });
         _calculateInitialScore(_data);
@@ -260,36 +257,36 @@ function VendorRating(props) {
     });
     let avg = 0;
     _data.forEach((d) => {
-      d.AverageScore = 0;
-      if (d.SubParams !== null) {
-        d.SubParams.forEach((sp) => {
-          sp.ScoreModel.forEach((sm) => {
-            if (sm.IsSelected) {
+      d.averageScore = 0;
+      if (d.subParams !== null) {
+        d.subParams.forEach((sp) => {
+          sp.scoreModel.forEach((sm) => {
+            if (sm.isSelected) {
               avg += 1;
-              d.AverageScore += sm.Score;
+              d.averageScore += sm.score;
             }
           });
         });
-        d.AverageScore =
-          d.AverageScore > 0
-            ? d.IsRoundUp
-              ? roundUp(d.AverageScore / avg, 1)
-              : parseFloat((d.AverageScore / avg).toFixed(2))
-            : d.AverageScore;
+        d.averageScore =
+          d.averageScore > 0
+            ? d.isRoundUp
+              ? roundUp(d.averageScore / avg, 1)
+              : parseFloat((d.averageScore / avg).toFixed(2))
+            : d.averageScore;
         avg = 0;
       } else {
-        d.ScoreModel.forEach((sm) => {
-          if (sm.IsSelected) {
+        d.scoreModel.forEach((sm) => {
+          if (sm.isSelected) {
             avg += 1;
-            d.AverageScore += sm.Score;
+            d.averageScore += sm.score;
           }
         });
-        d.AverageScore =
-          d.AverageScore > 0
-            ? d.IsRoundUp
-              ? roundUp(d.AverageScore / avg, 1)
-              : parseFloat((d.AverageScore / avg).toFixed(2))
-            : d.AverageScore;
+        d.averageScore =
+          d.averageScore > 0
+            ? d.isRoundUp
+              ? roundUp(d.averageScore / avg, 1)
+              : parseFloat((d.averageScore / avg).toFixed(2))
+            : d.averageScore;
         avg = 0;
       }
     });
@@ -302,13 +299,13 @@ function VendorRating(props) {
     const _data = ratingData;
     _data.forEach((p) => {
       if (p.Id === paramId) {
-        p.SubParams.forEach((sp) => {
+        p.subParams.forEach((sp) => {
           if (sp.Id === subParamId) {
-            sp.ScoreModel.forEach((s) => {
+            sp.scoreModel.forEach((s) => {
               if (s.value === e) {
-                s.IsSelected = true;
+                s.isSelected = true;
               } else {
-                s.IsSelected = false;
+                s.isSelected = false;
               }
             });
             _calculateInitialScore(_data);
@@ -318,36 +315,36 @@ function VendorRating(props) {
     });
     let avg = 0;
     _data.forEach((d) => {
-      d.AverageScore = 0;
-      if (d.SubParams !== null) {
-        d.SubParams.forEach((sp) => {
-          sp.ScoreModel.forEach((sm) => {
-            if (sm.IsSelected) {
+      d.averageScore = 0;
+      if (d.subParams !== null) {
+        d.subParams.forEach((sp) => {
+          sp.scoreModel.forEach((sm) => {
+            if (sm.isSelected) {
               avg += 1;
-              d.AverageScore += sm.Score;
+              d.averageScore += sm.score;
             }
           });
         });
-        d.AverageScore =
-          d.AverageScore > 0
-            ? d.IsRoundUp
-              ? roundUp(d.AverageScore / avg, 1)
-              : parseFloat((d.AverageScore / avg).toFixed(2))
-            : d.AverageScore;
+        d.averageScore =
+          d.averageScore > 0
+            ? d.isRoundUp
+              ? roundUp(d.averageScore / avg, 1)
+              : parseFloat((d.averageScore / avg).toFixed(2))
+            : d.averageScore;
         avg = 0;
       } else {
-        d.ScoreModel.forEach((sm) => {
-          if (sm.IsSelected) {
+        d.scoreModel.forEach((sm) => {
+          if (sm.isSelected) {
             avg += 1;
-            d.AverageScore += sm.Score;
+            d.averageScore += sm.score;
           }
         });
-        d.AverageScore =
-          d.AverageScore > 0
-            ? d.IsRoundUp
-              ? roundUp(d.AverageScore / avg, 1)
-              : parseFloat((d.AverageScore / avg).toFixed(2))
-            : d.AverageScore;
+        d.averageScore =
+          d.averageScore > 0
+            ? d.isRoundUp
+              ? roundUp(d.averageScore / avg, 1)
+              : parseFloat((d.averageScore / avg).toFixed(2))
+            : d.averageScore;
         avg = 0;
       }
     });
@@ -362,20 +359,20 @@ function VendorRating(props) {
       if (dataItem.Id !== paramId) return;
       const updateRemarks = (scoreModels) => {
         scoreModels.forEach((scoreModel) => {
-          if (scoreModel.IsSelected) {
+          if (scoreModel.isSelected) {
             scoreModel.Remarks = e.target.value;
           }
         });
       };
 
       if (hasSubparams) {
-        dataItem.SubParams.forEach((subParam) => {
+        dataItem.subParams.forEach((subParam) => {
           if (subParam.Id === subParamId) {
-            updateRemarks(subParam.ScoreModel);
+            updateRemarks(subParam.scoreModel);
           }
         });
       } else {
-        updateRemarks(dataItem.ScoreModel);
+        updateRemarks(dataItem.scoreModel);
       }
     });
     dispatch(selectVendorRating({ ratingData: _data }));
@@ -416,7 +413,7 @@ function VendorRating(props) {
     let _data = VrFinancialList;
     _data.forEach((f) => {
       if (f.ParameterId === paramId) {
-        f.SubParams.forEach((sp) => {
+        f.subParams.forEach((sp) => {
           if (sp.ParameterId === subParamId) {
             sp.CurrentFinancialYear = Number(e.target.value);
           }
@@ -435,7 +432,7 @@ function VendorRating(props) {
     let _data = VrFinancialList;
     _data.forEach((f) => {
       if (f.ParameterId === paramId) {
-        f.SubParams.forEach((sp) => {
+        f.subParams.forEach((sp) => {
           if (sp.ParameterId === subParamId) {
             sp.LastFinancialYear = Number(e.target.value);
           }
@@ -456,11 +453,11 @@ function VendorRating(props) {
     let elligibleScore = (VrTotalScore / maxScore) * 100;
     const calculate = (scores) => {
       scores.forEach((s) => {
-        if (elligibleScore >= s.MinValue && elligibleScore <= s.MaxValue) {
+        if (elligibleScore >= s.minValue && elligibleScore <= s.maxValue) {
           dispatch(
             updateRatingElligibleScoreStatus({
-              level: s.Level,
-              color: s.LevelColor,
+              level: s.level,
+              color: s.levelColor,
               score: elligibleScore,
             })
           );
@@ -478,7 +475,7 @@ function VendorRating(props) {
 
   // geenrate array for read model
   let financialReadModel = [];
-  for (k in VrvendorRatingFinancialInfoReadModel) {
+  for (let k in VrvendorRatingFinancialInfoReadModel) {
     if (k === "AdverseRemarks")
       financialReadModel.push({
         id: k,
@@ -606,12 +603,12 @@ function VendorRating(props) {
       },
     };
     VrFinancialList.forEach((f) => {
-      f.SubParams.forEach((sp) => {
+      f.subParams.forEach((sp) => {
         saveDataObj.vendorFinancialSaveModels.push({
           VendorId: vendorId,
-          VendorFinancialParameterId: sp.ParameterId,
-          CurrentFinancialYear: sp.CurrentFinancialYear,
-          LastFinancialYear: sp.LastFinancialYear,
+          VendorFinancialParameterId: sp.parameterId,
+          CurrentFinancialYear: sp.currentFinancialYear,
+          LastFinancialYear: sp.lastFinancialYear,
           IsDelete: false,
         });
       });
@@ -662,7 +659,7 @@ function VendorRating(props) {
           className="fa fa-spinner fa-spin fa-3x fa-fw"
           style={{ left: "50%", position: "absolute", top: "40%" }}
         ></i>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>
     );
   }
@@ -690,7 +687,7 @@ function VendorRating(props) {
             <Col span="24">
               <Row gutter={20}>
                 <Col span="6" style={{ marginTop: ".5rem" }}>
-                  {param.SubParams === null && (
+                  {param.subParams === null && (
                     <p className="vendor-parameter-name">
                       {param.ParameterName}
                     </p>
@@ -700,17 +697,17 @@ function VendorRating(props) {
                   span="8"
                   style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
                 >
-                  {param.SubParams === null && (
+                  {param.subParams === null && (
                     <Select
                       disabled={isInViewMode}
                       allowClear={true}
                       className="vendor-select vd-cate-select"
                       size="small"
-                      defaultValue={param.ScoreModel.filter(
-                        (s) => s.IsSelected
+                      defaultValue={param.scoreModel.filter(
+                        (s) => s.isSelected
                       ).map((v) => v.value)}
                       style={{ width: 250 }}
-                      options={param.ScoreModel}
+                      options={param.scoreModel}
                       onChange={(e) => handleSelectChange2(e, param.Id)}
                     />
                   )}
@@ -719,7 +716,7 @@ function VendorRating(props) {
                   span="6"
                   style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
                 >
-                  {param.SubParams === null && (
+                  {param.subParams === null && (
                     <TextArea
                       type="text"
                       disabled={isInViewMode}
@@ -733,35 +730,35 @@ function VendorRating(props) {
                           (hasSubparams = false)
                         )
                       }
-                      value={param.ScoreModel.filter((s) => s.IsSelected).map(
+                      value={param.scoreModel.filter((s) => s.isSelected).map(
                         (v) => v.Remarks
                       )}
                     />
                   )}
                 </Col>
                 <Col span="2" style={{ marginTop: ".5rem" }}>
-                  {param.SubParams === null && (
+                  {param.subParams === null && (
                     <Input
                       key={key}
                       disabled
-                      value={param.ScoreModel.filter((s) => s.IsSelected).map(
-                        (v) => v.Score
+                      value={param.scoreModel.filter((s) => s.isSelected).map(
+                        (v) => v.score
                       )}
                       className="vd-r-text-field"
                     />
                   )}
                 </Col>
                 <Col span="2">
-                  {param.SubParams === null
-                    ? param.ScoreModel.map((sm, key) => {
-                        const scoreLevel = param.ScoreModel.filter(
-                          (s) => s.IsSelected
-                        ).map((v) => v.ScoreLevel);
-                        const scoreColorLevel = param.ScoreModel.filter(
-                          (s) => s.IsSelected
-                        ).map((v) => v.ScoreColorLevel);
+                  {param.subParams === null
+                    ? param.scoreModel.map((sm, key) => {
+                        const scoreLevel = param.scoreModel.filter(
+                          (s) => s.isSelected
+                        ).map((v) => v.scoreLevel);
+                        const scoreColorLevel = param.scoreModel.filter(
+                          (s) => s.isSelected
+                        ).map((v) => v.scoreColorLevel);
                         return (
-                          sm.IsSelected && (
+                          sm.isSelected && (
                             <div key={key} className="vd-rating-score">
                               <p>{scoreLevel}</p>
                               <div
@@ -774,7 +771,7 @@ function VendorRating(props) {
                       })
                     : null}
                 </Col>
-                {param.SubParams === null && (
+                {param.subParams === null && (
                   <Col span="24">
                     <Row>
                       <Col span="24" />
@@ -785,14 +782,14 @@ function VendorRating(props) {
                       </Col>
                       <Col span="4" style={{ paddingLeft: "4.2vw" }}>
                         <div className="avg">
-                          {param.ScoreModel.map((sm) => {
+                          {param.scoreModel.map((sm) => {
                             let score = 0;
-                            score += sm.IsSelected ? parseInt(sm.Score) : 0;
+                            score += sm.isSelected ? parseInt(sm.score) : 0;
                             return (
                               <p key={key}>{parseInt(score.toFixed(2))}</p>
                             );
                           })}
-                          {/*{param.AverageScore}*/}
+                          {/*{param.averageScore}*/}
                         </div>
                       </Col>
                     </Row>
@@ -801,11 +798,11 @@ function VendorRating(props) {
               </Row>
             </Col>
             <Col span="24">
-              {param.SubParams !== null && (
+              {param.subParams !== null && (
                 <p className="vendor-parameter-name">{param.ParameterName}</p>
               )}
-              {param.SubParams !== null &&
-                param.SubParams.map((sp, key) => {
+              {param.subParams !== null &&
+                param.subParams.map((sp, key) => {
                   return (
                     <Row gutter={20}>
                       <Col
@@ -824,13 +821,13 @@ function VendorRating(props) {
                           className="vendor-select"
                           size="small"
                           allowClear={true}
-                          defaultValue={sp.ScoreModel.filter(
-                            (s) => s.IsSelected
+                          defaultValue={sp.scoreModel.filter(
+                            (s) => s.isSelected
                           ).map((v) => v.value)}
                           onChange={(e) =>
                             handleSelectChange(e, param.Id, sp.Id)
                           }
-                          options={sp.ScoreModel}
+                          options={sp.scoreModel}
                         />
                       </Col>
                       <Col
@@ -850,7 +847,7 @@ function VendorRating(props) {
                               (hasSubparams = true)
                             )
                           }
-                          value={sp.ScoreModel.filter((s) => s.IsSelected).map(
+                          value={sp.scoreModel.filter((s) => s.isSelected).map(
                             (v) => v.Remarks
                           )}
                         />
@@ -860,29 +857,29 @@ function VendorRating(props) {
                           <Input
                             key={key}
                             disabled
-                            value={sp.ScoreModel.filter(
-                              (s) => s.IsSelected
-                            ).map((v) => v.Score)}
+                            value={sp.scoreModel.filter(
+                              (s) => s.isSelected
+                            ).map((v) => v.score)}
                             className="vd-r-text-field"
                           />
                         }
                       </Col>
                       <Col span="2">
-                        {sp.ScoreModel.map((sm, key) => {
-                          const scoreLevel = sp.ScoreModel.filter(
-                            (s) => s.IsSelected
-                          ).map((v) => v.ScoreLevel);
-                          const scoreColorLevel = sp.ScoreModel.filter(
-                            (s) => s.IsSelected
-                          ).map((v) => v.ScoreColorLevel);
+                        {sp.scoreModel.map((sm, key) => {
+                          const scoreLevel = sp.scoreModel.filter(
+                            (s) => s.isSelected
+                          ).map((v) => v.scoreLevel);
+                          const scoreColorLevel = sp.scoreModel.filter(
+                            (s) => s.isSelected
+                          ).map((v) => v.scoreColorLevel);
                           return (
-                            sm.IsSelected && (
+                            sm.isSelected && (
                               <div key={key} className="vd-rating-score">
-                                <p>{sm.ScoreLevel}</p>
+                                <p>{sm.scoreLevel}</p>
                                 <div
                                   className="vd-scoreColor"
                                   style={{
-                                    backgroundColor: sm.ScoreColorLevel,
+                                    backgroundColor: sm.scoreColorLevel,
                                   }}
                                 />
                               </div>
@@ -903,7 +900,7 @@ function VendorRating(props) {
                       </div>
                     </Col>
                     <Col span="4" style={{ paddingLeft: "4.2vw" }}>
-                      <div className="avg">{param.AverageScore}</div>
+                      <div className="avg">{param.averageScore}</div>
                     </Col>
                   </Row>
                 </Col>

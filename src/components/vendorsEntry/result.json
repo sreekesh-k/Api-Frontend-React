@@ -1,1290 +1,229 @@
 {
-    "message": "Rating fetched",
-    "status": "success",
-    "data": {
-        "vendorScoring": [
-            {
-                "id": "2f8b90bc-0fdd-42b0-8f33-1701ffe0d0ce",
-                "scoringTitle": "Agreement - Vendor agrees/agreed to mandatory clauses as per Bank\u0060s policy",
-                "subParams": null,
-                "scoreModels": [
-                    {
-                        "id": "87fa859c-e74b-4352-9d13-5489df9011c1",
-                        "title": "Clause no not agreed: Any of 1,2,3",
-                        "scoringTitle": null,
-                        "score": 4,
-                        "weights": 5,
-                        "rating": 20,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "Clause no not agreed: Any of 1,2,3",
-                        "value": "87fa859c-e74b-4352-9d13-5489df9011c1"
-                    },
-                    {
-                        "id": "40c759d6-2400-4bd5-ad2d-8de4f5a51e63",
-                        "title": "Clause no not agreed: Any of 8,9",
-                        "scoringTitle": null,
-                        "score": 2,
-                        "weights": 5,
-                        "rating": 10,
-                        "isSelected": true,
-                        "data": "",
-                        "label": "Clause no not agreed: Any of 8,9",
-                        "value": "40c759d6-2400-4bd5-ad2d-8de4f5a51e63"
-                    },
-                    {
-                        "id": "18b9e90f-bc17-40c3-9761-f2846e0a8561",
-                        "title": "Clause no not agreed: 10",
-                        "scoringTitle": null,
-                        "score": 1,
-                        "weights": 5,
-                        "rating": 5,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "Clause no not agreed: 10",
-                        "value": "18b9e90f-bc17-40c3-9761-f2846e0a8561"
-                    },
-                    {
-                        "id": "bb653df6-0764-4e68-b636-f65403586b42",
-                        "title": "Clause no not agreed: Any of 4,5,6,7",
-                        "scoringTitle": null,
-                        "score": 3,
-                        "weights": 5,
-                        "rating": 15,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "Clause no not agreed: Any of 4,5,6,7",
-                        "value": "bb653df6-0764-4e68-b636-f65403586b42"
-                    }
-                ]
-            },
-            {
-                "id": "32f8ac75-4f04-49dc-8a28-4505adc6a093",
-                "scoringTitle": "Cost of Outsourcing as a proportion of total operating costs of the bank",
-                "subParams": null,
-                "scoreModels": [
-                    {
-                        "id": "77647089-e29e-4659-8548-2eaede8942ce",
-                        "title": "\u003E=10%",
-                        "scoringTitle": null,
-                        "score": 4,
-                        "weights": 1,
-                        "rating": 4,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "\u003E=10%",
-                        "value": "77647089-e29e-4659-8548-2eaede8942ce"
-                    },
-                    {
-                        "id": "b5385cc7-f1f6-4aad-ad38-4263a9042d70",
-                        "title": "\u003C2%",
-                        "scoringTitle": null,
-                        "score": 1,
-                        "weights": 1,
-                        "rating": 1,
-                        "isSelected": true,
-                        "data": "",
-                        "label": "\u003C2%",
-                        "value": "b5385cc7-f1f6-4aad-ad38-4263a9042d70"
-                    },
-                    {
-                        "id": "d88d7046-e9c5-4759-ac06-a682ca618004",
-                        "title": "\u003C10% but \u003E=5%",
-                        "scoringTitle": null,
-                        "score": 3,
-                        "weights": 1,
-                        "rating": 3,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "\u003C10% but \u003E=5%",
-                        "value": "d88d7046-e9c5-4759-ac06-a682ca618004"
-                    },
-                    {
-                        "id": "174ee2c6-a326-4ad3-9125-bc5803002dd9",
-                        "title": "\u003C5% but \u003E=2%",
-                        "scoringTitle": null,
-                        "score": 2,
-                        "weights": 1,
-                        "rating": 2,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "\u003C5% but \u003E=2%",
-                        "value": "174ee2c6-a326-4ad3-9125-bc5803002dd9"
-                    }
-                ]
-            },
-            {
-                "id": "45c8bbd9-e694-4eb7-b761-93545d66906c",
-                "scoringTitle": "Level of importance of the activity in the Bank",
-                "subParams": null,
-                "scoreModels": [
-                    {
-                        "id": "ed24bf6e-ba2c-4edb-90e5-0d46f7d38328",
-                        "title": "Regular Banking Activity",
-                        "scoringTitle": null,
-                        "score": 4,
-                        "weights": 5,
-                        "rating": 20,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "Regular Banking Activity",
-                        "value": "ed24bf6e-ba2c-4edb-90e5-0d46f7d38328"
-                    },
-                    {
-                        "id": "71f3a457-7204-4361-bfac-d6d80b11ab5c",
-                        "title": "Support Activity",
-                        "scoringTitle": null,
-                        "score": 3,
-                        "weights": 5,
-                        "rating": 15,
-                        "isSelected": true,
-                        "data": "",
-                        "label": "Support Activity",
-                        "value": "71f3a457-7204-4361-bfac-d6d80b11ab5c"
-                    },
-                    {
-                        "id": "6972af13-fa5b-4a42-b032-f829286830ec",
-                        "title": "Other Activity",
-                        "scoringTitle": null,
-                        "score": 2,
-                        "weights": 5,
-                        "rating": 10,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "Other Activity",
-                        "value": "6972af13-fa5b-4a42-b032-f829286830ec"
-                    }
-                ]
-            },
-            {
-                "id": "06f07763-52e8-4abb-b260-9c847dca0577",
-                "scoringTitle": "If the outsourced vendor fails to perform the service as per agreed terms, the impact thereof on the Bank in terms of",
-                "subParams": [
-                    {
-                        "id": "74d339b4-5e19-4998-a6d4-75cd252b2ecd",
-                        "scoringTitle": "Ability to achieve business objectives",
-                        "scoreModels": [
-                            {
-                                "id": "397fd7c5-53c8-4dae-85f7-2659cd50d179",
-                                "title": "Business Vintage: \u003E=3 years but \u003C5 years",
-                                "scoringTitle": null,
-                                "score": 2,
-                                "weights": 2,
-                                "rating": 4,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Business Vintage: \u003E=3 years but \u003C5 years",
-                                "value": "397fd7c5-53c8-4dae-85f7-2659cd50d179"
-                            },
-                            {
-                                "id": "36e0c70b-aeca-4bb8-a636-4514c8141f47",
-                                "title": "Business Vintage: \u003E=5 years",
-                                "scoringTitle": null,
-                                "score": 1,
-                                "weights": 2,
-                                "rating": 2,
-                                "isSelected": true,
-                                "data": "",
-                                "label": "Business Vintage: \u003E=5 years",
-                                "value": "36e0c70b-aeca-4bb8-a636-4514c8141f47"
-                            },
-                            {
-                                "id": "7b8b50e8-b499-4e53-b057-bb60900f14ce",
-                                "title": "Business Vintage: \u003E=1 year but \u003C3 years",
-                                "scoringTitle": null,
-                                "score": 3,
-                                "weights": 2,
-                                "rating": 6,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Business Vintage: \u003E=1 year but \u003C3 years",
-                                "value": "7b8b50e8-b499-4e53-b057-bb60900f14ce"
-                            },
-                            {
-                                "id": "f0353ad4-740a-4443-9ada-c4172b515230",
-                                "title": "Business Vintage:\u003C1 year",
-                                "scoringTitle": null,
-                                "score": 4,
-                                "weights": 2,
-                                "rating": 8,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Business Vintage:\u003C1 year",
-                                "value": "f0353ad4-740a-4443-9ada-c4172b515230"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "98b44a2d-91b1-4e3c-81b6-bc4ae6316169",
-                        "scoringTitle": "Time required to look for alternative vendor or to go live \u0060in-house\u0060",
-                        "scoreModels": [
-                            {
-                                "id": "2ddff769-646b-424e-9a2a-481b6ff4de37",
-                                "title": "Time required: \u003E6 months",
-                                "scoringTitle": null,
-                                "score": 4,
-                                "weights": 3,
-                                "rating": 12,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Time required: \u003E6 months",
-                                "value": "2ddff769-646b-424e-9a2a-481b6ff4de37"
-                            },
-                            {
-                                "id": "0cbafa80-c2fa-42e8-9539-516b6ce6928e",
-                                "title": "Time required: \u003C=1 month",
-                                "scoringTitle": null,
-                                "score": 1,
-                                "weights": 3,
-                                "rating": 3,
-                                "isSelected": true,
-                                "data": "",
-                                "label": "Time required: \u003C=1 month",
-                                "value": "0cbafa80-c2fa-42e8-9539-516b6ce6928e"
-                            },
-                            {
-                                "id": "0b34a86c-ac44-4164-b3e7-51862486f899",
-                                "title": "Time required: \u003C=3 months but \u003E1 month",
-                                "scoringTitle": null,
-                                "score": 2,
-                                "weights": 3,
-                                "rating": 6,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Time required: \u003C=3 months but \u003E1 month",
-                                "value": "0b34a86c-ac44-4164-b3e7-51862486f899"
-                            },
-                            {
-                                "id": "529ebc4f-5b18-4752-80e3-80dfb3176299",
-                                "title": "Time required: \u003C=6 months but \u003E3 months",
-                                "scoringTitle": null,
-                                "score": 3,
-                                "weights": 3,
-                                "rating": 9,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Time required: \u003C=6 months but \u003E3 months",
-                                "value": "529ebc4f-5b18-4752-80e3-80dfb3176299"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "fd8676b3-13ab-45c2-b85f-e534234bea93",
-                        "scoringTitle": "Reputation",
-                        "scoreModels": [
-                            {
-                                "id": "8e0970d6-d49b-46dc-8cb1-11c1e0b3222b",
-                                "title": "No impact of failure of service on reputation",
-                                "scoringTitle": null,
-                                "score": 1,
-                                "weights": 2,
-                                "rating": 2,
-                                "isSelected": true,
-                                "data": "",
-                                "label": "No impact of failure of service on reputation",
-                                "value": "8e0970d6-d49b-46dc-8cb1-11c1e0b3222b"
-                            },
-                            {
-                                "id": "56431d73-187c-445a-b005-3b5b264d1510",
-                                "title": "Impact of failure of service on reputation",
-                                "scoringTitle": null,
-                                "score": 4,
-                                "weights": 2,
-                                "rating": 8,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "Impact of failure of service on reputation",
-                                "value": "56431d73-187c-445a-b005-3b5b264d1510"
-                            }
-                        ]
-                    }
-                ],
-                "scoreModels": null
-            },
-            {
-                "id": "39de3745-b6fd-4ba5-89e4-e934509b66bc",
-                "scoringTitle": "Potential Impact of failure of outsourced vendors in terms of Banks ",
-                "subParams": [
-                    {
-                        "id": "a735438c-76d4-4b11-8245-199bd9c67e18",
-                        "scoringTitle": "Solvency",
-                        "scoreModels": [
-                            {
-                                "id": "af6dde29-037c-4e04-946b-8ca724260e71",
-                                "title": " \u003E=50%",
-                                "scoringTitle": null,
-                                "score": 4,
-                                "weights": 1,
-                                "rating": 4,
-                                "isSelected": false,
-                                "data": "",
-                                "label": " \u003E=50%",
-                                "value": "af6dde29-037c-4e04-946b-8ca724260e71"
-                            },
-                            {
-                                "id": "7cfb1229-9644-4b84-93c4-bb11455ae045",
-                                "title": "\u003C10%",
-                                "scoringTitle": null,
-                                "score": 1,
-                                "weights": 1,
-                                "rating": 1,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "\u003C10%",
-                                "value": "7cfb1229-9644-4b84-93c4-bb11455ae045"
-                            },
-                            {
-                                "id": "6fc1c1a1-6292-42ef-a1c5-c6efa57c7079",
-                                "title": " \u003C50% but \u003E=25%",
-                                "scoringTitle": null,
-                                "score": 3,
-                                "weights": 1,
-                                "rating": 3,
-                                "isSelected": false,
-                                "data": "",
-                                "label": " \u003C50% but \u003E=25%",
-                                "value": "6fc1c1a1-6292-42ef-a1c5-c6efa57c7079"
-                            },
-                            {
-                                "id": "0866e35b-b200-4b5c-8da4-fab282bd532e",
-                                "title": "\u003C 25% but \u003E=10%",
-                                "scoringTitle": null,
-                                "score": 2,
-                                "weights": 1,
-                                "rating": 2,
-                                "isSelected": true,
-                                "data": "",
-                                "label": "\u003C 25% but \u003E=10%",
-                                "value": "0866e35b-b200-4b5c-8da4-fab282bd532e"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "19d0d085-895e-49af-89c3-2f597a2fec11",
-                        "scoringTitle": "Earnings",
-                        "scoreModels": [
-                            {
-                                "id": "ca65c445-9af0-472a-94c8-41a5fd8446a0",
-                                "title": "\u003C 5% but \u003E=2%",
-                                "scoringTitle": null,
-                                "score": 2,
-                                "weights": 2,
-                                "rating": 4,
-                                "isSelected": true,
-                                "data": "",
-                                "label": "\u003C 5% but \u003E=2%",
-                                "value": "ca65c445-9af0-472a-94c8-41a5fd8446a0"
-                            },
-                            {
-                                "id": "8f14a50d-82ad-4cff-aa47-8ccf229584b7",
-                                "title": "\u003C10% but \u003E=5%",
-                                "scoringTitle": null,
-                                "score": 3,
-                                "weights": 2,
-                                "rating": 6,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "\u003C10% but \u003E=5%",
-                                "value": "8f14a50d-82ad-4cff-aa47-8ccf229584b7"
-                            },
-                            {
-                                "id": "74af2944-a8a0-4baf-995d-b645989a2bc5",
-                                "title": "\u003C2%",
-                                "scoringTitle": null,
-                                "score": 1,
-                                "weights": 2,
-                                "rating": 2,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "\u003C2%",
-                                "value": "74af2944-a8a0-4baf-995d-b645989a2bc5"
-                            },
-                            {
-                                "id": "57699f06-75db-42c1-8f48-c906ce73fbf6",
-                                "title": "\u003E=10%",
-                                "scoringTitle": null,
-                                "score": 4,
-                                "weights": 2,
-                                "rating": 8,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "\u003E=10%",
-                                "value": "57699f06-75db-42c1-8f48-c906ce73fbf6"
-                            }
-                        ]
-                    },
-                    {
-                        "id": "76af930a-4f65-423d-afb6-bc8aab1a6d4d",
-                        "scoringTitle": "Liquidity",
-                        "scoreModels": [
-                            {
-                                "id": "37d967eb-211c-4722-8376-0c05e386afd3",
-                                "title": " \u003C50% but \u003E=25%",
-                                "scoringTitle": null,
-                                "score": 3,
-                                "weights": 1,
-                                "rating": 3,
-                                "isSelected": true,
-                                "data": "",
-                                "label": " \u003C50% but \u003E=25%",
-                                "value": "37d967eb-211c-4722-8376-0c05e386afd3"
-                            },
-                            {
-                                "id": "f6e54ed6-9bd7-4831-98b4-a1c547634df6",
-                                "title": " \u003E=50%",
-                                "scoringTitle": null,
-                                "score": 4,
-                                "weights": 1,
-                                "rating": 4,
-                                "isSelected": false,
-                                "data": "",
-                                "label": " \u003E=50%",
-                                "value": "f6e54ed6-9bd7-4831-98b4-a1c547634df6"
-                            },
-                            {
-                                "id": "a5282a35-c686-434d-b124-b00c6edb43ce",
-                                "title": "\u003C 25% but \u003E=10%",
-                                "scoringTitle": null,
-                                "score": 2,
-                                "weights": 1,
-                                "rating": 2,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "\u003C 25% but \u003E=10%",
-                                "value": "a5282a35-c686-434d-b124-b00c6edb43ce"
-                            },
-                            {
-                                "id": "6994062a-e109-4867-a578-ba425e274def",
-                                "title": "\u003C10%",
-                                "scoringTitle": null,
-                                "score": 1,
-                                "weights": 1,
-                                "rating": 1,
-                                "isSelected": false,
-                                "data": "",
-                                "label": "\u003C10%",
-                                "value": "6994062a-e109-4867-a578-ba425e274def"
-                            }
-                        ]
-                    }
-                ],
-                "scoreModels": null
-            },
-            {
-                "id": "b07ba5a5-a29c-468d-a97f-fa58901c4b1a",
-                "scoringTitle": "Availability of alternate vendor",
-                "subParams": null,
-                "scoreModels": [
-                    {
-                        "id": "d9ad4066-633b-4dcd-9e1c-46c9569c749a",
-                        "title": "Monopoly",
-                        "scoringTitle": null,
-                        "score": 4,
-                        "weights": 3,
-                        "rating": 12,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "Monopoly",
-                        "value": "d9ad4066-633b-4dcd-9e1c-46c9569c749a"
-                    },
-                    {
-                        "id": "2e9ce9de-9023-405b-bc92-632b44477610",
-                        "title": "More than 5 Vendors",
-                        "scoringTitle": null,
-                        "score": 1,
-                        "weights": 3,
-                        "rating": 3,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "More than 5 Vendors",
-                        "value": "2e9ce9de-9023-405b-bc92-632b44477610"
-                    },
-                    {
-                        "id": "b405fdaa-78a3-43cd-9134-87731414ea75",
-                        "title": "3-5 Vendors",
-                        "scoringTitle": null,
-                        "score": 2,
-                        "weights": 3,
-                        "rating": 6,
-                        "isSelected": true,
-                        "data": "",
-                        "label": "3-5 Vendors",
-                        "value": "b405fdaa-78a3-43cd-9134-87731414ea75"
-                    },
-                    {
-                        "id": "9fb96c37-45ad-46b8-8c6b-9d532e75ed85",
-                        "title": "1-2 Vendors",
-                        "scoringTitle": null,
-                        "score": 3,
-                        "weights": 3,
-                        "rating": 9,
-                        "isSelected": false,
-                        "data": "",
-                        "label": "1-2 Vendors",
-                        "value": "9fb96c37-45ad-46b8-8c6b-9d532e75ed85"
-                    }
-                ]
-            }
-        ],
-        "infoResult": [
-            {
-                "vendorId": "6bf6ce4b-5a8d-4db9-a3fd-93904be0ba90",
-                "totalScore": 48.00,
-                "groupTitle": "Medium",
-                "reviewerRemarks": null,
-                "lastReviewSentOn": "2025-01-21T11:22:02.873",
-                "reviewers": [
-                    {
-                        "id": "558dc1a5-bdb6-4ba9-bc94-002fd1ed68d7",
-                        "userName": "Kerry",
-                        "isSelected": false,
-                        "value": "558dc1a5-bdb6-4ba9-bc94-002fd1ed68d7",
-                        "label": "Kerry"
-                    },
-                    {
-                        "id": "9ecb44af-931f-418d-944e-032e5fc6abbd",
-                        "userName": "emmanuel@mcbmada",
-                        "isSelected": false,
-                        "value": "9ecb44af-931f-418d-944e-032e5fc6abbd",
-                        "label": "emmanuel@mcbmada"
-                    },
-                    {
-                        "id": "458d0a28-00c9-466e-96ce-0340c44f2362",
-                        "userName": "DavidW",
-                        "isSelected": false,
-                        "value": "458d0a28-00c9-466e-96ce-0340c44f2362",
-                        "label": "DavidW"
-                    },
-                    {
-                        "id": "0e091290-6e39-4bdc-93ec-04f0ee5fe2ce",
-                        "userName": "Ramya",
-                        "isSelected": false,
-                        "value": "0e091290-6e39-4bdc-93ec-04f0ee5fe2ce",
-                        "label": "Ramya"
-                    },
-                    {
-                        "id": "f6c84f3b-5fd1-4e2a-91ff-097aa1108407",
-                        "userName": "Jelina",
-                        "isSelected": false,
-                        "value": "f6c84f3b-5fd1-4e2a-91ff-097aa1108407",
-                        "label": "Jelina"
-                    },
-                    {
-                        "id": "1a446ff7-0cf4-4d46-bbfd-0a3997a60a76",
-                        "userName": "Raj",
-                        "isSelected": false,
-                        "value": "1a446ff7-0cf4-4d46-bbfd-0a3997a60a76",
-                        "label": "Raj"
-                    },
-                    {
-                        "id": "819903c7-da56-4a6e-b4db-0b3d5ab55b92",
-                        "userName": "rajatk007",
-                        "isSelected": false,
-                        "value": "819903c7-da56-4a6e-b4db-0b3d5ab55b92",
-                        "label": "rajatk007"
-                    },
-                    {
-                        "id": "0e843816-6e17-4081-8f8a-141746675011",
-                        "userName": "Kevin",
-                        "isSelected": false,
-                        "value": "0e843816-6e17-4081-8f8a-141746675011",
-                        "label": "Kevin"
-                    },
-                    {
-                        "id": "ff604df2-f1d4-4e4d-a7ca-158d69a636d8",
-                        "userName": "amy16",
-                        "isSelected": false,
-                        "value": "ff604df2-f1d4-4e4d-a7ca-158d69a636d8",
-                        "label": "amy16"
-                    },
-                    {
-                        "id": "e29ca20b-1657-4747-a9af-1734359036f3",
-                        "userName": "Ray",
-                        "isSelected": false,
-                        "value": "e29ca20b-1657-4747-a9af-1734359036f3",
-                        "label": "Ray"
-                    },
-                    {
-                        "id": "7797bc3f-9eac-477b-8ba8-193e1b0033f3",
-                        "userName": "seemah",
-                        "isSelected": false,
-                        "value": "7797bc3f-9eac-477b-8ba8-193e1b0033f3",
-                        "label": "seemah"
-                    },
-                    {
-                        "id": "70658b18-e5d4-4d29-ac75-1b16bb4ce27f",
-                        "userName": "BO Delhi",
-                        "isSelected": false,
-                        "value": "70658b18-e5d4-4d29-ac75-1b16bb4ce27f",
-                        "label": "BO Delhi"
-                    },
-                    {
-                        "id": "325d627e-dbfa-4dc2-bbbd-2050e936def1",
-                        "userName": "Soumya",
-                        "isSelected": false,
-                        "value": "325d627e-dbfa-4dc2-bbbd-2050e936def1",
-                        "label": "Soumya"
-                    },
-                    {
-                        "id": "e513fe60-bc7b-4cb8-b513-24881adfde9d",
-                        "userName": "Brian",
-                        "isSelected": false,
-                        "value": "e513fe60-bc7b-4cb8-b513-24881adfde9d",
-                        "label": "Brian"
-                    },
-                    {
-                        "id": "e15f6dec-dcbe-4ce6-8edd-256b91f76020",
-                        "userName": "Ricky",
-                        "isSelected": false,
-                        "value": "e15f6dec-dcbe-4ce6-8edd-256b91f76020",
-                        "label": "Ricky"
-                    },
-                    {
-                        "id": "55a13aa7-167f-4d5f-b005-26b9d747ccd2",
-                        "userName": "Jade",
-                        "isSelected": false,
-                        "value": "55a13aa7-167f-4d5f-b005-26b9d747ccd2",
-                        "label": "Jade"
-                    },
-                    {
-                        "id": "e15e3ffb-bf07-43e1-9e8d-27541d5c6b0a",
-                        "userName": "seema6",
-                        "isSelected": false,
-                        "value": "e15e3ffb-bf07-43e1-9e8d-27541d5c6b0a",
-                        "label": "seema6"
-                    },
-                    {
-                        "id": "27d476ca-e483-4833-a0dc-2ad399410309",
-                        "userName": "Courtney",
-                        "isSelected": false,
-                        "value": "27d476ca-e483-4833-a0dc-2ad399410309",
-                        "label": "Courtney"
-                    },
-                    {
-                        "id": "d52d347d-d7bd-4ec8-879b-2c4b290ef9c2",
-                        "userName": "BM Bangalore",
-                        "isSelected": false,
-                        "value": "d52d347d-d7bd-4ec8-879b-2c4b290ef9c2",
-                        "label": "BM Bangalore"
-                    },
-                    {
-                        "id": "5c026db6-b861-4b48-a2f5-2fc960a274ad",
-                        "userName": "ben",
-                        "isSelected": false,
-                        "value": "5c026db6-b861-4b48-a2f5-2fc960a274ad",
-                        "label": "ben"
-                    },
-                    {
-                        "id": "fef7e84f-fcce-43d2-94ec-323b2f3e2d35",
-                        "userName": "Charlie",
-                        "isSelected": false,
-                        "value": "fef7e84f-fcce-43d2-94ec-323b2f3e2d35",
-                        "label": "Charlie"
-                    },
-                    {
-                        "id": "5542fa55-a560-40bb-b098-3646ef3acd94",
-                        "userName": "bhavana",
-                        "isSelected": false,
-                        "value": "5542fa55-a560-40bb-b098-3646ef3acd94",
-                        "label": "bhavana"
-                    },
-                    {
-                        "id": "34ee0f4a-9967-4402-bdf5-36705c43a940",
-                        "userName": "RoseW",
-                        "isSelected": false,
-                        "value": "34ee0f4a-9967-4402-bdf5-36705c43a940",
-                        "label": "RoseW"
-                    },
-                    {
-                        "id": "79696bd4-74e4-4c9f-af37-38176df1afc3",
-                        "userName": "James",
-                        "isSelected": false,
-                        "value": "79696bd4-74e4-4c9f-af37-38176df1afc3",
-                        "label": "James"
-                    },
-                    {
-                        "id": "1f6df91b-f3b6-4a8c-9bbf-393ca47a8c2c",
-                        "userName": "Niharika",
-                        "isSelected": false,
-                        "value": "1f6df91b-f3b6-4a8c-9bbf-393ca47a8c2c",
-                        "label": "Niharika"
-                    },
-                    {
-                        "id": "e2bb93ec-1cc9-498d-8bca-3a8b9ac26003",
-                        "userName": "Federer",
-                        "isSelected": false,
-                        "value": "e2bb93ec-1cc9-498d-8bca-3a8b9ac26003",
-                        "label": "Federer"
-                    },
-                    {
-                        "id": "ea0d3a3f-0e34-4826-8320-3aadb1fa173e",
-                        "userName": "daisy",
-                        "isSelected": false,
-                        "value": "ea0d3a3f-0e34-4826-8320-3aadb1fa173e",
-                        "label": "daisy"
-                    },
-                    {
-                        "id": "313be41b-4a02-45f1-9ed7-3acd0ac0a9c5",
-                        "userName": "Ajhas",
-                        "isSelected": false,
-                        "value": "313be41b-4a02-45f1-9ed7-3acd0ac0a9c5",
-                        "label": "Ajhas"
-                    },
-                    {
-                        "id": "659062f7-0702-4eee-9d42-3c8794928f04",
-                        "userName": "peter",
-                        "isSelected": false,
-                        "value": "659062f7-0702-4eee-9d42-3c8794928f04",
-                        "label": "peter"
-                    },
-                    {
-                        "id": "c89fca55-8a77-4b85-9c9f-3cd514c5b2d7",
-                        "userName": "veronica",
-                        "isSelected": false,
-                        "value": "c89fca55-8a77-4b85-9c9f-3cd514c5b2d7",
-                        "label": "veronica"
-                    },
-                    {
-                        "id": "222f30ed-5c7a-4db3-90b7-40d25293ff36",
-                        "userName": "Durga.v",
-                        "isSelected": false,
-                        "value": "222f30ed-5c7a-4db3-90b7-40d25293ff36",
-                        "label": "Durga.v"
-                    },
-                    {
-                        "id": "6172fe8d-634d-4850-88c2-4355635c0375",
-                        "userName": "betty",
-                        "isSelected": false,
-                        "value": "6172fe8d-634d-4850-88c2-4355635c0375",
-                        "label": "betty"
-                    },
-                    {
-                        "id": "09185523-0af0-4019-a663-44dbd017374a",
-                        "userName": "Berlin",
-                        "isSelected": false,
-                        "value": "09185523-0af0-4019-a663-44dbd017374a",
-                        "label": "Berlin"
-                    },
-                    {
-                        "id": "660c5f9a-6c45-4020-aa18-4530e2f2cf97",
-                        "userName": "Raksha",
-                        "isSelected": false,
-                        "value": "660c5f9a-6c45-4020-aa18-4530e2f2cf97",
-                        "label": "Raksha"
-                    },
-                    {
-                        "id": "6f116139-7167-487e-865a-45c51e9b1ef2",
-                        "userName": "victoria",
-                        "isSelected": false,
-                        "value": "6f116139-7167-487e-865a-45c51e9b1ef2",
-                        "label": "victoria"
-                    },
-                    {
-                        "id": "7d276b15-282e-4210-909e-45e02d913c41",
-                        "userName": "sreemathe",
-                        "isSelected": false,
-                        "value": "7d276b15-282e-4210-909e-45e02d913c41",
-                        "label": "sreemathe"
-                    },
-                    {
-                        "id": "0bcd43e9-305c-4aad-b9ad-472be3c72af8",
-                        "userName": "Himanshu",
-                        "isSelected": false,
-                        "value": "0bcd43e9-305c-4aad-b9ad-472be3c72af8",
-                        "label": "Himanshu"
-                    },
-                    {
-                        "id": "89d3556a-cee0-454e-9083-47f1750c1623",
-                        "userName": "Sebastian",
-                        "isSelected": false,
-                        "value": "89d3556a-cee0-454e-9083-47f1750c1623",
-                        "label": "Sebastian"
-                    },
-                    {
-                        "id": "c1136ad6-dfd1-4619-aba4-48522f0641a3",
-                        "userName": "cheryl",
-                        "isSelected": false,
-                        "value": "c1136ad6-dfd1-4619-aba4-48522f0641a3",
-                        "label": "cheryl"
-                    },
-                    {
-                        "id": "83f25b01-caec-4f02-975b-4887cb3de6bf",
-                        "userName": "Ana",
-                        "isSelected": false,
-                        "value": "83f25b01-caec-4f02-975b-4887cb3de6bf",
-                        "label": "Ana"
-                    },
-                    {
-                        "id": "11034225-0cb0-4209-a427-48ddb38d50fd",
-                        "userName": "Rosie",
-                        "isSelected": false,
-                        "value": "11034225-0cb0-4209-a427-48ddb38d50fd",
-                        "label": "Rosie"
-                    },
-                    {
-                        "id": "9143461d-d971-4d0c-8893-49a55c426f14",
-                        "userName": "younus",
-                        "isSelected": false,
-                        "value": "9143461d-d971-4d0c-8893-49a55c426f14",
-                        "label": "younus"
-                    },
-                    {
-                        "id": "d2818a96-b4cd-4fe8-ae7b-4c5607281a94",
-                        "userName": "younus.dar",
-                        "isSelected": false,
-                        "value": "d2818a96-b4cd-4fe8-ae7b-4c5607281a94",
-                        "label": "younus.dar"
-                    },
-                    {
-                        "id": "19e77a80-6874-4150-a348-51dc233a3cf5",
-                        "userName": "amar",
-                        "isSelected": false,
-                        "value": "19e77a80-6874-4150-a348-51dc233a3cf5",
-                        "label": "amar"
-                    },
-                    {
-                        "id": "cc85ac47-b33a-4726-b7a1-587cf7acac04",
-                        "userName": "Mathew",
-                        "isSelected": false,
-                        "value": "cc85ac47-b33a-4726-b7a1-587cf7acac04",
-                        "label": "Mathew"
-                    },
-                    {
-                        "id": "fc9d0d16-3b27-48b7-ae9e-632749678c11",
-                        "userName": "Karren",
-                        "isSelected": false,
-                        "value": "fc9d0d16-3b27-48b7-ae9e-632749678c11",
-                        "label": "Karren"
-                    },
-                    {
-                        "id": "9df28c4e-c338-403f-b573-64cf177e50af",
-                        "userName": "supreeth777",
-                        "isSelected": false,
-                        "value": "9df28c4e-c338-403f-b573-64cf177e50af",
-                        "label": "supreeth777"
-                    },
-                    {
-                        "id": "a8609724-95c3-4af7-af66-69217a40e6c4",
-                        "userName": "rkrkr",
-                        "isSelected": false,
-                        "value": "a8609724-95c3-4af7-af66-69217a40e6c4",
-                        "label": "rkrkr"
-                    },
-                    {
-                        "id": "7d76281b-df4f-4cbe-9462-6c6aea7aa5f6",
-                        "userName": "Tom",
-                        "isSelected": false,
-                        "value": "7d76281b-df4f-4cbe-9462-6c6aea7aa5f6",
-                        "label": "Tom"
-                    },
-                    {
-                        "id": "e149d3ad-be3d-4530-81c9-7276d395e438",
-                        "userName": "amyy",
-                        "isSelected": false,
-                        "value": "e149d3ad-be3d-4530-81c9-7276d395e438",
-                        "label": "amyy"
-                    },
-                    {
-                        "id": "d0181694-6d71-4142-b2f1-749e66d6df34",
-                        "userName": "Luke",
-                        "isSelected": false,
-                        "value": "d0181694-6d71-4142-b2f1-749e66d6df34",
-                        "label": "Luke"
-                    },
-                    {
-                        "id": "99934cf2-d2e7-47c2-bd4a-74cfecb5a4f3",
-                        "userName": "Jack",
-                        "isSelected": false,
-                        "value": "99934cf2-d2e7-47c2-bd4a-74cfecb5a4f3",
-                        "label": "Jack"
-                    },
-                    {
-                        "id": "1a844da9-83b0-488d-9bdc-7571b51d3c9c",
-                        "userName": "frarem",
-                        "isSelected": false,
-                        "value": "1a844da9-83b0-488d-9bdc-7571b51d3c9c",
-                        "label": "frarem"
-                    },
-                    {
-                        "id": "016907f4-5470-4d30-9e62-75c1391e331b",
-                        "userName": "marine@mcbmada",
-                        "isSelected": false,
-                        "value": "016907f4-5470-4d30-9e62-75c1391e331b",
-                        "label": "marine@mcbmada"
-                    },
-                    {
-                        "id": "f4a7a296-a4c6-49c6-9361-7ceb51c5d84a",
-                        "userName": "jayaprakash",
-                        "isSelected": false,
-                        "value": "f4a7a296-a4c6-49c6-9361-7ceb51c5d84a",
-                        "label": "jayaprakash"
-                    },
-                    {
-                        "id": "a67658c7-7a75-4fb1-88b4-8124797c1b2f",
-                        "userName": "Joey",
-                        "isSelected": false,
-                        "value": "a67658c7-7a75-4fb1-88b4-8124797c1b2f",
-                        "label": "Joey"
-                    },
-                    {
-                        "id": "e577c296-1ab8-4130-82b8-816b598dc9e0",
-                        "userName": "Roberts",
-                        "isSelected": false,
-                        "value": "e577c296-1ab8-4130-82b8-816b598dc9e0",
-                        "label": "Roberts"
-                    },
-                    {
-                        "id": "be8f7d8a-c52a-4d1c-aba5-81910a66229a",
-                        "userName": "Janetk",
-                        "isSelected": false,
-                        "value": "be8f7d8a-c52a-4d1c-aba5-81910a66229a",
-                        "label": "Janetk"
-                    },
-                    {
-                        "id": "34c617e5-2e63-49ac-bcba-8306221e440b",
-                        "userName": "john",
-                        "isSelected": false,
-                        "value": "34c617e5-2e63-49ac-bcba-8306221e440b",
-                        "label": "john"
-                    },
-                    {
-                        "id": "80d98fc4-f016-4bfb-b6a9-8473c1982813",
-                        "userName": "Gieomtest",
-                        "isSelected": false,
-                        "value": "80d98fc4-f016-4bfb-b6a9-8473c1982813",
-                        "label": "Gieomtest"
-                    },
-                    {
-                        "id": "2d19ad52-d462-484a-ab76-86a9d0a4ea00",
-                        "userName": "vaanmathi",
-                        "isSelected": false,
-                        "value": "2d19ad52-d462-484a-ab76-86a9d0a4ea00",
-                        "label": "vaanmathi"
-                    },
-                    {
-                        "id": "a4bec39e-fb44-4f87-83e0-8bdfdc66e75d",
-                        "userName": "Riley",
-                        "isSelected": false,
-                        "value": "a4bec39e-fb44-4f87-83e0-8bdfdc66e75d",
-                        "label": "Riley"
-                    },
-                    {
-                        "id": "22aabc29-eb17-4ee3-8451-8c66f184ff78",
-                        "userName": "roman@1",
-                        "isSelected": false,
-                        "value": "22aabc29-eb17-4ee3-8451-8c66f184ff78",
-                        "label": "roman@1"
-                    },
-                    {
-                        "id": "68636701-4305-46b2-a200-8e00d84e67a0",
-                        "userName": "Maryl",
-                        "isSelected": false,
-                        "value": "68636701-4305-46b2-a200-8e00d84e67a0",
-                        "label": "Maryl"
-                    },
-                    {
-                        "id": "8ccc6380-122c-4dbe-99cb-9161345f97f9",
-                        "userName": "Mark",
-                        "isSelected": false,
-                        "value": "8ccc6380-122c-4dbe-99cb-9161345f97f9",
-                        "label": "Mark"
-                    },
-                    {
-                        "id": "7ebace44-2b1b-4c74-9c3a-928c878fa5f3",
-                        "userName": "Kat",
-                        "isSelected": false,
-                        "value": "7ebace44-2b1b-4c74-9c3a-928c878fa5f3",
-                        "label": "Kat"
-                    },
-                    {
-                        "id": "aa3ff145-2c4e-478a-80e9-945138e46a69",
-                        "userName": "Jerry",
-                        "isSelected": false,
-                        "value": "aa3ff145-2c4e-478a-80e9-945138e46a69",
-                        "label": "Jerry"
-                    },
-                    {
-                        "id": "aae9be4f-94a5-41f2-8b1f-9c201e286e0c",
-                        "userName": "Lianna",
-                        "isSelected": false,
-                        "value": "aae9be4f-94a5-41f2-8b1f-9c201e286e0c",
-                        "label": "Lianna"
-                    },
-                    {
-                        "id": "053d9de2-f492-48b9-a701-9c8669448f2f",
-                        "userName": "vk18",
-                        "isSelected": false,
-                        "value": "053d9de2-f492-48b9-a701-9c8669448f2f",
-                        "label": "vk18"
-                    },
-                    {
-                        "id": "9434b667-f658-49be-92a1-9f4988cd3bff",
-                        "userName": "JohnnyC",
-                        "isSelected": false,
-                        "value": "9434b667-f658-49be-92a1-9f4988cd3bff",
-                        "label": "JohnnyC"
-                    },
-                    {
-                        "id": "9dbcb011-bfc5-4e10-8682-a095dea0542c",
-                        "userName": "Thomas",
-                        "isSelected": false,
-                        "value": "9dbcb011-bfc5-4e10-8682-a095dea0542c",
-                        "label": "Thomas"
-                    },
-                    {
-                        "id": "ef7d706e-f14e-40fb-bf69-a17972251976",
-                        "userName": "Steve",
-                        "isSelected": false,
-                        "value": "ef7d706e-f14e-40fb-bf69-a17972251976",
-                        "label": "Steve"
-                    },
-                    {
-                        "id": "9845c396-3eb5-46f7-ba8d-a8cf82866790",
-                        "userName": "Justin",
-                        "isSelected": false,
-                        "value": "9845c396-3eb5-46f7-ba8d-a8cf82866790",
-                        "label": "Justin"
-                    },
-                    {
-                        "id": "1f986d0c-b847-4ecb-a544-aa716c2656df",
-                        "userName": "rrr",
-                        "isSelected": false,
-                        "value": "1f986d0c-b847-4ecb-a544-aa716c2656df",
-                        "label": "rrr"
-                    },
-                    {
-                        "id": "e550cb58-c73f-499c-86e9-ae5e7925eb57",
-                        "userName": "Daniel",
-                        "isSelected": false,
-                        "value": "e550cb58-c73f-499c-86e9-ae5e7925eb57",
-                        "label": "Daniel"
-                    },
-                    {
-                        "id": "a50070fd-8ed0-4773-9fb6-af245243fee7",
-                        "userName": "rajat.kumar@gieom.com",
-                        "isSelected": false,
-                        "value": "a50070fd-8ed0-4773-9fb6-af245243fee7",
-                        "label": "rajat.kumar@gieom.com"
-                    },
-                    {
-                        "id": "9ce90b56-427a-45e9-b686-b11cd261c0f9",
-                        "userName": "parul",
-                        "isSelected": false,
-                        "value": "9ce90b56-427a-45e9-b686-b11cd261c0f9",
-                        "label": "parul"
-                    },
-                    {
-                        "id": "24b9c446-5f2a-4b03-ba07-b76236599745",
-                        "userName": "christ",
-                        "isSelected": false,
-                        "value": "24b9c446-5f2a-4b03-ba07-b76236599745",
-                        "label": "christ"
-                    },
-                    {
-                        "id": "912106e9-a14d-45ad-b882-bd5aceba8920",
-                        "userName": "Kasy",
-                        "isSelected": false,
-                        "value": "912106e9-a14d-45ad-b882-bd5aceba8920",
-                        "label": "Kasy"
-                    },
-                    {
-                        "id": "7d05e61c-a395-4e35-8460-bf6a0b370dfc",
-                        "userName": "Patricia",
-                        "isSelected": false,
-                        "value": "7d05e61c-a395-4e35-8460-bf6a0b370dfc",
-                        "label": "Patricia"
-                    },
-                    {
-                        "id": "bea831e5-a871-4153-af75-c11b8d6aea88",
-                        "userName": "Su_Maria",
-                        "isSelected": false,
-                        "value": "bea831e5-a871-4153-af75-c11b8d6aea88",
-                        "label": "Su_Maria"
-                    },
-                    {
-                        "id": "b003d747-47e6-49a1-931c-c40970ec3996",
-                        "userName": "muazzam",
-                        "isSelected": false,
-                        "value": "b003d747-47e6-49a1-931c-c40970ec3996",
-                        "label": "muazzam"
-                    },
-                    {
-                        "id": "c9dc7d45-29c9-4ba9-9bfe-c5891b936cfe",
-                        "userName": "BM Delhi",
-                        "isSelected": false,
-                        "value": "c9dc7d45-29c9-4ba9-9bfe-c5891b936cfe",
-                        "label": "BM Delhi"
-                    },
-                    {
-                        "id": "6f4ba444-783e-4b59-b200-c76d7cd567ef",
-                        "userName": "Gary",
-                        "isSelected": false,
-                        "value": "6f4ba444-783e-4b59-b200-c76d7cd567ef",
-                        "label": "Gary"
-                    },
-                    {
-                        "id": "692a584b-9e49-4d97-a999-cc0b2d264091",
-                        "userName": "Dean Bill",
-                        "isSelected": false,
-                        "value": "692a584b-9e49-4d97-a999-cc0b2d264091",
-                        "label": "Dean Bill"
-                    },
-                    {
-                        "id": "96a29dd3-6b99-4af2-a3d5-cc389f54623a",
-                        "userName": "foester",
-                        "isSelected": false,
-                        "value": "96a29dd3-6b99-4af2-a3d5-cc389f54623a",
-                        "label": "foester"
-                    },
-                    {
-                        "id": "0043deed-ebd2-4e95-a32e-cd539b8dd8b0",
-                        "userName": "Derek",
-                        "isSelected": false,
-                        "value": "0043deed-ebd2-4e95-a32e-cd539b8dd8b0",
-                        "label": "Derek"
-                    },
-                    {
-                        "id": "31482051-da45-41b8-b3fb-d01be8f076c1",
-                        "userName": "kennny",
-                        "isSelected": false,
-                        "value": "31482051-da45-41b8-b3fb-d01be8f076c1",
-                        "label": "kennny"
-                    },
-                    {
-                        "id": "b1ee9ce8-e7fe-4b62-9a3f-d36b6e277fe9",
-                        "userName": "Charolet",
-                        "isSelected": false,
-                        "value": "b1ee9ce8-e7fe-4b62-9a3f-d36b6e277fe9",
-                        "label": "Charolet"
-                    },
-                    {
-                        "id": "0ab5b79a-a2d4-4001-a5d1-d40cc288c1de",
-                        "userName": "Emma@Mcbmada",
-                        "isSelected": false,
-                        "value": "0ab5b79a-a2d4-4001-a5d1-d40cc288c1de",
-                        "label": "Emma@Mcbmada"
-                    },
-                    {
-                        "id": "2e3e16aa-2365-428b-9ecf-d6a6546dfa1b",
-                        "userName": "andrew",
-                        "isSelected": false,
-                        "value": "2e3e16aa-2365-428b-9ecf-d6a6546dfa1b",
-                        "label": "andrew"
-                    },
-                    {
-                        "id": "bc958b63-c6d3-4c78-84a9-dbdad20f867a",
-                        "userName": "Castor",
-                        "isSelected": false,
-                        "value": "bc958b63-c6d3-4c78-84a9-dbdad20f867a",
-                        "label": "Castor"
-                    },
-                    {
-                        "id": "2c3f48d2-e7f4-4a12-b812-dc7a4419cabe",
-                        "userName": "Kamala",
-                        "isSelected": false,
-                        "value": "2c3f48d2-e7f4-4a12-b812-dc7a4419cabe",
-                        "label": "Kamala"
-                    },
-                    {
-                        "id": "523d4b71-5987-4629-a389-e0508382918c",
-                        "userName": "Robert",
-                        "isSelected": false,
-                        "value": "523d4b71-5987-4629-a389-e0508382918c",
-                        "label": "Robert"
-                    },
-                    {
-                        "id": "15d5bfba-ed27-4b6f-bf7d-e105e4180fd9",
-                        "userName": "jeevan",
-                        "isSelected": false,
-                        "value": "15d5bfba-ed27-4b6f-bf7d-e105e4180fd9",
-                        "label": "jeevan"
-                    },
-                    {
-                        "id": "634c773b-f19e-4e04-864e-e2931c3ed85d",
-                        "userName": "Shweta",
-                        "isSelected": false,
-                        "value": "634c773b-f19e-4e04-864e-e2931c3ed85d",
-                        "label": "Shweta"
-                    },
-                    {
-                        "id": "dc276033-159f-49f3-8c47-e3d8505fb8c5",
-                        "userName": "Spu_Ryan",
-                        "isSelected": false,
-                        "value": "dc276033-159f-49f3-8c47-e3d8505fb8c5",
-                        "label": "Spu_Ryan"
-                    },
-                    {
-                        "id": "6de5c5f2-bf30-434c-8652-e59505561ddc",
-                        "userName": "margaux@mcbmada",
-                        "isSelected": false,
-                        "value": "6de5c5f2-bf30-434c-8652-e59505561ddc",
-                        "label": "margaux@mcbmada"
-                    },
-                    {
-                        "id": "5f9be0f1-0b7b-4cb3-a58d-e6ef49efe0c9",
-                        "userName": "Morris",
-                        "isSelected": false,
-                        "value": "5f9be0f1-0b7b-4cb3-a58d-e6ef49efe0c9",
-                        "label": "Morris"
-                    },
-                    {
-                        "id": "bb1cb344-06c3-4a1c-8c9c-e81aa7dcfc85",
-                        "userName": "raghavtest1",
-                        "isSelected": false,
-                        "value": "bb1cb344-06c3-4a1c-8c9c-e81aa7dcfc85",
-                        "label": "raghavtest1"
-                    },
-                    {
-                        "id": "975f2bd2-fb8c-4376-91de-eb2d7258548a",
-                        "userName": "BO Bangalore",
-                        "isSelected": false,
-                        "value": "975f2bd2-fb8c-4376-91de-eb2d7258548a",
-                        "label": "BO Bangalore"
-                    },
-                    {
-                        "id": "fac6399b-e5bd-4953-90d4-eed12af436ab",
-                        "userName": "Kenny",
-                        "isSelected": false,
-                        "value": "fac6399b-e5bd-4953-90d4-eed12af436ab",
-                        "label": "Kenny"
-                    },
-                    {
-                        "id": "83f4ce5d-5c76-40fc-acff-f12255df7876",
-                        "userName": "surya",
-                        "isSelected": true,
-                        "value": "83f4ce5d-5c76-40fc-acff-f12255df7876",
-                        "label": "surya"
-                    },
-                    {
-                        "id": "4e016a36-4f40-4e69-ad2a-f5079be81ef5",
-                        "userName": "jayashree",
-                        "isSelected": false,
-                        "value": "4e016a36-4f40-4e69-ad2a-f5079be81ef5",
-                        "label": "jayashree"
-                    },
-                    {
-                        "id": "daef9065-d622-4cb5-a5b2-f6e19ed4936b",
-                        "userName": "ajay",
-                        "isSelected": false,
-                        "value": "daef9065-d622-4cb5-a5b2-f6e19ed4936b",
-                        "label": "ajay"
-                    },
-                    {
-                        "id": "1a279cb6-4342-4dab-9bcb-fb0c0b97c68c",
-                        "userName": "Eric",
-                        "isSelected": false,
-                        "value": "1a279cb6-4342-4dab-9bcb-fb0c0b97c68c",
-                        "label": "Eric"
-                    },
-                    {
-                        "id": "4506ff2b-275d-449a-92fc-ff9f952909e1",
-                        "userName": "suryaPWD",
-                        "isSelected": false,
-                        "value": "4506ff2b-275d-449a-92fc-ff9f952909e1",
-                        "label": "suryaPWD"
-                    }
-                ]
-            }
-        ]
+  "financialList": [
+    {
+      "parameterId": "dcb27e4b-7c33-44bc-926a-18514fdf3699",
+      "parameterTitle": "Financial Position",
+      "subParams": [
+        {
+          "parameterId": "174b2fa8-9d3f-4fd6-b2aa-073f14602caf",
+          "parameterTitle": "Term loans from financial institutions and banks",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "6249e9c4-117e-439f-8f39-0b5388d7b778",
+          "parameterTitle": "Net Worth",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "13581cb1-ee4c-4d14-871e-11eee6d4f427",
+          "parameterTitle": "Others (including sundry creditors)",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "9aafb5b9-0fd6-4818-8ef1-1dfc83b07dc1",
+          "parameterTitle": "Free Reserves",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "97159220-1caf-486c-9c14-32a844b3a3f0",
+          "parameterTitle": "Cash \u0026 Bank balances",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "997f0134-418d-4dc4-9ad5-3bb089738b33",
+          "parameterTitle": "Working Capital",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "7947df41-0d43-4395-8368-45b89938151d",
+          "parameterTitle": "Contingent Liability (include claim not acknowledged, specify details)",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "4f48cff8-458b-4eaf-af9c-49854a8c150d",
+          "parameterTitle": "Share Capital",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "28dccc79-9635-4370-a8bf-854c89617fca",
+          "parameterTitle": "Current Assets",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "f586e7ee-b03d-4065-979c-870ed5298a33",
+          "parameterTitle": "Bank Cash Credit",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "15d84baa-aa75-4fb2-89ef-9a7304166f71",
+          "parameterTitle": "Provisions",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "e68071f4-b5ee-4e5e-bb40-aa99478819e3",
+          "parameterTitle": "Other Reserves (Please specify)",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "7a0ff77f-ce1f-4a05-ab9f-ad7db390332a",
+          "parameterTitle": "Current Liabilities",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "3c4214b0-774a-4789-aa19-af87496c46c6",
+          "parameterTitle": "Fixed Assets Gross and Net",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "25756ddc-6468-478c-8296-e106d1dce510",
+          "parameterTitle": "Loans",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "f06be424-7fa8-431e-bac4-e22eca2ba0ab",
+          "parameterTitle": "Inventories",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "8a388d37-c57b-458e-ae50-e609d5835944",
+          "parameterTitle": "Debtors and advances considered good more than 6 months",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        }
+      ]
+    },
+    {
+      "parameterId": "c6217565-fb6d-48db-8a61-1a4e82575218",
+      "parameterTitle": "Net Profit before Tax",
+      "subParams": [
+        {
+          "parameterId": "6c5bde25-86f7-4e86-8834-32a7d940447f",
+          "parameterTitle": "During the last financial year",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "3cd261b1-7504-4aff-8330-8a3dc90293a5",
+          "parameterTitle": "During the year before the last financial year",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "7d76fe2f-7066-4dc4-85b7-d758cf08473a",
+          "parameterTitle": "Current period",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        }
+      ]
+    },
+    {
+      "parameterId": "809412bb-b717-461d-bf69-4f52f4d37699",
+      "parameterTitle": "Total Liabilities",
+      "subParams": [
+        {
+          "parameterId": "9abf01e1-3511-4816-898c-29ae1eaf95c0",
+          "parameterTitle": "Current Liabilities",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "42fc93df-4d55-402f-b0f5-40134f06b83a",
+          "parameterTitle": "Current Ratio",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "7a79f79a-2baf-4516-bfe1-8c213909af19",
+          "parameterTitle": "Total Liability to Net Worth",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "32d65659-2b5d-42df-89c0-8d4a1a07d02c",
+          "parameterTitle": "Current Assets to",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "ff3e52e7-a563-40ec-bdfc-e036e32c9139",
+          "parameterTitle": "Acid Test Ratio",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        }
+      ]
+    },
+    {
+      "parameterId": "f990d634-573c-4763-a141-622852b59b12",
+      "parameterTitle": "Net Sales",
+      "subParams": [
+        {
+          "parameterId": "519b3843-8bcc-44f0-bb3f-110f7fae1d5d",
+          "parameterTitle": "Current period",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "9a07f769-53dd-4505-8c90-a6172051a832",
+          "parameterTitle": "During the year before the last financial year",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "3cad3cb1-df3f-4b9e-891c-d05c3ff05d6e",
+          "parameterTitle": "During the last financial year",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        }
+      ]
+    },
+    {
+      "parameterId": "82c0e1f2-2ea9-43e8-8705-a35128cbb229",
+      "parameterTitle": "Sales",
+      "subParams": [
+        {
+          "parameterId": "0dc15e30-ab04-4edb-93ce-268d7752f41b",
+          "parameterTitle": "Value of current orders to be executed",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        },
+        {
+          "parameterId": "579a817c-946f-461d-b1b1-46fffa3ad496",
+          "parameterTitle": "Value of anticipated sales for the next financial year",
+          "currentFinancialYear": null,
+          "lastFinancialYear": null
+        }
+      ]
     }
+  ],
+  "vendorRatingFinancialInfoReadModel": {
+    "id": "00000000-0000-0000-0000-000000000000",
+    "vendorId": "00000000-0000-0000-0000-000000000000",
+    "profitAndLossCertifiedBy": null,
+    "deviation": null,
+    "adverseRemarks": null,
+    "operationalNetwork": null,
+    "historyOfPaymentStopped": null,
+    "bankImposedPenalty": null,
+    "fileStream": null,
+    "fileName": null,
+    "docType": null,
+    "fileTemp": null,
+    "financialFile": null
+  }
 }
