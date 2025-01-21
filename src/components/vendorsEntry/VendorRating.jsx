@@ -48,85 +48,85 @@ function VendorRating(props) {
     ? window.globalConfig.notAllowedFileError
     : "";
   // FETCH RATING
-  // const fetchRating = () => {
-  //   fetch(`/Vendor/GetRating?vendorId=${vendorId}`)
-  //     .then((response) => {
-  //       setLoading(true);
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       sessionStorage.setItem(
-  //         "vendorDetails",
-  //         JSON.stringify({
-  //           VendorId: data.data.vendorResponseResult.VendorId,
-  //           Type: data.data.vendorResponseResult.VendorType,
-  //           AnnualBilling: data.data.vendorResponseResult.AnnualBillingAmount,
-  //           //"NatureOfServices": data.data.NatureOfService[0].NatureOfService,
-  //           NatureOfServices:
-  //             data.data.vendorResponseResult.NatureOfService !== null
-  //               ? data.data.vendorResponseResult.NatureOfService.map(
-  //                   (n) => n.NatureOfService
-  //                 )
-  //               : [],
-  //           VendorName: data.data.vendorResponseResult.VendorName,
-  //         })
-  //       );
-  //       let averageRatingodel = data.data.Data.averageVendorRatingModel;
-  //       dispatch(
-  //         setVendorRating({
-  //           ratingData: data.data.Data.vendorRatingParameter,
-  //           ratingInitialData: JSON.stringify(
-  //             data.data.Data.vendorRatingParameter
-  //           ),
-  //         })
-  //       );
-  //       _calculateInitialScore(data.data.Data.vendorRatingParameter);
-  //       saveRatingModel(averageRatingodel);
-  //       saveRatingFileName(data);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // };
+  const fetchRating = () => {
+    fetch(`https://rcapi.gieom.com/Vendor/GetRatingPOC?vendorId=${vendorId}`)
+      .then((response) => {
+        setLoading(true);
+        return response.json();
+      })
+      .then((data) => {
+        sessionStorage.setItem(
+          "vendorDetails",
+          JSON.stringify({
+            VendorId: data.data.vendorResponseResult.VendorId,
+            Type: data.data.vendorResponseResult.VendorType,
+            AnnualBilling: data.data.vendorResponseResult.AnnualBillingAmount,
+            //"NatureOfServices": data.data.NatureOfService[0].NatureOfService,
+            NatureOfServices:
+              data.data.vendorResponseResult.NatureOfService !== null
+                ? data.data.vendorResponseResult.NatureOfService.map(
+                    (n) => n.NatureOfService
+                  )
+                : [],
+            VendorName: data.data.vendorResponseResult.VendorName,
+          })
+        );
+        let averageRatingodel = data.data.Data.averageVendorRatingModel;
+        dispatch(
+          setVendorRating({
+            ratingData: data.data.Data.vendorRatingParameter,
+            ratingInitialData: JSON.stringify(
+              data.data.Data.vendorRatingParameter
+            ),
+          })
+        );
+        _calculateInitialScore(data.data.Data.vendorRatingParameter);
+        saveRatingModel(averageRatingodel);
+        saveRatingFileName(data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
   //FETCH FINANCIAL FORM
-  // const fetchFinancialForm = () => {
-  //   fetch(`/Vendor/GetVendorFinancials?VendorId=${vendorId}`)
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       let vendorRatingFinancialInfoReadModel =
-  //         data.vendorRatingFinancialInfoReadModel;
-  //       vendorRatingFinancialInfoReadModel["FileStream"] =
-  //         data.vendorRatingFinancialInfoReadModel.FinancialFile !== "" &&
-  //         data.vendorRatingFinancialInfoReadModel.FinancialFile !== null
-  //           ? [data.vendorRatingFinancialInfoReadModel.FinancialFile]
-  //           : "";
+  const fetchFinancialForm = () => {
+    fetch(`https://rcapi.gieom.com/Vendor/GetVendorFinancials?VendorId=${vendorId}`)
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        let vendorRatingFinancialInfoReadModel =
+          data.vendorRatingFinancialInfoReadModel;
+        vendorRatingFinancialInfoReadModel["FileStream"] =
+          data.vendorRatingFinancialInfoReadModel.FinancialFile !== "" &&
+          data.vendorRatingFinancialInfoReadModel.FinancialFile !== null
+            ? [data.vendorRatingFinancialInfoReadModel.FinancialFile]
+            : "";
 
-  //       dispatch(
-  //         updateRatingFinancialForm({
-  //           FinancialList: data.FinancialList,
-  //           vendorRatingFinancialInfoReadModel:
-  //             vendorRatingFinancialInfoReadModel,
-  //           finaicialListInitialData: JSON.stringify(data.FinancialList),
-  //         })
-  //       );
-  //     });
-  // };
-  //console.log(VrvendorRatingFinancialInfoReadModel["FileStream"])
+        dispatch(
+          updateRatingFinancialForm({
+            FinancialList: data.FinancialList,
+            vendorRatingFinancialInfoReadModel:
+              vendorRatingFinancialInfoReadModel,
+            finaicialListInitialData: JSON.stringify(data.FinancialList),
+          })
+        );
+      });
+  };
+  // console.log(VrvendorRatingFinancialInfoReadModel["FileStream"])
   // FETCH_ELLIGIBLE_SCORE
-  // const fetchElligibleScore = () => {
-  //   fetch("/Vendor/GetVendorRatingScoringGroup")
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       calculateElligibleScore(data.data.Data);
-  //       dispatch(
-  //         updateRatingElligibleScore({ elligibleScore: data.data.Data })
-  //       );
-  //     });
-  // };
+  const fetchElligibleScore = () => {
+    fetch("https://rcapi.gieom.com/Vendor/GetVendorRatingScoringGroup")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        calculateElligibleScore(data.data.Data);
+        dispatch(
+          updateRatingElligibleScore({ elligibleScore: data.data.Data })
+        );
+      });
+  };
   // CHECK WHETHER TO DISPLAY FINANCIAL FORM
 
   const useCheckFinancialFormConditions = () => {
@@ -628,7 +628,7 @@ function VendorRating(props) {
     }
     financialDataObj.append("model", JSON.stringify(saveDataObj));
 
-    fetch("/Vendor/SaveVendorFinancials", {
+    fetch("https://rcapi.gieom.com/Vendor/SaveVendorFinancials", {
       method: "POST",
       body: financialDataObj,
     })
@@ -645,11 +645,11 @@ function VendorRating(props) {
 
   // -----------------------
 
-  // useEffect(() => {
-  //   fetchRating();
-  //   fetchFinancialForm();
-  //   fetchElligibleScore();
-  // }, []);
+  useEffect(() => {
+    fetchRating();
+    fetchFinancialForm();
+    fetchElligibleScore();
+  }, []);
   function roundUp(num, decimals) {
     const factor = Math.pow(10, decimals);
     return Math.ceil(num * factor) / factor;

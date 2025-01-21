@@ -65,27 +65,27 @@ function VendorApp(props) {
   const tabData = [
     {
       id: "VendorDetails",
-      // saveURL: "/Vendor/UpdateVendor?Id=" + vendorId,
+      saveURL: "https://rcapi.gieom.com/Vendor/UpdateVendor?Id=" + vendorId,
       title: "Vendor Details",
     },
     {
       id: "VendorCategorizationScoring",
-      // saveURL: "/Vendor/SaveScoring",
+      saveURL: "https://rcapi.gieom.com/Vendor/SaveScoring",
       title: "Vendor Categorization",
     },
     {
       id: "VendorAdditionlaDetails",
-      // saveURL: "/Vendor/UpdateVendorAdditionalDetails?Id=" + vendorId,
+      saveURL: "https://rcapi.gieom.com/Vendor/UpdateVendorAdditionalDetails?Id=" + vendorId,
       title: "Additional Details",
     },
     {
       id: "VendorRating",
-      // saveURL: "/Vendor/SaveVendorRating",
+      //saveURL: "https://rcapi.gieom.com/Vendor/SaveVendorRating",
       title: "Vendor Rating",
     },
     {
       id: "reviewId",
-      // saveURL: "/Stages/AddVendorStages",
+      //saveURL: "https://rcapi.gieom.com/Stages/AddVendorStages",
       title: "Vendor Review",
     },
   ];

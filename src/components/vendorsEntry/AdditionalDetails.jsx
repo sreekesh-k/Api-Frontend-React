@@ -13,35 +13,35 @@ function AdditionalDetails(props) {
     selectVendorAdditionalDetails
   );
 
-  // useEffect(() => {
-  //   //Fetch Form
-  //   fetch("/Vendor/GetVendorAdditionalDetailsByVendorId?VendorId=" + vendorId)
-  //     .then((response) => response.json())
-  //     .then((val) => {
-  //       if (val.status == "success") {
-  //         res = val.data;
-  //         //setIsTemplateUpdated(res.IsTemplateChanged)
-  //         let data = JSON.parse(res.FilledFormJson);
-  //         if (data.action) {
-  //           dataCopy = props.getData(data.action);
-  //           dispatch({
-  //             type: "ADDITIONAL_DETAILS_FORM",
-  //             payload: { FilledFormJson: dataCopy },
-  //           });
-  //         } else {
-  //           dataCopy = props.getData(data);
-  //           dispatch({
-  //             type: "ADDITIONAL_DETAILS_FORM",
-  //             payload: { FilledFormJson: dataCopy },
-  //           });
-  //         }
-  //       } else {
-  //         toastr.error(val.message);
-  //       }
-  //     })
-  //     .catch((err) => toastr.error("Form Fetch Failure"))
-  //     .finally(() => setIsLoading(false));
-  // }, []);
+  useEffect(() => {
+    //Fetch Form
+    fetch("https://rcapi.gieom.com/Vendor/GetVendorAdditionalDetailsByVendorIdPOC?VendorId=" + vendorId)
+      .then((response) => response.json())
+      .then((val) => {
+        if (val.status == "success") {
+          res = val.data;
+          //setIsTemplateUpdated(res.IsTemplateChanged)
+          let data = JSON.parse(res.FilledFormJson);
+          if (data.action) {
+            dataCopy = props.getData(data.action);
+            dispatch({
+              type: "ADDITIONAL_DETAILS_FORM",
+              payload: { FilledFormJson: dataCopy },
+            });
+          } else {
+            dataCopy = props.getData(data);
+            dispatch({
+              type: "ADDITIONAL_DETAILS_FORM",
+              payload: { FilledFormJson: dataCopy },
+            });
+          }
+        } else {
+          toastr.error(val.message);
+        }
+      })
+      .catch((err) => toastr.error("Form Fetch Failure"))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   if (isLoading)
     return (

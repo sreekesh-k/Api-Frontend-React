@@ -35,19 +35,19 @@ function VendorCategorization(props) {
 
   // fetch data
   const fetchVendorCategorizationData = () => {
-    // fetch(`/Vendor/GetScoring?VendorId=${vendorId}`)
-    //   .then((response) => {
-    //     setLoading(true);
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     dispatch(updateCategorizationData(data.data.Data.vendorScoring))
-    //     saveNotificationData(data.data.Data.InfoResult);
-    //     calculateGtScore(data.data.Data);
-    //   })
-    //   .finally(() => {
-    //     setLoading(false);
-    //   });
+    fetch(`https://rcapi.gieom.com/Vendor/GetScoring?VendorId=${vendorId}`)
+      .then((response) => {
+        setLoading(true);
+        return response.json();
+      })
+      .then((data) => {
+        dispatch(updateCategorizationData(data.data.Data.vendorScoring))
+        saveNotificationData(data.data.Data.InfoResult);
+        calculateGtScore(data.data.Data);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
     setLoading(false);
   };
 
@@ -296,29 +296,29 @@ function VendorCategorization(props) {
       //toastr.error("Please select reviewers!");
       return;
     }
-    // fetch("/Vendor/SaveVendorReviewers", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     VendorId: vendorId,
-    //     ReviewerIds: _ids,
-    //     Remarks: ReviewerRemarks,
-    //     Title: scoreRating,
-    //     TotalScore: gtScore,
-    //   }),
-    // })
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //     if (data.Status == "success") {
-    //       toastr.success(data.message);
-    //     } else {
-    //       toastr.error(data.Message);
-    //     }
-    //   })
-    //   .catch((err) => toastr.error(err.message));
+    fetch("https://rcapi.gieom.com/Vendor/SaveVendorReviewers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        VendorId: vendorId,
+        ReviewerIds: _ids,
+        Remarks: ReviewerRemarks,
+        Title: scoreRating,
+        TotalScore: gtScore,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.Status == "success") {
+          toastr.success(data.message);
+        } else {
+          toastr.error(data.Message);
+        }
+      })
+      .catch((err) => toastr.error(err.message));
   };
 
   const alphabetsArr = Array.from({ length: 26 }, (_, i) =>
