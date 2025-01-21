@@ -46,156 +46,156 @@ function VendorTable(props) {
   const columnsUserTable = [
     {
       title: <b className="table-col-heading">{"URN".toUpperCase()}</b>,
-      dataIndex: "URN",
-      key: "Urn",
+      dataIndex: "urn",
+      key: "urn",
       responsive: ["lg"],
       width: "1vw",
       sorter: true,
     },
     {
       title: <b className="table-col-heading">{"Vendor Name".toUpperCase()}</b>,
-      dataIndex: "VendorName",
-      key: "VendorName",
+      dataIndex: "vendorName",
+      key: "vendorName",
       responsive: ["lg"],
       width: "10vw",
-      render: (text, data) => {
-        return (
-          <Tooltip title={text}>
-            {text !== null
-              ? text.length > 13
-                ? text.slice(0, 13)
-                : text
-              : text}
-            {text !== null && text.length > 14 ? ".." : ""}
-          </Tooltip>
-        );
-      },
+      // render: (text, data) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text !== null
+      //         ? text.length > 13
+      //           ? text.slice(0, 13)
+      //           : text
+      //         : text}
+      //       {text !== null && text.length > 14 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"Vendor code".toUpperCase()}</b>,
-      dataIndex: "VendorCode",
-      key: "VendorCode",
+      dataIndex: "vendorCode",
+      key: "vendorCode",
       responsive: ["lg"],
       width: "10vw",
     },
     {
       title: <b className="table-col-heading">{"Type".toUpperCase()}</b>,
-      dataIndex: "Type",
-      key: "Type",
+      dataIndex: "type",
+      key: "type",
       responsive: ["lg"],
       sorter: true,
       widtth: ".2vw",
-      render: (tag) => {
-        return (
-          <Tag color="#9397A5" key={tag}>
-            {tag}
-          </Tag>
-        );
-      },
+      // render: (tag) => {
+      //   return (
+      //     <Tag color="#9397A5" key={tag}>
+      //       {tag}
+      //     </Tag>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"Department".toUpperCase()}</b>,
-      dataIndex: "Department",
-      key: "Department",
+      dataIndex: "department",
+      key: "department",
       responsive: ["lg"],
       sorter: true,
       width: "10vw",
-      render: (text, data) => {
-        return (
-          <Tooltip title={text}>
-            {text !== null ? text.slice(0, 12) : text}
-            {text !== null && text.length > 12 ? ".." : ""}
-          </Tooltip>
-        );
-        return <Tooltip title={text}>{text}</Tooltip>
-      },
+      // render: (text, data) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text !== null ? text.slice(0, 12) : text}
+      //       {text !== null && text.length > 12 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      //   return <Tooltip title={text}>{text}</Tooltip>
+      // },
     },
     {
       title: (
         <b className="table-col-heading">{"Nature of service".toUpperCase()}</b>
       ),
-      dataIndex: "NatureOfService",
-      key: "NatureOfService",
+      dataIndex: "natureOfService",
+      key: "natureOfService",
       responsive: ["lg"],
       sorter: true,
       width: "13.5vw",
-      render: (text, data) => {
-        return (
-          <Tooltip title={text}>
-            {text !== null ? text.slice(0, 18) : text}
-            {text !== null && text.length > 18 ? ".." : ""}
-          </Tooltip>
-        );
-      },
+      // render: (text, data) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text !== null ? text.slice(0, 18) : text}
+      //       {text !== null && text.length > 18 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"State".toUpperCase()}</b>,
-      dataIndex: "State",
-      key: "State",
+      dataIndex: "state",
+      key: "state",
       responsive: ["lg"],
       sorter: true,
       width: "9vw",
-      render: (text) => {
-        return (
-          <Tooltip title={text}>
-            {text != null ? text.slice(0, 10) : text}
-            {text !== null && text.length > 10 ? ".." : ""}
-          </Tooltip>
-        );
-      },
+      // render: (text) => {
+      //   return (
+      //     <Tooltip title={text}>
+      //       {text != null ? text.slice(0, 10) : text}
+      //       {text !== null && text.length > 10 ? ".." : ""}
+      //     </Tooltip>
+      //   );
+      // },
     },
     {
       title: <b className="table-col-heading">{"Materiality".toUpperCase()}</b>,
-      dataIndex: "Materiality",
-      key: "Materiality",
+      dataIndex: "materiality",
+      key: "materiality",
       responsive: ["lg"],
-      render: function (data) {
-        if (data != null) {
-          return moment(data).format("DD-MM-YYYY");
-        }
-      },
+      // render: function (data) {
+      //   if (data != null) {
+      //     return moment(data).format("DD-MM-YYYY");
+      //   }
+      // },
       width: "9vw",
     },
     {
       title: <b className="table-col-heading">{"Status".toUpperCase()}</b>,
-      dataIndex: "Status",
-      key: "Status",
+      dataIndex: "status",
+      key: "status",
       responsive: ["lg"],
       sorter: true,
       width: "5vw",
     },
     {
       title: <b className="table-col-heading">{"Version".toUpperCase()}</b>,
-      dataIndex: "Version",
-      key: "Version",
+      dataIndex: "version",
+      key: "version",
       responsive: ["lg"],
       width: "6.5vw",
     },
     {
       title: <b className="table-col-heading">{"Created by".toUpperCase()}</b>,
-      dataIndex: "CreatedBy",
-      key: "Created",
+      dataIndex: "createdBy",
+      key: "created",
       responsive: ["lg"],
       width: "8vw",
     },
   ];
-  const filterDataFormat = (filters) => {
-    const transformedData = {};
-    Object.keys(filters).forEach((key) => {
-      if (Array.isArray(filters[key]) && filters[key].length > 0) {
-        transformedData[key] = filters[key].map((item) =>
-          item.value ? item.value : []
-        );
-      }
-    });
+  // const filterDataFormat = (filters) => {
+  //   const transformedData = {};
+  //   Object.keys(filters).forEach((key) => {
+  //     if (Array.isArray(filters[key]) && filters[key].length > 0) {
+  //       transformedData[key] = filters[key].map((item) =>
+  //         item.value ? item.value : []
+  //       );
+  //     }
+  //   });
 
-    return transformedData;
-  };
+  //   return transformedData;
+  // };
   const getVendorData = (offset, columnName = "", sortDirection = 0) => {
     setLoading(true);
-    let filterData = [];
-    if (props.FilterOptions)
-      filterData = filterDataFormat(JSON.parse(props.FilterOptions));
+    let filterData = {};
+    // if (props.FilterOptions)
+    //   filterData = filterDataFormat(JSON.parse(props.FilterOptions));
     fetch(`https://rcapi.gieom.com/Vendor/GetAllVendorsDynamicPOC`, {
       method: "POST",
       headers: {
@@ -231,6 +231,7 @@ function VendorTable(props) {
         return response.json();
       })
       .then((data) => {
+        // console.log(data.data)
         setVendorData(data.data);
         setTotalRecords(data.recordsTotal);
       })
@@ -265,7 +266,7 @@ function VendorTable(props) {
   const handleRowClick = (record) => {
     sessionStorage.setItem("vendorType", record.Type);
     // window.location = `/Vendor/VendorDetails?id=${record.Id}`;
-    navigate(`/vendordetail?id=${record.Id}`);
+    navigate(`/vendordetail?id=${record.id}`);
   };
 
   const TableFooter = () => {
