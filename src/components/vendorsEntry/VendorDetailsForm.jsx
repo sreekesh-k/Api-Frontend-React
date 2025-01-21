@@ -58,7 +58,7 @@ function VendorDetailsForm(props) {
   };
 
   useEffect(() => {
-    console.log(vendorId);
+    // console.log(vendorId);
     //Fetch Filled Data
     fetch(`${API_URL}/Vendor/GetVendorByIdPOC/${vendorId}`)
       .then((response) => response.json())

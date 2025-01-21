@@ -38,10 +38,12 @@ function AdditionalDetails(props) {
             });
           }
         } else {
-          toastr.error(val.message);
+          // toastr.error(val.message);
         }
       })
-      .catch((err) => toastr.error("Form Fetch Failure"))
+      .catch((err) => {
+        //toastr.error("Form Fetch Failure")
+      })
       .finally(() => setIsLoading(false));
   }, []);
 

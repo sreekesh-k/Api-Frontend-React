@@ -177,12 +177,12 @@ const vendorSlice = createSlice({
       state.rating.elligibleScoreStatus = { level, color, score };
     },
     categorizationNotificationData: (state, action) => {
-      const { ReviewerRemarks, LastReviewSentOn, Reviewers } =
+      const { reviewerRemarks, lastReviewSentOn, reviewers } =
         action.payload[0];
       state.categorization.notificationData = {
-        ReviewerRemarks,
-        LastReviewSentOn,
-        Reviewers,
+        ReviewerRemarks:reviewerRemarks,
+        LastReviewSentOn:lastReviewSentOn,
+        Reviewers:reviewers,
       };
     },
     changeCategorizationReview: (state, action) => {
