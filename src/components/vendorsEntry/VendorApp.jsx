@@ -144,7 +144,7 @@ function VendorApp(props) {
   const _ids = [];
   reviewerIds.forEach((r) => _ids.push(r.Id));
   const handleSaveReviewers = () => {
-    fetch("/Vendor/SaveVendorReviewers", {
+    fetch("https://rcapi.gieom.com/Vendor/SaveVendorReviewers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -420,7 +420,7 @@ function VendorApp(props) {
     }
     financialDataObj.append("model", JSON.stringify(saveDataObj));
 
-    fetch("/Vendor/SaveVendorFinancials", {
+    fetch("https://rcapi.gieom.com/Vendor/SaveVendorFinancials", {
       method: "POST",
       body: financialDataObj,
     })
@@ -481,7 +481,7 @@ function VendorApp(props) {
 
   const handleFinishBtnClick = () => {
     if (vendorId) {
-      fetch("/Vendor/FinishVendor?VendorId=" + vendorId, {
+      fetch("https://rcapi.gieom.com/Vendor/FinishVendor?VendorId=" + vendorId, {
         method: "POST",
       })
         .then((res) => res.json())

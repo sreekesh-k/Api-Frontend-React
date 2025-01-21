@@ -40,75 +40,75 @@ function VendorDetailsForm(props) {
     }
   };
   //To Fetch the URN , when selected Vendor Type is one of the DD types
-  // const fetchLatestURN = () => {
-  //   //Fetch URN
-  //   fetch("/Vendor/GetLatestURN")
-  //     .then((response) => response.json())
-  //     .then((res) => {
-  //       if (res.Status == "success") {
-  //         dispatch(setURN({ URN: res.data }));
-  //       } else {
-  //         ///toastr.error(res.Message);
-  //       }
-  //     })
-  //     .catch((err) => toastr.error("URN Fetch Failure"));
-  // };
+  const fetchLatestURN = () => {
+    //Fetch URN
+    fetch("https://rcapi.gieom.com/Vendor/GetLatestURN")
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.Status == "success") {
+          dispatch(setURN({ URN: res.data }));
+        } else {
+          ///toastr.error(res.Message);
+        }
+      })
+      .catch((err) => toastr.error("URN Fetch Failure"));
+  };
 
-  // useEffect(() => {
-  //   //Fetch Filled Data
-  //   fetch("/Vendor/GetVendorById?Id=" + vendorId)
-  //     .then((response) => response.json())
-  //     .then((res) => {
-  //       if (res.Status == "success") {
-  //         let data = JSON.parse(res.Data.FormData || res.Data.JsonForm);
-  //         updateTitle(`VENDOR MASTER: ${res.Data.Name}`);
-  //         if (data.action) {
-  //           dataCopy = props.getData(data.action);
-  //           dispatch(
-  //             changeVendorDetailsForm({
-  //               FormData: dataCopy,
-  //               IsActive: res.Data.IsActive,
-  //             })
-  //           );
-  //         } else {
-  //           dataCopy = props.getData(data);
-  //           dispatch(
-  //             changeVendorDetailsForm({
-  //               FormData: dataCopy,
-  //               IsActive: res.Data.IsActive,
-  //             })
-  //           );
-  //         }
-  //         if (res.Data.MaterialityDate != null) {
-  //           setIssuanceDate(
-  //             moment(res.Data.MaterialityDate).format("DD-MM-YYYY")
-  //           );
-  //         }
-  //         if (res.Data.URN) {
-  //           dispatch(setURN({ URN: res.Data.URN }));
-  //         } else {
-  //           fetchLatestURN();
-  //         }
-  //         if (res.Data.IsActive == false) {
-  //           if (res.Data.InActivationDate)
-  //             IDate = moment(res.Data.InActivationDate).format("YYYY-MM-DD");
-  //           dispatch(
-  //             setInactivation({
-  //               InActivationDate: IDate,
-  //               ReasonOfInactivation: res.Data.ReasonOfInactivation,
-  //               InActivationEvidence: [res.Data.ReasonOfInactivationFiles],
-  //             })
-  //           );
-  //         }
-  //         if (res.Data.IsTemplateChanged)
-  //           InfoPopup({ title: "Template", msg: "Template has changed" });
-  //       } else {
-  //         toastr.error(res.Message);
-  //       }
-  //     })
-  //     .catch((err) => toastr.error("Form Fetch Failure"))
-  //     .finally(() => setIsLoading(false));
-  // }, []);
+  useEffect(() => {
+    //Fetch Filled Data
+    fetch("https://rcapi.gieom.com/Vendor/GetVendorByIdPOC?Id=" + vendorId)
+      .then((response) => response.json())
+      .then((res) => {
+        if (res.Status == "success") {
+          let data = JSON.parse(res.Data.FormData || res.Data.JsonForm);
+          updateTitle(`VENDOR MASTER: ${res.Data.Name}`);
+          if (data.action) {
+            dataCopy = props.getData(data.action);
+            dispatch(
+              changeVendorDetailsForm({
+                FormData: dataCopy,
+                IsActive: res.Data.IsActive,
+              })
+            );
+          } else {
+            dataCopy = props.getData(data);
+            dispatch(
+              changeVendorDetailsForm({
+                FormData: dataCopy,
+                IsActive: res.Data.IsActive,
+              })
+            );
+          }
+          if (res.Data.MaterialityDate != null) {
+            setIssuanceDate(
+              moment(res.Data.MaterialityDate).format("DD-MM-YYYY")
+            );
+          }
+          if (res.Data.URN) {
+            dispatch(setURN({ URN: res.Data.URN }));
+          } else {
+            fetchLatestURN();
+          }
+          if (res.Data.IsActive == false) {
+            if (res.Data.InActivationDate)
+              IDate = moment(res.Data.InActivationDate).format("YYYY-MM-DD");
+            dispatch(
+              setInactivation({
+                InActivationDate: IDate,
+                ReasonOfInactivation: res.Data.ReasonOfInactivation,
+                InActivationEvidence: [res.Data.ReasonOfInactivationFiles],
+              })
+            );
+          }
+          if (res.Data.IsTemplateChanged)
+            InfoPopup({ title: "Template", msg: "Template has changed" });
+        } else {
+          toastr.error(res.Message);
+        }
+      })
+      .catch((err) => toastr.error("Form Fetch Failure"))
+      .finally(() => setIsLoading(false));
+  }, []);
 
   if (isLoading) {
     return (
