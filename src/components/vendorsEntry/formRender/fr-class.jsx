@@ -2,26 +2,25 @@
 import { Component } from "react";
 import EventEmitter3 from "eventemitter3";
 import $ from "jquery";
-import Grid2 from "./components/Grid2";
-import InlineGroup from "./components/InlineGroup";
-import DynamicFields from "./components/DynamicFields";
-import Page from "./components/Page";
-import Table from "./components/Table";
-import Grid from "./components/Grid";
-import Currency from "./components/Currency";
-import FileUpload from "./components/FileUpload";
-import NumberBox from "./components/NumberBox";
-import RadioBox from "./components/RadioBox";
-import CheckBox from "./components/CheckBox";
-import Header from "./components/Header";
-import Paragraph from "./components/Paragraph";
-import TextArea from "./components/TextArea";
-import DatePicker from "./components/DatePicker";
-import TextBox from "./components/TextBox";
-import Dropdown from "./components/Dropdown";
-import DependentDropdown from "./components/DependentDropdown";
-import Section from "./components/Section";
-import moment from "moment";
+// import Grid2 from "./components/Grid2";
+// import InlineGroup from "./components/InlineGroup";
+// import DynamicFields from "./components/DynamicFields";
+// import Page from "./components/Page";
+// import Table from "./components/Table";
+// import Grid from "./components/Grid";
+// import Currency from "./components/Currency";
+// import FileUpload from "./components/FileUpload";
+// import NumberBox from "./components/NumberBox";
+// import RadioBox from "./components/RadioBox";
+// import CheckBox from "./components/CheckBox";
+// import Header from "./components/Header";
+// import Paragraph from "./components/Paragraph";
+// import TextArea from "./components/TextArea";
+// import DatePicker from "./components/DatePicker";
+// import TextBox from "./components/TextBox";
+// import Dropdown from "./components/Dropdown";
+// import DependentDropdown from "./components/DependentDropdown";
+// import Section from "./components/Section";
 
 export default class FormRender extends Component {
   constructor(props) {
@@ -591,8 +590,7 @@ export default class FormRender extends Component {
     };
   };
 
-  generateControl(obj1, i, formRender) {
-    let obj = obj1
+  generateControl(obj, i, formRender) {
     let readOnly =
       formRender.props.readOnly === undefined
         ? false
@@ -633,16 +631,16 @@ export default class FormRender extends Component {
           if (flag === false) return null;
           else {
             return (
-              // <h1>DependentDropdown</h1>
-              <DependentDropdown
-                readOnly={readOnly}
-                handleDropdownChange={formRender.handleChange}
-                parentObjData={parentObjData}
-                index={i}
-                key={i}
-                {...obj}
-                controlStyle={controlStyle}
-              />
+              <h1>DependentDropdown</h1>
+              // <DependentDropdown
+              //   readOnly={readOnly}
+              //   handleDropdownChange={formRender.handleChange}
+              //   parentObjData={parentObjData}
+              //   index={i}
+              //   key={i}
+              //   {...obj}
+              //   controlStyle={controlStyle}
+              // />
             );
           }
         } else
@@ -660,22 +658,22 @@ export default class FormRender extends Component {
           );
       case "text": {
         return (
-          <TextBox
-            readOnly={readOnly}
-            index={i}
-            handleInput={formRender.handleChange}
-            key={i}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>TextBox</h1>
+          // <TextBox
+          //   readOnly={readOnly}
+          //   index={i}
+          //   handleInput={formRender.handleChange}
+          //   key={i}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>TextBox</h1>
         );
       }
       case "date": {
-        // if (!obj.isConverted) {
-        //   obj.value = moment(obj.value).format(obj.format || "DD-MMMM-YYYY");;
-        //   obj.isConverted = true;
-        // }
+        if (!obj.isConverted) {
+          //obj.value = moment(obj.value).format(obj.format || "DD-MMMM-YYYY");;
+          obj.isConverted = true;
+        }
         return (
           // <DatePicker
           //   readOnly={readOnly}
@@ -691,187 +689,187 @@ export default class FormRender extends Component {
       }
       case "textarea":
         return (
-          <TextArea
-            readOnly={readOnly}
-            index={i}
-            handleInput={formRender.handleChange}
-            key={i}
-            {...obj}
-            controlStyle={controlStyle}
-          />
+          // <TextArea
+          //   readOnly={readOnly}
+          //   index={i}
+          //   handleInput={formRender.handleChange}
+          //   key={i}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
 
-          // <h1>TextArea</h1>
+          <h1>TextArea</h1>
         );
       case "paragraph":
         return (
-          <Paragraph index={i} key={i} {...obj} controlStyle={controlStyle} />
-          // <h1>Paragraph</h1>
+          // <Paragraph index={i} key={i} {...obj} controlStyle={controlStyle} />
+          <h1>Paragraph</h1>
         );
       case "header":
         return (
-          <Header index={i} key={i} {...obj} controlStyle={controlStyle} />
-          // <h1>Header</h1>
+          // <Header index={i} key={i} {...obj} controlStyle={controlStyle} />
+          <h1>Header</h1>
         );
       case "checkbox-group":
         return (
-          <CheckBox
-            readOnly={readOnly}
-            handleCheckChange={formRender.handleCheckboxChange}
-            index={i}
-            key={i}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>CheckBox</h1>
+          // <CheckBox
+          //   readOnly={readOnly}
+          //   handleCheckChange={formRender.handleCheckboxChange}
+          //   index={i}
+          //   key={i}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>CheckBox</h1>
         );
       case "radio-group":
         return (
-          <RadioBox
-            readOnly={readOnly}
-            handleRadioChange={formRender.handleChange}
-            index={i}
-            key={i}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>RadioBox</h1>
+          // <RadioBox
+          //   readOnly={readOnly}
+          //   handleRadioChange={formRender.handleChange}
+          //   index={i}
+          //   key={i}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>RadioBox</h1>
         );
       case "number":
         return (
-          <NumberBox
-            readOnly={readOnly}
-            checkDigitsNo={formRender.checkDigitsNo}
-            handleInput={formRender.handleChange}
-            index={i}
-            key={i}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>NumberBox</h1>
+          // <NumberBox
+          //   readOnly={readOnly}
+          //   checkDigitsNo={formRender.checkDigitsNo}
+          //   handleInput={formRender.handleChange}
+          //   index={i}
+          //   key={i}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>NumberBox</h1>
         );
       case "file":
         return (
-          <FileUpload
-            readOnly={readOnly}
-            setFilePreview={formRender.setFilePreview}
-            removeFile={formRender.removeFile}
-            handleInput={formRender.handleFileChange}
-            index={i}
-            key={i}
-            allowedFileTypes={formRender.allowedFileTypes}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>FileUpload</h1>
+          // <FileUpload
+          //   readOnly={readOnly}
+          //   setFilePreview={formRender.setFilePreview}
+          //   removeFile={formRender.removeFile}
+          //   handleInput={formRender.handleFileChange}
+          //   index={i}
+          //   key={i}
+          //   allowedFileTypes={formRender.allowedFileTypes}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>FileUpload</h1>
         );
       case "section":
         return (
-          <Section
-            index={i}
-            key={"section" + i}
-            formRender={formRender}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>Section</h1>
+          // <Section
+          //   index={i}
+          //   key={"section" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>Section</h1>
         );
       case "inlineGroup":
         return (
-          <InlineGroup
-            index={i}
-            key={"InlineGroup" + i}
-            formRender={formRender}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>InLineGruop</h1>
+          // <InlineGroup
+          //   index={i}
+          //   key={"InlineGroup" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>InLineGruop</h1>
         );
       case "dynamicFields": {
         if (!obj.finalElements) {
           obj.finalElements = obj.elements.length;
         }
         return (
-          // <h1>DynamicFields</h1>
-          <DynamicFields
-            readOnly={readOnly}
-            index={i}
-            key={"dynamicFields" + i}
-            formRender={formRender}
-            {...obj}
-            controlStyle={controlStyle}
-          />
+          <h1>DynamicFields</h1>
+          // <DynamicFields
+          //   readOnly={readOnly}
+          //   index={i}
+          //   key={"dynamicFields" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
         );
       }
       case "page":
         return (
-          <Page
-            index={i}
-            key={"page" + i}
-            formRender={formRender}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>Page</h1>
+          // <Page
+          //   index={i}
+          //   key={"page" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>Page</h1>
         );
       case "table":
         return (
-          <Table
-            index={i}
-            key={"table" + i}
-            formRender={formRender}
-            {...obj}
-            controlStyle={controlStyle}
-          />
-          // <h1>Table</h1>
+          // <Table
+          //   index={i}
+          //   key={"table" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>Table</h1>
         );
       case "currency": {
         return (
-          // <h1>Currency</h1>
-          <Currency
-            readOnly={formRender.props.readOnly}
-            index={i}
-            key={i}
-            value={
-              obj.value
-                ? obj.value.value === "undefine"
-                  ? obj.value
-                  : obj.value.value
-                : ""
-            }
-            currencyValue={obj.currencyValue ? obj.currencyValue : ""}
-            min={formRender.props.min}
-            max={formRender.props.max}
-            handleCurrencyChange={formRender.handleChange}
-            {...obj}
-            controlStyle={controlStyle}
-          />
+          <h1>Currency</h1>
+          // <Currency
+          //   readOnly={formRender.props.readOnly}
+          //   index={i}
+          //   key={i}
+          //   value={
+          //     obj.value
+          //       ? obj.value.value === "undefine"
+          //         ? obj.value
+          //         : obj.value.value
+          //       : ""
+          //   }
+          //   currencyValue={obj.currencyValue ? obj.currencyValue : ""}
+          //   min={formRender.props.min}
+          //   max={formRender.props.max}
+          //   handleCurrencyChange={formRender.handleChange}
+          //   {...obj}
+          //   controlStyle={controlStyle}
+          // />
         );
       }
       case "grid":
         return (
-          <Grid
-            readOnly={readOnly}
-            index={i}
-            key={"grid" + i}
-            formRender={formRender}
-            {...obj}
-            onChange={(...args) => formRender.handleGridChange(i, ...args)}
-            controlStyle={controlStyle}
-          />
-          // <h1>Grid</h1>
+          // <Grid
+          //   readOnly={readOnly}
+          //   index={i}
+          //   key={"grid" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   onChange={(...args) => formRender.handleGridChange(i, ...args)}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>Grid</h1>
         );
       case "grid2":
         return (
-          <Grid2
-            readOnly={readOnly}
-            index={i}
-            key={"grid2" + i}
-            formRender={formRender}
-            {...obj}
-            onChange={formRender.handleGrid2Change(i)}
-            controlStyle={controlStyle}
-          />
-          // <h1>Grid2</h1>
+          // <Grid2
+          //   readOnly={readOnly}
+          //   index={i}
+          //   key={"grid2" + i}
+          //   formRender={formRender}
+          //   {...obj}
+          //   onChange={formRender.handleGrid2Change(i)}
+          //   controlStyle={controlStyle}
+          // />
+          <h1>Grid2</h1>
         );
       default:
         return null;
@@ -973,7 +971,6 @@ export default class FormRender extends Component {
         // }
 
         propData[index].eventEmitter = new EventEmitter3();
-        this.state.formData = propData
       });
     }
     window.DcFormRenderTriggers = window.DcFormRenderTriggers || [];

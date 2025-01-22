@@ -190,7 +190,7 @@ function VendorDetailsForm(props) {
             </Fragment>
           )}
         </Form>
-        {/* <div id="formDesignerArea">
+        <div id="formDesignerArea">
           {!isInViewMode &&
             isCentrilized &&
             FormData &&
@@ -211,7 +211,7 @@ function VendorDetailsForm(props) {
                 isComponentUpdate={true}
               />
             )}
-        </div> */}
+        </div>
       </div>
     </Fragment>
   );
