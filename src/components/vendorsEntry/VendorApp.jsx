@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import ClauseModel from "./ClauseModel";
 import { selectVendorApp } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";
+import moment from "moment";
 import {
   changeTab,
   changeVendorName,

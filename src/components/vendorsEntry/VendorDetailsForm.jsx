@@ -75,16 +75,13 @@ function VendorDetailsForm(props) {
               })
             );
           } else {
-            console.log(data);
             let dataCopy = props.getData(data);
-            console.log("DISPATCH");
             dispatch(
               changeVendorDetailsForm({
                 FormData: dataCopy,
                 IsActive: res.data.isActive,
               })
             );
-            console.log("DISPATCH");
           }
           if (res.dat.materialityDate != null) {
             setIssuanceDate(
