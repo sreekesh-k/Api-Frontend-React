@@ -1,6 +1,6 @@
 ﻿import React from "react";
 import { useEffect, useState, Fragment } from "react";
-import FormRender from "./FormRender";
+import FormRender from "./formRender/FormRender";
 import { useDispatch, useSelector } from "react-redux";
 import { selectVendorAdditionalDetails } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";

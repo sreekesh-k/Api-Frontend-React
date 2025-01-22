@@ -9,7 +9,7 @@ import {
   setURN,
 } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";
-import FormRender from "./FormRender";
+import FormRender from "./formRender/FormRender";
 import moment from "moment";
 function VendorDetailsForm(props) {
   //Imports
