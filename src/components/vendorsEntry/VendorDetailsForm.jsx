@@ -10,6 +10,7 @@ import {
 } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";
 import FormRender from "./FormRender";
+import moment from "moment";
 function VendorDetailsForm(props) {
   //Imports
   const { Option } = Select;
@@ -46,7 +47,7 @@ function VendorDetailsForm(props) {
     fetch(`${API_URL}/Vendor/GetLatestURN`)
       .then((response) => response.json())
       .then((res) => {
-        if (res.Status == "success") {
+        if (res.status == "success") {
           dispatch(setURN({ URN: res.data }));
         } else {
           ///toastr.error(res.Message);
@@ -83,7 +84,7 @@ function VendorDetailsForm(props) {
               })
             );
           }
-          if (res.dat.materialityDate != null) {
+          if (res.data.materialityDate != null) {
             setIssuanceDate(
               moment(res.data.materialityDate).format("DD-MM-YYYY")
             );
@@ -189,7 +190,7 @@ function VendorDetailsForm(props) {
             </Fragment>
           )}
         </Form>
-        <div id="formDesignerArea">
+        {/* <div id="formDesignerArea">
           {!isInViewMode &&
             isCentrilized &&
             FormData &&
@@ -210,7 +211,7 @@ function VendorDetailsForm(props) {
                 isComponentUpdate={true}
               />
             )}
-        </div>
+        </div> */}
       </div>
     </Fragment>
   );
