@@ -60,51 +60,54 @@ function VendorDetailsForm(props) {
   useEffect(() => {
     // console.log(vendorId);
     //Fetch Filled Data
-    fetch(`${API_URL}/Vendor/GetVendorByIdPOC/${vendorId}`)
+    fetch(`${API_URL}/Vendor/GetVendorById/${vendorId}`)
       .then((response) => response.json())
       .then((res) => {
-        if (res.Status == "success") {
-          let data = JSON.parse(res.Data.FormData || res.Data.JsonForm);
-          updateTitle(`VENDOR MASTER: ${res.Data.Name}`);
+        if (res.status == "success") {
+          let data = JSON.parse(res.data.formData || res.data.jsonForm);
+          // updateTitle(`VENDOR MASTER: ${res.data.name}`);
           if (data.action) {
-            dataCopy = props.getData(data.action);
+            let dataCopy = props.getData(data.action);
             dispatch(
               changeVendorDetailsForm({
                 FormData: dataCopy,
-                IsActive: res.Data.IsActive,
+                IsActive: res.data.isActive,
               })
             );
           } else {
-            dataCopy = props.getData(data);
+            console.log(data);
+            let dataCopy = props.getData(data);
+            console.log("DISPATCH");
             dispatch(
               changeVendorDetailsForm({
                 FormData: dataCopy,
-                IsActive: res.Data.IsActive,
+                IsActive: res.data.isActive,
               })
             );
+            console.log("DISPATCH");
           }
-          if (res.Data.MaterialityDate != null) {
+          if (res.dat.materialityDate != null) {
             setIssuanceDate(
-              moment(res.Data.MaterialityDate).format("DD-MM-YYYY")
+              moment(res.data.materialityDate).format("DD-MM-YYYY")
             );
           }
-          if (res.Data.URN) {
-            dispatch(setURN({ URN: res.Data.URN }));
+          if (res.data.urn) {
+            dispatch(setURN({ URN: res.data.urn }));
           } else {
             fetchLatestURN();
           }
-          if (res.Data.IsActive == false) {
-            if (res.Data.InActivationDate)
-              IDate = moment(res.Data.InActivationDate).format("YYYY-MM-DD");
+          if (res.data.isActive == false) {
+            if (res.data.inActivationDate)
+              IDate = moment(res.data.inActivationDate).format("YYYY-MM-DD");
             dispatch(
               setInactivation({
                 InActivationDate: IDate,
-                ReasonOfInactivation: res.Data.ReasonOfInactivation,
-                InActivationEvidence: [res.Data.ReasonOfInactivationFiles],
+                ReasonOfInactivation: res.data.reasonOfInactivation,
+                InActivationEvidence: [res.data.reasonOfInactivationFiles],
               })
             );
           }
-          if (res.Data.IsTemplateChanged)
+          if (res.data.isTemplateChanged)
             InfoPopup({ title: "Template", msg: "Template has changed" });
         } else {
           // toastr.error(res.Message);
