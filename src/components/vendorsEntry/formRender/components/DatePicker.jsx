@@ -414,7 +414,7 @@ export default class DatePicker extends Component {
       }
     }
 
-    
+    // id.datetimepicker(options).on("dp.change", (e) => {
     //   this.props.handleInput(this.myRef.current.value, this.props.index);
     // });
   }
