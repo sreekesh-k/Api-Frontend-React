@@ -23,7 +23,7 @@ function AdditionalDetails(props) {
         if (val.status == "success") {
           res = val.data;
           //setIsTemplateUpdated(res.IsTemplateChanged)
-          let data = JSON.parse(res.FilledFormJson);
+          let data = JSON.parse(res.filledFormJson);
           if (data.action) {
             dataCopy = props.getData(data.action);
             dispatch({
