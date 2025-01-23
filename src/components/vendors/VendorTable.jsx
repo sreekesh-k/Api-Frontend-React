@@ -9,9 +9,7 @@ import moment from "moment";
 import { useDispatch } from "react-redux";
 import { saveVendorId } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";
-// import {useDespatch} from "react-redux";
-// impor {storeVendorDataAction} from "vendorSlice";
-// import {useSelector} from "redux-toolkit";
+
 
 function VendorTable(props) {
   const [loading, setLoading] = useState(true);
@@ -46,7 +44,6 @@ function VendorTable(props) {
       getVendorData(0, "", 0);
       setCurrentPage(1);
     }
-    console.log("handleTableChange");
   };
   const columnsUserTable = [
     {
@@ -63,18 +60,18 @@ function VendorTable(props) {
       key: "vendorName",
       responsive: ["lg"],
       width: "10vw",
-      // render: (text, data) => {
-      //   return (
-      //     <Tooltip title={text}>
-      //       {text !== null
-      //         ? text.length > 13
-      //           ? text.slice(0, 13)
-      //           : text
-      //         : text}
-      //       {text !== null && text.length > 14 ? ".." : ""}
-      //     </Tooltip>
-      //   );
-      // },
+      render: (text, data) => {
+        return (
+          <Tooltip title={text}>
+            {text !== null
+              ? text.length > 13
+                ? text.slice(0, 13)
+                : text
+              : text}
+            {text !== null && text.length > 14 ? ".." : ""}
+          </Tooltip>
+        );
+      },
     },
     {
       title: <b className="table-col-heading">{"Vendor code".toUpperCase()}</b>,
@@ -90,13 +87,13 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       widtth: ".2vw",
-      // render: (tag) => {
-      //   return (
-      //     <Tag color="#9397A5" key={tag}>
-      //       {tag}
-      //     </Tag>
-      //   );
-      // },
+      render: (tag) => {
+        return (
+          <Tag color="#9397A5" key={tag}>
+            {tag}
+          </Tag>
+        );
+      },
     },
     {
       title: <b className="table-col-heading">{"Department".toUpperCase()}</b>,
@@ -105,15 +102,15 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       width: "10vw",
-      // render: (text, data) => {
-      //   return (
-      //     <Tooltip title={text}>
-      //       {text !== null ? text.slice(0, 12) : text}
-      //       {text !== null && text.length > 12 ? ".." : ""}
-      //     </Tooltip>
-      //   );
-      //   return <Tooltip title={text}>{text}</Tooltip>;
-      // },
+      render: (text, data) => {
+        return (
+          <Tooltip title={text}>
+            {text !== null ? text.slice(0, 12) : text}
+            {text !== null && text.length > 12 ? ".." : ""}
+          </Tooltip>
+        );
+        return <Tooltip title={text}>{text}</Tooltip>;
+      },
     },
     {
       title: (
@@ -124,14 +121,14 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       width: "13.5vw",
-      // render: (text, data) => {
-      //   return (
-      //     <Tooltip title={text}>
-      //       {text !== null ? text.slice(0, 18) : text}
-      //       {text !== null && text.length > 18 ? ".." : ""}
-      //     </Tooltip>
-      //   );
-      // },
+      render: (text, data) => {
+        return (
+          <Tooltip title={text}>
+            {text !== null ? text.slice(0, 18) : text}
+            {text !== null && text.length > 18 ? ".." : ""}
+          </Tooltip>
+        );
+      },
     },
     {
       title: <b className="table-col-heading">{"State".toUpperCase()}</b>,
@@ -140,25 +137,25 @@ function VendorTable(props) {
       responsive: ["lg"],
       sorter: true,
       width: "9vw",
-      // render: (text) => {
-      //   return (
-      //     <Tooltip title={text}>
-      //       {text != null ? text.slice(0, 10) : text}
-      //       {text !== null && text.length > 10 ? ".." : ""}
-      //     </Tooltip>
-      //   );
-      // },
+      render: (text) => {
+        return (
+          <Tooltip title={text}>
+            {text != null ? text.slice(0, 10) : text}
+            {text !== null && text.length > 10 ? ".." : ""}
+          </Tooltip>
+        );
+      },
     },
     {
       title: <b className="table-col-heading">{"Materiality".toUpperCase()}</b>,
       dataIndex: "materiality",
       key: "materiality",
       responsive: ["lg"],
-      // render: function (data) {
-      //   if (data != null) {
-      //     return moment(data).format("DD-MM-YYYY");
-      //   }
-      // },
+      render: function (data) {
+        if (data != null) {
+          return moment(data).format("DD-MM-YYYY");
+        }
+      },
       width: "9vw",
     },
     {
@@ -184,23 +181,23 @@ function VendorTable(props) {
       width: "8vw",
     },
   ];
-  // const filterDataFormat = (filters) => {
-  //   const transformedData = {};
-  //   Object.keys(filters).forEach((key) => {
-  //     if (Array.isArray(filters[key]) && filters[key].length > 0) {
-  //       transformedData[key] = filters[key].map((item) =>
-  //         item.value ? item.value : []
-  //       );
-  //     }
-  //   });
+  const filterDataFormat = (filters) => {
+    const transformedData = {};
+    Object.keys(filters).forEach((key) => {
+      if (Array.isArray(filters[key]) && filters[key].length > 0) {
+        transformedData[key] = filters[key].map((item) =>
+          item.value ? item.value : []
+        );
+      }
+    });
 
-  //   return transformedData;
-  // };
+    return transformedData;
+  };
   const getVendorData = (offset, columnName = "", sortDirection = 0) => {
     setLoading(true);
     let filterData = {};
-    // if (props.FilterOptions)
-    //   filterData = filterDataFormat(JSON.parse(props.FilterOptions));
+    if (props.FilterOptions)
+      filterData = filterDataFormat(JSON.parse(props.FilterOptions));
     fetch(`${API_URL}/Vendor/GetAllVendorsDynamicPOC`, {
       method: "POST",
       headers: {

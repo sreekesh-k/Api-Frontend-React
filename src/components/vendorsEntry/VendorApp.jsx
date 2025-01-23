@@ -801,16 +801,7 @@ function VendorApp(props) {
   };
   // crate separate component here
   return (
-    <div
-      style={{
-        position: "relative",
-        width: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        paddingTop: "1.5rem",
-      }}
-    >
+    <div style={{ maxWidth: "1440px", position: "relative" }}>
       <div className="action-centre-nav">
         <div style={{ position: "relative" }}>
           <ul
@@ -830,93 +821,89 @@ function VendorApp(props) {
                 </li>
               );
             })}
-            <div style={{ position: "relative" }}>
-              <div className="control-panel">
-                <div className="vd-action-btn ">
-                  <button
-                    onClick={() => navigate("/")}
-                    style={{ backgroundColor: "#4E4E4E" }}
-                  >
-                    Close
-                  </button>
-                </div>
-                <div className="vd-action-btn ">
-                  <button
-                    onClick={() => handleTabChange("prev")}
-                    disabled={activeTab === "VendorDetails"}
-                    style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-                    className={
-                      activeTab === "VendorDetails" ? "DcButton disabled" : ""
-                    }
-                  >
-                    <i
-                      id=""
-                      className="glyphicon glyphicon-chevron-left vd-arrow"
-                    ></i>
-                  </button>
-                </div>
-                <div className="vd-action-btn ">
-                  <button
-                    onClick={() => handleTabChange("next")}
-                    disabled={activeTab === "reviewId"}
-                    style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-                    className={
-                      activeTab === "reviewId" ? "DcButton disabled" : ""
-                    }
-                  >
-                    <i
-                      id=""
-                      className="glyphicon glyphicon-chevron-right vd-arrow"
-                    ></i>
-                  </button>
-                </div>
-                {hasCentrilizedAccess && (
-                  <Fragment>
-                    {
-                      //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
-                      !isInViewMode || viewType === "NEW" ? (
-                        <div style={{ display: "flex" }}>
-                          <div className="vd-action-btn">
-                            <button
-                              onClick={() => handleSaveBtnClick(activeTab)}
-                              style={{ backgroundColor: "#FFB63B" }}
-                            >
-                              Save
-                            </button>
-                          </div>
-                          <div className="vd-action-btn ">
-                            <button
-                              disabled={isLoadingFinish}
-                              style={{
-                                backgroundColor: "#00C24D",
-                                cursor: !isLoadingFinish
-                                  ? "pointer"
-                                  : "not-allowed",
-                              }}
-                              onClick={() =>
-                                handleSaveBtnClick(activeTab, true)
-                              }
-                            >
-                              {!isLoadingFinish ? "Finish" : <LoadingSvg />}
-                            </button>
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="vd-action-btn ">
-                          {viewType == "EDIT" && (
-                            <button
-                              style={{ backgroundColor: "#00C24D" }}
-                              onClick={handleEditAccess}
-                            >
-                              Edit
-                            </button>
-                          )}
-                        </div>
-                      )
-                    }
-                  </Fragment>
-                )}
+            <div className="control-panel">
+              <div className="vd-action-btn ">
+                <button
+                  onClick={() => navigate("/")}
+                  style={{ backgroundColor: "#4E4E4E" }}
+                >
+                  Close
+                </button>
               </div>
+              <div className="vd-action-btn ">
+                <button
+                  onClick={() => handleTabChange("prev")}
+                  disabled={activeTab === "VendorDetails"}
+                  style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                  className={
+                    activeTab === "VendorDetails" ? "DcButton disabled" : ""
+                  }
+                >
+                  <i
+                    id=""
+                    className="glyphicon glyphicon-chevron-left vd-arrow"
+                  ></i>
+                </button>
+              </div>
+              <div className="vd-action-btn ">
+                <button
+                  onClick={() => handleTabChange("next")}
+                  disabled={activeTab === "reviewId"}
+                  style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                  className={
+                    activeTab === "reviewId" ? "DcButton disabled" : ""
+                  }
+                >
+                  <i
+                    id=""
+                    className="glyphicon glyphicon-chevron-right vd-arrow"
+                  ></i>
+                </button>
+              </div>
+              {hasCentrilizedAccess && (
+                <Fragment>
+                  {
+                    //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
+                    !isInViewMode || viewType === "NEW" ? (
+                      <div style={{ display: "flex" }}>
+                        <div className="vd-action-btn">
+                          <button
+                            onClick={() => handleSaveBtnClick(activeTab)}
+                            style={{ backgroundColor: "#FFB63B" }}
+                          >
+                            Save
+                          </button>
+                        </div>
+                        <div className="vd-action-btn ">
+                          <button
+                            disabled={isLoadingFinish}
+                            style={{
+                              backgroundColor: "#00C24D",
+                              cursor: !isLoadingFinish
+                                ? "pointer"
+                                : "not-allowed",
+                            }}
+                            onClick={() => handleSaveBtnClick(activeTab, true)}
+                          >
+                            {!isLoadingFinish ? "Finish" : <LoadingSvg />}
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="vd-action-btn ">
+                        {viewType == "EDIT" && (
+                          <button
+                            style={{ backgroundColor: "#00C24D" }}
+                            onClick={handleEditAccess}
+                          >
+                            Edit
+                          </button>
+                        )}
+                      </div>
+                    )
+                  }
+                </Fragment>
+              )}
             </div>
           </ul>
         </div>
@@ -931,7 +918,7 @@ function VendorApp(props) {
           /> */}
         {activeTab === "VendorCategorizationScoring" && <ClauseModel />}
         {/* </div> */}
-        <div style={{maxWidth: "1280px"}}>{renderSections[activeTab]}</div>
+        <div>{renderSections[activeTab]}</div>
       </div>
     </div>
   );

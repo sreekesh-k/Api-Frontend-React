@@ -268,13 +268,13 @@ function VendorCategorization(props) {
       //let val = data.data.data ? data.data.data : data;
       if (data.data) {
         data.data.forEach((d) => {
-          if (totalScore >= d.MinValue && totalScore <= d.MaxValue) {
+          if (totalScore >= d.minValue && totalScore <= d.maxValue) {
             setScoreRating(d.title);
           }
         });
       } else {
         data.forEach((d) => {
-          if (totalScore >= d.MinValue && totalScore <= d.MaxValue) {
+          if (totalScore >= d.minValue && totalScore <= d.maxValue) {
             setScoreRating(d.title);
           }
         });
