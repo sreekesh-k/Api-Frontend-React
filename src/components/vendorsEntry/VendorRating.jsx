@@ -56,6 +56,7 @@ function VendorRating(props) {
         return response.json();
       })
       .then((data) => {
+        console.log(data)
         sessionStorage.setItem(
           "vendorDetails",
           JSON.stringify({
@@ -79,7 +80,7 @@ function VendorRating(props) {
             ratingInitialData: JSON.stringify(data.data.vendorRatingParameter),
           })
         );
-        _calculateInitialScore(data.data.vendorRatingParameter);
+        _calculateInitialScore(data.data.vendorRatingParameter);//here
         saveRatingModel(averageRatingodel);
         saveRatingFileName(data);
       })
@@ -356,18 +357,18 @@ function VendorRating(props) {
   const handleRemarksChange = (e, paramId, subParamId, hasSubparams) => {
     const _data = ratingData;
     _data.forEach((dataItem) => {
-      if (dataItem.Id !== paramId) return;
+      if (dataItem.id !== paramId) return;
       const updateRemarks = (scoreModels) => {
         scoreModels.forEach((scoreModel) => {
           if (scoreModel.isSelected) {
-            scoreModel.Remarks = e.target.value;
+            scoreModel.remarks = e.target.value;
           }
         });
       };
 
       if (hasSubparams) {
         dataItem.subParams.forEach((subParam) => {
-          if (subParam.Id === subParamId) {
+          if (subParam.id === subParamId) {
             updateRemarks(subParam.scoreModel);
           }
         });
@@ -414,8 +415,8 @@ function VendorRating(props) {
     _data.forEach((f) => {
       if (f.ParameterId === paramId) {
         f.subParams.forEach((sp) => {
-          if (sp.ParameterId === subParamId) {
-            sp.CurrentFinancialYear = Number(e.target.value);
+          if (sp.parameterId === subParamId) {
+            sp.currentFinancialYear = Number(e.target.value);
           }
         });
       }
@@ -431,10 +432,10 @@ function VendorRating(props) {
   const handleFformChange2 = (e, paramId, subParamId) => {
     let _data = VrFinancialList;
     _data.forEach((f) => {
-      if (f.ParameterId === paramId) {
+      if (f.parameterId === paramId) {
         f.subParams.forEach((sp) => {
-          if (sp.ParameterId === subParamId) {
-            sp.LastFinancialYear = Number(e.target.value);
+          if (sp.parameterId === subParamId) {
+            sp.lastFinancialYear = Number(e.target.value);
           }
         });
       }
@@ -689,7 +690,7 @@ function VendorRating(props) {
                 <Col span="6" style={{ marginTop: ".5rem" }}>
                   {param.subParams === null && (
                     <p className="vendor-parameter-name">
-                      {param.ParameterName}
+                      {param.parameterName}
                     </p>
                   )}
                 </Col>
@@ -708,7 +709,7 @@ function VendorRating(props) {
                       ).map((v) => v.value)}
                       style={{ width: 250 }}
                       options={param.scoreModel}
-                      onChange={(e) => handleSelectChange2(e, param.Id)}
+                      onChange={(e) => handleSelectChange2(e, param.id)}
                     />
                   )}
                 </Col>
@@ -725,13 +726,13 @@ function VendorRating(props) {
                       onChange={(e) =>
                         handleRemarksChange(
                           e,
-                          param.Id,
+                          param.id,
                           null,
                           (hasSubparams = false)
                         )
                       }
                       value={param.scoreModel.filter((s) => s.isSelected).map(
-                        (v) => v.Remarks
+                        (v) => v.remarks
                       )}
                     />
                   )}
@@ -799,7 +800,7 @@ function VendorRating(props) {
             </Col>
             <Col span="24">
               {param.subParams !== null && (
-                <p className="vendor-parameter-name">{param.ParameterName}</p>
+                <p className="vendor-parameter-name">{param.parameterName}</p>
               )}
               {param.subParams !== null &&
                 param.subParams.map((sp, key) => {
@@ -825,7 +826,7 @@ function VendorRating(props) {
                             (s) => s.isSelected
                           ).map((v) => v.value)}
                           onChange={(e) =>
-                            handleSelectChange(e, param.Id, sp.Id)
+                            handleSelectChange(e, param.id, sp.id)
                           }
                           options={sp.scoreModel}
                         />
@@ -842,13 +843,13 @@ function VendorRating(props) {
                           onChange={(e) =>
                             handleRemarksChange(
                               e,
-                              param.Id,
-                              sp.Id,
+                              param.id,
+                              sp.id,
                               (hasSubparams = true)
                             )
                           }
                           value={sp.scoreModel.filter((s) => s.isSelected).map(
-                            (v) => v.Remarks
+                            (v) => v.remarks
                           )}
                         />
                       </Col>
@@ -890,7 +891,7 @@ function VendorRating(props) {
                     </Row>
                   );
                 })}
-              {param.SubParams !== null && (
+              {param.subParams !== null && (
                 <Col span="24">
                   <Row>
                     <Col span="24" />
@@ -1017,20 +1018,20 @@ function VendorRating(props) {
           {VrFinancialList.length > 0 &&
             VrFinancialList.map((f, i) => {
               return (
-                <div key={f.ParameterId} className="vd-f-fields-wrapper">
-                  <p className="field-heading">{f.ParameterTitle}</p>
-                  {f.SubParams.length > 0 &&
-                    f.SubParams.map((sp, key) => {
+                <div key={f.parameterId} className="vd-f-fields-wrapper">
+                  <p className="field-heading">{f.parameterTitle}</p>
+                  {f.subParams.length > 0 &&
+                    f.subParams.map((sp, key) => {
                       return (
-                        <div className="f-field-wrapper" id={sp.ParameterId}>
-                          <p className="f-label">{sp.ParameterTitle}</p>
+                        <div className="f-field-wrapper" id={sp.parameterId}>
+                          <p className="f-label">{sp.parameterTitle}</p>
                           <div className="f-fields">
                             <div>
                               <p>Current Financial year</p>
                               <Input
                                 value={
-                                  sp.CurrentFinancialYear != null
-                                    ? sp.CurrentFinancialYear
+                                  sp.currentFinancialYear != null
+                                    ? sp.currentFinancialYear
                                     : ""
                                 }
                                 type="number"
@@ -1038,8 +1039,8 @@ function VendorRating(props) {
                                 onChange={(e) =>
                                   handleFformChange1(
                                     e,
-                                    f.ParameterId,
-                                    sp.ParameterId
+                                    f.parameterId,
+                                    sp.parameterId
                                   )
                                 }
                                 className="form-2-input"
@@ -1049,8 +1050,8 @@ function VendorRating(props) {
                               <p>Last Financial year</p>
                               <Input
                                 value={
-                                  sp.LastFinancialYear != null
-                                    ? sp.LastFinancialYear
+                                  sp.lastFinancialYear != null
+                                    ? sp.lastFinancialYear
                                     : ""
                                 }
                                 type="number"
@@ -1058,8 +1059,8 @@ function VendorRating(props) {
                                 onChange={(e) =>
                                   handleFformChange2(
                                     e,
-                                    f.ParameterId,
-                                    sp.ParameterId
+                                    f.parameterId,
+                                    sp.parameterId
                                   )
                                 }
                                 className="form-2-input"

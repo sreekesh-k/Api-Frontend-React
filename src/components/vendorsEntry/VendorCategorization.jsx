@@ -78,7 +78,7 @@ function VendorCategorization(props) {
   const calculateGtScore = (_data) => {
     let data = _data.vendorScoring !== undefined ? _data.vendorScoring : _data;
     let totalScore = 0;
-    console.log(data);
+    // console.log(data);
     data.forEach((d) => {
       if (d.subParams === null) {
         d.scoreModels.forEach((sm) => {
@@ -125,7 +125,7 @@ function VendorCategorization(props) {
       if (d.id === parameterId) {
         d.scoreModels.forEach((sm) => {
           if (sm.value === value) {
-            sm.IsSelected = true;
+            sm.isSelected = true;
             saveObj["ScoringRuleId"] = sm.id;
             saveObj["scoringTitle"] = sm.title;
             saveObj["Score"] = sm.score;
