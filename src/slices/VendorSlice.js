@@ -161,6 +161,7 @@ const vendorSlice = createSlice({
           model[key] = action.payload[key];
         }
       });
+      state.rating.averageVendorRatingModel = model;
     },
     updateRatingFinancialForm: (state, action) => {
       const { FinancialList, vendorRatingFinancialInfoReadModel } =
@@ -180,9 +181,9 @@ const vendorSlice = createSlice({
       const { reviewerRemarks, lastReviewSentOn, reviewers } =
         action.payload[0];
       state.categorization.notificationData = {
-        ReviewerRemarks:reviewerRemarks,
-        LastReviewSentOn:lastReviewSentOn,
-        Reviewers:reviewers,
+        ReviewerRemarks: reviewerRemarks,
+        LastReviewSentOn: lastReviewSentOn,
+        Reviewers: reviewers,
       };
     },
     changeCategorizationReview: (state, action) => {

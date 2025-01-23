@@ -56,7 +56,7 @@ function VendorRating(props) {
         return response.json();
       })
       .then((data) => {
-        console.log(data)
+        // console.log(data);
         sessionStorage.setItem(
           "vendorDetails",
           JSON.stringify({
@@ -80,7 +80,7 @@ function VendorRating(props) {
             ratingInitialData: JSON.stringify(data.data.vendorRatingParameter),
           })
         );
-        _calculateInitialScore(data.data.vendorRatingParameter);//here
+        _calculateInitialScore(data.data.vendorRatingParameter); //here
         saveRatingModel(averageRatingodel);
         saveRatingFileName(data);
       })
@@ -151,7 +151,7 @@ function VendorRating(props) {
     let arr = [];
     let avg = 0;
     let totalAvgScoreArr = [];
-    let _data = data;
+    let _data = JSON.parse(JSON.stringify(data));
     _data.forEach((d) => {
       if (d.subParams !== null) {
         d.averageScore = 0;
@@ -185,7 +185,6 @@ function VendorRating(props) {
             });
             d.averageScore += sm.score;
           }
-          dispatch;
         });
         d.averageScore =
           d.averageScore > 0
@@ -208,6 +207,7 @@ function VendorRating(props) {
     );
   };
   const saveRatingModel = (averageRatingodel) => {
+    console.log(averageRatingodel.ratingFile)
     dispatch(
       updateVendorRatingModel({
         Devaitions: averageRatingodel.devaitions,
@@ -224,7 +224,7 @@ function VendorRating(props) {
           averageRatingodel.ratingFile !== "" &&
           averageRatingodel.ratingFile !== null
             ? [averageRatingodel.ratingFile]
-            : "",
+            : [],
       })
     );
   };
@@ -704,9 +704,9 @@ function VendorRating(props) {
                       allowClear={true}
                       className="vendor-select vd-cate-select"
                       size="small"
-                      defaultValue={param.scoreModel.filter(
-                        (s) => s.isSelected
-                      ).map((v) => v.value)}
+                      defaultValue={param.scoreModel
+                        .filter((s) => s.isSelected)
+                        .map((v) => v.value)}
                       style={{ width: 250 }}
                       options={param.scoreModel}
                       onChange={(e) => handleSelectChange2(e, param.id)}
@@ -731,9 +731,9 @@ function VendorRating(props) {
                           (hasSubparams = false)
                         )
                       }
-                      value={param.scoreModel.filter((s) => s.isSelected).map(
-                        (v) => v.remarks
-                      )}
+                      value={param.scoreModel
+                        .filter((s) => s.isSelected)
+                        .map((v) => v.remarks)}
                     />
                   )}
                 </Col>
@@ -742,9 +742,9 @@ function VendorRating(props) {
                     <Input
                       key={key}
                       disabled
-                      value={param.scoreModel.filter((s) => s.isSelected).map(
-                        (v) => v.score
-                      )}
+                      value={param.scoreModel
+                        .filter((s) => s.isSelected)
+                        .map((v) => v.score)}
                       className="vd-r-text-field"
                     />
                   )}
@@ -752,12 +752,12 @@ function VendorRating(props) {
                 <Col span="2">
                   {param.subParams === null
                     ? param.scoreModel.map((sm, key) => {
-                        const scoreLevel = param.scoreModel.filter(
-                          (s) => s.isSelected
-                        ).map((v) => v.scoreLevel);
-                        const scoreColorLevel = param.scoreModel.filter(
-                          (s) => s.isSelected
-                        ).map((v) => v.scoreColorLevel);
+                        const scoreLevel = param.scoreModel
+                          .filter((s) => s.isSelected)
+                          .map((v) => v.scoreLevel);
+                        const scoreColorLevel = param.scoreModel
+                          .filter((s) => s.isSelected)
+                          .map((v) => v.scoreColorLevel);
                         return (
                           sm.isSelected && (
                             <div key={key} className="vd-rating-score">
@@ -822,9 +822,9 @@ function VendorRating(props) {
                           className="vendor-select"
                           size="small"
                           allowClear={true}
-                          defaultValue={sp.scoreModel.filter(
-                            (s) => s.isSelected
-                          ).map((v) => v.value)}
+                          defaultValue={sp.scoreModel
+                            .filter((s) => s.isSelected)
+                            .map((v) => v.value)}
                           onChange={(e) =>
                             handleSelectChange(e, param.id, sp.id)
                           }
@@ -848,9 +848,9 @@ function VendorRating(props) {
                               (hasSubparams = true)
                             )
                           }
-                          value={sp.scoreModel.filter((s) => s.isSelected).map(
-                            (v) => v.remarks
-                          )}
+                          value={sp.scoreModel
+                            .filter((s) => s.isSelected)
+                            .map((v) => v.remarks)}
                         />
                       </Col>
                       <Col span="2" style={{ marginTop: ".5rem" }}>
@@ -858,21 +858,21 @@ function VendorRating(props) {
                           <Input
                             key={key}
                             disabled
-                            value={sp.scoreModel.filter(
-                              (s) => s.isSelected
-                            ).map((v) => v.score)}
+                            value={sp.scoreModel
+                              .filter((s) => s.isSelected)
+                              .map((v) => v.score)}
                             className="vd-r-text-field"
                           />
                         }
                       </Col>
                       <Col span="2">
                         {sp.scoreModel.map((sm, key) => {
-                          const scoreLevel = sp.scoreModel.filter(
-                            (s) => s.isSelected
-                          ).map((v) => v.scoreLevel);
-                          const scoreColorLevel = sp.scoreModel.filter(
-                            (s) => s.isSelected
-                          ).map((v) => v.scoreColorLevel);
+                          const scoreLevel = sp.scoreModel
+                            .filter((s) => s.isSelected)
+                            .map((v) => v.scoreLevel);
+                          const scoreColorLevel = sp.scoreModel
+                            .filter((s) => s.isSelected)
+                            .map((v) => v.scoreColorLevel);
                           return (
                             sm.isSelected && (
                               <div key={key} className="vd-rating-score">
@@ -1093,7 +1093,7 @@ function VendorRating(props) {
           <Row className="vd-f-fields-wrapper">
             <Col span="24">
               <div className="form-2-content">
-                <p className="text-bold">Deviations if any</p>
+                <p className="text-bold">Deviations if any </p>
               </div>
             </Col>
             <Col span="17">
@@ -1135,7 +1135,7 @@ function VendorRating(props) {
                     <path d="M16.5 6v11.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V5a2.5 2.5 0 0 1 5 0v10.5c0 .55-.45 1-1 1s-1-.45-1-1V6H10v9.5a2.5 2.5 0 0 0 5 0V5c0-2.21-1.79-4-4-4S7 2.79 7 5v12.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"></path>
                   </svg>
                 </Button>
-              </Upload>
+              </Upload> 
             </Col>
           </Row>
         </Fragment>
