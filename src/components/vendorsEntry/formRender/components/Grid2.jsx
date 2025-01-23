@@ -1,6 +1,6 @@
 import { createRef, Component, Fragment } from "react";
 
-export default function (props) {
+export default function Grid2 (props) {
   const { value = {}, onChange, readOnly } = props;
 
   const handelChangeData = (data) => onChange({ ...value, data });

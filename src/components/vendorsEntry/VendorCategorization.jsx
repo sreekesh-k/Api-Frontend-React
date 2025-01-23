@@ -78,19 +78,20 @@ function VendorCategorization(props) {
   const calculateGtScore = (_data) => {
     let data = _data.vendorScoring !== undefined ? _data.vendorScoring : _data;
     let totalScore = 0;
+    console.log(data);
     data.forEach((d) => {
       if (d.subParams === null) {
         d.scoreModels.forEach((sm) => {
-          if (sm.IsSelected) {
-            totalScore += sm.Rating;
+          if (sm.isSelected) {
+            totalScore += sm.rating;
           }
         });
       }
       if (d.subParams !== null) {
         d.subParams.forEach((sp) => {
           sp.scoreModels.forEach((sm) => {
-            if (sm.IsSelected) {
-              totalScore += sm.Rating;
+            if (sm.isSelected) {
+              totalScore += sm.rating;
             }
           });
         });
@@ -121,19 +122,19 @@ function VendorCategorization(props) {
       vendorId: vendorId,
     };
     _data.forEach((d) => {
-      if (d.Id === parameterId) {
+      if (d.id === parameterId) {
         d.scoreModels.forEach((sm) => {
           if (sm.value === value) {
             sm.IsSelected = true;
-            saveObj["ScoringRuleId"] = sm.Id;
-            saveObj["scoringTitle"] = sm.Title;
-            saveObj["Score"] = sm.Score;
-            saveObj["Weights"] = sm.Weights;
-            saveObj["Rating"] = sm.Rating;
+            saveObj["ScoringRuleId"] = sm.id;
+            saveObj["scoringTitle"] = sm.title;
+            saveObj["Score"] = sm.score;
+            saveObj["Weights"] = sm.weights;
+            saveObj["Rating"] = sm.rating;
             saveObj["CreatedBy"] = "";
             saveObj["paramId"] = parameterId;
           } else {
-            sm.IsSelected = false;
+            sm.isSelected = false;
           }
         });
       }
@@ -155,21 +156,21 @@ function VendorCategorization(props) {
       vendorId: vendorId,
     };
     _data.forEach((d) => {
-      if (d.Id === parameterId) {
+      if (d.id === parameterId) {
         d.subParams.forEach((sp) => {
-          if (sp.Id === subParameterId) {
+          if (sp.id === subParameterId) {
             sp.scoreModels.forEach((sm) => {
               if (sm.value === value) {
                 sm.IsSelected = true;
-                saveObj["ScoringRuleId"] = sm.Id;
-                saveObj["scoringTitle"] = sm.Title;
-                saveObj["Score"] = sm.Score;
-                saveObj["Weights"] = sm.Weights;
-                saveObj["Rating"] = sm.Rating;
+                saveObj["ScoringRuleId"] = sm.id;
+                saveObj["scoringTitle"] = sm.title;
+                saveObj["Score"] = sm.score;
+                saveObj["Weights"] = sm.weights;
+                saveObj["Rating"] = sm.rating;
                 saveObj["CreatedBy"] = "admin1@gieom.com";
                 saveObj["paramId"] = subParameterId;
               } else {
-                sm.IsSelected = false;
+                sm.isSelected = false;
               }
             });
           }
@@ -183,7 +184,7 @@ function VendorCategorization(props) {
     const _saveArray = _saveData;
     _saveArray.forEach((s) => {
       if (s.paramId === parameterId) {
-        s.Data = e.target.value;
+        s.data = e.target.value;
       }
     });
     setSaveArray(_saveArray);
@@ -202,14 +203,14 @@ function VendorCategorization(props) {
 
     const _data = dataa;
     const selectedField = scoreModels.filter((sm) => {
-      return sm.IsSelected;
+      return sm.isSelected;
     });
     if (selectedField.length > 0) {
       _data.forEach((d) => {
-        if (d.Id === parameterId) {
+        if (d.id === parameterId) {
           d.scoreModels.forEach((sm) => {
-            if (sm.Id === selectedField[0].Id) {
-              sm.Data = e.target.value;
+            if (sm.id === selectedField[0].id) {
+              sm.data = e.target.value;
             }
           });
         }
@@ -221,7 +222,7 @@ function VendorCategorization(props) {
     const _saveArray = _saveData;
     _saveArray.forEach((s) => {
       if (s.paramId === subParameterId) {
-        s.Data = e.target.value;
+        s.data = e.target.value;
       }
     });
     setSaveArray(_saveArray);
@@ -240,16 +241,16 @@ function VendorCategorization(props) {
 
     const _data = dataa;
     const selectedField = scoreModels.filter((sm) => {
-      return sm.IsSelected;
+      return sm.isSelected;
     });
     if (selectedField.length > 0) {
       _data.forEach((d) => {
-        if (d.Id === parameterId) {
+        if (d.id === parameterId) {
           d.subParams.forEach((sp) => {
-            if (sp.Id === subParameterId) {
+            if (sp.id === subParameterId) {
               sp.scoreModels.forEach((sm) => {
-                if (sm.Id === selectedField[0].Id) {
-                  sm.Data = e.target.value;
+                if (sm.id === selectedField[0].id) {
+                  sm.data = e.target.value;
                 }
               });
             }
@@ -268,13 +269,13 @@ function VendorCategorization(props) {
       if (data.data) {
         data.data.forEach((d) => {
           if (totalScore >= d.MinValue && totalScore <= d.MaxValue) {
-            setScoreRating(d.Title);
+            setScoreRating(d.title);
           }
         });
       } else {
         data.forEach((d) => {
           if (totalScore >= d.MinValue && totalScore <= d.MaxValue) {
-            setScoreRating(d.Title);
+            setScoreRating(d.title);
           }
         });
       }
@@ -286,14 +287,14 @@ function VendorCategorization(props) {
   const handleReviewerChange = (e) => {
     let _reviewers = Reviewers;
     _reviewers.forEach((r) => {
-      if (e.includes(r.value)) r.IsSelected = true;
-      else r.IsSelected = false;
+      if (e.includes(r.value)) r.isSelected = true;
+      else r.isSelected = false;
     });
     dispatch(changeCategorizationReviewers(_reviewers));
   };
-  const reviewerIds = Reviewers.filter((r) => r.IsSelected);
+  const reviewerIds = Reviewers.filter((r) => r.isSelected);
   const _ids = [];
-  reviewerIds.forEach((r) => _ids.push(r.Id));
+  reviewerIds.forEach((r) => _ids.push(r.id));
   const handleSaveReviewers = () => {
     if (_ids.length < 1) {
       //toastr.error("Please select reviewers!");
@@ -315,7 +316,7 @@ function VendorCategorization(props) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.Status == "success") {
+        if (data.status == "success") {
           // toastr.success(data.message);
         } else {
           // toastr.error(data.Message);
@@ -385,12 +386,12 @@ function VendorCategorization(props) {
                   disabled={areFieldsDisabled}
                   className="vendor-select"
                   size="small"
-                  defaultValue={param.scoreModels.filter(
-                    (s) => s.IsSelected
-                  ).map((v) => v.value)}
+                  defaultValue={param.scoreModels
+                    .filter((s) => s.isSelected)
+                    .map((v) => v.value)}
                   style={{ width: 250, marginBottom: ".5vh" }}
                   options={param.scoreModels}
-                  onChange={(e) => handleChange(e, param.Id)}
+                  onChange={(e) => handleChange(e, param.id)}
                   allowClear={true}
                 />
               )}
@@ -400,15 +401,15 @@ function VendorCategorization(props) {
                 <TextArea
                   type="text"
                   onChange={(e) =>
-                    handleDataChange(e, param.scoreModels, param.Id)
+                    handleDataChange(e, param.scoreModels, param.id)
                   }
                   className="data-input"
-                  value={param.scoreModels.filter((s) => s.IsSelected).map(
-                    (v) => v.Data
-                  )}
+                  value={param.scoreModels
+                    .filter((s) => s.isSelected)
+                    .map((v) => v.Data)}
                   disabled={
                     areFieldsDisabled ||
-                    param.scoreModels.filter((s) => s.IsSelected).lenght < 1
+                    param.scoreModels.filter((s) => s.isSelected).lenght < 1
                   }
                   autoSize={{ minRows: 2, maxRows: 2 }}
                 />
@@ -420,9 +421,9 @@ function VendorCategorization(props) {
                   type="text"
                   disabled
                   className="s-model-input"
-                  value={param.scoreModels.filter((s) => s.IsSelected).map(
-                    (v) => v.Score
-                  )}
+                  value={param.scoreModels
+                    .filter((s) => s.isSelected)
+                    .map((v) => v.score)}
                   defaultValue="0"
                 />
               )}
@@ -433,9 +434,9 @@ function VendorCategorization(props) {
                   type="text"
                   disabled
                   className="s-model-input"
-                  value={param.scoreModels.filter((s) => s.IsSelected).map(
-                    (v) => v.Weights
-                  )}
+                  value={param.scoreModels
+                    .filter((s) => s.isSelected)
+                    .map((v) => v.weights)}
                   defaultValue="0"
                 />
               )}
@@ -446,9 +447,9 @@ function VendorCategorization(props) {
                   type="text"
                   disabled
                   className="s-model-input"
-                  value={param.scoreModels.filter((s) => s.IsSelected).map(
-                    (v) => v.Rating
-                  )}
+                  value={param.scoreModels
+                    .filter((s) => s.isSelected)
+                    .map((v) => v.rating)}
                   defaultValue="0"
                 />
               )}
@@ -469,13 +470,13 @@ function VendorCategorization(props) {
                               disabled={areFieldsDisabled}
                               className="vendor-select"
                               size="small"
-                              defaultValue={sp.scoreModels.filter(
-                                (s) => s.IsSelected
-                              ).map((v) => v.value)}
+                              defaultValue={sp.scoreModels
+                                .filter((s) => s.isSelected)
+                                .map((v) => v.value)}
                               style={{ width: 250, marginBottom: ".5vh" }}
                               options={sp.scoreModels}
                               onChange={(e) =>
-                                handleChange2(e, param.Id, sp.Id)
+                                handleChange2(e, param.id, sp.id)
                               }
                               allowClear={true}
                             />
@@ -486,20 +487,20 @@ function VendorCategorization(props) {
                             <TextArea
                               type="text"
                               className="data-input"
-                              value={sp.scoreModels.filter(
-                                (s) => s.IsSelected
-                              ).map((v) => v.Data)}
+                              value={sp.scoreModels
+                                .filter((s) => s.isSelected)
+                                .map((v) => v.data)}
                               onChange={(e) =>
                                 handleDataChange2(
                                   e,
                                   sp.scoreModels,
-                                  param.Id,
-                                  sp.Id
+                                  param.id,
+                                  sp.id
                                 )
                               }
                               disabled={
                                 areFieldsDisabled ||
-                                sp.scoreModels.filter((s) => !s.IsSelected)
+                                sp.scoreModels.filter((s) => !s.isSelected)
                                   .length < 1
                               }
                               autoSize={{ minRows: 2, maxRows: 2 }}
@@ -515,9 +516,9 @@ function VendorCategorization(props) {
                               type="text"
                               disabled
                               className="s-model-input"
-                              value={sp.scoreModels.filter(
-                                (s) => s.IsSelected
-                              ).map((v) => v.Score)}
+                              value={sp.scoreModels
+                                .filter((s) => s.isSelected)
+                                .map((v) => v.score)}
                               defaultValue=""
                             />
                           }
@@ -531,9 +532,9 @@ function VendorCategorization(props) {
                               type="text"
                               disabled
                               className="s-model-input"
-                              value={sp.scoreModels.filter(
-                                (s) => s.IsSelected
-                              ).map((v) => v.Weights)}
+                              value={sp.scoreModels
+                                .filter((s) => s.isSelected)
+                                .map((v) => v.weights)}
                               defaultValue=""
                             />
                           }
@@ -547,9 +548,9 @@ function VendorCategorization(props) {
                               type="text"
                               disabled
                               className="s-model-input"
-                              value={sp.scoreModels.filter(
-                                (s) => s.IsSelected
-                              ).map((v) => v.Rating)}
+                              value={sp.scoreModels
+                                .filter((s) => s.isSelected)
+                                .map((v) => v.rating)}
                               defaultValue=""
                             />
                           }

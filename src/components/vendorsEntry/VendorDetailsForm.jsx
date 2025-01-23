@@ -95,15 +95,18 @@ function VendorDetailsForm(props) {
             fetchLatestURN();
           }
           if (res.data.isActive == false) {
-            if (res.data.inActivationDate)
-              IDate = moment(res.data.inActivationDate).format("YYYY-MM-DD");
-            dispatch(
-              setInactivation({
-                InActivationDate: IDate,
-                ReasonOfInactivation: res.data.reasonOfInactivation,
-                InActivationEvidence: [res.data.reasonOfInactivationFiles],
-              })
-            );
+            if (res.data.inActivationDate) {
+              let IDate = moment(res.data.inActivationDate).format(
+                "YYYY-MM-DD"
+              );
+              dispatch(
+                setInactivation({
+                  InActivationDate: IDate,
+                  ReasonOfInactivation: res.data.reasonOfInactivation,
+                  InActivationEvidence: res.data.reasonOfInactivationFiles,
+                })
+              );
+            }
           }
           if (res.data.isTemplateChanged)
             InfoPopup({ title: "Template", msg: "Template has changed" });
