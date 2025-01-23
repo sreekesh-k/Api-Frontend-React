@@ -1,5 +1,6 @@
 ﻿import { createRef, Component, Fragment } from "react";
 import AsyncComponent from "react-select";
+import { API_URL } from "../../../../constants";
 
 export default class DropDown extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export default class DropDown extends Component {
       return <span className="text-danger required-asterik-mark">•</span>;
     return null;
   }
-  loadOptions(url) {
+  loadOptions(urlParam) {
+    url = `${API_URL}/api/${urlParam}`;
     if (url.trim() !== "") {
       try {
         return fetch(url, {
@@ -81,7 +83,7 @@ export default class DropDown extends Component {
           options={this.props.values}
           onChange={(selectedOption) =>
             this.props.handleDropdownChange(selectedOption, this.props.index)
-          }   
+          }
           value={this.props.value}
           loadOptions={() => this.loadOptions(this.props.url)}
           disabled={this.props.readOnly === true ? true : false}

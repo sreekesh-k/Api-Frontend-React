@@ -15,9 +15,15 @@
    4. [Functional Component Exports](#functional-component-exports)
    5. [Navigation Updates](#navigation-updates)
    6. [Redux Updates](#redux-updates)
-8. [Future Enhancements](#future-enhancements)
-9. [Contribution Guidelines](#contribution-guidelines)
-10. [Acknowledgments](#acknowledgments)
+8. [Recent API and Major Changes](#recent-api-and-major-changes)
+   1. [Provider Store Setup](#provider-store-setup)
+   2. [Vendor Navigation Logic](#vendor-navigation-logic)
+   3. [API Integration Updates](#api-integration-updates)
+   4. [Immutable Object Handling in Class Components](#immutable-object-handling-in-class-components)
+   5. [Unavailable APIs](#unavailable-apis)
+9. [Future Enhancements](#future-enhancements)
+10. [Contribution Guidelines](#contribution-guidelines)
+11. [Acknowledgments](#acknowledgments)
 
 ## Project Overview
 
@@ -237,100 +243,100 @@ dispatch(setVendors(vendors));
 
 This approach simplifies state management and encourages scalability.
 
-### Implimented The CreateSelector to handle Memorization which avoids multiple renders
+## Recent API and Major Changes
 
-```ts
-import { createSelector } from "@reduxjs/toolkit";
+### Provider Store Setup
 
-const selector = createSelector(
-  inputSelectors, // One or more input selectors
-  resultFunction // A function to compute the result based on input
-);
+The store has been moved to the entire application for consistent state access:
+
+```jsx
+<Provider store={store}>
+  <Router>
+    <Routes>
+      <Route path="/" element={<Vendor />} />
+      <Route path="/vendordetail" element={<VendorEntry />} />
+    </Routes>
+  </Router>
+</Provider>
 ```
 
-- `inputSelectors`: One or more selectors that extract values from the Redux state.
-- `resultFunction`: A function that takes the outputs of the input selectors and computes a derived result.
+This enables `dispatch` to be used seamlessly within components:
 
-## Example
-
-### State Example
-
-Consider the following state structure for a user profile application:
-
-```ts
-const initialState = {
-  users: [
-    { id: 1, name: "John", age: 30 },
-    { id: 2, name: "Jane", age: 25 },
-  ],
-  filter: { minAge: 28 },
+```javascript
+const handleRowClick = (record) => {
+  sessionStorage.setItem("vendorType", record.Type);
+  dispatch(saveVendorId(record.id));
+  navigate(`/vendordetail?id=${record.id}`);
 };
 ```
 
-### Basic Selector
+### Vendor Navigation Logic
 
-```ts
-// A simple selector to get all users
-const selectUsers = (state) => state.users;
+Vendor entry now redirects to the home page if `vendorId` is not found:
 
-// A selector to get the filter criteria
-const selectFilter = (state) => state.filter;
-```
+```javascript
+const navigate = useNavigate();
+const vendorId = useSelector((state) => state.vendor.vendorId);
 
-### Memoized Selector with `createSelector`
+useEffect(() => {
+  if (!vendorId) {
+    navigate("/");
+  }
+}, [vendorId]);
 
-Using `createSelector`, we can create a memoized selector that filters users based on the age:
-
-```ts
-import { createSelector } from "@reduxjs/toolkit";
-
-// A selector that filters users based on the minimum age from the filter
-const selectFilteredUsers = createSelector(
-  [selectUsers, selectFilter], // Input selectors
-  (users, filter) => {
-    return users.filter((user) => user.age >= filter.minAge);
-  } // Result function
+return (
+  <>
+    {vendorId && <VendorApp />}
+  </>
 );
 ```
 
-### Usage
+### API Integration Updates
 
-To use the selector in your component, use `useSelector` from `react-redux`:
+All API URLs are derived from a centralized `constants.js` file:
 
-```tsx
-import React from "react";
-import { useSelector } from "react-redux";
+```javascript
+export const API_URL = import.meta.env.VITE_API_URL;
+import { API_URL } from "../../constants";
 
-const UserList = () => {
-  const filteredUsers = useSelector(selectFilteredUsers);
-
-  return (
-    <div>
-      <h2>Filtered Users</h2>
-      <ul>
-        {filteredUsers.map((user) => (
-          <li key={user.id}>
-            {user.name} ({user.age} years old)
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
-
-export default UserList;
+fetch(`${API_URL}/Vendor/FinishVendor/${vendorId}`, {
+  method: "POST",
+});
 ```
 
-### Benefits of `createSelector`
+Response handling and casing adjustments have been applied:
 
-- **Memoization**: Prevents unnecessary recalculations of the derived data when the inputs haven't changed.
-- **Performance Optimization**: Reduces recomputations by tracking the state of inputs.
-- **Readable Code**: Cleanly separates the logic of computing derived state from the rest of your components or reducers.
+```javascript
+fetch(`${API_URL}/Vendor/GetVendorById/${vendorId}`)
+  .then((response) => response.json())
+  .then((res) => {
+    if (res.status === "success") {
+      const data = JSON.parse(res.data.formData || res.data.jsonForm);
+      // Previously used: .data.Data.JsonForm, .res.Status
+      // Adjusted for casing updates in API response
+      // Processing logic here
+    }
+  });
+```
+
+### Immutable Object Handling in Class Components
+
+To resolve assignment issues, deep cloning is applied:
+
+```javascript
+const propData = JSON.parse(JSON.stringify(this.props.data));
+this.state.formData = propData;
+```
+
+### Unavailable APIs
+
+1. `./Stages/FetchStageByEntityId?entityId` – ReviewComponent
+2. `${API_URL}/MasterData/GetAllDropdownValues/vcc` – ClauseModel
 
 ## Future Enhancements
 
-- **API Integration:** Replace static data with API calls once the ASP.NET Core Web API is provided.
-- **Error Handling:** Implement error boundaries and API request error handling.
+- **Error Handling:** Enhance error boundaries for better user experience.
+- **Dynamic Data Integration:** Fully integrate with live APIs.
 
 ## Contribution Guidelines
 
@@ -345,6 +351,7 @@ export default UserList;
    ```
 4. Push to your fork and create a pull request.
 
-### Acknowledgments
+## Acknowledgments
 
 We thank the team for providing legacy `.cshtml` and `.jsx` files as references, which served as a foundation for this POC.
+

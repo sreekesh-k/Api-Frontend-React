@@ -840,7 +840,7 @@ function VendorApp(props) {
                     Close
                   </button>
                 </div>
-                {/* <div className="vd-action-btn ">
+                <div className="vd-action-btn ">
                   <button
                     onClick={() => handleTabChange("prev")}
                     disabled={activeTab === "VendorDetails"}
@@ -869,7 +869,7 @@ function VendorApp(props) {
                       className="glyphicon glyphicon-chevron-right vd-arrow"
                     ></i>
                   </button>
-                </div> */}
+                </div>
                 {hasCentrilizedAccess && (
                   <Fragment>
                     {
