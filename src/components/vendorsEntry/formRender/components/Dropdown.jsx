@@ -1,5 +1,5 @@
 ﻿import { createRef, Component, Fragment } from "react";
-import Select from "react-select";
+import AsyncComponent from "react-select";
 
 export default class DropDown extends Component {
   constructor(props) {
@@ -56,8 +56,8 @@ export default class DropDown extends Component {
 
   render() {
     const hidden = this.props.hidden ? { display: "none" } : {};
-    const AsyncComponent =
-      this.props.url && this.props.url.trim() !== "" ? Select.Async : Select;
+    // const AsyncComponent =
+    //   this.props.url && this.props.url.trim() !== "" ? Select.Async : Select;
     return (
       <div
         className={"form-group " + (this.props.hidden ? "hidden" : "shown")}
@@ -81,7 +81,7 @@ export default class DropDown extends Component {
           options={this.props.values}
           onChange={(selectedOption) =>
             this.props.handleDropdownChange(selectedOption, this.props.index)
-          }
+          }   
           value={this.props.value}
           loadOptions={() => this.loadOptions(this.props.url)}
           disabled={this.props.readOnly === true ? true : false}

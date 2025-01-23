@@ -931,7 +931,7 @@ function VendorApp(props) {
           /> */}
         {activeTab === "VendorCategorizationScoring" && <ClauseModel />}
         {/* </div> */}
-        <div>{renderSections[activeTab]}</div>
+        <div style={{maxWidth: "1280px"}}>{renderSections[activeTab]}</div>
       </div>
     </div>
   );

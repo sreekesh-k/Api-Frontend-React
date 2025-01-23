@@ -592,7 +592,7 @@ export default class FormRender extends Component {
   };
 
   generateControl(obj1, i, formRender) {
-    let obj = obj1
+    let obj = obj1;
     let readOnly =
       formRender.props.readOnly === undefined
         ? false
@@ -647,16 +647,16 @@ export default class FormRender extends Component {
           }
         } else
           return (
-            // <Dropdown
-            //   readOnly={readOnly}
-            //   handleDropdownChange={formRender.handleChange}
-            //   index={i}
-            //   key={i}
-            //   value={obj.value ? obj.value : ""}
-            //   {...obj}
-            //   controlStyle={controlStyle}
-            // />
-            <h1>Dropdown</h1>
+            <Dropdown
+              readOnly={readOnly}
+              handleDropdownChange={formRender.handleChange}
+              index={i}
+              key={i}
+              value={obj.value ? obj.value : ""}
+              {...obj}
+              controlStyle={controlStyle}
+            />
+            // <h1>Dropdown</h1>
           );
       case "text": {
         return (
@@ -677,16 +677,16 @@ export default class FormRender extends Component {
         //   obj.isConverted = true;
         // }
         return (
-          // <DatePicker
-          //   readOnly={readOnly}
-          //   index={i}
-          //   handleInput={formRender.handleChange}
-          //   key={i}
-          //   {...obj}
-          //   controlStyle={controlStyle}
-          // />
+          <DatePicker
+            readOnly={readOnly}
+            index={i}
+            handleInput={formRender.handleChange}
+            key={i}
+            {...obj}
+            controlStyle={controlStyle}
+          />
 
-          <h1>DatePicker</h1>
+          // <h1>DatePicker</h1>
         );
       }
       case "textarea":
@@ -973,7 +973,7 @@ export default class FormRender extends Component {
         // }
 
         propData[index].eventEmitter = new EventEmitter3();
-        this.state.formData = propData
+        this.state.formData = propData;
       });
     }
     window.DcFormRenderTriggers = window.DcFormRenderTriggers || [];

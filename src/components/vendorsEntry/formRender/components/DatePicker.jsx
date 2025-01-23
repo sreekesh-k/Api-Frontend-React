@@ -1,4 +1,6 @@
 ﻿import { createRef, Component, Fragment } from "react";
+import $ from "jquery";
+import moment from "moment";
 
 export default class DatePicker extends Component {
   static changedDatepickerId = "";
@@ -100,7 +102,7 @@ export default class DatePicker extends Component {
     var newmin;
     var newmax;
 
-    currentDatePicker = newProps;
+    let currentDatePicker = newProps;
 
     try {
       if (newProps.min) {
@@ -412,9 +414,9 @@ export default class DatePicker extends Component {
       }
     }
 
-    id.datetimepicker(options).on("dp.change", (e) => {
-      this.props.handleInput(this.myRef.current.value, this.props.index);
-    });
+    
+    //   this.props.handleInput(this.myRef.current.value, this.props.index);
+    // });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
