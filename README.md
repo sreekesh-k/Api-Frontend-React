@@ -21,9 +21,10 @@
    3. [API Integration Updates](#api-integration-updates)
    4. [Immutable Object Handling in Class Components](#immutable-object-handling-in-class-components)
    5. [Unavailable APIs](#unavailable-apis)
-9. [Future Enhancements](#future-enhancements)
-10. [Contribution Guidelines](#contribution-guidelines)
-11. [Acknowledgments](#acknowledgments)
+9. [Issues](#issues)
+10. [Future Enhancements](#future-enhancements)
+11. [Contribution Guidelines](#contribution-guidelines)
+12. [Acknowledgments](#acknowledgments)
 
 ## Project Overview
 
@@ -332,6 +333,17 @@ this.state.formData = propData;
 
 1. `./Stages/FetchStageByEntityId?entityId` – ReviewComponent
 2. `${API_URL}/MasterData/GetAllDropdownValues/vcc` – ClauseModel
+
+## Issues
+
+### jQuery Version and Import Conflicts
+
+There are compatibility issues with the version of jQuery being used, which causes conflicts in certain components.
+
+### Datepicker and React-Select Import Problems
+
+- **Datepicker:** Problems arise due to mismatched or missing jQuery versions required by the library.
+- **React-Select (Dropdown Component):** Importing `Select` from `react-select` has caused issues, particularly with styling and event handling in the dropdown component. Further investigation is needed to identify the root cause and provide a resolution.
 
 ## Future Enhancements
 
