@@ -7,15 +7,7 @@ import { useState } from "react";
 function Vendor() {
   const [formSchema, setFormSchema] = useState([]);
 
-  return (
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <VendorTable />
-      {/* <div style={{ padding: "20px" }}>
-        <FormBuilder onSave={setFormSchema} />
-        {formSchema.length > 0 && <FormRenderer schema={formSchema} />}
-      </div> */}
-    </div>
-  );
+  return <VendorTable />;
 }
 
 export default Vendor;

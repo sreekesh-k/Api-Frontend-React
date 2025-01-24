@@ -9,10 +9,13 @@
 .categorization-wrapper {
     margin: 1.5vh 1vw 0 1vw;
     background-color: #FFFFFF;
-    height: 78vh;
+    padding: 1vh 1vw;
+    box-shadow: 0px 0px 16px -7px rgba(0,0,0,0.1);
+    background-color: #FFFFFF;
+    /* height: 78vh;
     position: relative;
     overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: hidden; */
 }
 .vendor-header {
     background-color: #FAFAFA;
@@ -193,8 +196,8 @@
     background-color: #FFFFFF;
     padding: 1vh 1vw;
     box-shadow: 0px 0px 16px -7px rgba(0,0,0,0.1);
-    height: 78vh;
-    overflow-y: auto;
+    /* height: 78vh;
+    overflow-y: auto; */
 }
 .rating-col-h {
     font-size: 2vh;
@@ -386,9 +389,12 @@ height: 6.39vh !important;
     font-size: 2vh;
 }
 .vendorDetails-container {
-    height: 70.3vh;
+    /* height: 70.3vh; */
     /*background: #FFFFFF;*/
-    margin: 1vh 1vw;
+    margin: 1.5vh 1vw 0 1vw;
+    background-color: #FFFFFF;
+    padding: 1vh 1vw;
+    box-shadow: 0px 0px 16px -7px rgba(0,0,0,0.1);
 }
    
 
@@ -406,7 +412,6 @@ height: 6.39vh !important;
     }
 .vd-actionTabs {
     display: flex;
-    /*justify-content: space-between;*/
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
@@ -575,9 +580,13 @@ height: 6.39vh !important;
 }
 /*----------------vendor Additional Details----------------------------*/
 .vendorAdditionalDetails-container {
-    height: 78vh;
+    /* height: 78vh;
     margin: 1vh 0.1vw;
-    overflow-y: auto;
+    overflow-y: auto; */
+    margin: 1.5vh 1vw 0 1vw;
+    background-color: #FFFFFF;
+    padding: 1vh 1vw;
+    box-shadow: 0px 0px 16px -7px rgba(0,0,0,0.1);
 }
 
 /*----------------vendor stages ---------------------------------------*/
@@ -635,4 +644,9 @@ height: 6.39vh !important;
     background: #F2F3FA;
     z-index: 100;
     margin-top: 100px;
+}
+
+.control-panel{
+    display: flex;
+    gap: 1;
 }

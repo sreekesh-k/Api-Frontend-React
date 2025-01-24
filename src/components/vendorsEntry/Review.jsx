@@ -74,7 +74,7 @@ function Review(props) {
         isReview={true}
         isReviewInViewMode={true}
       /> */}
-      <h1>The Stage Main Component Comes Here (Not Available)</h1>
+      <div className="review-custom">The Stage Main Component Comes Here (Not Available)</div>
     </Fragment>
   );
 }

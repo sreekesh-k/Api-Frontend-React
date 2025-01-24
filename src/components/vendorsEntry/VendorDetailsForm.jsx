@@ -61,6 +61,7 @@ function VendorDetailsForm(props) {
   useEffect(() => {
     // console.log(vendorId);
     //Fetch Filled Data
+    setIsLoading(true);
     fetch(`${API_URL}/Vendor/GetVendorById/${vendorId}`)
       .then((response) => response.json())
       .then((res) => {

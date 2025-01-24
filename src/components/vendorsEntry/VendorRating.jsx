@@ -809,7 +809,7 @@ function VendorRating(props) {
                         span="6"
                         style={{ marginTop: ".5rem", marginBottom: ".5rem" }}
                       >
-                        <p className="vendor-sub-parameter-name">{sp.Title}</p>
+                        <p className="vendor-sub-parameter-name">{sp.title}</p>
                       </Col>
                       <Col
                         span="8"
@@ -1008,7 +1008,7 @@ function VendorRating(props) {
           </div>
         </div>
       </Fragment>
-      {/*(vendorDetails.Type === "IT" || vendorDetails.AnnualBilling > 10000000 || vendorDetails.NatureOfServices[0].Title == "Cash handling") && */}
+      {/*(vendorDetails.Type === "IT" || vendorDetails.AnnualBilling > 10000000 || vendorDetails.NatureOfServices[0].title == "Cash handling") && */}
 
       {/* ------------------- FNANCIAL_FORM --------------------- */}
       {toRenderFinancialForm && (

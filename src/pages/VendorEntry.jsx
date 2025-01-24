@@ -26,20 +26,7 @@ function VendorEntry() {
 
   return (
     <>
-      {vendorId && (
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            paddingTop: "1.5rem",
-          }}
-        >
-          <VendorApp />
-        </div>
-      )}
+      {vendorId && <VendorApp />}
       {/* <VendorApp VendorDetailsForm={VendorDetailsForm} VendorCategorization={VendorCategorization} VendorRating={VendorRating} /> */}
 
       {/* Display the vendor details (DEBUG)*/}
