@@ -1,6 +1,6 @@
-/* @import '//cdn.quilljs.com/1.2.6/quill.snow.css';
-@import "/Scripts/lib/FormRender/form-renderer-deps.css";
-@import "/Scripts/lib/FormRender/form-renderer-deps.overwrites.css"; */
+@import '//cdn.quilljs.com/1.2.6/quill.snow.css';
+@import "./form-renderer-deps.css";
+@import "./form-renderer-deps.overwrites.css";
 
 .LayoutSection {
     border: 1px solid #eee;

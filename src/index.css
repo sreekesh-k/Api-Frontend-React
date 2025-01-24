@@ -1,3 +1,5 @@
+@import url("./react-layout.css");
+@import url("./react-select.css");
 .new-design-theme .navigate-tabs-panel .action-tabs > li.active > a {
   width: 16vw;
 }

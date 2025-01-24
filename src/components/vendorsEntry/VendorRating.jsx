@@ -101,13 +101,12 @@ function VendorRating(props) {
           data.vendorRatingFinancialInfoReadModel.financialFile !== "" &&
           data.vendorRatingFinancialInfoReadModel.financialFile !== null
             ? [data.vendorRatingFinancialInfoReadModel.financialFile]
-            : "";
-
+            : [];
         dispatch(
           updateRatingFinancialForm({
             FinancialList: data.financialList,
             vendorRatingFinancialInfoReadModel:
-              data.vendorRatingFinancialInfoReadModel,
+              vendorRatingFinancialInfoReadModel,
             finaicialListInitialData: JSON.stringify(data.financialList),
           })
         );
@@ -1023,7 +1022,7 @@ function VendorRating(props) {
                   {f.subParams.length > 0 &&
                     f.subParams.map((sp, key) => {
                       return (
-                        <div className="f-field-wrapper" id={sp.parameterId}>
+                        <div className="f-field-wrapper" id={sp.parameterId} key={key}>
                           <p className="f-label">{sp.parameterTitle}</p>
                           <div className="f-fields">
                             <div>
@@ -1101,7 +1100,7 @@ function VendorRating(props) {
                 disabled={isInViewMode}
                 className="form-2-input text-area"
                 type="textarea"
-                value={VrvendorRatingFinancialInfoReadModel["Deviation"]}
+                value={VrvendorRatingFinancialInfoReadModel["deviation"]}
                 onChange={(e) => {
                   handleFinancialDeviation(e);
                 }}
@@ -1125,7 +1124,7 @@ function VendorRating(props) {
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 24 24"
                     height="20px"
                     width="20px"
