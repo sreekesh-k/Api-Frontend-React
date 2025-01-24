@@ -14,7 +14,7 @@ const Sidebar = () => {
             <p className="new-p">
               Risk
               <br />
-              central
+              Central
             </p>
           </a>
         </div>

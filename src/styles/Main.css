@@ -291,7 +291,6 @@ h4 {
   z-index: 9999;
   height: 100%;
   min-height: 100svh;
-  margin-right: 1rem;
   -webkit-transition-property: top, bottom, width;
   transition-property: top, bottom, width;
   -webkit-transition-duration: 0.2s, 0.2s, 0.35s;
