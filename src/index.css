@@ -1,31 +1,9 @@
-@import url("./react-layout.css");
-@import url("./react-select.css");
-.new-design-theme .navigate-tabs-panel .action-tabs > li.active > a {
-  width: 16vw;
-}
-
-.new-design-theme .navigate-tabs-panel .action-tabs > li > a {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 7vw;
-}
-
-.new-design-theme footer div.container-fluid {
-  margin-top: 0.5vh !important;
-  margin-bottom: 0.5vh !important;
-}
-
-.new-design-theme .panel-header .navbar .navbar-header .header-buttons .btn {
-  background-color: #4e4e4e !important;
-}
-.DcButton.disabled {
-  background-color: #e7e8ee !important;
-  cursor: not-allowed;
-}
-#root {
-  overflow: hidden;
-}
+@import url("./styles/form-renderer-deps.css");
+@import url("./styles/form-renderer-deps.overwrites.css");
+@import url("./styles/react-layout.css");
+@import url("./styles/react-select.css");
+@import url("./styles/vendor_styles.css");
+@import url("./styles/vendorReview.css");
 
 #file1 {
   min-width: 18vw;
@@ -97,9 +75,29 @@
   font-size: calc(16 * (50vh + 23.5vw) / 910);
 }
 
-body {
-  overflow: auto;
+.new-design-theme .navigate-tabs-panel .action-tabs > li.active > a {
+  width: 16vw;
 }
-:root {
-  overflow: auto;
+
+.new-design-theme .navigate-tabs-panel .action-tabs > li > a {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 7vw;
+}
+
+.new-design-theme footer div.container-fluid {
+  margin-top: 0.5vh !important;
+  margin-bottom: 0.5vh !important;
+}
+
+.new-design-theme .panel-header .navbar .navbar-header .header-buttons .btn {
+  background-color: #4e4e4e !important;
+}
+.DcButton.disabled {
+  background-color: #e7e8ee !important;
+  cursor: not-allowed;
+}
+#root {
+  overflow: hidden;
 }
