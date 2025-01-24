@@ -144,12 +144,12 @@ export default class Page extends Component {
         key={this.props.name}
         style={this.props.controlStyle}
       >
-        {/* <div className="LayoutPageHeader">
+        <div className="LayoutPageHeader">
           <div>
             {this.props.label}
             {this.renderDescription()}
           </div>
-        </div> */}
+        </div>
         <div className="LayoutPageBody">
           <div
             className="LayoutPageThumbnails"
@@ -160,7 +160,7 @@ export default class Page extends Component {
           >
             <div>{this.generateThumbnails()}</div>
           </div>
-          {/* <div>{this.props.multiple_pages}</div> */}
+          <div>{this.props.multiple_pages}</div>
           <div
             className="LayoutPages"
             style={layoutPageBodyStyle}

@@ -1,0 +1,24 @@
+.app-header {
+  padding: 0 20px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.134);
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.header-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+}
+
+.header-user i {
+  margin-right: 10px;
+}

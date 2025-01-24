@@ -801,114 +801,109 @@ function VendorApp(props) {
   };
   // crate separate component here
   return (
-    <div
-      className="action-centre-nav"
-      style={{
-        width: "94.45vw",
-        marginTop: "4vh",
-        marginLeft: ".5vw",
-        marginBottom: "3vh",
-      }}
-    >
-      <ul
-        className="vd-actionTabs"
-        style={{ position: "sticky", top: "0px", zIndex: "1000" }}
-      >
-        {tabData.map((tab) => {
-          return (
-            <li
-              className={activeTab === tab.id ? "active-tab" : ""}
-              key={tab.id}
-              style={{ width: "14vw" }}
-            >
-              <button onClick={handleClick} id={tab.id} title={tab.title}>
-                {tab.title}
+    <div className="action-centre-nav">
+      <div style={{ position: "relative" }}>
+        <ul
+          className="vd-actionTabs"
+          style={{ position: "sticky", top: "0px", zIndex: "1000" }}
+        >
+          {tabData.map((tab) => {
+            return (
+              <li
+                className={activeTab === tab.id ? "active-tab" : ""}
+                key={tab.id}
+                style={{ width: "14vw" }}
+              >
+                <button onClick={handleClick} id={tab.id} title={tab.title}>
+                  {tab.title}
+                </button>
+              </li>
+            );
+          })}
+          <div className="control-panel">
+            <div className="vd-action-btn ">
+              <button
+                onClick={() => navigate("/")}
+                style={{ backgroundColor: "#4E4E4E" }}
+              >
+                Close
               </button>
-            </li>
-          );
-        })}
-        <div className="control-panel">
-          <div className="vd-action-btn ">
-            <button
-              onClick={() => navigate("/")}
-              style={{ backgroundColor: "#4E4E4E" }}
-            >
-              Close
-            </button>
-          </div>
-          <div className="vd-action-btn ">
-            <button
-              onClick={() => handleTabChange("prev")}
-              disabled={activeTab === "VendorDetails"}
-              style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-              className={
-                activeTab === "VendorDetails" ? "DcButton disabled" : ""
-              }
-            >
-              <i
-                id=""
-                className="glyphicon glyphicon-chevron-left vd-arrow"
-              ></i>
-            </button>
-          </div>
-          <div className="vd-action-btn ">
-            <button
-              onClick={() => handleTabChange("next")}
-              disabled={activeTab === "reviewId"}
-              style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-              className={activeTab === "reviewId" ? "DcButton disabled" : ""}
-            >
-              <i
-                id=""
-                className="glyphicon glyphicon-chevron-right vd-arrow"
-              ></i>
-            </button>
-          </div>
-          {hasCentrilizedAccess && (
-            <Fragment>
-              {
-                //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
-                !isInViewMode || viewType === "NEW" ? (
-                  <div style={{ display: "flex" }}>
-                    <div className="vd-action-btn">
-                      <button
-                        onClick={() => handleSaveBtnClick(activeTab)}
-                        style={{ backgroundColor: "#FFB63B" }}
-                      >
-                        Save
-                      </button>
+            </div>
+            <div className="vd-action-btn ">
+              <button
+                onClick={() => handleTabChange("prev")}
+                disabled={activeTab === "VendorDetails"}
+                style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                className={
+                  activeTab === "VendorDetails" ? "DcButton disabled" : ""
+                }
+              >
+                <i
+                  id=""
+                  className="glyphicon glyphicon-chevron-left vd-arrow"
+                ></i>
+              </button>
+            </div>
+            <div className="vd-action-btn ">
+              <button
+                onClick={() => handleTabChange("next")}
+                disabled={activeTab === "reviewId"}
+                style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                className={activeTab === "reviewId" ? "DcButton disabled" : ""}
+              >
+                <i
+                  id=""
+                  className="glyphicon glyphicon-chevron-right vd-arrow"
+                ></i>
+              </button>
+            </div>
+            {hasCentrilizedAccess && (
+              <Fragment>
+                {
+                  //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
+                  !isInViewMode || viewType === "NEW" ? (
+                    <div style={{ display: "flex" }}>
+                      <div className="vd-action-btn">
+                        <button
+                          onClick={() => handleSaveBtnClick(activeTab)}
+                          style={{ backgroundColor: "#FFB63B" }}
+                        >
+                          Save
+                        </button>
+                      </div>
+                      <div className="vd-action-btn ">
+                        <button
+                          disabled={isLoadingFinish}
+                          style={{
+                            backgroundColor: "#00C24D",
+                            cursor: !isLoadingFinish
+                              ? "pointer"
+                              : "not-allowed",
+                          }}
+                          onClick={() => handleSaveBtnClick(activeTab, true)}
+                        >
+                          {!isLoadingFinish ? "Finish" : <LoadingSvg />}
+                        </button>
+                      </div>
                     </div>
+                  ) : (
                     <div className="vd-action-btn ">
-                      <button
-                        disabled={isLoadingFinish}
-                        style={{
-                          backgroundColor: "#00C24D",
-                          cursor: !isLoadingFinish ? "pointer" : "not-allowed",
-                        }}
-                        onClick={() => handleSaveBtnClick(activeTab, true)}
-                      >
-                        {!isLoadingFinish ? "Finish" : <LoadingSvg />}
-                      </button>
+                      {viewType == "EDIT" && (
+                        <button
+                          style={{ backgroundColor: "#00C24D" }}
+                          onClick={handleEditAccess}
+                        >
+                          Edit
+                        </button>
+                      )}
                     </div>
-                  </div>
-                ) : (
-                  <div className="vd-action-btn ">
-                    {viewType == "EDIT" && (
-                      <button
-                        style={{ backgroundColor: "#00C24D" }}
-                        onClick={handleEditAccess}
-                      >
-                        Edit
-                      </button>
-                    )}
-                  </div>
-                )
-              }
-            </Fragment>
-          )}
-        </div>
-      </ul>
-
+                  )
+                }
+              </Fragment>
+            )}
+          </div>
+        </ul>
+      </div>
       {/* <div className="historyBtn-wrapper">
           <HistoryButton
             api={
@@ -920,7 +915,7 @@ function VendorApp(props) {
           /> */}
       {activeTab === "VendorCategorizationScoring" && <ClauseModel />}
       {/* </div> */}
-      {renderSections[activeTab]}
+      <div> {renderSections[activeTab]}</div>
     </div>
   );
 }

@@ -298,10 +298,7 @@ function VendorTable(props) {
     <div style={{ cursor: "pointer" }}>
       <div
         style={{
-          width: "94.45vw",
-          marginTop: "4vh",
-          marginLeft: ".5vw",
-          marginBottom: "3vh",
+          width: "fit",
         }}
         id="vendorTableWrapper"
       >

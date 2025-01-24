@@ -4,6 +4,11 @@
 @import url("./styles/react-select.css");
 @import url("./styles/vendor_styles.css");
 @import url("./styles/vendorReview.css");
+@import url("./styles/Loader.css");
+@import url("./styles/Main.css");
+@import url("./styles/SearchSort_style.css");
+@import url("./styles/sharedcomponents_style.css");
+@import url("./styles/StageList.css");
 
 #file1 {
   min-width: 18vw;
@@ -98,6 +103,39 @@
   background-color: #e7e8ee !important;
   cursor: not-allowed;
 }
-#root {
-  overflow: hidden;
+
+.new-p {
+  margin-top: 18% !important;
+  /*margin-left: 1.1vw !important;*/
+  display: inline-block;
+  position: relative;
+  margin-left: 0px !important;
+  text-align: center;
+  line-height: 13px !important;
+}
+
+.ps-scrollbar-y-rail {
+  visibility: hidden;
+}
+.logo_ops {
+  margin-left: 0.5vw;
+}
+.logo_opsadmin {
+  margin-top: 41.5vh !important;
+  margin-left: 0.5vw;
+  text-align: center !important;
+  position: absolute !important;
+}
+.logo_ops_new {
+  padding-left: 7px;
+  margin-top: 300px;
+  margin-left: 5px;
+  position: static !important;
+}
+.navleft {
+  overflow: hidden !important;
+}
+
+#root{
+  display: flex;
 }

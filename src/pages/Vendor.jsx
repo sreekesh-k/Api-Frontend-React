@@ -7,7 +7,11 @@ import { useState } from "react";
 function Vendor() {
   const [formSchema, setFormSchema] = useState([]);
 
-  return <VendorTable />;
+  return (
+    <>
+      <VendorTable />
+    </>
+  );
 }
 
 export default Vendor;

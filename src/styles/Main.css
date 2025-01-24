@@ -1,14 +1,13 @@
 ﻿@font-face {
   font-family: "Montserrat";
-  src: url("../../Styles/fonts/Bold/Montserrat-Bold.otf") format("opentype");
+  src: url("/assets/Montserrat-Bold.ttf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../../Styles/fonts/Regular/Montserrat-Regular.otf")
-    format("opentype");
+  src: url("/assets/Montserrat-Regular.ttf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -286,13 +285,13 @@ h4 {
   text-transform: uppercase;
   font-weight: bold;
 }
-
-.new-design-theme .sidebar {
+.sidebar {
   display: block;
   font-weight: 200;
   z-index: 9999;
   height: 100%;
-  max-height: 100%;
+  min-height: 100svh;
+  margin-right: 1rem;
   -webkit-transition-property: top, bottom, width;
   transition-property: top, bottom, width;
   -webkit-transition-duration: 0.2s, 0.2s, 0.35s;
@@ -301,20 +300,18 @@ h4 {
   transition-timing-function: linear, linear, ease;
   -webkit-overflow-scrolling: touch;
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
+
   background: #ffffff;
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42),
     0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
-.new-design-theme .sidebar[data-active-color="blue"] li.active > a {
+.sidebar[data-active-color="blue"] li.active > a {
   background-color: transparent;
   box-shadow: none;
 }
 
-.new-design-theme .sidebar > .logo {
+.sidebar > .logo {
   height: calc(70 * 100vh / 910);
   line-height: calc(70 * 100vh / 910);
   padding: 0;
@@ -326,7 +323,7 @@ h4 {
   z-index: 4;
 }
 
-.new-design-theme .sidebar > .logo > a {
+.sidebar > .logo > a {
   line-height: calc(70 * 100vh / 910);
   float: none;
   margin-left: auto;
@@ -334,18 +331,18 @@ h4 {
   margin-top: 1vh;
 }
 
-.new-design-theme .sidebar > .logo > a > img {
+.sidebar > .logo > a > img {
   height: calc(44 * 100vh / 910) !important;
   width: calc(50 * 100vh / 910);
   vertical-align: middle;
 }
 
-.new-design-theme div.sidebar {
+.sidebar {
   background: #0a4975;
   width: calc(85 * 100vw / 1920) !important;
 }
 
-.new-design-theme div.sidebar-wrapper.ps-container.ps-theme-default {
+.sidebar-wrapper.ps-container.ps-theme-default {
   width: calc(85 * 100vw / 1920) !important;
   height: 100%;
   padding-bottom: 0;
@@ -411,7 +408,7 @@ h4 {
   fill: #ff9129;
 }
 
-.new-design-theme div.sidebar-wrapper div ul.leftside-nav > li {
+.sidebar-wrapper div ul.leftside-nav > li {
   text-align: center;
   margin-bottom: 0;
   max-height: unset;
@@ -429,7 +426,13 @@ h4 {
 .new-design-theme .navigate-tabs-panel .tabs-list {
 }
 
-.new-design-theme .control-panel {
+/* .new-design-theme .control-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex: inherit;
+} */
+.control-panel {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -607,7 +610,7 @@ h4 {
   /* min-width: 300px*/
 }
 @media (min-width: 400px) and (max-width: 995px) {
-  .new-design-theme .sidebar {
+  .sidebar {
     /*left: -260px !important; */
   }
   .logo_ops_top {
@@ -629,7 +632,7 @@ h4 {
   .new-design-theme .panel-header .navbar > div.container-fluid .navbar-header {
     padding-left: calc(86 * 100vw / 1920) !important;
   }
-  .new-design-theme div.sidebar {
+  .sidebar {
     width: calc(113 * 100vw / 1920) !important;
   }
   .new-design-theme div.sidebar-wrapper.ps-container.ps-theme-default {
