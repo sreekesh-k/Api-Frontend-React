@@ -98,28 +98,6 @@
   background-color: #e7e8ee !important;
   cursor: not-allowed;
 }
-
-body{
-  display: flex;
-  flex-direction: column;
-}
 #root {
-  flex:1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.vd-clause-model{
-  padding: 1vh 1vw;
-  position: relative;
-}
-.vd-clause-model button{
-  width: 100%;
-}
-
-.review-custom{
-  margin: 1.5vh 1vw 0 1vw;
-  background-color: #FFFFFF;
-  padding: 1vh 1vw;
-  box-shadow: 0px 0px 16px -7px rgba(0,0,0,0.1);
+  overflow: hidden;
 }

@@ -4,11 +4,11 @@
 }
 
 /* Fix input[type=file] for cell type image */
-.new-design-theme .prefixGrid .prefixCellValue input[type=file] {
+.new-design-theme .prefixGrid .prefixCellValue input[type="file"] {
   display: none;
 }
 
 /* Reset button padding for "reset button" of cell type "image" */
-.new-design-theme .prefixGrid .prefixCellValue input[type=file] ~ button {
-    padding: 0;
+.new-design-theme .prefixGrid .prefixCellValue input[type="file"] ~ button {
+  padding: 0;
 }

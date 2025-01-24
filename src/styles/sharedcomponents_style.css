@@ -1,0 +1,402 @@
+﻿/*Roles and Users Model*/
+.ru-model-btn {
+  padding-left: 3%;
+}
+/*Role and Users*/
+.wf-row-space {
+  margin-top: 0.5vh;
+}
+
+.wf-selectspecific-col {
+  padding: 0.5vh 0vw 0.3vh 0.3vw !important;
+}
+
+.wf-alluser-selectspecific-col {
+  margin-left: 0.8%;
+}
+
+.wf-specificuser {
+  padding: 0px 1px 1px 0px;
+  width: 86% !important;
+}
+
+.wf-specificuser:hover {
+  cursor: pointer;
+}
+
+.wf-alluser-specificuser {
+  border: none;
+  background-color: white;
+  height: 4.4vh;
+  padding: 0.1vh 0.2vw 0.1vh 0.3vw !important;
+}
+
+.wf-onlyfor {
+  margin-top: 1.3vh;
+  margin-right: 0.5vw;
+}
+
+.wf-alluser-specificuser img {
+  width: 90% !important;
+}
+
+.wf-freq-calender {
+  width: 21% !important;
+  height: 68% !important;
+  padding-right: 8%;
+}
+
+.wf-allusers {
+  background: #afb3c7;
+  border: none;
+  color: white;
+  padding: 7px;
+  width: 7%;
+  font-weight: bold;
+}
+
+#main-rolesusers-div {
+  background-color: #f2f3fa;
+  padding: calc(15 * 100vh / 910) calc(15 * 100vw / 1920);
+  margin: 0 2% 0.5% 2%;
+  border-radius: 5px;
+}
+
+.wf-main-div {
+  color: #4e4e4e;
+}
+
+#onlyfor {
+  color: #5793ef;
+}
+.role-list-images-delete {
+  height: 4.2vh;
+  cursor: pointer;
+}
+
+.userNames {
+  display: contents;
+}
+
+.userNames div {
+  background-color: white;
+  color: #4e4e4e;
+  margin-left: 0.3vw;
+  padding: 0.6vh 0.5vw 0.6vh 0.6vw;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-line-clamp: 1;
+  max-width: 10vw;
+  display: flex;
+  min-width: max-content;
+  height: 4vh;
+  margin-top: 0.5%;
+}
+
+.membership-add-button a:hover {
+  color: #4d94ff;
+}
+
+.wf-user-cross {
+  filter: invert(48%) sepia(38%) saturate(1015%) hue-rotate(178deg)
+    brightness(96%) contrast(95%);
+  width: 0.7vw !important;
+  margin-left: 0.7vw;
+  cursor: pointer;
+}
+
+.membership-add-button {
+  border: 2px solid #4d94ff;
+  padding: 0;
+  height: calc(61 * 100vh / 910);
+}
+
+.membership-add-button a {
+  color: #4d94ff;
+  width: 100%;
+  background-color: white !important;
+}
+
+.membership-plus {
+  float: right;
+}
+
+.workflow-edit-freq {
+  background-color: #8162d5;
+  border: none;
+  color: white;
+  display: flex;
+  width: 9.8vw;
+  padding-top: 0.75vh;
+  margin-left: 2vw;
+  padding-left: 0.7vw;
+}
+
+.workflow-edit-freq p {
+  color: #e2dbf5;
+  margin-top: 0.1vh;
+}
+
+.workflow-del-svg {
+  filter: invert(70%) sepia(7%) saturate(0%) hue-rotate(253deg) brightness(92%)
+    contrast(82%);
+  margin-left: 3%;
+  width: 1.5vw !important;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+
+.workflow-no-freq-del-svg {
+  filter: invert(70%) sepia(7%) saturate(0%) hue-rotate(253deg) brightness(92%)
+    contrast(82%);
+  margin-left: 50%;
+  width: 1.5vw !important;
+  margin-bottom: 1%;
+  cursor: pointer;
+}
+/*ConfirmationModel.jsx*/
+.confirmation-modal > div.ant-modal-content {
+  border-radius: 10px;
+}
+
+.confirmation-modal > div.ant-modal-content > div.ant-modal-header {
+  background: #4286ee 0% 0% no-repeat padding-box;
+  color: white;
+  font: var(--font-style-bold);
+  padding: 10px 10px !important;
+  border-radius: 2px 2px 0 0;
+}
+
+.confirmation-modal > div.ant-modal-content > div.ant-modal-body {
+  padding: 4rem 4.4rem 4.3rem !important;
+  text-align: center;
+}
+
+.confirmation-modal
+  > div.ant-modal-content
+  > div.ant-modal-header
+  > div.ant-modal-title {
+  color: white;
+  font: var(--font-style);
+}
+
+.confirmation-modal > div.ant-modal-content > button {
+  color: white;
+  font: var(--font-style);
+  left: 0;
+  margin-right: 5%;
+}
+
+#confirmation-modal-heading {
+  font: normal normal bold 1.3vw Montserrat;
+  color: #4e4e4e;
+}
+
+#confirmation-modal-para {
+  font: normal normal normal 0.99vw Montserrat;
+  padding: 2rem 0rem 1rem;
+  color: #4e4e4e;
+  line-height: 1.8rem;
+}
+
+#confirmation-modal-buttons-div {
+  display: flex;
+  justify-content: center;
+  margin: 1.3rem 0rem;
+}
+.confirmation-modal-buttons {
+  width: 12.5rem;
+  height: 3rem !important;
+  border: 1px solid #4286ee !important;
+  border-radius: 5px !important;
+  color: #4286ee !important;
+  margin-right: 1.2rem !important;
+}
+.confirmation-modal-buttons > span {
+  font: normal normal bold 0.9vw Montserrat;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+}
+
+#confirmation-modal-footer {
+  font: normal normal normal 0.8vw Montserrat;
+  letter-spacing: 0px;
+  color: #afb3c7;
+  padding: 0rem 2.3rem 0rem 2rem;
+}
+/*Styles of EmailNotifications.jsx*/
+#em-container {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 30.4vw;
+  padding: 0 1%;
+  width: 30vw;
+}
+.sa-heading {
+  font: normal normal bold 2.2vh Montserrat;
+  margin-bottom: 3vh;
+}
+.em-select-input > .ant-select-selector {
+  padding: 2% !important;
+  border-radius: 3px !important;
+}
+.em-mailcontent {
+  height: 35vh;
+  resize: none;
+}
+/*End of styles of EmailNotifications.jsx*/
+/*----------------------------------------Styles of FilterOptions.jsx------------------------------------*/
+#root1 {
+  cursor: pointer;
+  margin: 2vh 1.3vw 0 auto;
+}
+/* Styles for the nested dropdown container */
+.nested-dropdown-container {
+  display: inline-block;
+  position: relative;
+}
+
+/* Styles for the "Show" button */
+.show-button {
+  cursor: pointer;
+  color: dimgray !important;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  border: hidden !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 4px;
+}
+
+/* Styles for the dropdown list */
+.dropdown-list {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0 4px 4px 0; /* Adjust border radius for the right side */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  max-width: 30vw; /* Adjust the width as needed */
+  position: fixed;
+  z-index: 3;
+  right: 1vw;
+  overflow-x: hidden;
+  transition: 0.5s;
+  display: flex;
+}
+
+.mainItemsList {
+  padding-inline-start: 0;
+  border-right: 1px solid #ccc;
+  margin-block-end: 0px;
+  max-height: 76vh;
+  overflow: hidden auto;
+}
+
+/* Styles for the main items */
+.main-item {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 14vw;
+  padding: 10px;
+  font-size: 1.8vh;
+}
+
+.main-item-arrow {
+  transition: transform 0.5s;
+  transform: rotate(90deg);
+}
+
+.selected-main-item > .main-item-arrow {
+  transform: rotate(0);
+}
+
+.main-item span,
+.sub-item {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.subitems-container {
+  position: relative;
+  max-height: 70vh;
+  overflow: hidden auto;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+/* Styles for the sub-items list */
+.sub-item {
+  cursor: pointer;
+  transition: background-color 0.3s;
+  list-style: none;
+  width: 100%;
+  padding: 7px;
+  font-size: 1.8vh;
+}
+
+/* Selected sub-item style */
+.selected.sub-item {
+  background-color: #f0f0f0;
+}
+/* Style for the search input */
+.search-container {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  padding: 10px;
+}
+
+/* Style for the clear button */
+.clear-selection {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  z-index: 1;
+  border: none;
+  width: 100%;
+  margin-top: 10%;
+  border-top: 1px solid #ccc !important;
+  color: #808080 !important;
+  cursor: pointer;
+}
+
+.sub-item:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.clear-selection-img {
+  border-radius: 50%;
+  background: grey;
+  width: 1.3vw;
+  padding: 5px;
+  margin-right: 5%;
+}
+
+.selected-main-item {
+  color: #4286ee;
+}
+#clearAllFilters {
+  background: red;
+  border: hidden;
+  padding: 0%;
+  border-radius: 50%;
+  width: 20%;
+  height: 55%;
+}
+#clearAllFilters img {
+  width: 55%;
+  filter: invert(100%) sepia(13%) saturate(7447%) hue-rotate(200deg)
+    brightness(114%) contrast(114%);
+  vertical-align: baseline;
+}
+.hidden {
+  display: none;
+}
+#noMatch {
+  color: gray;
+  margin: 0.8vw;
+}
+/*-------------------------------------End ofStyles of FilterOptions.jsx--------------------------------*/

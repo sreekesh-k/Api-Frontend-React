@@ -1,17 +1,17 @@
 ﻿.asterisk-dot {
-    color: red !important;
-    font-size: 0.8vh !important;
-    position: relative !important;
-    top: -0.3vh !important;
+  color: red !important;
+  font-size: 0.8vh !important;
+  position: relative !important;
+  top: -0.3vh !important;
 }
 .label-stages {
-    margin-left: 1rem;
-    margin-right: 1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .displayFlex > label {
-    width: 60%;
-    
+  width: 60%;
 }
-.approvalMandate, .label-stages {
-    font-size: 0.83vw;
+.approvalMandate,
+.label-stages {
+  font-size: 0.83vw;
 }

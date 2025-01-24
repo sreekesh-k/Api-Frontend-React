@@ -1,0 +1,63 @@
+﻿body {
+}
+.mtb2 {
+  margin: 2rem 0;
+}
+.stageBackground {
+  margin: 2rem;
+}
+.stageFlex {
+  display: flex;
+  justify-content: flex-start;
+  gap: 3rem;
+  margin: 2rem 0;
+  align-items: center;
+}
+.label-stages {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.stageListContainer {
+  width: 100%;
+}
+.stageFlexBetween {
+  display: flex;
+  align-items: center;
+}
+.stageFlexBetween-approval {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.stageNameInput {
+  width: 60%;
+}
+.stageBackground .ant-input-number-handler-wrap {
+  opacity: 1;
+}
+.stageHeaderImg {
+  margin: 0.3rem;
+}
+.stageTable {
+  width: 100%;
+}
+.displayFlex {
+  display: flex;
+}
+.displayFlex > label {
+  width: 60%;
+}
+.stageWidth3 {
+  width: 40%;
+}
+img {
+  cursor: pointer;
+}
+.pinnedStage {
+  transform: rotate(326deg);
+}
+.formHeader {
+  background: #4d94ff;
+  padding: 0.7rem;
+  border-radius: 0.4rem;
+}

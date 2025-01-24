@@ -1,369 +1,368 @@
-@import '//cdn.quilljs.com/1.2.6/quill.snow.css';
+@import "//cdn.quilljs.com/1.2.6/quill.snow.css";
 @import "./form-renderer-deps.css";
 @import "./form-renderer-deps.overwrites.css";
-
 .LayoutSection {
-    border: 1px solid #eee;
+  border: 1px solid #eee;
 }
 
 .LayoutSectionHeader {
-    background-color: #ddd;
-    padding: 2rem;
-    font-size: 18px;
-    font-weight: bold;
+  background-color: #ddd;
+  padding: 2rem;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .LayoutSectionBody {
-    padding: 15px;
+  padding: 15px;
 }
 
 .LayoutTable.LayoutTableBordered > tbody > tr > td:nth-child(1) {
-    min-width: 15vw;
+  min-width: 15vw;
 }
 .LayoutTable.LayoutTableBordered > tbody > tr > td:nth-child(2) {
-    min-width: 30vw;
+  min-width: 30vw;
 }
 
 .LayoutSectionWrappedTop {
-    border-top: none;
+  border-top: none;
 }
 
 .LayoutSectionWrappedBottom {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .LayoutPage {
-    height: calc(100% - 48px);
+  height: calc(100% - 48px);
 }
 
 .LayoutPageHeader {
-    background-color: #ddd;
+  background-color: #ddd;
 }
 
 .LayoutPageHeader > div {
-    padding: 10px;
+  padding: 10px;
 }
 
 .LayoutPageBody {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .LayoutPageBody > div {
-    display: inline-block;
-    width: 20px;
+  display: inline-block;
+  width: 20px;
 }
 
 .LayoutPageThumbnails,
 .LayoutPages {
-    height: 100%;
+  height: 100%;
 }
 
 .LayoutPageBody > div.LayoutPageThumbnails {
-    width: 90px;
+  width: 90px;
 }
 
 .LayoutPageThumbnails {
-    height: 100%;
+  height: 100%;
 }
 
 .LayoutPageThumbnails > div {
-    height: 100%;
-    overflow-y: auto;
-    padding: 1rem;
-    background: #eee;
+  height: 100%;
+  overflow-y: auto;
+  padding: 1rem;
+  background: #eee;
 }
 
 .LayoutPageThumbnails > div > div {
-    background: #fff;
-    text-align: center;
-    cursor: pointer;
-    padding: 2.5rem 0;
-    font-size: 22pt;
-    width: 5.5rem;
-    display: block;
-    margin: auto;
-    margin-bottom: 1rem;
-    border-bottom-right-radius: 16px;
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+  padding: 2.5rem 0;
+  font-size: 22pt;
+  width: 5.5rem;
+  display: block;
+  margin: auto;
+  margin-bottom: 1rem;
+  border-bottom-right-radius: 16px;
 }
 
-    .LayoutPageThumbnails > div > div.activeThumbnail {
-        background-color: #4D94FF;
-        color: white;
-    }
+.LayoutPageThumbnails > div > div.activeThumbnail {
+  background-color: #4d94ff;
+  color: white;
+}
 
 .LayoutPageBody > div.LayoutPages {
-    width: calc(100% - 110px);
+  width: calc(100% - 110px);
 }
 
 .LayoutPages {
-    -ms-overflow-style: scrollbar;
-    height: 100%;
-    overflow-x:hidden;
-    overflow-y: auto;
+  -ms-overflow-style: scrollbar;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .LayoutPages > div {
-    padding: 1rem;
-    background: #eee;
-    position: relative;
+  padding: 1rem;
+  background: #eee;
+  position: relative;
 }
 
 .LayoutPages > div > div {
-    background: white;
-    padding: 16px;
-    margin-bottom: 20px;
-    min-height: 842px;
+  background: white;
+  padding: 16px;
+  margin-bottom: 20px;
+  min-height: 842px;
 }
 
 .LayoutPages > div > div:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .LayoutTable {
-    width: 100%;
+  width: 100%;
 }
 
 .LayoutTable td {
-    border-top: 1px solid #dddddd;
-    vertical-align: top;
-    padding: 8px;
+  border-top: 1px solid #dddddd;
+  vertical-align: top;
+  padding: 8px;
 }
 
 .LayoutTableBordered,
-.LayoutTableBordered td{
-    border: 1px solid #dddddd;
+.LayoutTableBordered td {
+  border: 1px solid #dddddd;
 }
 
 .Grid {
-    width: 100%;
+  width: 100%;
 }
 
 .Grid td {
-    border-top: 1px solid #dddddd;
-    vertical-align: top;
-    padding: 0;
+  border-top: 1px solid #dddddd;
+  vertical-align: top;
+  padding: 0;
 }
 
-.Grid .Cell.Header,.LayoutTable .Cell.Header {
-    background-color: #f1f1f1;
-    padding: 6px;
+.Grid .Cell.Header,
+.LayoutTable .Cell.Header {
+  background-color: #f1f1f1;
+  padding: 6px;
 }
 
 .Grid .checkbox {
-    margin: 6px;
+  margin: 6px;
 }
 
 .Grid input.form-control {
-    border: 0 none;
-    background: none;
-    padding: 4px 6px;
+  border: 0 none;
+  background: none;
+  padding: 4px 6px;
 }
 
 .Grid .is-focused input.form-control {
-    background: none;
+  background: none;
 }
 
 .Grid .form-group {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .Grid.Bordered,
 .Grid.Bordered td {
-    border: 1px solid #dddddd;
+  border: 1px solid #dddddd;
 }
 
-
 .current-body {
-    padding-left: 0px;
-    /*min-width: 90px;*/
-   
-    max-width: 100px;
+  padding-left: 0px;
+  /*min-width: 90px;*/
+
+  max-width: 100px;
 }
 
 .Select-clear-zone {
-    display: none !important;
+  display: none !important;
 }
 
 .Select-arrow-zone {
-    display: none !important;
+  display: none !important;
 }
 
 .Select-value {
-    text-align: right;
-    padding-right: 60px !important;
-   
+  text-align: right;
+  padding-right: 60px !important;
 }
 
 .Select-control {
-    border-left: 0;
-    border-top: 0;
+  border-left: 0;
+  border-top: 0;
 }
 
 .LayoutInlineGroupBody {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 .LayoutInlineGroupBody > div {
-    flex-grow: 1;
+  flex-grow: 1;
 }
 
-.LayoutInlineGroupBody div.form-group{
-    margin: 0 1vw 0 1.5vw !important;
+.LayoutInlineGroupBody div.form-group {
+  margin: 0 1vw 0 1.5vw !important;
 }
 
-.LayoutInlineGroupBody div.form-group label{
-    margin: 0 0 1vh !important;
+.LayoutInlineGroupBody div.form-group label {
+  margin: 0 0 1vh !important;
 }
 
-.LayoutInlineGroupBody.showLabel > div > div > label, .LayoutInlineGroupBody.showLabel > div > div > span.forComment {
-    display: none !important;
+.LayoutInlineGroupBody.showLabel > div > div > label,
+.LayoutInlineGroupBody.showLabel > div > div > span.forComment {
+  display: none !important;
 }
 
 .LayoutInlineGroupBody > div:last-child {
-    padding-right: 1rem;
+  padding-right: 1rem;
 }
 
 .fixedPageContent {
-    padding: 30px 0 0 0;
+  padding: 30px 0 0 0;
 }
 
 .ControlDescription {
-    width: 16px !important;
-    height: 16px;
-    border-radius: 8px;
-    display: inline-block;
-    text-align: center;
-    line-height: 16px;
-    margin: 0 5px;
-    font-size: 12px;
-    background-color: #000;
-    color: #fff;
-    user-select: none;
+  width: 16px !important;
+  height: 16px;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  line-height: 16px;
+  margin: 0 5px;
+  font-size: 12px;
+  background-color: #000;
+  color: #fff;
+  user-select: none;
 }
 
 .form-group.inline {
-    /*display: flex;*/
-    align-items: center;
+  /*display: flex;*/
+  align-items: center;
 }
 
 .form-group.inline .radio,
 .form-group.inline .checkbox,
 .form-group.inline .togglebutton2 {
-    /*display: flex;*/
+  /*display: flex;*/
 }
 
 .form-group.inline label {
-    white-space: nowrap;
-    margin-bottom: 0;
+  white-space: nowrap;
+  margin-bottom: 0;
 }
 
 .form-group.inline .form-control {
-    flex: 1 1 auto;
-    margin-left: 20px;
+  flex: 1 1 auto;
+  margin-left: 20px;
 }
-
 
 @keyframes showInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .tooltip-special {
-    position: fixed;
-    z-index: 1100;
-    padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    max-width: 200px;
-    animation: showInAnimation 0.2s;
-    opacity: 1;
+  position: fixed;
+  z-index: 1100;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  max-width: 200px;
+  animation: showInAnimation 0.2s;
+  opacity: 1;
 }
 .tooltip-special:after {
-    content: '';
-    display: block;
-    border: 1px solid #ccc;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
+  content: "";
+  display: block;
+  border: 1px solid #ccc;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
 }
-.tooltip-special.position-top, .tooltip-special.position-bottom {
-    transform: translate(-50%, 0);
+.tooltip-special.position-top,
+.tooltip-special.position-bottom {
+  transform: translate(-50%, 0);
 }
-.tooltip-special.position-top:after, .tooltip-special.position-bottom:after {
-    left: 50%;
+.tooltip-special.position-top:after,
+.tooltip-special.position-bottom:after {
+  left: 50%;
 }
-.tooltip-special.position-left, .tooltip-special.position-right {
-    transform: translate(0, -50%);
+.tooltip-special.position-left,
+.tooltip-special.position-right {
+  transform: translate(0, -50%);
 }
-.tooltip-special.position-left:after, .tooltip-special.position-right:after {
-    top: 50%;
+.tooltip-special.position-left:after,
+.tooltip-special.position-right:after {
+  top: 50%;
 }
 .tooltip-special.position-left:after {
-    border-bottom: 0 none;
-    border-left: 0 none;
-    left: 100%;
-    transform: rotate(45deg) translate(-50%, 0%);
+  border-bottom: 0 none;
+  border-left: 0 none;
+  left: 100%;
+  transform: rotate(45deg) translate(-50%, 0%);
 }
 .tooltip-special.position-right:after {
-    border-top: 0 none;
-    border-right: 0 none;
-    right: 100%;
-    transform: rotate(45deg) translate(0%, -50%);
+  border-top: 0 none;
+  border-right: 0 none;
+  right: 100%;
+  transform: rotate(45deg) translate(0%, -50%);
 }
 .tooltip-special.position-top:after {
-    border-top: 0 none;
-    border-left: 0 none;
-    top: 100%;
-    transform: rotate(45deg) translate(-50%, 0);
+  border-top: 0 none;
+  border-left: 0 none;
+  top: 100%;
+  transform: rotate(45deg) translate(-50%, 0);
 }
 .tooltip-special.position-bottom:after {
-    border-bottom: 0 none;
-    border-right: 0 none;
-    bottom: 100%;
-    transform: rotate(45deg) translate(0, 50%);
+  border-bottom: 0 none;
+  border-right: 0 none;
+  bottom: 100%;
+  transform: rotate(45deg) translate(0, 50%);
 }
 
 .pageGenerated {
-    position: relative;
+  position: relative;
 }
 
 .filePreview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
 }
 
 .filePreviewContent {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1 1 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 100%;
 }
 
 .filePreviewClose {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    cursor: pointer;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
 }
 
 .filePreview img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }

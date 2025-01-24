@@ -1,0 +1,83 @@
+﻿.up-arrow,
+.down-arrow {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.up-arrow {
+  align-self: start;
+  margin-top: 2%;
+}
+
+.down-arrow {
+  align-self: center;
+}
+
+.sort-section,
+.search-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.sort-section {
+  gap: 6px;
+}
+.search-section {
+  gap: 2%;
+}
+.search-section > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/*Search*/
+.mainContainerNav {
+  justify-content: space-around;
+  display: flex;
+  gap: 10px;
+}
+.searchBar-filter > .ant-select-selector {
+  border-right: none;
+  flex-wrap: nowrap;
+  width: calc(140 * 100vw / 1920);
+}
+
+.searchBar-filter > .ant-select-selector > .ant-select-selection-item {
+  border: none;
+  background-color: transparent;
+}
+
+.searchBar-search
+  > .ant-input-suffix
+  > span.anticon.anticon-close-circle.ant-input-clear-icon {
+  color: #ff2727;
+}
+
+.module-end-divider {
+  margin-top: 8px;
+  height: 1px;
+  background-color: lightgrey;
+}
+.searchSortText {
+  font-size: 1rem;
+  text-transform: uppercase;
+  white-space: break-spaces;
+}
+
+.searchTypeList-opt {
+  width: 20rem;
+}
+
+.searchBar-filter
+  > .ant-select-selector
+  > .ant-select-selection-item
+  > .ant-select-selection-item-content {
+  font-size: 12px;
+}
+section.sort-section
+  > div.ant-select.ant-select-sm.ant-select-single.ant-select-show-arrow
+  > div
+  > span.ant-select-selection-item {
+  font-size: 11px;
+}
