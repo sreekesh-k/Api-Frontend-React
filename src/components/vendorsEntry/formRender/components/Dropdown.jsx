@@ -1,5 +1,6 @@
 ﻿import { createRef, Component, Fragment } from "react";
-import AsyncComponent from "react-select";
+import Select from "react-select";
+import AsyncSelect from "react-select/async";
 import { API_URL } from "../../../../constants";
 
 export default class DropDown extends Component {
@@ -17,7 +18,7 @@ export default class DropDown extends Component {
     return null;
   }
   loadOptions(urlParam) {
-    url = `${API_URL}/api/${urlParam}`;
+    let url = `${API_URL}${urlParam}`;
     if (url.trim() !== "") {
       try {
         return fetch(url, {
@@ -36,7 +37,11 @@ export default class DropDown extends Component {
             }
           )
           .then((json) => {
-            return { options: json };
+            // return { options: json };
+            return json.map((item) => ({
+              label: item.name || item.title || item.label || "Unknown",
+              value: item.id || item.value || item.key,
+            }));
           });
       } catch (error) {
         console.log("error" + error);
@@ -58,8 +63,8 @@ export default class DropDown extends Component {
 
   render() {
     const hidden = this.props.hidden ? { display: "none" } : {};
-    // const AsyncComponent =
-    //   this.props.url && this.props.url.trim() !== "" ? Select.Async : Select;
+    const AsyncComponent =
+      this.props.url && this.props.url.trim() !== "" ? AsyncSelect : Select;
     return (
       <div
         className={"form-group " + (this.props.hidden ? "hidden" : "shown")}
