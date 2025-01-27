@@ -1,9 +1,9 @@
 ﻿import React from "react";
 import { useEffect, useState, Fragment } from "react";
-import FormRender from "./formRender/FormRender";
+import FormRender from "../formRender/FormRender";
 import { useDispatch, useSelector } from "react-redux";
-import { selectVendorAdditionalDetails } from "../../slices/VendorSlice";
-import { API_URL } from "../../constants";
+import { selectVendorAdditionalDetails } from "../../../slices/VendorSlice";
+import { API_URL } from "../../../constants";
 function AdditionalDetails(props) {
   const [isTemplateUpdated, setIsTemplateUpdated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

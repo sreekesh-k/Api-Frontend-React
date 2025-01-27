@@ -135,7 +135,3 @@
 .navleft {
   overflow: hidden !important;
 }
-
-#root{
-  display: flex;
-}

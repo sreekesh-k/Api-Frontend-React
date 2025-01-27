@@ -1,7 +1,7 @@
 ﻿import { Grid, Row, Col, Select, Upload, Button, Form, Input } from "antd";
 import React, { useState, useEffect, Fragment } from "react";
 import moment from "moment";
-import { API_URL } from "../../constants";
+import { API_URL } from "../../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectVendorRating,
@@ -9,8 +9,8 @@ import {
   updateRatingElligibleScoreStatus,
   updateRatingFinancialForm,
   updateVendorRatingModel,
-} from "../../slices/VendorSlice";
-import { setVendorRating } from "../../slices/VendorSlice";
+} from "../../../slices/VendorSlice";
+import { setVendorRating } from "../../../slices/VendorSlice";
 
 function VendorRating(props) {
   const { Option } = Select;

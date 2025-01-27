@@ -2,13 +2,13 @@
 import { Input, Row, Col, Select, Button } from "antd";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
-import { selectVendorCategorization } from "../../slices/VendorSlice";
+import { selectVendorCategorization } from "../../../slices/VendorSlice";
 import {
   changeCategorizationReviewers,
   updateCategorizationData,
   categorizationNotificationData,
-} from "../../slices/VendorSlice";
-import { API_URL } from "../../constants";
+} from "../../../slices/VendorSlice";
+import { API_URL } from "../../../constants";
 function VendorCategorization(props) {
   const { TextArea } = Input;
   const [gtScore, setGtScore] = useState(0);

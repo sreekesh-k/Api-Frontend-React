@@ -1,15 +1,15 @@
 ﻿import React, { useState, useEffect, Fragment } from "react";
 import { Form, Button, Upload, Select, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { selectVendorDetailsForm } from "../../slices/VendorSlice";
+import { selectVendorDetailsForm } from "../../../slices/VendorSlice";
 import {
   setIsActive,
   setInactivation,
   changeVendorDetailsForm,
   setURN,
-} from "../../slices/VendorSlice";
-import { API_URL } from "../../constants";
-import FormRender from "./formRender/FormRender";
+} from "../../../slices/VendorSlice";
+import { API_URL } from "../../../constants";
+import FormRender from "../formRender/FormRender";
 import moment from "moment";
 function VendorDetailsForm(props) {
   //Imports
@@ -135,87 +135,82 @@ function VendorDetailsForm(props) {
 
   return (
     <Fragment>
-      <div className="vendorDetails-container">
-        <Form className="vd-staticValues-container" layout="vertical">
-          <Form.Item label="URN">
-            <Input disabled value={URN} className="vd-input vd-w5" />
-          </Form.Item>
-          <Form.Item label="Materiality issuance date/Empanelment month">
-            <Input disabled value={issuanceDate} className="vd-input vd-w10" />
-          </Form.Item>
-          <Form.Item label="Status">
-            <Select
-              value={IsActive}
-              disabled={isInViewMode || !isCentrilized}
-              onChange={(e) => dispatch(setIsActive({ IsActive: e }))}
-            >
-              <Option value={true}>Active</Option>
-              <Option value={false}>InActive </Option>
-            </Select>
-          </Form.Item>
-          {IsActive == false && (
-            <Fragment>
-              <Form.Item label="Inactivation Date">
-                <Input
-                  type="date"
-                  className="vd-input vd-w10"
-                  value={InActivationDate}
-                  onChange={(e) =>
-                    dispatch(
-                      setInactivation({ InActivationDate: e.target.value })
-                    )
-                  }
-                  disabled={isInViewMode}
-                />
-              </Form.Item>
-              <Form.Item label="Upload Inactivation Evidence">
-                <Upload
-                  beforeUpload={() => false}
-                  fileList={InActivationEvidence}
-                  onChange={handleFileChange}
-                  maxCount={1}
-                >
-                  <Button disabled={isInViewMode}>Click to Upload</Button>
-                </Upload>
-              </Form.Item>
+      <Form className="vd-staticValues-container" layout="vertical">
+        <Form.Item label="URN">
+          <Input disabled value={URN} className="vd-input vd-w5" />
+        </Form.Item>
+        <Form.Item label="Materiality issuance date/Empanelment month">
+          <Input disabled value={issuanceDate} className="vd-input vd-w10" />
+        </Form.Item>
+        <Form.Item label="Status">
+          <Select
+            value={IsActive}
+            disabled={isInViewMode || !isCentrilized}
+            onChange={(e) => dispatch(setIsActive({ IsActive: e }))}
+          >
+            <Option value={true}>Active</Option>
+            <Option value={false}>InActive </Option>
+          </Select>
+        </Form.Item>
+        {IsActive == false && (
+          <Fragment>
+            <Form.Item label="Inactivation Date">
+              <Input
+                type="date"
+                className="vd-input vd-w10"
+                value={InActivationDate}
+                onChange={(e) =>
+                  dispatch(
+                    setInactivation({ InActivationDate: e.target.value })
+                  )
+                }
+                disabled={isInViewMode}
+              />
+            </Form.Item>
+            <Form.Item label="Upload Inactivation Evidence">
+              <Upload
+                beforeUpload={() => false}
+                fileList={InActivationEvidence}
+                onChange={handleFileChange}
+                maxCount={1}
+              >
+                <Button disabled={isInViewMode}>Click to Upload</Button>
+              </Upload>
+            </Form.Item>
 
-              <Form.Item label="Reason of Inactivation">
-                <TextArea
-                  className="vd-input vd-w85"
-                  value={ReasonOfInactivation}
-                  onChange={(e) =>
-                    dispatch(
-                      setInactivation({ ReasonOfInactivation: e.target.value })
-                    )
-                  }
-                  disabled={isInViewMode}
-                />
-              </Form.Item>
-            </Fragment>
+            <Form.Item label="Reason of Inactivation">
+              <TextArea
+                className="vd-input vd-w85"
+                value={ReasonOfInactivation}
+                onChange={(e) =>
+                  dispatch(
+                    setInactivation({ ReasonOfInactivation: e.target.value })
+                  )
+                }
+                disabled={isInViewMode}
+              />
+            </Form.Item>
+          </Fragment>
+        )}
+      </Form>
+      <div id="formDesignerArea" className="vendor_template_form">
+        {!isInViewMode && isCentrilized && FormData && FormData.length > 0 && (
+          <FormRender
+            data={FormData}
+            readOnly={false}
+            isComponentUpdate={true}
+          />
+        )}
+
+        {(isInViewMode || !isCentrilized) &&
+          FormData &&
+          FormData.length > 0 && (
+            <FormRender
+              data={FormData}
+              readOnly={true}
+              isComponentUpdate={true}
+            />
           )}
-        </Form>
-        <div id="formDesignerArea">
-          {!isInViewMode &&
-            isCentrilized &&
-            FormData &&
-            FormData.length > 0 && (
-              <FormRender
-                data={FormData}
-                readOnly={false}
-                isComponentUpdate={true}
-              />
-            )}
-
-          {(isInViewMode || !isCentrilized) &&
-            FormData &&
-            FormData.length > 0 && (
-              <FormRender
-                data={FormData}
-                readOnly={true}
-                isComponentUpdate={true}
-              />
-            )}
-        </div>
       </div>
     </Fragment>
   );

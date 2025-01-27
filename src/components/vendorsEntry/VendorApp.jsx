@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect, Fragment } from "react";
-import VendorDetailsForm from "./VendorDetailsForm";
-import VendorCategorization from "./VendorCategorization";
-import AdditionalDetails from "./AdditionalDetails";
-import VendorRating from "./VendorRating";
-import Review from "./Review";
+import VendorDetailsForm from "./tabs/VendorDetailsForm";
+import VendorCategorization from "./tabs/VendorCategorization";
+import AdditionalDetails from "./tabs/AdditionalDetails";
+import VendorRating from "./tabs/VendorRating";
+import Review from "./tabs/Review";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import ClauseModel from "./ClauseModel";
+import ClauseModel from "./tabs/ClauseModel";
 import { selectVendorApp } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";
 import moment from "moment";
@@ -812,7 +812,14 @@ function VendorApp(props) {
               <li
                 className={activeTab === tab.id ? "active-tab" : ""}
                 key={tab.id}
-                style={{ width: "14vw" }}
+                style={{
+                  width:
+                    tab.title.length <= 14
+                      ? "9vw"
+                      : tab.title.length >= 25
+                      ? "20vw"
+                      : "12vw",
+                }}
               >
                 <button onClick={handleClick} id={tab.id} title={tab.title}>
                   {tab.title}
@@ -820,104 +827,131 @@ function VendorApp(props) {
               </li>
             );
           })}
-          <div className="control-panel">
-            <div className="vd-action-btn ">
-              <button
-                onClick={() => navigate("/")}
-                style={{ backgroundColor: "#4E4E4E" }}
-              >
-                Close
-              </button>
-            </div>
-            <div className="vd-action-btn ">
-              <button
-                onClick={() => handleTabChange("prev")}
-                disabled={activeTab === "VendorDetails"}
-                style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-                className={
-                  activeTab === "VendorDetails" ? "DcButton disabled" : ""
-                }
-              >
-                <i
-                  id=""
-                  className="glyphicon glyphicon-chevron-left vd-arrow"
-                ></i>
-              </button>
-            </div>
-            <div className="vd-action-btn ">
-              <button
-                onClick={() => handleTabChange("next")}
-                disabled={activeTab === "reviewId"}
-                style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
-                className={activeTab === "reviewId" ? "DcButton disabled" : ""}
-              >
-                <i
-                  id=""
-                  className="glyphicon glyphicon-chevron-right vd-arrow"
-                ></i>
-              </button>
-            </div>
-            {hasCentrilizedAccess && (
-              <Fragment>
-                {
-                  //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
-                  !isInViewMode || viewType === "NEW" ? (
-                    <div style={{ display: "flex" }}>
-                      <div className="vd-action-btn">
-                        <button
-                          onClick={() => handleSaveBtnClick(activeTab)}
-                          style={{ backgroundColor: "#FFB63B" }}
-                        >
-                          Save
-                        </button>
+          <div style={{ position: "absolute", right: "1px" }}>
+            <div
+              className="control-panel"
+              style={{ marginLeft: "1.1vw", marginRight: "1.1vw" }}
+            >
+              {/* {tabData.find((tab) => tab.id === activeTab).showHistory &&
+                vendorId && (
+                  <div className="vd-action-btn ">
+                    <HistoryButton
+                      api={
+                        "/Vendor/GetHistory?vendorId=" +
+                        vendorId +
+                        "&tabName=" +
+                        historyTabIds[activeTab]
+                      }
+                      selectedTab={activeTab}
+                      {...{ tabData }}
+                    />
+                  </div>
+                )} */}
+              {tabData.find((tab) => tab.id === activeTab).showInfo && (
+                <div className="vd-action-btn ">
+                  <ClauseModel {...{ activeTab }} />
+                </div>
+              )}
+              <div className="vd-action-btn ">
+                <button
+                  onClick={() => navigate("/")}
+                  style={{ backgroundColor: "#4E4E4E" }}
+                >
+                  Close
+                </button>
+              </div>
+              <div className="vd-action-btn ">
+                <button
+                  onClick={() => handleTabChange("prev")}
+                  disabled={activeTab === "VendorDetails"}
+                  style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                  className={
+                    activeTab === "VendorDetails" ? "DcButton disabled" : ""
+                  }
+                >
+                  <i
+                    id=""
+                    className="glyphicon glyphicon-chevron-left vd-arrow"
+                  ></i>
+                </button>
+              </div>
+              <div className="vd-action-btn ">
+                <button
+                  onClick={() => handleTabChange("next")}
+                  disabled={activeTab === "reviewId"}
+                  style={{ backgroundColor: "#4E4E4E", width: "3vw" }}
+                  className={
+                    activeTab === "reviewId" ? "DcButton disabled" : ""
+                  }
+                >
+                  <i
+                    id=""
+                    className="glyphicon glyphicon-chevron-right vd-arrow"
+                  ></i>
+                </button>
+              </div>
+
+              {/* {((hasCentrilizedAccess &&
+                activeTab == "VendorCategorizationScoring" &&
+                isRatingFreezed == false) ||
+                (hasCentrilizedAccess &&
+                  activeTab != "VendorCategorizationScoring")) &&
+                activeTab !== "reviewId" && ( */}
+              {hasCentrilizedAccess && (
+                <Fragment>
+                  {
+                    //(hasEditAccess || viewType === "NEW") && --Change Condition Dar if (hasCentrilizedAccess)
+                    !isInViewMode || viewType === "NEW" ? (
+                      <div style={{ display: "flex" }}>
+                        {tabData.find((tab) => tab.id === activeTab)
+                          .showSave && (
+                          <div className="vd-action-btn">
+                            <button
+                              onClick={() => handleSaveBtnClick(activeTab)}
+                              style={{ backgroundColor: "#FFB63B" }}
+                            >
+                              Save
+                            </button>
+                          </div>
+                        )}
+                        <div className="vd-action-btn ">
+                          <button
+                            disabled={isLoadingFinish}
+                            style={{
+                              backgroundColor: "#00C24D",
+                              cursor: !isLoadingFinish
+                                ? "pointer"
+                                : "not-allowed",
+                            }}
+                            onClick={() => handleSaveBtnClick(activeTab, true)}
+                          >
+                            {!isLoadingFinish ? "Finish" : <LoadingSvg />}
+                          </button>
+                        </div>
                       </div>
+                    ) : (
                       <div className="vd-action-btn ">
-                        <button
-                          disabled={isLoadingFinish}
-                          style={{
-                            backgroundColor: "#00C24D",
-                            cursor: !isLoadingFinish
-                              ? "pointer"
-                              : "not-allowed",
-                          }}
-                          onClick={() => handleSaveBtnClick(activeTab, true)}
-                        >
-                          {!isLoadingFinish ? "Finish" : <LoadingSvg />}
-                        </button>
+                        {viewType == "EDIT" &&
+                          tabData.find((tab) => tab.id === activeTab)
+                            .showEdit && (
+                            <button
+                              style={{ backgroundColor: "#00C24D" }}
+                              onClick={handleEditAccess}
+                            >
+                              Edit
+                            </button>
+                          )}
                       </div>
-                    </div>
-                  ) : (
-                    <div className="vd-action-btn ">
-                      {viewType == "EDIT" && (
-                        <button
-                          style={{ backgroundColor: "#00C24D" }}
-                          onClick={handleEditAccess}
-                        >
-                          Edit
-                        </button>
-                      )}
-                    </div>
-                  )
-                }
-              </Fragment>
-            )}
+                    )
+                  }
+                </Fragment>
+              )}
+            </div>
           </div>
         </ul>
       </div>
-      {/* <div className="historyBtn-wrapper">
-          <HistoryButton
-            api={
-              "/Vendor/GetHistory?vendorId=" +
-              vendorId +
-              "&tabName=" +
-              activeTab
-            }
-          /> */}
-      {activeTab === "VendorCategorizationScoring" && <ClauseModel />}
-      {/* </div> */}
-      <div> {renderSections[activeTab]}</div>
+      <Fragment>{renderSections[activeTab]}</Fragment>
     </div>
   );
 }
-
 export default VendorApp;

@@ -10,7 +10,6 @@ import { useDispatch } from "react-redux";
 import { saveVendorId } from "../../slices/VendorSlice";
 import { API_URL } from "../../constants";
 
-
 function VendorTable(props) {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
@@ -298,7 +297,10 @@ function VendorTable(props) {
     <div style={{ cursor: "pointer" }}>
       <div
         style={{
-          width: "fit",
+          width: "94.45vw",
+          marginTop: "4vh",
+          marginLeft: ".5vw",
+          marginBottom: "3vh",
         }}
         id="vendorTableWrapper"
       >
