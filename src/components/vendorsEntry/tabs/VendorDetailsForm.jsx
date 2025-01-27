@@ -1,15 +1,15 @@
 ﻿import React, { useState, useEffect, Fragment } from "react";
 import { Form, Button, Upload, Select, Input } from "antd";
 import { useSelector, useDispatch } from "react-redux";
-import { selectVendorDetailsForm } from "../../slices/VendorSlice";
+import { selectVendorDetailsForm } from "../../../slices/VendorSlice";
 import {
   setIsActive,
   setInactivation,
   changeVendorDetailsForm,
   setURN,
-} from "../../slices/VendorSlice";
-import { API_URL } from "../../constants";
-import FormRender from "./formRender/FormRender";
+} from "../../../slices/VendorSlice";
+import { API_URL } from "../../../constants";
+import FormRender from "../formRender/FormRender";
 import moment from "moment";
 function VendorDetailsForm(props) {
   //Imports

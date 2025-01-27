@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Table, Pagination } from "antd";
-import { API_URL } from "../../constants";
+import { API_URL } from "../../../constants";
 
 function ClauseModel(props) {
   const [isModalOpen, setIsModalOpen] = useState(false);

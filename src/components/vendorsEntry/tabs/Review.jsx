@@ -1,7 +1,7 @@
 ﻿import React from "react";
 import { useEffect, useState, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectReview, setReview } from "../../slices/VendorSlice";
+import { selectReview, setReview } from "../../../slices/VendorSlice";
 
 function Review(props) {
   //Review with Redux
