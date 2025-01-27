@@ -12,6 +12,7 @@ function LeftPlane() {
           marginRight: "auto",
           resize: "none",
           objectFit: "cover",
+          width: "85px",
         }}
       >
         <div className="logo">
