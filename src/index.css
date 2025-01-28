@@ -9,6 +9,8 @@
 @import url("./styles/SearchSort_style.css");
 @import url("./styles/sharedcomponents_style.css");
 @import url("./styles/StageList.css");
+@import url("./styles/Workflow.css");
+@import url("./styles//sharedcomponents_style.css");
 
 #file1 {
   min-width: 18vw;
@@ -104,6 +106,6 @@
   cursor: not-allowed;
 }
 
-#csroot{
+#csroot {
   overflow: hidden;
 }

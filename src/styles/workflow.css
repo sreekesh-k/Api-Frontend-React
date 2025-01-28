@@ -1,0 +1,975 @@
+.new-design-theme {
+  background-color: #f2f3fa;
+}
+
+.new-design-theme .pull-left {
+  float: none !important;
+}
+
+.new-design-theme .main-panel .rols {
+  padding: calc(15 * 100vh / 910) 0;
+}
+
+.new-design-theme
+  .main-panel
+  .form-wrap.form-builder
+  .frmb
+  .form-field[type="page"] {
+  margin: 0;
+  margin-top: calc(8 * 100vw / 1920);
+}
+
+.new-design-theme .head-menu .action-tabs > li > a {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .head-menu span.clear {
+  position: absolute;
+  right: calc(16 * 100vw / 1920);
+  top: calc(120 * 100vh / 910);
+}
+
+.new-design-theme .head-menu .btn {
+  margin: calc(6 * 100vh / 910) calc(6 * 100vw / 1920);
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  padding: calc(16 * 100vh / 910) calc(24 * 100vw / 1920);
+  box-shadow: none;
+  font-size: initial;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.new-design-theme .head-menu .btn.btn-success {
+  background-color: #50cfff;
+}
+
+.new-design-theme .LayoutPages .form-group {
+  display: block;
+  margin: calc(32 * 100vh / 910) calc(32 * 100vw / 1920);
+  margin-bottom: calc(32 * 100vh / 910) !important;
+}
+
+.new-design-theme .LayoutPages .fixedPageContent .pageGenerated .form-group {
+  display: block;
+  width: auto !important;
+}
+
+.new-design-theme .LayoutPages .form-group label {
+  /*
+        font-size: calc(13*(50vh + 23.5vw)/910); 
+        Previous Font Size - Amrut 
+    */
+  font-size: 0.83vw;
+  margin-bottom: calc(32 * 100vh / 910);
+}
+
+.new-design-theme .LayoutPages .form-group.inline div.checkbox label,
+.new-design-theme .LayoutPages .form-group.inline div.togglebutton2 label,
+.new-design-theme .LayoutPages .form-group.inline div.radio label {
+  display: inline-block !important;
+}
+
+.new-design-theme .LayoutPages .form-group .show {
+  /*border-bottom: calc(1*(50vh + 23.5vw)/910) solid #808080;*/
+  font-size: calc(23 * (50vh + 23.5vw) / 910);
+  padding: calc(16 * 100vh / 910) 0;
+  border-bottom: 0;
+  background: #f2f3fa;
+  text-indent: 1vw;
+  border-radius: 0.5vw;
+  padding: calc(16 * 100vh / 910) 1vw;
+}
+
+.new-design-theme .LayoutPages .form-group .glyphicon-comment:before {
+  color: #4d94ff;
+}
+
+.new-design-theme .LayoutPages .form-group .form-control,
+.new-design-theme
+  .LayoutPages
+  .form-group
+  .form-group
+  .new-design-theme
+  .LayoutPages
+  .form-group
+  .form-control {
+  background-image: none;
+}
+.new-design-theme .LayoutPages .form-group textarea.form-control {
+  height: auto !important;
+}
+.new-design-theme .LayoutPages .form-group .form-control {
+  padding: 1.4%;
+  height: 6vh !important;
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #c9c9c9;
+  border-radius: calc(10 * (50vh + 23.5vw) * 0.00109890109);
+}
+@media screen and (min-width: 0\0) and (min-resolution: +72dpi) {
+  .new-design-theme .LayoutPages .form-group .form-control {
+    padding: 1.4%;
+    height: initial;
+    height: auto;
+  }
+}
+
+.new-design-theme .LayoutPages .form-group .show.file-upload-btn {
+  cursor: pointer;
+  text-transform: capitalize;
+  text-align: left;
+  padding-left: calc(16 * 100vw / 1920);
+  background-color: #ffffff;
+  color: #ccc;
+  box-shadow: none;
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #4d94ff;
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme
+  .LayoutPages
+  .form-group
+  .glyphicon.glyphicon-paperclip.file-upload-icon {
+  float: right;
+  padding: 0 calc(12 * 100vw / 1920);
+  font-size: calc(22 * (50vh + 23.5vw) / 910);
+  color: #4d94ff;
+}
+
+.new-design-theme .LayoutPages .form-group .file-upload-table thead {
+  display: none;
+}
+
+.new-design-theme .LayoutPages .form-group .file-upload-table tbody {
+  display: block;
+}
+
+.new-design-theme .LayoutPages .form-group .file-upload-table tbody tr {
+  background-color: #50cfff;
+  color: #fff;
+  padding: calc(13 * 100vh / 910) calc(32 * 100vw / 1920);
+  display: block;
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme
+  .LayoutPages
+  .form-group
+  .file-upload-table
+  tbody
+  tr
+  > td:nth-child(2n) {
+  float: right;
+  top: 0;
+  margin-top: calc(-22 * 100vh / 910);
+  font-size: calc(20 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .form-group > table {
+  margin-bottom: 0;
+}
+
+.new-design-theme .form-group > table > tbody > tr > td {
+  border-top: none;
+  padding: calc(12 * 100vh / 910) calc(14 * 100vw / 1920);
+}
+
+.new-design-theme .form-group > table > tbody > tr {
+  background-color: #4d94ff;
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  color: white;
+}
+
+.new-design-theme .LayoutPages .fixedPageContent .form-group {
+  width: calc(50% - 80px);
+  display: inline-block;
+}
+
+.new-design-theme .form-group > input,
+.new-design-theme .form-group.numberControl > div,
+.new-design-theme .form-group > table,
+.new-design-theme .form-group > span:not(.ControlDescription),
+.new-design-theme .form-group > textarea,
+.new-design-theme .form-group > div.Select,
+.new-design-theme .form-group .currencyBody,
+.new-design-theme .form-wrap.form-builder .file-field.form-field div.fb-file {
+  /*width: calc(50% - 20px);*/
+}
+
+.new-design-theme .LayoutInlineGroupBody .form-group > input,
+.new-design-theme .LayoutInlineGroupBody .form-group.numberControl > div,
+.new-design-theme .LayoutInlineGroupBody .form-group > table,
+.new-design-theme .LayoutInlineGroupBody .form-group > span,
+.new-design-theme .LayoutInlineGroupBody .form-group > textarea,
+.new-design-theme .LayoutInlineGroupBody .form-group > div.Select,
+.new-design-theme .LayoutInlineGroupBody .form-group .currencyBody,
+.new-design-theme .LayoutPages .fixedPageContent .form-group > span,
+.new-design-theme
+  .form-wrap.form-builder
+  .inlineGroup-field.form-field
+  .file-field.form-field
+  div.fb-file {
+  width: 100%;
+}
+
+.new-design-theme .bootstrap-datetimepicker-widget table th,
+.new-design-theme .bootstrap-datetimepicker-widget table th.dow {
+  font-weight: bold;
+  border-bottom: none;
+}
+
+.new-design-theme .bootstrap-datetimepicker-widget table td.active > div,
+.new-design-theme .bootstrap-datetimepicker-widget table td.active:hover > div {
+  background-color: #50cfff;
+}
+
+.new-design-theme .bootstrap-datetimepicker-widget table td.day > div {
+  border-radius: 0;
+}
+
+.new-design-theme .bootstrap-datetimepicker-widget.dropdown-menu {
+  padding: calc(14 * 100vh / 910) calc(14 * 100vw / 1920);
+  width: calc(320 * 100vw / 1920);
+  border-radius: 0;
+}
+
+.new-design-theme .LayoutPages .form-group div.checkbox label,
+.new-design-theme .LayoutPages .form-group div.togglebutton2 > label {
+  display: block;
+  color: #4e4e4e !important;
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .checkbox .checkbox-material {
+  vertical-align: sub;
+}
+
+.new-design-theme .checkbox .checkbox-material .check {
+  border-radius: 0;
+  height: calc(28 * 100vh / 910);
+  width: calc(28 * 100vw / 1920);
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #b9b9b9;
+}
+
+.new-design-theme .checkbox .checkbox-material .check:before {
+  margin-top: 0;
+  margin-left: calc(12 * 100vw / 1920);
+}
+
+.new-design-theme
+  .checkbox
+  input[type="checkbox"]:checked
+  + .checkbox-material
+  .check {
+  background: white;
+}
+
+.new-design-theme
+  .checkbox
+  input[type="checkbox"]:checked
+  + .checkbox-material
+  .check:before {
+  color: #4e4e4e;
+}
+
+.new-design-theme .checkbox .checkbox-material:before {
+  height: 0;
+  width: 0;
+}
+
+.new-design-theme .Select-control {
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  /*height: calc(60 * 100vh / 910);*/
+  /*height:6vh !important;*/
+  border: 2px solid #e4e4e4;
+}
+
+.new-design-theme .Select.is-focused > .Select-control {
+  /*background: #F5F5F5;*/
+}
+
+.new-design-theme .Select-menu-outer {
+  margin-top: calc(4 * 100vh / 910);
+  border-bottom-right-radius: calc(10 * (50vh + 23.5vw) / 910);
+  border-bottom-left-radius: calc(10 * (50vh + 23.5vw) / 910);
+  background-color: #f5f5f5;
+  border: none;
+}
+
+.new-design-theme .Select-option {
+  background-color: #f5f5f5;
+  padding: calc(14 * 100vh / 910) calc(10 * 100vw / 1920);
+  height: calc(65 * 100vh / 910);
+}
+
+.new-design-theme .Select-option.is-focused {
+  background-color: #b3b3b3;
+}
+
+.new-design-theme .Select.is-focused:not(.is-open) > .Select-control {
+  border-color: #c9c9c9;
+  background: #f5f5f5;
+  box-shadow: none;
+}
+
+.new-design-theme .Select-arrow-zone {
+  display: table-cell !important;
+}
+
+.new-design-theme .currencyBody .current-body {
+  max-width: none;
+}
+
+.new-design-theme .currencyBody > div {
+  padding-right: 0;
+}
+
+.new-design-theme .LayoutSectionBody {
+  padding: 0;
+}
+
+.new-design-theme .LayoutPages .form-group .radio label {
+  display: block;
+  color: #4e4e4e !important;
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  height: calc(32 * 100vh / 910);
+}
+
+.new-design-theme .radio label .circle {
+  height: 20px;
+  width: 20px;
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #4e4e4e;
+}
+
+.new-design-theme .radio label {
+  padding-top: calc(6 * 100vh / 910);
+  padding-left: calc(68 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .radio label input[type="radio"]:checked ~ span.check {
+  left: 14px;
+  top: 6px;
+  height: 12px;
+  width: 12px;
+  transform: none;
+  background-color: #4e4e4e;
+}
+
+.new-design-theme .radio input[type="radio"]:checked ~ span.circle {
+  border-color: #4e4e4e;
+}
+
+.new-design-theme .radio label .check:after {
+  height: 0;
+  width: 0;
+}
+
+.new-design-theme .radio label span.check {
+  /*background-color: #4e4e4e;*/
+  left: calc(14 * 100vw / 1920);
+  top: calc(6 * 100vh / 910);
+  height: calc(20 * 100vh / 910);
+  width: calc(20 * 100vw / 1920);
+}
+
+.new-design-theme .LayoutPages .Grid .Row .Cell .form-group {
+  margin: calc(2 * 100vh / 910) 0;
+}
+
+.new-design-theme .LayoutPages .Grid .Row .Cell .form-group > input {
+  width: 100%;
+}
+
+.new-design-theme .LayoutPages .Grid .Row .Cell .form-group .form-control {
+  padding: calc(8 * 100vh / 910) calc(8 * 100vw / 1920);
+  border: none;
+}
+
+.new-design-theme .LayoutPages .Grid .Row .Cell .checkbox {
+  margin: calc(4 * 100vh / 910) calc(6 * 100vw / 1920);
+}
+
+.new-design-theme .LayoutPages .Grid .Row .Cell .checkbox label {
+  margin-left: calc(50% - 12.5px);
+}
+
+.new-design-theme .LayoutPages .Grid .Row .Cell .datepicker td {
+  border: none;
+}
+
+.new-design-theme .LayoutPages .Grid {
+  margin: 0 calc(32 * 100vw / 1920);
+  width: unset;
+}
+
+.new-design-theme .LayoutPages .Grid .Cell.Header {
+  vertical-align: middle;
+}
+
+.new-design-theme div.form-group span.form-group-comment {
+  position: static;
+  margin-left: calc(14 * 100vw / 1920);
+  width: auto;
+  opacity: 1;
+  font-size: calc(22 * (50vh + 23.5vw) / 910);
+  vertical-align: text-bottom;
+}
+
+.new-design-theme div.form-group span.form-group-comment img {
+  width: calc(17 * 100vw / 1920);
+  height: calc(22 * 100vw / 1920);
+}
+
+.new-design-theme div.form-group td.prefixTableTd {
+  position: relative;
+}
+
+.new-design-theme div.form-group td.prefixTableTd span.form-group-comment {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  right: calc(16 * 100vw / 1920);
+  margin-left: 0;
+}
+
+.new-design-theme .file-field.form-field[type="file"] .fb-file.form-group {
+  cursor: pointer;
+  text-transform: capitalize;
+  text-align: left;
+  padding-left: calc(16 * 100vw / 1920);
+  background-color: #ffffff;
+  color: #ccc;
+  box-shadow: none;
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #50cfff;
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  padding: calc(16 * 100vh / 910) calc(16 * 100vw / 1920);
+}
+
+.new-design-theme
+  .file-field.form-field[type="file"]
+  .fb-file.form-group
+  > label {
+  display: block !important;
+  color: #ccc !important;
+  font-weight: normal !important;
+}
+
+.new-design-theme .LayoutPages .layout-wrap li.form-field > label.field-label {
+  padding-bottom: calc(24 * 100vh / 910);
+}
+
+.new-design-theme
+  .LayoutPages
+  .layout-wrap
+  li.form-field.grid2-field
+  > label.field-label {
+  display: none;
+}
+
+.new-design-theme .LayoutInlineGroupBody div.form-group {
+  margin: calc(32 * 100vh / 910) calc(16 * 100vw / 1920) calc(32 * 100vh / 910)
+    calc(32 * 100vw / 1920);
+}
+
+.new-design-theme .LayoutPageBody,
+.new-design-theme .LayoutPageThumbnails > div,
+.new-design-theme .LayoutPages > div {
+  background-color: #f5f5f5;
+}
+
+.new-design-theme .main-container .nav-tab-container {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-design-theme .main-panel .panel-header {
+  flex: 0 0 auto;
+}
+
+.new-design-theme .main-panel .rols {
+  flex: 0 0 auto;
+}
+
+.new-design-theme
+  .main-panel
+  #formDesignerArea
+  #formDesignerAreaStage
+  .LayoutPage,
+.new-design-theme .main-panel #controlForm .LayoutPage {
+  /* Can't avoid using VH here, because of inner structure of formbuilder */
+  /* 100vh - header - footer - additional margins of FB */
+  height: calc(100vh - 115px - 31px - 39px);
+}
+
+.new-design-theme
+  .main-panel
+  #formDesignerArea.oldLayout
+  #formDesignerAreaStage.oldLayout
+  .LayoutPage,
+.new-design-theme .main-panel #controlForm.oldLayout .LayoutPage {
+  height: calc(100vh - 115px - 31px - 39px - 60px);
+}
+
+.new-design-theme .main-panel #formDesignerArea,
+.new-design-theme .main-panel #formDesignerAreaStage,
+.new-design-theme .main-panel #controlForm {
+  flex: 1 1 auto;
+  overflow: auto;
+  margin: 0 calc(-25 * 100vw / 1920);
+}
+
+.new-design-theme .main-panel #controlForm {
+  padding: calc(16 * 100vh / 910) 0 0 calc(6 * 100vh / 910);
+}
+
+.new-design-theme .main-panel #controlForm .LayoutPages > div {
+  padding: 0;
+}
+
+.new-design-theme .main-panel #controlForm .LayoutPages > div > div {
+  padding: calc(16 * 100vh / 910);
+}
+
+.new-design-theme .main-panel .LayoutPage > .LayoutPageHeader {
+  display: none;
+}
+
+.new-design-theme #myModal .LayoutPage > .LayoutPageHeader,
+.new-design-theme #controlsListModal .LayoutPage > .LayoutPageHeader {
+  display: block;
+}
+
+.new-design-theme #myModal .LayoutPageThumbnails > div,
+.new-design-theme #controlsListModal .LayoutPageThumbnails > div {
+  padding: calc(16 * 100vh / 910) calc(16 * 100vw / 1920);
+}
+
+.new-design-theme #myModal .LayoutPages > div,
+.new-design-theme #controlsListModal .LayoutPages > div {
+  padding-left: 0;
+}
+
+.new-design-theme {
+  position: relative;
+}
+
+.new-design-theme .main-panel::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+.new-design-theme .main-panel {
+  overflow: -moz-scrollbars-none;
+}
+
+.new-design-theme .main-panel {
+  -ms-overflow-style: none;
+}
+
+.new-design-theme input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.new-design-theme input[type="number"]::-webkit-inner-spin-button,
+.new-design-theme input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.new-design-theme .numberControl > div,
+.new-design-theme .currencyBody > div:last-child {
+  position: relative;
+}
+
+.new-design-theme .numberControl .glyphicon,
+.new-design-theme .currencyBody .glyphicon {
+  position: absolute;
+  right: calc(32 * 100vw / 1920);
+  top: 50%;
+  transform: translate(0, -50%);
+  color: #5e5e5e;
+  cursor: pointer;
+}
+
+.new-design-theme .LayoutPages .numberControl input.form-control {
+  padding-right: calc(90 * 100vw / 1920);
+}
+
+.new-design-theme .numberControl .glyphicon.glyphicon-minus,
+.new-design-theme .currencyBody .glyphicon.glyphicon-minus {
+  right: calc(64 * 100vw / 1920);
+}
+
+.new-design-theme span.Select-arrow-zone {
+  font-size: calc(18 * (50vh + 23.5vw) / 910);
+  padding-right: calc(32 * 100vw / 1920);
+  padding-top: calc(8 * 100vh / 910);
+  color: #5e5e5e;
+}
+
+.new-design-theme .LayoutPages .radio-group > .fb-radio > label,
+.new-design-theme .LayoutPages .checkbox-group > .fb-checkbox > label {
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  font-weight: normal !important;
+}
+
+.new-design-theme .workflow-acess-rights-content {
+  background-color: #ffffff;
+  border-radius: calc(5 * (50vh + 23.5vw) / 910);
+  height: auto;
+}
+
+.new-design-theme .workflow-acess-rights-btn {
+  background-color: #4d94ff;
+  display: inline-block;
+  padding: calc(15 * 100vh / 910) calc(15 * 100vw / 1920);
+  border-radius: calc(6 * (50vh + 23.5vw) / 910);
+  width: 100%;
+}
+
+.new-design-theme .workflow-acess-rights-add-membership-btn {
+  background-color: #4d94ff;
+  color: #ffffff;
+}
+
+.new-design-theme .workflow-acess-rights-item-btn {
+  background-color: #f2f3fa;
+  height: calc(50 * 100vh / 910);
+  margin: calc(10 * 100vh / 910) 0;
+  padding: calc(15 * 100vh / 910) 0;
+}
+
+.new-design-theme .item-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .item-btn .actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.new-design-theme .workflow-acess-rights-card {
+  margin: calc(8 * 100vh / 910) calc(32 * 100vw / 1920);
+  background-color: #f2f3fa;
+  border-radius: calc(6 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .workflow-acess-rights-card .content-text {
+  font-weight: bold;
+  margin: calc(15 * 100vh / 910) calc(15 * 100vw / 1920);
+}
+
+.new-design-theme .workflow-acess-icons {
+  color: #4e4e4e;
+  background-color: #f2f3fa;
+  margin: 0;
+}
+
+.new-design-theme .workflow-acess-rights-content .associations {
+  padding: calc(32 * 100vh / 910) calc(32 * 100vw / 1920);
+}
+
+.new-design-theme .associations p {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+}
+
+.new-design-theme .associations-checkbox {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.new-design-theme .associations-checkbox .checkbox-container {
+  position: relative;
+  padding-left: calc(30 * 100vw / 1920);
+  cursor: pointer;
+  font-size: calc(22 * (50vh + 23.5vw) / 910);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.new-design-theme .associations-checkbox .checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.new-design-theme .associations-checkbox .checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(25 * 100vh / 910);
+  width: calc(25 * 100vw / 1920);
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #515151;
+}
+
+.new-design-theme
+  .associations-checkbox
+  .checkbox-container:hover
+  input
+  ~ .checkmark {
+  background-color: #ccc;
+}
+
+.new-design-theme
+  .associations-checkbox
+  .checkbox-container
+  input:checked
+  ~ .checkmark {
+  background-color: #4d94ff;
+  border: calc(2 * (50vh + 23.5vw) / 910) solid #4d94ff;
+}
+
+.new-design-theme .associations-checkbox .checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.new-design-theme
+  .associations-checkbox
+  .checkbox-container
+  input:checked
+  ~ .checkmark:after {
+  display: block;
+}
+
+.new-design-theme .associations-checkbox .checkbox-container .checkmark:after {
+  left: calc(8 * 100vw / 1920);
+  top: calc(2 * 100vh / 910);
+  width: calc(7 * 100vw / 1920);
+  height: calc(14 * 100vh / 910);
+  border: solid white;
+  border-width: 0 calc(3 * 100vw / 1920) calc(3 * 100vh / 910) 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.new-design-theme .associations-checkbox .checkbox-container .checkbox-label {
+  font-weight: normal;
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  cursor: pointer;
+  color: #333;
+  margin-top: calc(1 * 100vw / 1920);
+  vertical-align: middle;
+  padding: 0 calc(40 * 100vw / 1920) 0 calc(10 * 100vw / 1920);
+  white-space: nowrap;
+  font-family: "Montserrat";
+}
+
+.new-design-theme .associations .note {
+  font-size: calc(10 * (50vh + 23.5vw) / 910);
+  font-weight: normal;
+  padding: 0px;
+  margin: 0px;
+  padding-top: calc(30 * 100vh / 910);
+  padding-left: calc(10 * 100vw / 1920);
+  background-color: #ffffff;
+  color: #adadc0;
+}
+
+.new-design-theme .workflow-stages-card {
+  background-color: white;
+  border-radius: calc(6 * (50vh + 23.5vw) / 910);
+  display: inline-block;
+  margin-bottom: calc(20 * 100vh / 910);
+}
+
+.new-design-theme .workflow-stages-card label {
+  padding-right: calc(50 * 100vw / 1920);
+  user-select: none;
+}
+
+.new-design-theme .workflow-acess-rights-content .stages_btn_panel {
+  display: inline-block;
+  background-color: #f2f3fa;
+  margin: 0;
+  border-radius: calc(5 * (50vh + 23.5vw) * 0.00109890109);
+}
+
+.new-design-theme .stages_btn_panel .incDecContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: calc(10 * 100vh / 910) 0;
+  width: calc(197 * 100vw / 1920);
+  height: calc(60 * 100vh / 910);
+}
+
+.new-design-theme .stages_btn_panel .incDecContainer span {
+  margin-top: calc(2 * 100vh / 910);
+}
+
+.new-design-theme
+  .workflow-acess-rights-content
+  .stages_btn_panel
+  input[type="number"] {
+  background-color: #f2f3fa;
+  width: calc(50 * 100vw / 1920);
+  text-align: center;
+  font-weight: bold;
+  font-size: calc(22 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .workflow-acess-rights-content .stages_btn_panel input {
+  width: auto;
+  border: none;
+}
+
+.new-design-theme .workflow-stages-container {
+  margin: calc(8 * 100vh / 910) 0;
+  background-color: white;
+  border-radius: calc(6 * (50vh + 23.5vw) / 910);
+  display: block;
+  padding: 0;
+}
+
+.new-design-theme .workflow-stages-container .list-item {
+  /* background-color: #F2F3FA;*/
+  border-radius: calc(6 * (50vh + 23.5vw) / 910);
+  list-style: none;
+  padding: 0;
+  margin-bottom: calc(15 * 100vh / 910);
+  height: auto;
+  /*padding-bottom: 25px;*/
+}
+
+.new-design-theme .workflow-stages-container .list-item li > div {
+  display: inline-block;
+  width: 45%;
+  padding-right: 30px;
+}
+
+.new-design-theme .workflow-stages-container .list-item tr {
+  background-color: white;
+}
+
+.new-design-theme .workflow-stages-container .list-item th > button {
+  background-color: #4d94ff;
+  width: calc(50 * 100vw / 1920);
+  height: calc(50 * 100vh / 910);
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.new-design-theme .flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+.new-design-theme
+  .workflow-stages-container
+  .select2-container--material
+  .select2-selection--multiple
+  .select2-selection__choice {
+  border-radius: 0 !important;
+  background-color: #e1e6ff;
+}
+
+.new-design-theme .content {
+  margin: calc(12 * 100vh / 910) calc(12 * 100vw / 1920);
+  min-height: unset;
+  padding: calc(32 * 100vh / 910) calc(32 * 100vw / 1920);
+}
+
+.new-design-theme .content .associations-card {
+  display: inline-block;
+  width: 40%;
+}
+
+#formStagesModal .modal-dialog {
+  position: fixed;
+  margin-top: 0;
+  width: calc(100% - 85 * 100vw / 1920);
+  margin-right: 0;
+  margin-bottom: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#formStagesModal .modal-content {
+  border-radius: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#formStagesModal .modal-header {
+  flex: 0 0 auto;
+}
+
+#formStagesModal .modal-body {
+  flex: 1 1 100%;
+  overflow: hidden;
+  padding: 0 calc(16 * 100vw / 1920);
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+#formStagesModal
+  .modal-body
+  #formDesignerArea
+  #formDesignerAreaStage
+  .LayoutPage {
+  height: calc(100vh - 100px);
+}
+
+#formStagesModal .modal-header {
+  height: calc(70 * 100vh / 910);
+  background-color: #2c2f48;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#formStagesModal .close {
+  float: none;
+  display: inline-block;
+  font-size: 500%;
+  line-height: 80%;
+  vertical-align: middle;
+  font-weight: 100;
+  color: #fff;
+  opacity: 1;
+  padding: 0 calc(20 * 100vw / 1920);
+}
+
+#formStagesModal .modal-title {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#formStagesModal #btnAddtoFormStage {
+  margin: 0 calc(20 * 100vw / 1920);
+}
+
+.new-design-theme .main-panel #formStagesModal #formDesignerArea,
+.new-design-theme .main-panel #formStagesModal #formDesignerAreaStage,
+.new-design-theme .main-panel #formStagesModal #controlForm {
+  margin-right: calc(-16 * 100vw / 1920);
+}
+.value-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.custStageFormLayout {
+  height: 38vw !important;
+}
