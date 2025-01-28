@@ -15,14 +15,14 @@ function Header() {
         </div>
         <div className="collapse navbar-collapse">
           <ul className="nav navbar-nav navbar-right">
-            <li className="dropdown searchContainer">
+            {/* <li className="dropdown searchContainer">
               <input
                 id="HeaderFilterSearch"
                 className="form-control"
                 type="search"
                 placeholder="Search"
               />
-            </li>
+            </li> */}
             <li>
               <button
                 id="global-search-btn"
