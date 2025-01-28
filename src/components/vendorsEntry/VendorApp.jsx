@@ -802,7 +802,7 @@ function VendorApp(props) {
   // crate separate component here
   return (
     <div className="action-centre-nav">
-      <div style={{ position: "relative" }}>
+      <div>
         <ul
           className="vd-actionTabs"
           style={{ position: "sticky", top: "0px", zIndex: "1000" }}
@@ -950,7 +950,7 @@ function VendorApp(props) {
           </div>
         </ul>
       </div>
-      <Fragment>{renderSections[activeTab]}</Fragment>
+      <Fragment><div>{renderSections[activeTab]}</div></Fragment>
     </div>
   );
 }
