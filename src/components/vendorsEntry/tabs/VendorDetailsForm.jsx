@@ -16,7 +16,7 @@ function VendorDetailsForm(props) {
   const { Option } = Select;
   const { TextArea } = Input;
   const [issuanceDate, setIssuanceDate] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   //Redux
   const dispatch = useDispatch();
@@ -31,15 +31,29 @@ function VendorDetailsForm(props) {
     vendorId,
     isCentrilized,
   } = useSelector(selectVendorDetailsForm);
+  var allowedFileTypes = [];
+  var notAllowedFileError = "";
   const handleFileChange = ({ fileList }) => {
-    if (fileList.length !== 0) {
+    if (fileList.length != 0) {
       //To upload only 1 file at a time
       file = [fileList[fileList.length - 1]];
-      dispatch(setInactivation({ InActivationEvidence: file }));
-    } else {
-      //If the current file is deleted
-      dispatch(setInactivation({ InActivationEvidence: "" }));
+      let uploadedFileType = file[0].type;
+      //Ex- For msg type of file type is null
+      if (uploadedFileType === "") {
+        uploadedFileType =
+          file[0].name.split(".")[file[0].name.split(".").length - 1];
+      }
+      if (
+        allowedFileTypes.length > 0 &&
+        !(allowedFileTypes.indexOf(uploadedFileType) >= 0)
+      ) {
+        //toastr.error(file[0].name + notAllowedFileError);
+      } else {
+        dispatch(setInactivation({ InActivationEvidence: file }));
+      }
     }
+    //If the current file is deleted
+    else dispatch(setInactivation({ InActivationEvidence: "" }));
   };
   //To Fetch the URN , when selected Vendor Type is one of the DD types
   const fetchLatestURN = () => {
@@ -50,7 +64,7 @@ function VendorDetailsForm(props) {
         if (res.status == "success") {
           dispatch(setURN({ URN: res.data }));
         } else {
-          ///toastr.error(res.Message);
+          // toastr.error(res.Message);
         }
       })
       .catch((err) => {
@@ -170,9 +184,11 @@ function VendorDetailsForm(props) {
             <Form.Item label="Upload Inactivation Evidence">
               <Upload
                 beforeUpload={() => false}
-                fileList={InActivationEvidence}
+                fileList={InActivationEvidence ? InActivationEvidence : []}
                 onChange={handleFileChange}
                 maxCount={1}
+                disabled={isInViewMode}
+                accept={allowedFileTypes.join(",")}
               >
                 <Button disabled={isInViewMode}>Click to Upload</Button>
               </Upload>

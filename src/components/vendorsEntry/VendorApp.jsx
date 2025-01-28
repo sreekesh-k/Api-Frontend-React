@@ -1052,9 +1052,14 @@ function VendorApp(props) {
                 </button>
               </div>
 
-              {((hasCentrilizedAccess &&
+              {/* {((hasCentrilizedAccess &&
                 activeTab == "VendorCategorizationScoring" &&
                 isRatingFreezed == false) ||
+                (hasCentrilizedAccess &&
+                  activeTab != "VendorCategorizationScoring")) &&
+                activeTab !== "reviewId" && ( */}
+              {((hasCentrilizedAccess &&
+                activeTab == "VendorCategorizationScoring") ||
                 (hasCentrilizedAccess &&
                   activeTab != "VendorCategorizationScoring")) &&
                 activeTab !== "reviewId" && (
@@ -1083,7 +1088,9 @@ function VendorApp(props) {
                                   ? "pointer"
                                   : "not-allowed",
                               }}
-                              onClick={() => handleSaveBtnClick(activeTab, true)}
+                              onClick={() =>
+                                handleSaveBtnClick(activeTab, true)
+                              }
                             >
                               {!isLoadingFinish ? "Finish" : <LoadingSvg />}
                             </button>
