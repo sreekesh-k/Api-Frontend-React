@@ -914,7 +914,7 @@ function VendorApp(props) {
 
   const handleEditAccess = () => {
     localStorage.setItem("isViewMode", JSON.stringify(false));
-    localStorage.setItem("vendorId", JSON.stringify(VrvendorDetails));
+    // localStorage.setItem("vendorId", JSON.stringify(VrvendorDetails));
     dispatch(updateEditAccess({ isInViewMode: false }));
   };
 
@@ -1058,7 +1058,7 @@ function VendorApp(props) {
                 (hasCentrilizedAccess &&
                   activeTab != "VendorCategorizationScoring")) &&
                 activeTab !== "reviewId" && ( */}
-              {((hasCentrilizedAccess &&
+                {((hasCentrilizedAccess &&
                 activeTab == "VendorCategorizationScoring") ||
                 (hasCentrilizedAccess &&
                   activeTab != "VendorCategorizationScoring")) &&
@@ -1088,9 +1088,7 @@ function VendorApp(props) {
                                   ? "pointer"
                                   : "not-allowed",
                               }}
-                              onClick={() =>
-                                handleSaveBtnClick(activeTab, true)
-                              }
+                              onClick={() => handleSaveBtnClick(activeTab, true)}
                             >
                               {!isLoadingFinish ? "Finish" : <LoadingSvg />}
                             </button>
