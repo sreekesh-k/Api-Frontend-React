@@ -9,7 +9,7 @@ function Header() {
             className="navbar-brand edashboard-nav-caption"
             title="VendorMaster"
           >
-            Vendor Master
+            VENDOR MASTER
           </a>
           <div className="header-buttons"></div>
         </div>
