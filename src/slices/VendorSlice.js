@@ -19,6 +19,7 @@ const initialState = {
   rating: {
     ratingData: [],
     ratingSaveData: [],
+    ratingInitialData: [],
     averageVendorRatingModel: {
       Id: "",
       VendorId: "",
@@ -32,6 +33,7 @@ const initialState = {
     },
     financialForm: {
       FinancialList: [],
+      finaicialListInitialData: [],
       vendorRatingFinancialInfoReadModel: {},
       conditions: {
         FinancialFormOnTypes: "",
@@ -142,7 +144,9 @@ const vendorSlice = createSlice({
       state.review.StageJson = action.payload.StageJson;
     },
     setVendorRating: (state, action) => {
-      state.rating.ratingData = action.payload.ratingData;
+      const { ratingData, ratingInitialData } = action.payload;
+      state.rating.ratingData = ratingData;
+      if (ratingInitialData) state.rating.ratingInitialData = ratingInitialData;
     },
     updateEditAccess: (state, action) => {
       state.editAccess.isInViewMode = action.payload.isInViewMode;
@@ -164,11 +168,17 @@ const vendorSlice = createSlice({
       state.rating.averageVendorRatingModel = model;
     },
     updateRatingFinancialForm: (state, action) => {
-      const { FinancialList, vendorRatingFinancialInfoReadModel } =
-        action.payload;
+      const {
+        FinancialList,
+        vendorRatingFinancialInfoReadModel,
+        finaicialListInitialData,
+      } = action.payload;
       state.rating.financialForm.FinancialList = FinancialList;
       state.rating.financialForm.vendorRatingFinancialInfoReadModel =
         vendorRatingFinancialInfoReadModel;
+      if (finaicialListInitialData)
+        state.rating.financialForm.finaicialListInitialData =
+          finaicialListInitialData;
     },
     updateRatingElligibleScore: (state, action) => {
       state.rating.elligibleScore = action.payload.elligibleScore;
@@ -245,6 +255,7 @@ export const selectVendorApp = createSelector([selectVendor], (vendor) => ({
   VrFileStream: vendor.rating.averageVendorRatingModel.FileStream,
   VrFileName: vendor.rating.averageVendorRatingModel.FileName,
   VrFinancialList: vendor.rating.financialForm.FinancialList,
+  VrInitialFinancialList: vendor.rating.financialForm.finaicialListInitialData,
   VrvendorRatingFinancialInfoReadModel:
     vendor.rating.financialForm.vendorRatingFinancialInfoReadModel,
   VrFinacialFormBillingMaxLimit:
@@ -257,6 +268,7 @@ export const selectVendorApp = createSelector([selectVendor], (vendor) => ({
   CReviewerRemarks: vendor.categorization.notificationData.ReviewerRemarks,
   CReviewers: vendor.categorization.notificationData.Reviewers,
   VdVendorName: vendor.vendorName,
+  VrInitialData: vendor.rating.ratingInitialData,
 }));
 
 export const selectVendorDetailsForm = createSelector(
