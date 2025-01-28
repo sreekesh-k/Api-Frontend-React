@@ -373,6 +373,8 @@ h4 {
   float: right;
   height: 100%;
   overflow: hidden;
+  display: flex;/* New-Added */
+  flex-direction: column;/* New-Added */
 }
 
 .new-design-theme ul.leftside-nav {

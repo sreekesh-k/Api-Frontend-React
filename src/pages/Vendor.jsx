@@ -4,7 +4,9 @@ import VendorTable from "../components/vendors/VendorTable";
 function Vendor() {
   return (
     <>
-      <VendorTable />
+      <div>
+        <VendorTable />
+      </div>
     </>
   );
 }

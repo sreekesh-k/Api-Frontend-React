@@ -13,7 +13,15 @@ function VendorEntry() {
     }
   }, [vendorId]);
 
-  return <>{vendorId && <VendorApp />}</>;
+  return (
+    <>
+      {vendorId && (
+        <div id="csroot">
+          <VendorApp />
+        </div>
+      )}
+    </>
+  );
 }
 
 export default VendorEntry;

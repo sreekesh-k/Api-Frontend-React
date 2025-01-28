@@ -41,11 +41,11 @@
 .navleft {
   overflow: hidden !important;
 }
-* .logo_ops_top {
+.logo_ops_top {
   margin-left: 0.5vw;
   margin-top: 9.5vh;
 }
-* .logo_ops_new {
+.logo_ops_new {
   padding-left: 7px;
   margin-top: 300px;
   margin-left: 5px;

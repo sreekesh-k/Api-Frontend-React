@@ -104,34 +104,6 @@
   cursor: not-allowed;
 }
 
-.new-p {
-  margin-top: 18% !important;
-  /*margin-left: 1.1vw !important;*/
-  display: inline-block;
-  position: relative;
-  margin-left: 0px !important;
-  text-align: center;
-  line-height: 13px !important;
-}
-
-.ps-scrollbar-y-rail {
-  visibility: hidden;
-}
-.logo_ops {
-  margin-left: 0.5vw;
-}
-.logo_opsadmin {
-  margin-top: 41.5vh !important;
-  margin-left: 0.5vw;
-  text-align: center !important;
-  position: absolute !important;
-}
-.logo_ops_new {
-  padding-left: 7px;
-  margin-top: 300px;
-  margin-left: 5px;
-  position: static !important;
-}
-.navleft {
-  overflow: hidden !important;
+#csroot{
+  overflow: hidden;
 }
