@@ -16,7 +16,7 @@ function AdditionalDetails(props) {
   useEffect(() => {
     //Fetch Form
     fetch(
-      `${API_URL}/Vendor/GetVendorAdditionalDetailsByVendorIdPOC/${vendorId}`
+      `${API_URL}/Vendor/GetVendorAdditionalDetailsByVendorId/${vendorId}`
     )
       .then((response) => response.json())
       .then((val) => {

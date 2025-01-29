@@ -6,11 +6,18 @@
 @import url("./styles/vendorReview.css");
 @import url("./styles/Loader.css");
 @import url("./styles/Main.css");
-@import url("./styles/SearchSort_style.css");
+/* @import url("./styles/SearchSort_style.css"); */
 @import url("./styles/sharedcomponents_style.css");
 @import url("./styles/StageList.css");
 @import url("./styles/workflow.css");
-@import url("./styles//sharedcomponents_style.css");
+@import url("./styles/sharedcomponents_style.css");
+@import url("./styles/bootstrap.min.css");
+/* @import url("./styles/Cards.css"); */
+/* @import url("./styles/font-awesome.min.css"); */
+/* @import url("./styles/jquery-ui-1.11.4.custom.css"); */
+@import url("./styles/material-dashboard.css");
+@import url("./styles/newtheme.css");
+/* @import url("./styles/select2.min.css"); */
 
 #file1 {
   min-width: 18vw;

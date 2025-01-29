@@ -1,4 +1,5 @@
 import React from "react";
+// import ReactDOM from "react-dom";
 import { useState, useEffect, Fragment } from "react";
 import VendorDetailsForm from "./tabs/VendorDetailsForm";
 import VendorCategorization from "./tabs/VendorCategorization";
@@ -19,6 +20,20 @@ import {
 } from "../../slices/VendorSlice";
 
 function VendorApp(props) {
+  // useEffect(() => {
+  //   window.React = React; // Attach React to window
+  //   window.ReactDOM = ReactDOM;
+
+  //   const script = document.createElement("script");
+  //   script.src = "assets/form-renderer-deps.js"; // Adjust path
+  //   script.async = true;
+  //   document.body.appendChild(script);
+
+  //   return () => {
+  //     document.body.removeChild(script);
+  //   };
+  // }, []);
+
   const dispatch = useDispatch();
   const [isCentrilizedUser, setIsCentrilizedUser] = useState(false);
   const [viewType, setViewType] = useState("EDIT");
@@ -1058,7 +1073,7 @@ function VendorApp(props) {
                 (hasCentrilizedAccess &&
                   activeTab != "VendorCategorizationScoring")) &&
                 activeTab !== "reviewId" && ( */}
-                {((hasCentrilizedAccess &&
+              {((hasCentrilizedAccess &&
                 activeTab == "VendorCategorizationScoring") ||
                 (hasCentrilizedAccess &&
                   activeTab != "VendorCategorizationScoring")) &&
@@ -1088,7 +1103,9 @@ function VendorApp(props) {
                                   ? "pointer"
                                   : "not-allowed",
                               }}
-                              onClick={() => handleSaveBtnClick(activeTab, true)}
+                              onClick={() =>
+                                handleSaveBtnClick(activeTab, true)
+                              }
                             >
                               {!isLoadingFinish ? "Finish" : <LoadingSvg />}
                             </button>

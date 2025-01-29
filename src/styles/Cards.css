@@ -1,0 +1,784 @@
+﻿.new-design-theme .user-dashboard-list {
+  margin: calc(48 * 100vh / 910) calc(49 * 100vw / 1920);
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.new-design-theme .card.user-dashboard-card {
+  height: calc(345 * 94vh / 910);
+  width: calc(267 * 94vw / 1920);
+  position: relative;
+  float: none;
+  margin: calc(10 * 100vh / 910) calc(10 * 100vw / 1920);
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  overflow: hidden;
+  background: #fff;
+  display: block;
+}
+
+.new-design-theme .card.user-dashboard-card div.card-img-top {
+  background-size: cover;
+  align-items: inherit;
+  height: 50% !important;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+/*for admin dashboard images*/
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="blue"] {
+  background-image: url("/images/card_patterns/Card_Pattern_0.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="orange"] {
+  background-image: url("/images/card_patterns/Card_Pattern_3.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="purple"] {
+  background-image: url("/images/card_patterns/Card_Pattern_4.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="yellow"] {
+  background-image: url("/images/card_patterns/Card_Pattern_7.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="green"] {
+  background-image: url("/images/Card_Patterns/Adm_SysParameters.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="pink"] {
+  background-image: url("/images/Card_Patterns/Apps_AssignDB.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="lightpink"] {
+  background-image: url("/images/Card_Patterns/AccessRightsManagement.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="applegreen"] {
+  background-image: url("/images/Card_Patterns/Card_Users.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="apricot"] {
+  background-image: url("/images/Card_Patterns/Adm_Licenses.png");
+}
+/*ControlScoringModel*/
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="aquamarine"] {
+  background-image: url("/images/Card_Patterns/ControlsScoringModel.png");
+}
+/*ResilienceScoringModel*/
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="BlueViolet"] {
+  background-image: url("/images/Card_Patterns/ResilienceScoringModel.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="acidgreen"] {
+  background-image: url("/images/Admindashboardfrenchimages/Card_RiskInherentScoringtwo.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="aeroblue"] {
+  background-image: url("/images/Card_Patterns/Card_HeatmapDesigner.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="africanviolet"] {
+  background-image: url("/images/Card_Patterns/Card_EntityHierarchy.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="alloyorange"] {
+  background-image: url("/images/Card_Patterns/Card_RolesUsers.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="amber"] {
+  background-image: url("/images/Admindashboardfrenchimages/Card_Reassign-DeleteTasks_F.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="lightamber"] {
+  background-image: url("/images/Card_Patterns/Card_SchedulerLogs.png");
+}
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="redMasterData"] {
+  background-image: url("/images/Admindashboardfrenchimages/MasterData_F.png");
+}
+
+.new-design-theme .user-dashboard-card .card-img-top[data-pattern-color="red"] {
+  background-image: url("/images/card_patterns/Card_Pattern_6.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="aqua"] {
+  background-image: url("/images/card_patterns/Card_Pattern_1.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="raspberry"] {
+  background-image: url("/images/card_patterns/Card_Pattern_2.png");
+}
+
+.new-design-theme
+  .user-dashboard-card
+  .card-img-top[data-pattern-color="skyblue"] {
+  background-image: url("/images/card_patterns/Card_PolicyRepository.png");
+}
+
+.new-design-theme .card.user-dashboard-card .card-img-top .card-icon {
+  height: calc(80 * 100vh / 910);
+  width: calc(80 * 100vw / 1920);
+  margin-top: calc(26 * 100vh / 910);
+  display: inline-block;
+}
+
+.new-design-theme .card.user-dashboard-card .card-img-top svg {
+  height: calc(80 * 100vh / 910);
+  width: calc(80 * 100vw / 1920);
+  position: relative;
+  top: inherit;
+  fill: #fff;
+}
+
+.new-design-theme .card.user-dashboard-card .card-img-top > .card-title {
+  margin: 0;
+  min-height: 0;
+  text-align: center;
+  color: white;
+  font-size: calc(18 * (50vh + 23.5vw) / 910);
+  height: calc(40 * 100vh / 910);
+  margin-top: calc(5 * 100vh / 910);
+  padding: 0 calc(20 * 100vw / 1920);
+}
+
+.new-design-theme .card.user-dashboard-card .card-img-top > .card-title div {
+  height: calc(40 * 100vh / 910);
+  display: table-cell;
+  vertical-align: middle;
+  width: calc(345 * 100vw / 1920);
+  font-weight: bold;
+}
+
+.new-design-theme .card.user-dashboard-card .card-body {
+  padding: 0 calc(28 * 100vw / 1920);
+}
+
+.new-design-theme .card.user-dashboard-card .card-text {
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  height: calc(119 * 100vh / 910);
+  color: #4e4e4e !important;
+  position: relative;
+  margin-top: calc(23 * 100vh / 910);
+}
+
+.new-design-theme .card.user-dashboard-card .card-titleadmin {
+  position: relative;
+  top: 10vh;
+  text-align: left;
+  font-size: 1.1vw;
+  font-weight: bold;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-family: "Montserrat";
+}
+
+.new-design-theme .card.user-dashboard-card .card-info {
+  position: absolute;
+  right: calc(12 * 100vw / 1920);
+  bottom: calc(12 * 100vh / 910);
+  width: calc(20 * 100vw / 1920);
+  height: calc(20 * 100vh / 910);
+  line-height: calc(20 * 100vh / 910);
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+  background-color: #afb3c7;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+}
+
+.new-design-theme .card.user-dashboard-card .DashboardDefault {
+  position: absolute;
+  top: calc(12 * 100vh / 910);
+  right: calc(12 * 100vw / 1920);
+}
+
+.new-design-theme .card.user-dashboard-card .DashboardDefault svg {
+  width: calc(22 * 100vw / 1920);
+  height: calc(22 * 100vh / 910);
+}
+
+.new-design-theme .linkCard div.card {
+  width: calc(320 * 100vw / 1920);
+  height: calc(220 * 100vh / 910);
+  -ms-border-top-left-radius: calc(10 * (50vh + 23.5vw) / 910);
+  border-top-left-radius: calc(10 * (50vh + 23.5vw) / 910);
+  -ms-border-top-right-radius: calc(10 * (50vh + 23.5vw) / 910);
+  border-top-right-radius: calc(10 * (50vh + 23.5vw) / 910);
+  -ms-border-bottom-left-radius: calc(10 * (50vh + 23.5vw) / 910);
+  border-bottom-left-radius: calc(10 * (50vh + 23.5vw) / 910);
+  -ms-border-bottom-right-radius: calc(10 * (50vh + 23.5vw) / 910);
+  border-bottom-right-radius: calc(10 * (50vh + 23.5vw) / 910);
+  margin: calc(3 * 100vh / 910) calc(8 * 100vw / 1920) calc(13 * 100vh / 910)
+    calc(8 * 100vw / 1920);
+  padding: calc(36 * 100vh / 910) calc(36 * 100vw / 1920);
+  color: #4e4e4e;
+  -ms-background-size: auto 103%;
+  background-size: auto 103%;
+  background-color: white;
+  -ms-background-position: left;
+  background-position: left;
+  -ms-background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  box-shadow: none;
+  border: calc(1 * (50vh + 23.5vw) / 910) solid #b9b9b9;
+}
+
+.new-design-theme .linkCard.selected div.card {
+  box-shadow: 0px 2px 3px #0000001c;
+  border: calc(1 * (50vh + 23.5vw) / 910) solid #4286ee;
+}
+
+.new-design-theme .linkCard:hover div.card {
+  box-shadow: 0px 2px 3px #0000001c;
+}
+
+.new-design-theme .linkCard .card-dashboard {
+  background-image: url("../../Images/deviation_pattern.png");
+}
+
+.new-design-theme .linkCard.selected .card-dashboard {
+  background-image: url("../../Images/deviation_pattern.png");
+}
+
+.new-design-theme .linkCard .card-header {
+  height: calc(60 * 100vh / 910);
+  position: relative;
+  padding: 0;
+}
+
+.new-design-theme .linkCard .card-header > div {
+  height: calc(42 * 100vh / 910);
+  position: relative;
+  margin-bottom: calc(16 * 100vh / 910);
+}
+
+.new-design-theme .linkCard .card-title {
+  padding: calc(3 * 100vh / 910) 0;
+  font-size: calc(17 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.new-design-theme .linkCard .card-body {
+  margin-top: calc(16 * 100vh / 910);
+}
+
+.new-design-theme .linkCard .card-body div.card-desc {
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  height: calc(61 * 100vh / 910);
+  overflow-y: hidden;
+}
+
+.new-design-theme .linkCard .card-body div.card-desc:hover {
+  overflow-y: auto;
+}
+
+.new-design-theme .cardContainer {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 0 0 calc(25 * 100vh / 910) 0;
+  box-shadow: 0 calc(1 * (50vh + 23.5vw) / 910) calc(4 * (50vh + 23.5vw) / 910)
+    0 rgba(0, 0, 0, 0.14);
+  border-radius: calc(5 * (50vh + 23.5vw) / 910);
+  color: #4e4e4e;
+  background: #fff;
+}
+
+.new-design-theme .cardInnerContainer {
+  margin: calc(40 * 100vh / 910) calc(49 * 100vw / 1920);
+  padding: 0;
+  flex: 1 1 auto;
+}
+
+.new-design-theme .cardInnerContainer > span {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+  padding-left: calc(8 * 100vw / 1920);
+}
+
+.new-design-theme .nav-tab-container .cardContainer:first-child,
+.new-design-theme .page-container .cardContainer:first-child {
+  margin: calc(25 * 100vh / 910) 0;
+}
+/*scorecard*/
+.card.dashboard-card {
+  width: calc(320 * 100vw / 1920);
+  height: calc(220 * 100vh / 910);
+  margin: calc(10 * 100vh / 910) calc(10 * 100vw / 1920);
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+}
+/*new by raghav*/
+.r-card-myscorecard-div {
+  margin: 6%;
+  color: gray;
+  font-weight: 600;
+}
+
+.r-card-rolename-div {
+  margin: 6%;
+  margin-top: -6%;
+  margin-bottom: -9%;
+  color: gray;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  height: 12%;
+}
+
+.r-dashboard-card-title {
+  margin-top: 7vh;
+}
+
+.r-card-body {
+  font-weight: lighter;
+  margin-top: -2.8vh;
+  margin-left: 6%;
+  font-size: initial;
+  margin-right: 6%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  height: 33%;
+}
+
+.r-dashboard-card-title div {
+  height: calc(40 * 100vh / 910);
+  margin: -5% 6% 3%;
+  width: calc(250 * 100vw / 1920);
+  font-weight: bold;
+  font-size: larger;
+  display: inline-block;
+  max-width: 14vw;
+  text-overflow: ellipsis;
+  white-space: nowrap !important;
+  overflow: hidden;
+}
+
+/*end*/
+.card.dashboard-card div.dashboard-card-img-top {
+  background-size: cover;
+  height: 100%;
+  min-width: 5%;
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="blue"] {
+  background-image: url("/images/card_patterns/Card_Pattern.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="seablue"] {
+  background-image: url("/images/card_patterns/Card_Pattern2.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="orange"] {
+  background-image: url("/images/card_patterns/Card_Pattern4.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="purple"] {
+  background-image: url("/images/card_patterns/Card_Pattern1.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="lightpurple"] {
+  background-image: url("/images/card_patterns/Card_Pattern9.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="yellow"] {
+  background-image: url("/images/card_patterns/Card_Pattern7.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="green"] {
+  background-image: url("/images/card_patterns/Card_Pattern10.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="seagreen"] {
+  background-image: url("/images/card_patterns/Card_Pattern5.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="red"] {
+  background-image: url("/images/card_patterns/Card_Pattern6.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="aqua"] {
+  background-image: url("/images/card_patterns/Card_Pattern8.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="raspberry"] {
+  background-image: url("/images/card_patterns/Card_Pattern3.png");
+}
+
+.card.dashboard-card .dashboard-card-img-top svg {
+  height: calc(80 * 100vh / 910);
+  width: calc(80 * 100vw / 1920);
+  fill: #fff;
+}
+
+.dashboard-card-img-top > .dashboard-card-title {
+  margin: 0;
+  min-height: 0;
+  font-size: calc(20 * (50vh + 23.5vw) / 910);
+  height: calc(40 * 100vh / 910);
+  margin: calc(5 * 100vh / 910);
+  padding: calc(20 * 100vw / 1920);
+}
+
+.card.dashboard-card .card-body {
+  padding: 0 calc(28 * 100vw / 1920);
+}
+
+.card.dashboard-card .card-text {
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  height: calc(119 * 100vh / 910);
+  color: #4e4e4e !important;
+  position: relative;
+  margin-top: calc(23 * 100vh / 910);
+}
+
+.card.dashboard-card .card-info {
+  position: absolute;
+  right: calc(12 * 100vw / 1920);
+  bottom: calc(12 * 100vh / 910);
+  width: calc(20 * 100vw / 1920);
+  height: calc(20 * 100vh / 910);
+  line-height: calc(20 * 100vh / 910);
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+  background-color: #afb3c7;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+}
+/*dashboard*/
+
+.card.dashboard-card {
+  width: calc(320 * 100vw / 1920);
+  height: calc(220 * 100vh / 910);
+  margin: calc(10 * 100vh / 910) calc(10 * 100vw / 1920);
+  border-radius: calc(10 * (50vh + 23.5vw) / 910);
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  /*  justify-content: space-around;*/
+}
+
+.card.dashboard-card div.dashboard-card-img-top {
+  background-size: cover;
+  height: 100%;
+  min-width: 3.5%;
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="blue"] {
+  background-image: url("../../images/new_card_patterns/colorband.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="seablue"] {
+  background-image: url("../../images/new_card_patterns/colorband1.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="orange"] {
+  background-image: url("../../images/new_card_patterns/colorband10.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="purple"] {
+  background-image: url("../../images/new_card_patterns/colorband11.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="lightpurple"] {
+  background-image: url("../../images/new_card_patterns/colorband2.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="yellow"] {
+  background-image: url("../../images/new_card_patterns/colorband3.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="green"] {
+  background-image: url("../../images/new_card_patterns/colorband4.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="seagreen"] {
+  background-image: url("../../images/new_card_patterns/colorband5.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="red"] {
+  background-image: url("../../images/new_card_patterns/colorband6.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="aqua"] {
+  background-image: url("../../images/new_card_patterns/colorband7.png");
+}
+
+.dashboard-card .dashboard-card-img-top[data-pattern-color="raspberry"] {
+  background-image: url("../../images/new_card_patterns/colorband8.png");
+}
+
+.card.dashboard-card .dashboard-card-img-top svg {
+  height: calc(80 * 100vh / 910);
+  width: calc(80 * 100vw / 1920);
+  fill: #fff;
+}
+
+.dashboard-card-img-top > .dashboard-card-title {
+  margin: 0;
+  min-height: 0;
+  font-size: calc(20 * (50vh + 23.5vw) / 910);
+  height: calc(40 * 100vh / 910);
+  margin: calc(5 * 100vh / 910);
+  padding: calc(20 * 100vw / 1920);
+}
+
+.dashboard-card-title div {
+  -webkit-line-clamp: 2;
+  position: relative;
+  /* overflow: hidden;*/
+  /*display: -webkit-box;*/
+  -webkit-box-orient: vertical;
+  height: calc(50 * 100vh / 910);
+  margin: 10% 10% 5%;
+  width: calc(250 * 100vw / 1920);
+  font-weight: bold;
+  font-size: larger;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+.card.dashboard-card .card-body {
+  padding: 0 calc(28 * 100vw / 1920);
+  -webkit-line-clamp: 3;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.card.dashboard-card .card-text {
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  height: calc(119 * 100vh / 910);
+  color: #4e4e4e !important;
+  position: relative;
+  margin-top: calc(23 * 100vh / 910);
+}
+
+.card.dashboard-card .card-info {
+  position: absolute;
+  right: calc(12 * 100vw / 1920);
+  bottom: calc(12 * 100vh / 910);
+  width: calc(20 * 100vw / 1920);
+  height: calc(20 * 100vh / 910);
+  line-height: calc(20 * 100vh / 910);
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+  background-color: #afb3c7;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+}
+
+/*application*/
+
+.card.user-dashboard-card div.application-img-top {
+  background-size: cover;
+  align-items: inherit;
+  height: 52% !important;
+  width: 83%;
+  display: block;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 25vh;
+  margin: 10% 10% 0 10%;
+}
+
+.card.user-dashboard-card .application-body {
+  padding: 0 calc(28 * 100vw / 1920);
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  color: #4e4e4e !important;
+  position: relative;
+  margin-top: calc(23 * 100vh / 910);
+  -webkit-line-clamp: 3;
+  position: relative;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.card.user-dashboard-card .application-text {
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  color: #4e4e4e !important;
+  position: relative;
+}
+.card.user-dashboard-card .application-title {
+  position: relative;
+  top: 10vh;
+  text-align: left;
+  font-size: 1.1vw;
+  font-weight: bold;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-family: "Montserrat";
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="blue"] {
+  background-image: url("../../Images/card_patterns/Card_RiskRegistry.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="darkgreen"] {
+  background-image: url("../../Images/card_patterns/critical_business_services.png");
+}
+.user-dashboard-card .application-img-top[data-pattern-color="darkblack"] {
+  background-image: url("../../Images/card_patterns/Card_DashboardDesigner.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="darkblue"] {
+  background-image: url("../../Images/card_patterns/Apps_RiskMaster.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="orange"] {
+  background-image: url("/images/card_patterns/Card_Pattern_3.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="darkorange"] {
+  background-image: url("../../Images/card_patterns/Apps_KriReg.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="purple"] {
+  background-image: url("../../Images/card_patterns/Apps_Templates.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="lightpurple"] {
+  background-image: url("../../Images/card_patterns/Card_ControlRegister.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="yellow"] {
+  background-image: url("../../Images/card_patterns/Apps_KriMaster.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="green"] {
+  background-image: url("../../Images/card_patterns/Card_BalancedScorecard.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="lightgreen"] {
+  background-image: url("../../Images/card_patterns/Apps_DBList.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="red"] {
+  background-image: url("../../Images/card_patterns/Card_ControlLibrary.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="aqua"] {
+  background-image: url("../../Images/card_patterns/Card_Workflows.png");
+}
+.user-dashboard-card .application-img-top[data-pattern-color="beige"] {
+  background-image: url("../../Images/card_patterns/Card_ActionMaster.png");
+}
+.user-dashboard-card .application-img-top[data-pattern-color="brown"] {
+  background-image: url("../../Images/card_patterns/Card_PlanMaster.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="darkaqua"] {
+  background-image: url("../../Images/card_patterns/Apps_SelfAttestation.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="mustard"] {
+  background-image: url("../../Images/card_patterns/Adm_SysParameters.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="saffron"] {
+  background-image: url("../../Images/card_patterns/Adm_RiskInherentScoring.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="navyblue"] {
+  background-image: url("../../Images/card_patterns/Adm_Licenses.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="maroon"] {
+  background-image: url("../../Images/card_patterns/Apps_Control.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="indigo"] {
+  background-image: url("../../Images/card_patterns/Adm_Users.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="celeste"] {
+  background-image: url("../../Images/card_patterns/Adm_Roles.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="raspberry"] {
+  background-image: url("../../Images/card_patterns/Adm_Dpt.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="mint"] {
+  background-image: url("../../Images/card_patterns/Adm_OrgStructure.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="royalblue"] {
+  background-image: url("../../Images/card_patterns/Adm_Lvls.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="mustard"] {
+  background-image: url("../../Images/card_patterns/Adm_SysParameters.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="royalRegal"] {
+  background-image: url("/images/Admindashboardfrenchimages/Card_EntityHierarchy_F.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="darkmaroon"] {
+  background-image: url("../../Images/Card_Patterns/Card_RolesUsers.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="lightmaroon"] {
+  background-image: url("../../Images/Card_Patterns/Card_RiskHierarchy.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="cyan"] {
+  background-image: url("../../Images/Card_Patterns/Card_HeatmapDesigner.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="royalyellow"] {
+  background-image: url("../../Images/Card_Patterns/Card_Template.png");
+}
+
+.user-dashboard-card .application-img-top[data-pattern-color="skyblue"] {
+  background-image: url("../../Images/Card_Patterns/Card_PolicyRepository.png");
+}

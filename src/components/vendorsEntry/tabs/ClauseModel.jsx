@@ -103,13 +103,15 @@ function ClauseModel(props) {
     },
   ];
   const getClauseData = () => {
-    // fetch(`${API_URL}/MasterData/GetAllDropdownValues/vcc`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     //console.log(data)
-    //     setClauseData(data);
-    //   })
-    //   .catch((err) => toastr.error(err.message));
+    fetch(`${API_URL}/MasterData/GetAllDropdownValues/vcc`)
+      .then((res) => res.json())
+      .then((data) => {
+        //console.log(data)
+        setClauseData(data);
+      })
+      .catch((err) => {
+        //toastr.error(err.message)
+      });
   };
   useEffect(() => {
     getClauseData();
