@@ -6674,13 +6674,13 @@ h2.title {
   background-color: rgba(180, 180, 180, 0.3);
 }
 
-/* .sidebar .logo p {
+.sidebar .logo p {
   float: left;
   font-size: 20px;
   margin: 10px 10px;
   color: #ffffff;
   line-height: 20px;
-} */
+}
 
 .sidebar .logo .simple-text {
   text-transform: uppercase;

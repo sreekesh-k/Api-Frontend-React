@@ -2,7 +2,10 @@
 import { useEffect, useState, Fragment } from "react";
 import FormRender from "../formRender/FormRender";
 import { useDispatch, useSelector } from "react-redux";
-import { selectVendorAdditionalDetails } from "../../../slices/VendorSlice";
+import {
+  additionalDetailsForm,
+  selectVendorAdditionalDetails,
+} from "../../../slices/VendorSlice";
 import { API_URL } from "../../../constants";
 function AdditionalDetails(props) {
   const [isTemplateUpdated, setIsTemplateUpdated] = useState(false);
@@ -15,27 +18,19 @@ function AdditionalDetails(props) {
 
   useEffect(() => {
     //Fetch Form
-    fetch(
-      `${API_URL}/Vendor/GetVendorAdditionalDetailsByVendorId/${vendorId}`
-    )
+    fetch(`${API_URL}/Vendor/GetVendorAdditionalDetailsByVendorId/${vendorId}`)
       .then((response) => response.json())
       .then((val) => {
-        if (val.status == "success") {
-          res = val.data;
+        if (val.data) {
+          let res = val.data;
           //setIsTemplateUpdated(res.IsTemplateChanged)
           let data = JSON.parse(res.filledFormJson);
           if (data.action) {
-            dataCopy = props.getData(data.action);
-            dispatch({
-              type: "ADDITIONAL_DETAILS_FORM",
-              payload: { FilledFormJson: dataCopy },
-            });
+            let dataCopy = props.getData(data.action);
+            dispatch(additionalDetailsForm({ FilledFormJson: dataCopy }));
           } else {
-            dataCopy = props.getData(data);
-            dispatch({
-              type: "ADDITIONAL_DETAILS_FORM",
-              payload: { FilledFormJson: dataCopy },
-            });
+            let dataCopy = props.getData(data);
+            dispatch(additionalDetailsForm({ FilledFormJson: dataCopy }));
           }
         } else {
           // toastr.error(val.message);
