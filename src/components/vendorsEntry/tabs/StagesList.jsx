@@ -1,20 +1,28 @@
-﻿function StagesList(props) {
+﻿import { useTranslation } from "react-i18next";
+import { useEffect, useState, Fragment, useRef } from "react";
+import {
+  Row,
+  Col,
+  Input,
+  Table,
+  InputNumber,
+  Collapse,
+  Space,
+  Checkbox,
+  Tooltip,
+  Select,
+  Button,
+  Image,
+  Modal,
+} from "antd";
+import $ from "jquery";
+import { API_URL } from "../../../constants";
+function StagesList(props) {
   const { t } = useTranslation();
-  const Row = window["antd"].Row;
-  const Col = window["antd"].Col;
-  const Input = window["antd"].Input;
-  const Table = window["antd"].Table;
-  const InputNumber = window["antd"].InputNumber;
-  const Collapse = window["antd"].Collapse;
-  const Space = window["antd"].Space;
-  const Checkbox = window["antd"].Checkbox;
-  const Tooltip = window["antd"].Tooltip;
-  const [modaldisplayshow, setModaldisplayshow] = React.useState(false);
-  const Select = window["antd"].Select;
-  const Button = window["antd"].Button;
+  const [modaldisplayshow, setModaldisplayshow] = useState(false);
   const { Option } = Select;
-  const Image = window["antd"].Image;
   const { Panel } = Collapse;
+
   const {
     stageList,
     setStageList,
@@ -23,14 +31,13 @@
     currentLanguage,
     translatorObject,
   } = props;
-  const [nodeIndex, setNodeIndex] = React.useState(0);
-  const [currentStage, setCurrentStage] = React.useState(0);
-  const [currentFormGroup, setcurrentFormGroup] = React.useState("");
-  /* const [showFormModal, setShowFormModal] = React.useState(false)*/
-  const Modal = window["antd"].Modal;
+  const [nodeIndex, setNodeIndex] = useState(0);
+  const [currentStage, setCurrentStage] = useState(0);
+  const [currentFormGroup, setcurrentFormGroup] = useState("");
+  /* const [showFormModal, setShowFormModal] = useState(false)*/
 
   //Role and User List
-  const [options, setOptions] = React.useState([]);
+  const [options, setOptions] = useState([]);
 
   function savestagesform() {
     var formjson = fbStage.formData;
@@ -60,19 +67,18 @@
   ];
 
   //Api Call To Fetch Role and Users
-  React.useEffect(() => {
+  useEffect(() => {
     $.ajax({
       type: "GET",
       cache: false,
-      url: "/User/FetchUsersAndRoles",
-
+      url: API_URL + "/api/User/FetchUsersAndRolesPOC",
       async: false,
       contentType: "application/json",
       success: function (response) {
         if (response.length === 0) {
           console.log("no response in owner api");
         } else {
-          console.log("res", response);
+          // console.log("res", response);
           setOptions(response);
         }
       },
@@ -86,7 +92,7 @@
     {
       title: () => (
         <img
-          src="/Images/plusIcon.png"
+          src="/assets/images/plusIcon.png"
           alt="add"
           onClick={(e) => {
             e.preventDefault();
@@ -191,7 +197,7 @@
         <img
           alt="edit"
           src="\Views\Risk\icons\Action_Edit.svg"
-          class="stage-form-edit"
+          className="stage-form-edit"
           style={{
             filter:
               "invert(100%) sepia(32%) saturate(544%) hue-rotate(222deg) brightness(111%) contrast(100%)",
@@ -217,7 +223,7 @@
         <img
           alt="delete"
           width={20}
-          src="/Images/svg/delete-black.svg"
+          src="assets/images/delete-black.svg"
           onClick={(e) => {
             const newList = [...stageList];
             const formGroupList = newList[nodeIndex].FormGroup;
@@ -236,8 +242,8 @@
     setModaldisplayshow(false);
   }
   //To Drag And Drop
-  const dragItem = React.useRef();
-  const dragOverItem = React.useRef();
+  const dragItem = useRef();
+  const dragOverItem = useRef();
   const dragStart = (e, position) => {
     console.log(position);
     dragItem.current = position;
@@ -350,7 +356,7 @@
             <img
               className="stageHeaderImg"
               width={20}
-              src="/Images/svg/delete-black.svg"
+              src="assets/images/delete-black.svg"
               key={stage.index}
               onClick={(e) => {
                 e.stopPropagation();
@@ -371,7 +377,7 @@
   const StageContainer = (stage, index) => {
     let stageValue = stage.stage;
     return (
-      <React.Fragment>
+      <Fragment>
         <Space
           direction="vertical"
           className="stageListContainer"
@@ -508,7 +514,7 @@
             </Panel>
           </Collapse>
         </Space>
-      </React.Fragment>
+      </Fragment>
     );
   };
 
@@ -539,7 +545,7 @@
             </Col>
           </Row>
           <div className="" id="formDesignerAreaStage"></div>{" "}
-          <div class="" id="loading"></div>
+          <div className="" id="loading"></div>
         </div>
       </span>
 
@@ -560,3 +566,5 @@
     </div>
   );
 }
+
+export default StagesList;

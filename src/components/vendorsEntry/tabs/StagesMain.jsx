@@ -1,26 +1,23 @@
-﻿const useTranslation = window["ReactI18next"].useTranslation;
+﻿import { useTranslation } from "react-i18next";
+import { useEffect, useState, Fragment, useRef } from "react";
+import { Row, Col, Switch, Checkbox, InputNumber } from "antd";
+import StagesList from "./StagesList";
 function StagesMain(props) {
   const { t, i18n } = useTranslation();
-  const Row = window["antd"].Row;
-  const Col = window["antd"].Col;
-  const Switch = window["antd"].Switch;
-  const Checkbox = window["antd"].Checkbox;
-  const InputNumber = window["antd"].InputNumber;
-
-  const [allowInitiator, setAllowInitiator] = React.useState(true);
-  const [allowEndUser, setAllowEndUser] = React.useState(false);
-  /*const [stageList, setStageList] = React.useState([]);*/
+  const [allowInitiator, setAllowInitiator] = useState(true);
+  const [allowEndUser, setAllowEndUser] = useState(false);
+  /*const [stageList, setStageList] = useState([]);*/
   let arrayList = [];
   // Form Builder Data Set
-  const fb = React.useRef();
+  const fb = useRef();
   const FormModal = () => {
     return <div className="" id="formDesignerArea" ref={fb}></div>;
   };
-  /*React.useEffect(() => {
+  /*useEffect(() => {
         props.setStages(stageList);
     }, [stageList]);*/
   return (
-    <React.Fragment>
+    <Fragment>
       <FormModal />
       <div className="stageBackground">
         {/* Commenting the switches , for fscs and no work is done on it , and are not going to api as well.
@@ -105,11 +102,13 @@ function StagesMain(props) {
             setNumberOfApprovalStages={props.setNumberOfApprovalStages}
             stageList={props.stages}
             setStageList={props.setStages}
-            currentLanguage={props.currentLanguage}
-            translatorObject={props.translatorObject}
+            currentLanguage=""
+            translatorObject=""
           />
         )}
       </div>
-    </React.Fragment>
+    </Fragment>
   );
 }
+
+export default StagesMain;
