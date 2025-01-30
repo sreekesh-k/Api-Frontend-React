@@ -21,7 +21,7 @@ function Review(props) {
 
   // useEffect(() => {
   //   fetch(
-  //     "/Stages/FecthStageByEntityId?entityId=" + vendorId + "&moduleName=Vendor"
+  //     "/FecthStageByEntityId?entityId=" + vendorId + "&moduleName=Vendor"
   //   )
   //     .then((res) => res.json())
   //     .then((response) => {
@@ -60,7 +60,7 @@ function Review(props) {
   return (
     <Fragment>
       {/*<div className={(isInViewMode || !isCentrilized) ? "viewModeOnly" : "enableEdit"} />*/}
-      {/* <StagesMain
+      <StagesMain
         {...{ props }}
         stages={stages}
         setStages={setStages}
@@ -73,8 +73,7 @@ function Review(props) {
         setFormBuilderData={setFormBuilderData}
         isReview={true}
         isReviewInViewMode={true}
-      /> */}
-      <div className="review-custom">The Stage Main Component Comes Here (Not Available)</div>
+      />
     </Fragment>
   );
 }
