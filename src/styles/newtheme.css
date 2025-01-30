@@ -1,11 +1,11 @@
 ﻿@font-face {
   font-family: "icomoon";
-  src: url("../../Styles/fonts/icomoon1.eot?wmo6kt");
-  src: url("../../Styles/fonts/icomoon1.eot?wmo6kt#iefix")
+  src: url("/assets/fonts/icomoon1.eot?wmo6kt");
+  src: url("/assets/fonts/icomoon1.eot?wmo6kt#iefix")
       format("embedded-opentype"),
-    url("../../Styles/fonts/icomoon1.ttf") format("truetype"),
-    url("../../Styles/fonts/icomoon1.woff?wmo6kt") format("woff"),
-    url("../../Styles/fonts/icomoon1.svg?wmo6kt#icomoon") format("svg");
+    url("/assets/fonts/icomoon1.ttf") format("truetype"),
+    url("/assets/fonts/icomoon1.woff?wmo6kt") format("woff"),
+    url("/assets/fonts/icomoon1.svg?wmo6kt#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -63,10 +63,10 @@
   /*src: url("../../Styles/fonts/Regular/GothamPro.otf") format("opentype");*/
   font-weight: normal;
   font-style: normal;
-  src: url("../../Styles/fonts/Regular/GothamPro.eot");
+  src: url("/assets/fonts/Regular/GothamPro.eot");
   /* For IE6-8 */
-  src: url("../../Styles/fonts/Regular/GothamPro.woff") format("woff"),
-    url("../../Styles/fonts/Regular/GothamPro.ttf") format("truetype");
+  src: url("/assets/fonts/Regular/GothamPro.woff") format("woff"),
+    url("/assets/fonts/Regular/GothamPro.ttf") format("truetype");
 }
 
 @font-face {
@@ -74,23 +74,22 @@
   /*src: url("../../Styles/fonts/Medium/GothamPro-Medium.otf") format("opentype");*/
   font-weight: normal;
   font-style: normal;
-  src: url("../../Styles/fonts/Medium/GothamPro-Medium.eot");
+  src: url("/assets/fonts/Medium/GothamPro-Medium.eot");
   /* For IE6-8 */
-  src: url("../../Styles/fonts/Medium/GothamPro-Medium.woff") format("woff"),
-    url("../../Styles/fonts/Medium/GothamPro-Medium.ttf") format("truetype");
+  src: url("/assets/fonts/Medium/GothamPro-Medium.woff") format("woff"),
+    url("/assets/fonts/Medium/GothamPro-Medium.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../../Styles/fonts/Bold/Montserrat-Bold.otf") format("opentype");
+  src: url("/assets/fonts/Bold/Montserrat-Bold.otf") format("opentype");
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Montserrat";
-  src: url("../../Styles/fonts/Regular/Montserrat-Regular.otf")
-    format("opentype");
+  src: url("/assets/fonts/Regular/Montserrat-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
@@ -182,11 +181,11 @@ h6,
   font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: url("../../Styles/fonts/materialicons.eot");
+  src: url("/assets/fonts/materialicons.eot");
   /* For IE6-8 */
-  src: url("../../Styles/fonts/materialicons.woff2") format("woff2"),
-    url("../../Styles/fonts/materialicons.woff") format("woff"),
-    url("../../Styles/fonts/materialicons.ttf") format("truetype");
+  src: url("/assets/fonts/materialicons.woff2") format("woff2"),
+    url("/assets/fonts/materialicons.woff") format("woff"),
+    url("/assets/fonts/materialicons.ttf") format("truetype");
 }
 
 .material-icons {
