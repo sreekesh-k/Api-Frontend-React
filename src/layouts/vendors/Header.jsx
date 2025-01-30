@@ -76,7 +76,7 @@ function Header() {
                 <span className="user-name">Poc Team</span>
                 <a href="#">
                   <div className="photo">
-                    <img src="/assets/default_avatar.jpg" />
+                    <img src="/assets/images/default_avatar.jpg" />
                   </div>
                 </a>
               </div>
