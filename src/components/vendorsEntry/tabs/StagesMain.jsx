@@ -41,39 +41,35 @@ function StagesMain(props) {
               defaultValue={0}
               min={0}
               onChange={(val) => {
-                props.setNumberOfApprovalStages(val);
-                props.setStageRequired(val == 0);
                 if (val < props.numberOfApprovalStages) {
+                  props.setNumberOfApprovalStages(val);
+                  props.setStageRequired(val == 0);
                   let removeItems = props.numberOfApprovalStages - val;
-                  props.stages.splice(
-                    props.stages.length - removeItems,
-                    removeItems
-                  );
+                  let s = [...props.stages];
+                  s.splice(s.length - removeItems, removeItems);
+                  props.setStages(s);
                 } else {
-                  [...Array(val)].map((e, i) => {
-                    arrayList = [
-                      ...props.stages,
-                      {
-                        Actions: {
-                          _Abort: 0,
-                          _Approve: 1,
-                          "_Need correction": 0,
-                        },
-                        StageName: "",
-                        isVisible: false,
-                        ApprovalMandatory: false,
-                        ReviewBy: "0",
-                        IsMandatory: false,
-                        IsPinned: false,
-                        SamplingSize: 100,
-                        StageNumber: i + 1,
-                        JsonForm: [],
-                        FormGroup: [],
-                      },
-                    ];
-                  });
+                  let arrayList = [...props.stages];
 
+                  arrayList.push({
+                    Actions: {
+                      _Abort: 0,
+                      _Approve: 1,
+                      "_Need correction": 0,
+                    },
+                    StageName: "",
+                    isVisible: false,
+                    ApprovalMandatory: false,
+                    ReviewBy: "0",
+                    IsMandatory: false,
+                    IsPinned: false,
+                    SamplingSize: 100,
+                    StageNumber: val,
+                    JsonForm: [],
+                    FormGroup: [],
+                  });
                   props.setStages(arrayList);
+                  props.setNumberOfApprovalStages(val);
                 }
               }}
               value={props.numberOfApprovalStages}

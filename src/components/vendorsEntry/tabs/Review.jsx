@@ -28,7 +28,9 @@ function Review(props) {
       .then((response) => {
         if (response.statusCode == 200) {
           if (response.data) {
-            var stagesData = JSON.parse(response.data.stageJson);
+            // console.log(response);
+            let stagesData = JSON.parse(response.data.stageJson);
+            // console.log(stagesData);
             stagesData.map((tempstage) => {
               tempstage.IsMaster = tempstage.IsMandatory;
               tempstage.FormGroup.map((tempgroup) => {
@@ -64,7 +66,6 @@ function Review(props) {
     <Fragment>
       {/*<div className={(isInViewMode || !isCentrilized) ? "viewModeOnly" : "enableEdit"} />*/}
       <StagesMain
-        {...{ props }}
         stages={stages}
         setStages={setStages}
         numberOfApprovalStages={numberOfApprovalStages}

@@ -504,7 +504,10 @@ function StagesList(props) {
                 <Table
                   style={{ fontWeight: "bold", fontColor: "black" }}
                   columns={columns}
-                  dataSource={stageValue.FormGroup}
+                  dataSource={stageValue.FormGroup.map((item, i) => ({
+                    ...item,
+                    key: item.id || i,
+                  }))}
                   pagination={false}
                   className="stageTable"
                   scroll={{ y: "70vh" }}
