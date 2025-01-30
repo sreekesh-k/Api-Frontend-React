@@ -92,7 +92,7 @@ function StagesList(props) {
     {
       title: () => (
         <img
-          src="/assets/images/plusIcon.png"
+          src="assets/images/plusIcon.png"
           alt="add"
           onClick={(e) => {
             e.preventDefault();
@@ -196,7 +196,7 @@ function StagesList(props) {
       render: (text, record, index) => (
         <img
           alt="edit"
-          src="\Views\Risk\icons\Action_Edit.svg"
+          src="assets/images/Action_Edit.svg"
           className="stage-form-edit"
           style={{
             filter:
@@ -347,7 +347,7 @@ function StagesList(props) {
           >
             {t("Label_IsThisStageMandatory")}
           </Checkbox>
-          {/*<img width={20} src="/Images/redPin.png" className={stageVal.IsPinned ? "stageHeaderImg pinnedStage" : "stageHeaderImg"} onClick={(e) => {*/}
+          {/*<img width={20} src="assets/images/redPin.png" className={stageVal.IsPinned ? "stageHeaderImg pinnedStage" : "stageHeaderImg"} onClick={(e) => {*/}
           {/*    e.stopPropagation();*/}
           {/*    checkChange(!stageVal.IsPinned, 'IsPinned')*/}
           {/*}}*/}
@@ -534,7 +534,7 @@ function StagesList(props) {
               <img
                 onClick={closeicon}
                 className="r-navbar-crossimgRem"
-                src="\Views\Risk\icons\CloseIcon.svg"
+                src="assets/images/CloseIcon.svg"
               />
             </Col>
             <Col span={19}></Col>
