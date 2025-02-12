@@ -1,20 +1,15 @@
 import React from "react";
-import "./LeftPlane.style.css";
+import "./LeftPanel.css";
 import { Link } from "react-router-dom";
 
-function LeftPlane() {
+function LeftPanel() {
   return (
     <>
       <div
         className="sidebar"
         data-active-color="blue"
         data-background-color="black"
-        style={{
-          marginRight: "auto",
-          resize: "none",
-          objectFit: "cover",
-          width: "85px",
-        }}
+        style={{ marginRight: "auto", resize: "none", objectFit: "cover" }}
       >
         <div className="logo">
           <a href="#" className="simple-text logo-mini">
@@ -26,34 +21,42 @@ function LeftPlane() {
         <div className="sidebar-wrapper">
           <div className="new-design-theme navleft">
             <ul className="leftside-nav">
-              <li className="active">
+              {/* <li className=" ">
                 <a href="#">
+                  <svg>
+                    <use xlinkHref="#settings" />
+                  </svg>
+                  <p>System Preferences</p>
+                </a>
+              </li> */}
+              <li className="">
+                <Link to="/">
                   <svg>
                     <use xlinkHref="#home" />
                   </svg>
                   <p>Home</p>
-                </a>
+                </Link>
               </li>
 
-              <li>
+              <li className=" ">
                 <a href="#">
                   <svg>
                     <use xlinkHref="#dashboard" />
                   </svg>
-                  <p>Dashboards</p>
+                  <p> Dashboards</p>
                 </a>
               </li>
 
-              <li>
-                <Link to="/actioncenter">
+              <li className="active">
+                <a href="#">
                   <svg>
                     <use xlinkHref="#action-center" />
                   </svg>
-                  <p>Action Center</p>
-                </Link>
+                  <p> Action Center</p>
+                </a>
               </li>
 
-              <li>
+              <li className=" ">
                 <a href="#">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -77,12 +80,10 @@ function LeftPlane() {
                       />
                     </g>
                   </svg>
-
-                  <p>Template Hub</p>
+                  <p> Template Hub </p>
                 </a>
               </li>
-
-              <li>
+              <li className=" ">
                 <a href="#">
                   <svg>
                     <use xlinkHref="#applications" />
@@ -127,7 +128,17 @@ function LeftPlane() {
           </div>
         </div>
       </div>
+
       <svg display="none">
+        <symbol viewBox="0 0 25 25" id="settings">
+          <path
+            id="COG"
+            d="M231.944,2241.806a8.658,8.658,0,0,1-.832,1.985c.052.065,1.914,2.406.77,3.55l-.57.571c-.857.857-3-.486-3.517-.828a8.711,8.711,0,0,1-2.1.842l.151,0s-.407,3.062-2.048,3.062h-.563c-1.251,0-1.948-2.623-2.068-3.118a8.683,8.683,0,0,1-2.075-.887l.113.12s-2.424,1.906-3.585.746l-.513-.426c-.882-.882.539-3.218.824-3.664a8.69,8.69,0,0,1-.81-1.938c-.482-.117-3.124-.814-3.124-2.069v-.563c0-1.449,2.519-1.936,3.109-2.029a8.673,8.673,0,0,1,.805-1.954c-.27-.411-1.749-2.757-.859-3.647l.542-.456c1.021-1.021,3.113.425,3.6.788a8.7,8.7,0,0,1,1.985-.833c.155-.615.848-3.068,2.056-3.068h.563c1.407,0,1.905,2.372,2.019,3.051a8.668,8.668,0,0,1,2.013.83c.53-.346,2.714-1.681,3.569-.826l.513.542c1,1-.387,3.025-.79,3.567a8.685,8.685,0,0,1,.83,1.989c.179.026,3.045.456,3.045,2.046v.563C234.993,2240.953,232.584,2241.644,231.944,2241.806Zm-8.448-8.779a6.469,6.469,0,1,0,6.469,6.469A6.469,6.469,0,0,0,223.5,2233.027Zm0,10.782a4.313,4.313,0,1,1,4.313-4.312A4.313,4.313,0,0,1,223.5,2243.809Zm0-6.469a2.156,2.156,0,1,0,2.156,2.156A2.157,2.157,0,0,0,223.5,2237.34Z"
+            transform="translate(-210.992 -2226.992)"
+            fillRule="evenodd"
+          />
+        </symbol>
+
         <symbol viewBox="0 0 25 25" id="home">
           <path
             id="HOME"
@@ -155,6 +166,23 @@ function LeftPlane() {
             fillRule="evenodd"
           />
         </symbol>
+
+        <symbol viewBox="0 0 25 25" id="template-hub">
+          <path
+            id="DOCUMENTS"
+            d="M235.147,1127.9H222.092a1.031,1.031,0,0,1-1.031-1.031v-17.865a1.031,1.031,0,0,1,1.031-1.031h5.5v5.841a2.064,2.064,0,0,0,2.061,2.066h6.528v10.989A1.031,1.031,0,0,1,235.147,1127.9Zm-5.5-13.052a1.032,1.032,0,0,1-1.031-1.033v-5.854l7.558,6.886H229.65Zm-6.813,14.083h11.279a1.031,1.031,0,0,1-1.031,1.031H221.061A2.061,2.061,0,0,1,219,1127.9v-16.834a1.031,1.031,0,0,1,1.031-1.031v16.834a2.061,2.061,0,0,0,2.061,2.061Z"
+            transform="translate(-215 -1106.027)"
+            fillRule="evenodd"
+          />
+        </symbol>
+
+        <symbol viewBox="0 0 24 24" id="verified-user">
+          <path
+            id="VERIFIED_USER"
+            d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"
+            fillRule="evenodd"
+          />
+        </symbol>
         <symbol viewBox="0 0 24 24" id="applications">
           <path
             id="APPLICATIONS"
@@ -168,4 +196,4 @@ function LeftPlane() {
   );
 }
 
-export default LeftPlane;
+export default LeftPanel;
