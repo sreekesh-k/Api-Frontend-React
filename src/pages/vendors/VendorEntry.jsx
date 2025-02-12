@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import VendorApp from "../../components/vendorsEntry/VendorApp";
 import { useSelector } from "react-redux";
 import ThemeLayout from "../../common/layouts/ThemeLayout";
-
+import "./vendor.css";
 function VendorEntry() {
   const navigate = useNavigate();
   const vendorId = useSelector((state) => state.vendor.vendorId);

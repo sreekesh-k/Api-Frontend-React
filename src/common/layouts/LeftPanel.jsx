@@ -43,7 +43,7 @@ function LeftPanel() {
                   <svg>
                     <use xlinkHref="#dashboard" />
                   </svg>
-                  <p> Dashboards</p>
+                  <p>Dashboards</p>
                 </a>
               </li>
 
@@ -52,7 +52,7 @@ function LeftPanel() {
                   <svg>
                     <use xlinkHref="#action-center" />
                   </svg>
-                  <p> Action Center</p>
+                  <p>Action Center</p>
                 </a>
               </li>
 
@@ -80,7 +80,7 @@ function LeftPanel() {
                       />
                     </g>
                   </svg>
-                  <p> Template Hub </p>
+                  <p>Template Hub</p>
                 </a>
               </li>
               <li className=" ">

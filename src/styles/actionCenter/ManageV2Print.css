@@ -1,0 +1,691 @@
+
+.new-design-theme {
+  overflow: hidden;
+  height: auto;
+  position: relative;
+}
+
+.new-design-theme .sidebar,
+.new-design-theme .panel-header,
+.new-design-theme div.panel-header div.action-centre-nav,
+.new-design-theme .page-container,
+.new-design-theme #myModal .LayoutPage > .LayoutPageHeader,
+.new-design-theme div.LayoutPageBody > div.LayoutPageThumbnails,
+.new-design-theme footer,
+.new-design-theme .ps-scrollbar-x-rail,
+.new-design-theme .ps-scrollbar-x,
+.new-design-theme .forComment,
+.new-design-theme .form-group-comment {
+  display: none !important;
+}
+
+.new-design-theme div.main-panel {
+  width: 100%;
+  overflow: hidden !important;
+  height: auto;
+  display: block;
+  max-height: inherit;
+  float: inherit;
+  width: 100vw;
+  overflow-y: hidden;
+  flex-direction: inherit;
+  position: inherit;
+}
+
+.new-design-theme .quickview-wrapper.open.fullWidth {
+  top: inherit;
+  display: block;
+  left: inherit;
+  margin-top: 0 !important;
+  height: auto;
+  position: inherit;
+  overflow: visible;
+  width: 100vw;
+  border-left: inherit;
+}
+
+.new-design-theme .LayoutPage {
+  height: auto !important;
+  width: 100vw;
+}
+
+.new-design-theme .main-container {
+  /* fix IE adding extra page [5778] */
+  display: block !important;
+  overflow: hidden;
+  height: auto;
+  margin-top: 0 !important;
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+  flex-direction: inherit;
+  position: inherit;
+}
+
+.new-design-theme .LayoutPage .LayoutPageBody {
+  height: auto;
+  display: block;
+  width: 100vw;
+}
+
+.new-design-theme div.LayoutPageBody div.LayoutPages {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+  width: 100vw;
+  -ms-overflow-style: inherit;
+  overflow-y: hidden;
+  height: auto;
+}
+
+.new-design-theme .LayoutPages > div > div {
+  /*page-break-inside: avoid;
+    page-break-after: always;*/
+  position: inherit;
+  height: auto;
+  min-height: inherit;
+  margin-bottom: inherit;
+}
+
+.new-design-theme .LayoutPages > div {
+  position: relative;
+  height: auto;
+  overflow-y: hidden;
+}
+
+.new-design-theme .LayoutPages .form-group {
+  margin: 24px 24px;
+}
+
+.new-design-theme .LayoutPages .form-group.form-group label {
+  margin-bottom: 10px;
+  word-break: break-word;
+  white-space: normal;
+}
+
+.new-design-theme div.LayoutPages .form-group .show {
+  padding: 0 0;
+  text-indent: 0;
+}
+
+.new-design-theme label .text-danger {
+  margin-left: 4px;
+}
+
+.new-design-theme .Select-control.Select-control {
+  display: block;
+  height: auto !important;
+}
+
+.new-design-theme .Select--multi .Select-value {
+  border: 0 none !important;
+  padding: 0 !important;
+  text-align: left;
+  display: inline;
+}
+
+.new-design-theme .Select--multi .Select-multi-value-wrapper {
+  padding: 10px;
+}
+
+.new-design-theme .Select--multi .Select-multi-value-wrapper > div:after {
+  content: ",";
+}
+
+/* Hide comma for close icon and last child of a list */
+.new-design-theme
+  .Select--multi
+  .Select-multi-value-wrapper
+  > div:nth-last-child(2):after,
+.new-design-theme
+  .Select--multi
+  .Select-multi-value-wrapper
+  > div:last-child:after {
+  display: none;
+}
+
+#myModal .LayoutPages .form-group .show,
+#myModal textarea:not(.prefixGrid2Input),
+#myModal input:not(.prefixGrid2Input),
+#myModal label {
+  font-size: 14px;
+  line-height: normal;
+}
+
+.new-design-theme #myModal div.LayoutPages > div {
+  padding: 0 0 0 0;
+}
+
+.new-design-theme #myModal {
+  margin-top: 0 !important;
+  position: initial;
+}
+
+.new-design-theme .fixedPageContent {
+  padding: 0 0 0 0;
+}
+
+.new-design-theme.new-design-theme div.LayoutPages .form-group {
+  margin: 20px 0 0 10px;
+  height: calc(100% - 24px);
+}
+
+.new-design-theme div.LayoutPages h1 {
+  font-size: 32px;
+  line-height: 32px;
+}
+
+.new-design-theme div.LayoutPages .fixedPageContent .form-group {
+  width: calc(50% - 26px);
+}
+
+.new-design-theme
+  div.LayoutPages
+  .LayoutInlineGroupBody
+  .form-group
+  .form-control,
+.new-design-theme div.LayoutPages .LayoutInlineGroupBody .form-group div.radio {
+  position: absolute;
+  padding: 0;
+  /* min-height: 40px; */
+  border: inherit;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  /* top: 60px; */
+  /* bottom: 10px; */
+}
+
+.new-design-theme div.LayoutPages .form-group.inline div.radio label {
+  padding-left: 40px;
+  padding-right: 0 !important;
+  position: relative;
+}
+
+.new-design-theme div.radio label input[type="radio"]:checked ~ span.circle {
+  border: 10px solid #4e4e4e;
+  background-color: transparent;
+}
+
+.new-design-theme div.radio label input[type="radio"]:checked ~ span.check {
+  display: none !important;
+}
+
+.new-design-theme div.Select span.Select-arrow-zone {
+  display: none !important;
+}
+
+.new-design-theme
+  .Select.has-value.is-clearable.Select--single
+  > .Select-control
+  .Select-value {
+  line-height: inherit;
+  position: inherit;
+  text-overflow: inherit;
+  white-space: normal;
+  text-align: left;
+  padding: 10px !important;
+}
+
+.new-design-theme div.LayoutPages .form-group .form-control {
+  padding: 0;
+  border: inherit;
+  -ms-border-radius: 0;
+  border-radius: 0;
+}
+
+.new-design-theme
+  div.currencyBody
+  .Select.has-value.is-clearable.Select--single
+  > .Select-control
+  .Select-value {
+  position: inherit;
+  top: inherit;
+  line-height: inherit;
+}
+
+/*.new-design-theme div.LayoutPages .form-group div.numberControl {*/
+/*    padding-left: 60px;*/
+/*    vertical-align: top;*/
+/*}*/
+
+.new-design-theme
+  div.currencyBody
+  > div.col-md-2.current-body
+  > div
+  > div
+  > span.Select-multi-value-wrapper
+  > div.Select-value
+  > .Select-value-label {
+  right: inherit;
+  top: inherit;
+  font-size: 16px;
+}
+
+.new-design-theme .numberControl .glyphicon,
+.new-design-theme .currencyBody .glyphicon {
+  display: none;
+}
+
+.new-design-theme
+  div.LayoutPages
+  .LayoutInlineGroupBody
+  .form-group
+  .numberControl
+  .form-control {
+  height: inherit !important;
+}
+
+.new-design-theme
+  .Select.has-value.is-clearable.Select--single
+  > .Select-control
+  .Select-input {
+  display: none !important;
+}
+
+.new-design-theme .Select--multi .Select-value {
+  color: #4e4e4e;
+  background-color: transparent;
+  border: inherit;
+}
+
+.new-design-theme .Select--multi .Select-value-icon {
+  display: none;
+}
+
+.new-design-theme .Select--multi .Select-value-label {
+  padding: 0;
+  text-align: left;
+  display: inline;
+}
+
+.new-design-theme div.LayoutPages .form-group .prefixGrid .prefixCell > span {
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.new-design-theme
+  div.LayoutPages
+  .form-group
+  .prefixGrid
+  .prefixCell
+  .PrefixCheckbox_Visualizer:after {
+  border-color: #4e4e4e;
+  left: 48%;
+  top: 44%;
+}
+
+.new-design-theme
+  div.LayoutPages
+  .form-group
+  .prefixGrid
+  .prefixCell
+  .PrefixCheckbox_Visualizer {
+  border-color: #4e4e4e;
+  background-color: transparent;
+}
+
+.new-design-theme div.checkbox .checkbox-material .check {
+  height: 24px;
+  width: 24px;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.new-design-theme div.LayoutPages .form-group textarea.form-control,
+.new-design-theme div.LayoutPages .form-group input.form-control[type="text"],
+.new-design-theme div.LayoutPages .form-group input.form-control[type="number"],
+.new-design-theme
+  div.LayoutPages
+  .fixedPageContent
+  .form-group
+  input.amendmentFeild,
+.new-design-theme div.LayoutPages .fixedPageContent .form-group span.show {
+  display: none !important;
+}
+
+.new-design-theme
+  div.LayoutPages
+  .fixedPageContent
+  .form-group
+  div.printTextBox {
+  font-size: 16px;
+}
+
+.new-design-theme div.LayoutPages div.printTextArea,
+.new-design-theme div.LayoutPages div.printTextBox,
+.new-design-theme div.LayoutPages div.printDatePicker,
+.new-design-theme div.LayoutPages div.printNumber,
+.new-design-theme div.LayoutPages div.printGridCell {
+  display: block !important;
+}
+/* Make line-endings visible https://gieom.visualstudio.com/Digital%20Controls/_workitems/edit/6268 */
+.new-design-theme div.LayoutPages div.printGridCell {
+  white-space: pre-wrap;
+}
+
+/* Add borders for date fields https://gieom.visualstudio.com/Digital%20Controls/_workitems/edit/6220 */
+.new-design-theme div.LayoutPages div.printDatePicker,
+.new-design-theme div.LayoutPages div.printTextArea,
+.new-design-theme div.LayoutPages div.printTextBox,
+.new-design-theme div.LayoutPages div.printNumber {
+  border: 2px solid #c9c9c9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.new-design-theme div.LayoutPages div.printGridCell {
+  padding: 10px;
+  word-break: break-word;
+  -ms-word-wrap: break-word;
+  width: 100%;
+}
+
+.new-design-theme div.LayoutPages .form-group .radio label {
+  height: 32px;
+  padding-left: 42px;
+}
+
+.new-design-theme .form-group div.currencyBody div.numberControl,
+.new-design-theme
+  div.LayoutPages
+  .form-group
+  div.numberControl
+  input.form-control[type="text"] {
+  display: inline-block;
+}
+
+.new-design-theme
+  div.LayoutPages
+  .form-group
+  div.numberControl
+  input.form-control[type="text"] {
+  height: auto !important;
+  width: auto;
+}
+
+.new-design-theme
+  div.LayoutPage
+  .form-group
+  .checkbox
+  input[type="checkbox"]:checked
+  + .checkbox-material
+  .check::before,
+#myModal
+  .LayoutPage
+  .form-group
+  .checkbox
+  input[type="checkbox"]:checked
+  + .checkbox-material
+  .check::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 25%;
+  height: 50%;
+  color: #fff !important;
+  border-color: #4e4e4e !important;
+  background-color: #fff !important;
+  border-style: solid;
+  border-width: 0 3px 3px 0;
+  -ms-transform: rotate(45deg) translate(-100%, -25%);
+  -webkit-transform: rotate(45deg) translate(-100%, -25%);
+  transform: rotate(45deg) translate(-100%, -25%);
+  margin-left: 0;
+  opacity: 1 !important;
+}
+
+.new-design-theme
+  div.LayoutPage
+  .checkbox
+  input[type="checkbox"]:checked
+  + .checkbox-material
+  .check {
+  background-color: #4e4e4e !important;
+  color: #4e4e4e !important;
+}
+
+.new-design-theme div.LayoutPage .checkbox .checkbox-material .check {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  border: 1px solid #4e4e4e;
+  opacity: 1 !important;
+}
+
+.new-design-theme .form-group > table > tbody > tr > td.cursor {
+  display: none;
+}
+
+.printPageHeader {
+  position: fixed;
+  top: 0;
+  display: block;
+  text-align: right;
+  z-index: 2000;
+}
+
+.printPageHeader span {
+  font-size: 12px;
+}
+
+.printPageHeader .labelPrint {
+  color: #4e4e4e;
+  font-weight: bold;
+  text-transform: inherit;
+  margin-left: 40px;
+  margin-right: 16px;
+}
+
+.new-design-theme
+  div.LayoutPage
+  .select2-container
+  .select2-selection--single
+  .select2-selection__rendered {
+  text-overflow: inherit;
+  white-space: inherit;
+  word-wrap: break-word;
+}
+
+.new-design-theme
+  div.LayoutPage
+  .select2-container--material
+  .select2-selection {
+  border-bottom: inherit;
+}
+
+.new-design-theme div.LayoutPages .form-group .show.file-upload-btn,
+.new-design-theme div.LayoutPages .Select-loading-zone,
+.new-design-theme div.LayoutPages .Select-loading {
+  display: none !important;
+}
+
+.new-design-theme div.loadingOverlay {
+  display: none;
+}
+
+/* feat(PrintApprovalHistory): [6287] Implement approval history printing */
+.new-design-theme #approvalHistoryModal {
+  display: block !important;
+  position: static;
+  opacity: 1;
+}
+
+.new-design-theme #approvalHistoryModal .modal-dialog {
+  position: static;
+  transform: none;
+  width: 100%;
+}
+
+.new-design-theme #approvalHistoryModal .modal-dialog #stages-details {
+  display: block !important;
+  flex: 1 1 auto;
+}
+
+.new-design-theme #approvalHistoryModal #stages-details .stage-detail {
+  height: auto;
+  padding: 0 10px;
+}
+
+.new-design-theme #approvalHistoryModal #stages-details .stages-remarks {
+  padding: 0 10px;
+}
+
+.new-design-theme #approvalHistoryModal .modal-dialog .row {
+  margin: 0;
+  display: flex;
+  min-height: 0;
+}
+
+.new-design-theme #approvalHistoryModal .modal-header .close {
+  display: none;
+}
+
+.new-design-theme #approvalHistoryModal .modal-header .modal-title {
+  font-size: 14px;
+  line-height: normal;
+  padding-left: 10px;
+  margin: 0;
+}
+
+.new-design-theme #approvalHistoryModal .stages-modal-icons {
+  display: none;
+}
+
+.new-design-theme #approvalHistoryModal #stages-list-stage-names {
+  justify-content: flex-start;
+  height: auto !important;
+}
+
+.new-design-theme
+  #approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-action,
+.new-design-theme
+  #approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-stage,
+.new-design-theme
+  #approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-username-date
+  .username,
+.new-design-theme
+  #approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-username-date
+  .date,
+.new-design-theme
+  #approvalHistoryModal
+  #stages-list-stage-names
+  .stages-desc-modal,
+.new-design-theme #approvalHistoryModal #stages-details .stages-remarks {
+  font-size: 12px;
+}
+
+.new-design-theme #approvalHistoryModal #stages-details .stages-remarks {
+  display: block;
+}
+
+.new-design-theme
+  #approvalHistoryModal
+  #stages-list-stage-names
+  .stages-desc-modal {
+  margin-bottom: 8px;
+}
+
+.new-design-theme
+  #approvalHistoryModal
+  #stages-list-stage-names
+  .stages-desc-modal
+  span,
+.new-design-theme
+  #approvalHistoryModal
+  #stages-list-stage-names
+  .stages-desc-modal
+  .future-stage
+  span {
+  font-weight: normal;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.new-design-theme
+  #approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-username-date {
+  width: auto !important;
+  max-width: 100% !important;
+}
+
+/* Currency field overwrites [5778] */
+.new-design-theme .form-group .currencyBody {
+  display: flex;
+}
+
+.new-design-theme .form-group .currencyBody .current-body {
+  width: 16.66666667% !important;
+}
+
+.new-design-theme
+  .form-group.form-group
+  .currencyBody.currencyBody
+  .numberControl.numberControl {
+  width: 75% !important;
+}
+
+.new-design-theme
+  .form-group.form-group
+  .currencyBody.currencyBody
+  .numberControl.numberControl
+  input.form-control {
+  display: block !important;
+  border: 2px solid #c9c9c9;
+  padding: 10px;
+  border-radius: 5px;
+  line-height: 21px !important;
+  width: 100%;
+}
+
+/* Decrease spacing of initiator block [5778] */
+.new-design-theme .initiator_detalis {
+  margin-bottom: 0 !important;
+}
+/* Decrease spacing of initiator block [5778] */
+/* This block has visibility hidden, but takes space so hide it all */
+.new-design-theme #rejectProcessRCSA {
+  display: none !important;
+}
+
+.main-container.hideSummary #pageThirdLast {
+  display: none;
+}
+
+.main-container.hideComments #pageSecondLast {
+  display: none;
+}
+
+.main-container.hideApproval #approvalHistoryModal {
+  display: none !important;
+}
+
+/* Fix invisible borders */
+.new-design-theme .prefixGrid td {
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+@page {
+  size: auto;
+  margin: 25mm 10mm 25mm 10mm;
+}

@@ -1,0 +1,249 @@
+.edit-form {
+  padding: calc(20 * 100vh / 910) calc(30 * 100vw / 1920);
+}
+
+.edit-form .edit-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.edit-form .item {
+  flex-grow: 1;
+  margin: 10px 0;
+  flex-basis: 45%;
+}
+
+.edit-form .item-full-width {
+  flex-grow: 2;
+  margin: 10px 0;
+  flex-basis: 100%;
+}
+
+.edit-form .item:nth-child(odd) {
+  margin-right: calc(30 * 100vw / 1920);
+}
+
+.edit-form .form-group > input,
+.edit-form .form-group.numberControl > div,
+.edit-form .form-group > table,
+.edit-form .form-group > span,
+.edit-form .form-group > textarea,
+.edit-form .form-group > div.Select,
+.edit-form-theme .form-group .currencyBody,
+.edit-form .form-wrap.form-builder .file-field.form-field div.fb-file {
+  width: calc(100%) !important;
+  font-size: calc(18 * (50vh + 23.5vw) / 910) !important;
+  height: calc(50 * 100vh / 910);
+}
+
+.edit-form label {
+  font-size: calc(16 * (50vh + 23.5vw) / 910) !important;
+}
+
+.edit-form .form-group.required > label:first-child::after {
+  content: "." !important;
+  margin-left: 4px;
+  font-size: calc(30 * (50vh + 23.5vw) / 910) !important;
+  font-weight: bold;
+  position: relative;
+  top: -0.2vh;
+}
+
+.edit-form input.datepicker,
+.edit-form .form-group.is-focused input.datepicker,
+.edit-form .select2 .select2-selection,
+.edit-form .select2.select2-container--focus .select2-selection,
+.edit-form .Select-control,
+.edit-form .Select.is-focused .Select-control,
+.edit-form .Select.is-focused:not(.is-open) .Select-control {
+  border: 0 none;
+  background: #f2f3fa;
+  border-radius: calc(5 * (50vh + 23.5vw) / 910);
+  padding: calc(10rem / 16) calc(10rem / 16);
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+}
+
+.edit-form .form-control,
+.edit-form .select2-container .select2-selection--single,
+.edit-form .Select-control {
+  height: calc(50 * 100vh / 910);
+  font-size: calc(18 * (50vh + 23.5vw) / 910) !important;
+}
+
+.edit-form textarea.form-control {
+  height: auto;
+}
+
+.edit-form
+  .select2-container--material
+  .select2-selection--single
+  .select2-selection__arrow {
+  width: calc(10 * 100vw / 1920);
+  height: calc(10 * 100vh / 910);
+  display: inline-block;
+  border-right: calc(2 * (50vh + 23.5vw) / 910) solid #4e4e4e;
+  border-bottom: calc(2 * (50vh + 23.5vw) / 910) solid #4e4e4e;
+  transform: rotate(45deg);
+  position: absolute;
+  right: calc(15 * 100vw / 1920);
+  top: calc(20 * 100vh / 910);
+}
+
+.edit-form input.select2-search__field {
+  background-color: unset !important;
+}
+
+.edit-form .simple-check-box {
+  font-size: calc(10 * (50vh + 23.5vw) / 910);
+  color: inherit;
+  text-align: right;
+}
+
+.edit-form .simple-check-box input[type="checkbox"] {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.edit-form .simple-check-box input[type="checkbox"]:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: calc(28 * 100vw / 1920);
+  height: calc(24 * 100vh / 910);
+  top: calc(-5 * 100vh / 910);
+  left: calc(-11 * 100vw / 1920);
+  border: 2px solid #4e4e4e;
+  border-radius: 0;
+  background-color: #fff;
+}
+
+.edit-form .simple-check-box input[type="checkbox"]:checked:before {
+  background-color: #4d94ff;
+  border: 0;
+}
+
+.edit-form .simple-check-box input[type="checkbox"]:checked:after {
+  content: "";
+  display: block;
+  width: calc(10 * 100vw / 1920);
+  height: calc(18 * 100vh / 910);
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: calc(-1 * 100vh / 910);
+  left: calc(-2 * 100vw / 1920);
+  color: #fff;
+}
+
+.edit-form .table > thead > tr > th,
+.edit-form .table > tbody > tr > th,
+.edit-form .table > tfoot > tr > th,
+.edit-form .table > thead > tr > td,
+.edit-form .table > tbody > tr > td,
+.edit-form .table > tfoot > tr > td {
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+.edit-form
+  .select2-container--material
+  .select2-search--inline
+  .select2-search__field {
+  width: 100% !important;
+}
+
+.edit-form .workflow-stages-container .list-item li > div {
+  display: inline-block;
+  width: 100% !important;
+  padding-right: 30px;
+}
+
+.select2-container--default .select2-results > .select2-results__options {
+  overflow-x: hidden;
+}
+
+.edit-form input[type="number"] {
+  background-color: unset;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-width: 0;
+  border: none;
+  border-bottom: 1px solid #a0a0a4;
+  /*text-align: center;*/
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.edit-form .workflow-stages-container .list-item .list-item-header {
+  padding: 15px;
+}
+
+.edit-form .workflow-stages-container .list-item .options {
+  background-color: #f2f3fa !important;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.edit-form .workflow-stages-container .list-item .closed {
+  background-color: #4d94ff !important;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.edit-form .workflow-stages-container .list-item .opened {
+  background-color: #f2f3fa !important;
+  color: #000;
+  border-radius: 5px 5px 0 0;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.edit-form .number_stages label {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  color: #4e4e4e;
+}
+
+.edit-form .select2-container--disabled .select2-selection__rendered {
+  font-size: calc(18 * (50vh + 23.5vw) / 910);
+  color: #4e4e4e;
+}
+
+.edit-form .select2-container.select2-container--material {
+  max-width: 100%;
+}
+
+.edit-form
+  .select2-container
+  .select2-selection--single
+  .select2-selection__rendered {
+  width: 100%;
+}
+
+.label-with-margin {
+  margin-bottom: 20px;
+}
+
+#approvalNotNeeded,
+.approvalNeededCheck {
+  margin-right: calc(15 * 100vw / 1920) !important;
+}
+
+#approvalNotNeeded:before {
+  top: calc(-3 * 100vh / 910);
+}
+
+#approvalNotNeeded:after {
+  top: calc(-5 * 100vh / 910);
+}
+
+.stages-table > thead > tr > th,
+.stages-table > tbody > tr > th {
+  font-size: calc(20 * (50vh + 23.5vw) / 910) !important;
+}

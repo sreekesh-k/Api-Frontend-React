@@ -1,11 +1,11 @@
 import React from "react";
 import ThemeLayoutTwo from "../../common/layouts/ThemeLayoutTwo";
-
+// import "./actionCenter.css";
 function ActionCenter() {
   return (
     <>
       <ThemeLayoutTwo>
-        <div>YO THIS IS ACTION CENTER</div>
+          
       </ThemeLayoutTwo>
     </>
   );

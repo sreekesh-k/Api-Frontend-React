@@ -1,0 +1,930 @@
+#myModal .navigate-tabs-panel .tabs-list {
+  flex: 1 0;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .main-container {
+    margin-top: 19.5vh !important;
+  }
+}
+
+.content.ManageLeftPanel {
+  min-width: 16.66666667%;
+  border-radius: 5px;
+}
+
+.ManageTable,
+.ManageLeftPanel {
+  padding: 0 15px !important;
+}
+
+.ManageLeftPanel {
+  padding-right: 0 !important;
+}
+
+.ManageLeftPanel .panel {
+  padding: 0;
+  background: #ffffff;
+}
+
+.ManageLeftPanel .panel .header {
+  background-color: #4d94ff;
+  padding: 2.11vh 1.04vw 2.02vh;
+  margin: 0;
+  border-radius: 5px 5px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ManageLeftPanel .panel .header label {
+  color: white;
+  text-transform: uppercase;
+  font-size: 0.83vw;
+  font-weight: bold;
+  padding: 0;
+  margin: 0;
+}
+
+.ManageLeftPanel .panel .panel-body .checkbox .check {
+  display: none;
+}
+
+#filterContainer {
+  padding: 0;
+}
+
+.ManageLeftPanel .panel .panel-body label {
+  font-weight: normal !important;
+  padding: 0.52vw 1.06vh;
+}
+
+.ManageLeftPanel
+  .panel
+  .panel-body
+  .checkbox
+  input[type="checkbox"]:checked
+  + label {
+  background-color: #4d94ff !important;
+  color: white !important;
+  border-radius: 6px;
+  font-weight: bold !important;
+}
+
+.ManageLeftPanel .panel .panel-body .checkbox #options-all:checked + label {
+  color: #4e4e4e !important;
+  background: transparent !important;
+}
+
+.ManageTable {
+  width: calc(100% - 16.667vw);
+  float: left;
+  border-radius: 5px;
+}
+
+.ManageTable table td,
+table th {
+  background-color: white;
+  text-align: left;
+}
+.ManageTable table > thead > tr > th:nth-child(2),
+.ManageTable table > thead > tr > th:nth-child(1),
+/*.ManageTable table > thead > tr > th:nth-child(6),*/
+.ManageTable table > tbody > tr > td:nth-child(1),
+.ManageTable table > tbody > tr > td:nth-child(2),
+/*.ManageTable table > tbody > tr > td:nth-child(6),*/
+.ManageTable .base-table table.dataTable > thead > tr > th:nth-child(1),
+.ManageTable .base-table table.dataTable > thead > tr > th:nth-child(2) {
+  border-right: 1px solid #ddd;
+}
+
+.ManageTable table > thead > tr > th:last-child,
+.ManageTable table > tbody > tr > td:last-child {
+  border-left: 1px solid #ddd;
+}
+
+.ManageTable .base-table table.dataTable > thead > tr > th:after {
+  display: none;
+}
+
+div.dataTables_wrapper div.dataTables_length,
+div.dataTables_wrapper div.dataTables_filter {
+  display: none;
+}
+
+.action-centre-nav .action-tabs > li.active > a,
+.action-centre-nav .action-tabs > li.active > a:hover,
+.action-centre-nav .action-tabs > li.active > a:focus {
+  background-color: transparent;
+  transition: none;
+  border-bottom: 0.42vh solid #4d94ff !important;
+  color: #000 !important;
+  font-size: 0.729vw;
+  outline: none !important;
+  font-weight: bold !important;
+}
+
+.action-centre-nav .action-tabs > li > a:hover,
+.action-centre-nav .action-tabs > li > a:focus {
+  border-bottom: unset !important;
+}
+
+.action-centre-nav .action-tabs > li {
+  min-width: 5.208vw;
+}
+
+.action-centre-nav .action-tabs > li > a > .ripple-container {
+  display: none;
+}
+
+.action-centre-nav .action-tabs {
+  margin-left: 0.521vw;
+}
+
+.submitFormButton,
+.reviewFormButton {
+  min-width: 6vw;
+  height: 2.88vh;
+  border: 2px solid;
+  border-radius: 4px;
+  font-size: 0.83vw;
+  font-weight: bold;
+  background-color: transparent;
+  background: transparent;
+}
+
+.submitFormButton {
+  color: #4d94ff;
+  border-color: #4d94ff;
+}
+
+.reviewFormButton {
+  color: #d43e70;
+  border-color: #d43e70;
+}
+
+.appproval-history-icon button {
+  width: 1.198vw;
+  height: 2.45vh;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 0.83vw;
+  padding: 0;
+}
+
+.SubmitApprovalHistory,
+.ReviewApprovalHistory,
+.CompleteApprovalHistory {
+  text-align: center !important;
+}
+
+.SubmitApprovalHistory .appproval-history-icon button {
+  background-color: #4d94ff;
+  background: #4d94ff;
+}
+
+.ReviewApprovalHistory .appproval-history-icon button {
+  background-color: #d43e70;
+  background: #d43e70;
+}
+
+.CompleteApprovalHistory .appproval-history-icon button {
+  background-color: #4d94ff;
+  background: #4d94ff;
+}
+
+td .badge {
+  height: 2.88vh;
+  font-size: 0.83vw;
+  font-weight: normal;
+  line-height: 1.5;
+  border-radius: 4px;
+}
+
+td .copyForm,
+td .deleteForm {
+  padding-top: 1.067vh;
+  display: inline-block;
+}
+
+#myModal textarea:not(.prefixGrid2Input),
+#myModal input:not(.prefixGrid2Input),
+#myModal label,
+#controlsListModal textarea:not(.prefixGrid2Input),
+#controlsListModal input:not(.prefixGrid2Input),
+#controlsListModal label {
+  font-size: 0.83vw;
+}
+
+#myModal .LayoutPages .form-group .show {
+  font-size: 0.938vw;
+}
+
+#myModal
+  .LayoutPage
+  .form-group
+  .checkbox
+  input[type="checkbox"]:checked
+  + .checkbox-material
+  .check::before {
+  /* color: #4D94FF !important; */
+}
+
+#myModal .LayoutPage .form-group .radio input[type="radio"]:checked ~ .check {
+  background-color: #4d94ff !important;
+}
+
+#divAction {
+  margin: 4.162vh 0.833vw;
+}
+
+#divAction .radio {
+  display: inline-block;
+}
+
+#divAction .radio:not(:last-of-type) {
+  margin-right: 8.537vh;
+}
+
+#divAction .radio label {
+  font-size: 0.83vw;
+  font-weight: normal !important;
+}
+
+#divAction .radio label span {
+  left: 0;
+}
+
+#remarksText .actionsRemarks {
+  border: 0;
+  background-image: linear-gradient(#9c27b0, #9c27b0),
+    linear-gradient(#d2d2d2, #d2d2d2);
+  background-size: 0 2px, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center bottom, center calc(100% - 1px);
+  background-color: rgba(0, 0, 0, 0);
+  transition: background 0s ease-out;
+  float: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: 400;
+}
+
+#remarksText.is-focused .form-control {
+  background-size: 100% 2px, 100% 1px;
+  box-shadow: none;
+  transition-duration: 0.3s;
+}
+
+#divAction .radio label input[type="radio"]:checked ~ span.check {
+  left: 6px;
+  top: 8px;
+  height: 16px;
+  width: 16px;
+  background-color: #4d94ff;
+}
+
+#myModal .navigate-tabs-panel .action-tabs {
+  margin-top: 0;
+}
+
+#divAction .form-group {
+  margin: 3.201vh 0 0 0;
+}
+
+#remarksText {
+  margin: 0.533vh 0 0 0 !important;
+}
+
+#divAssignUserBtn {
+  margin: 1.0672vh 0 0 0 !important;
+}
+
+#divAction .form-group label,
+#assignedUserFormStages label {
+  margin-bottom: 0;
+}
+
+.radioReviewer {
+  top: 4vh !important;
+}
+
+#assignedUserFormStagesWrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+#assignUserForm {
+  color: #ffffff;
+  background-color: #4d94ff;
+  border-radius: 7px;
+  height: 54px;
+  text-transform: capitalize;
+  font-size: 0.83vw;
+  font-weight: bold;
+}
+
+#divAction .select2-selection--multiple {
+  padding-top: 0;
+  height: 5.763vh;
+  padding-bottom: 0;
+}
+
+#divAction .select2-container--material .select2-selection {
+  font-size: 0.83vw !important;
+  line-height: 2;
+}
+
+#divAction .select2-selection__rendered {
+  height: 5.763vh;
+}
+
+/*#divAction .select2-container--material .select2-selection--multiple .select2-selection__choice {
+    margin: -1px 0 !important;
+}*/
+
+#divAction .select2-selection__choice {
+  border-radius: 0;
+  background-color: #ffffff;
+  font-size: 0.83vw;
+  margin-top: 0.747vh;
+  margin-right: 0.521vw !important;
+  height: 4.268vh;
+  line-height: 4.695vh;
+}
+
+#divAction .select2-selection__choice .select2-selection__choice__remove {
+  opacity: 1;
+  cursor: pointer;
+  margin-top: 0.533vh;
+  margin-right: -0.313vw;
+}
+
+#divAction
+  .select2-container--material
+  .select2-search--inline
+  .select2-search__field {
+  height: 5.336vh;
+}
+
+#divAction
+  .select2-container--material
+  .select2-selection--multiple
+  .select2-selection__choice__remove::before {
+  content: "x";
+  font-family: unset;
+  font-size: 0.938vw;
+  color: #4d94ff;
+}
+
+.assigned-users-list {
+  display: inline-block;
+  overflow: hidden;
+  padding-left: 0.938vw;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  height: 5.763vh;
+  width: 100%;
+  border: 1px solid #afb3c7;
+  border-radius: 7px;
+}
+
+.assigned-users-list li {
+  border-radius: 0;
+  background-color: #f2f3fa;
+  font-size: 0.83vw;
+  height: 4.268vh;
+  line-height: 4.695vh;
+  padding: 0 0.625vw;
+  border: 0;
+  color: rgba(0, 0, 0, 0.87);
+  margin: 0.213vh 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: inline-block;
+  float: left;
+  margin-right: 0.417vw;
+  margin-bottom: 0.426vh;
+  margin-top: 0.64vh;
+}
+
+.edit-form .form-group > span {
+  height: 5.763vh;
+}
+
+#CompletedList_Task_wrapper .dataTable thead tr th:last-of-type {
+  text-align: center;
+}
+
+#assignedUserFormStages .assigned-from {
+  height: 5.763vh;
+  width: 100%;
+  border: 1px solid #afb3c7;
+  border-radius: 7px;
+}
+
+#assignedUserFormStages .delete-assigned {
+  margin-top: 0;
+  height: 5.763vh;
+  padding-top: 1.6vh;
+}
+
+#divSelectForm .select2-container .select2-selection--single {
+  height: 5.763vh;
+}
+
+#approvalHistoryModal.modal.in {
+  display: flex !important;
+  align-items: center;
+}
+
+#approvalHistoryModal .modal-dialog {
+  width: 65%;
+}
+
+#approvalHistoryModal .modal-content {
+  height: auto;
+  min-height: 100%;
+}
+
+#approvalHistoryModal .modal-header {
+  padding: 0 15px;
+  height: 5.869vh;
+  display: flex;
+  background-color: #4d93ff;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 5px 5px 0 0;
+}
+
+#approvalHistoryModal .modal-body {
+  border-radius: 0 0 5px 5px;
+}
+
+#approvalHistoryModal .modal-header .modal-header-title,
+#approvalHistoryModal .modal-header .modal-header-btns {
+  display: flex;
+  align-items: center;
+}
+
+#approvalHistoryModal .modal-header .close {
+  float: left;
+  color: #ffffff;
+  font-size: 2.083vw;
+  font-weight: 100;
+  margin-top: -0.68vh;
+}
+
+#approvalHistoryModal .modal-header .modal-title {
+  font-weight: bold;
+  font-size: 0.83vw;
+  line-height: 3.201vh;
+  margin-left: 1.042vw;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+#approvalHistoryModal .modal-body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  /*height: calc(600 * 100vh / 910);*/
+  max-height: 66.168vh;
+}
+
+#approvalHistoryModal .modal-body .row {
+  min-height: calc(323 * 100vh / 910);
+}
+
+#approvalHistoryModal .modal-dialog {
+  margin-top: 0;
+}
+
+#approvalHistoryModal #no-stages-wrapper {
+  height: 5.336vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.83vw;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#approvalHistoryModal #stages-details {
+  display: block;
+  background-color: #f2f3fa;
+  padding: 3.201vh 0;
+  max-width: 74%;
+  min-height: calc(323 * 100vh / 910);
+}
+
+#approvalHistoryModal #stages-details .stage-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5.336vh;
+  background-color: #ffffff;
+  border: 1px solid #afb3c7;
+  border-radius: 5px;
+  padding-left: 1.146vw;
+  margin: 0 1.823vw 1.6vh 1.042vw;
+}
+
+#approvalHistoryModal #stages-details .stage-with-remarks {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#approvalHistoryModal #stages-details .stages-remarks {
+  font-size: 0.729vw;
+  display: flex;
+  align-items: center;
+  height: 5.336vh;
+  background-color: #ffffff;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #afb3c7;
+  border-top: none;
+  padding: 2.668vh 1.302vw;
+  margin: -1.6vh 1.823vw 1.6vh 1.042vw;
+}
+
+#approvalHistoryModal #stages-details .stage-detail .stages-username-date {
+  max-width: 30%;
+  width: 30%;
+}
+
+#approvalHistoryModal #stages-details .stage-detail .stages-action {
+  text-align: left;
+  padding-left: 2%;
+}
+
+#approvalHistoryModal #stages-details .stage-detail .stages-action,
+#approvalHistoryModal #stages-details .stage-detail .stages-stage {
+  max-width: 25%;
+  width: 25%;
+}
+
+#approvalHistoryModal #stages-details .stage-detail .stages-stage {
+  font-weight: bold;
+  color: #4e4e4e;
+  font-size: 0.729vw;
+  text-align: center;
+}
+
+#approvalHistoryModal #stages-details .stage-detail .stages-action {
+  font-size: 0.729vw;
+}
+
+#approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-username-date
+  .username {
+  color: #4e4e4e;
+  font-size: 0.729vw;
+  font-weight: bold;
+  margin-right: 0.833vw;
+}
+
+#approvalHistoryModal #stages-details .stage-detail .historyUserNameEllipsis {
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+
+#approvalHistoryModal
+  #stages-details
+  .stage-detail
+  .stages-username-date
+  .date {
+  color: #b9b9b9;
+  white-space: nowrap;
+  font-size: 0.729vw;
+}
+
+#approvalHistoryModal #stages-list .stages-modal-icons .history-stages-complete,
+#approvalHistoryModal #stages-list .stages-modal-icons .history-stages-rejected,
+#approvalHistoryModal
+  #stages-list
+  .stages-modal-icons
+  .history-stages-in-progress {
+  width: 0.729vw;
+  height: 1.494vh;
+}
+
+#approvalHistoryModal
+  #stages-list
+  .stages-modal-icons
+  .history-stages-complete {
+  background-color: #b9b9b9;
+}
+
+#approvalHistoryModal
+  #stages-list
+  .stages-modal-icons
+  .history-stages-in-progress {
+  background-color: #4d94ff;
+}
+
+#approvalHistoryModal .modal-stages-wrapper {
+  display: flex;
+  padding-top: 3.201vh;
+  /*margin-bottom: -3.201vh;*/
+  max-height: 58vh;
+}
+
+#approvalHistoryModal #stages-list-icons {
+  margin-right: 0.781vw;
+}
+
+#approvalHistoryModal .stages-modal-icons li {
+  width: 0.677vw;
+  height: 1.387vh;
+  text-align: center;
+  line-height: 2em;
+  margin-bottom: 6.4vh;
+  position: relative;
+  list-style-type: none;
+  background-color: #ffffff;
+  border: 2px solid #b9b9b9;
+}
+
+#approvalHistoryModal .stages-modal-icons li.history-stages-complete {
+  background-color: #b9b9b9;
+  border-color: transparent;
+}
+
+#approvalHistoryModal .stages-modal-icons li.history-stages-in-progress {
+  background-color: #4d94ff;
+  border-color: transparent;
+}
+
+#approvalHistoryModal .stages-modal-icons li:not(:last-of-type)::before {
+  content: "";
+  position: absolute;
+  top: 1.173vh;
+  left: 0.208vw;
+  width: 0.104vw;
+  height: 6.4vh;
+  background-color: #b9b9b9;
+}
+
+#approvalHistoryModal #stages-list-stage-names {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#approvalHistoryModal #stages-list-stage-names .stages-desc-modal {
+  font-weight: bold;
+  font-size: 0.781vw;
+  line-height: 2.13vh;
+}
+
+#approvalHistoryModal
+  #stages-list-stage-names
+  .stages-desc-modal
+  .future-stage {
+  color: #b9b9b9;
+}
+
+#approvalHistoryModal #stages-list-stage-names .stages-desc-modal span,
+#approvalHistoryModal
+  #stages-list-stage-names
+  .stages-desc-modal
+  .future-stage
+  span {
+  font-weight: normal;
+}
+
+#myModal #actionFormStages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6.4vh;
+  max-width: 36.458vw;
+  width: 70%;
+}
+
+#actionFormStages .all-stages-link {
+  font-size: 0.885vw;
+  font-weight: bold;
+  color: #4d94ff;
+  cursor: pointer;
+}
+
+#actionFormStages .action-form-stages-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6.4vh;
+  max-width: 31.25vw;
+  width: auto;
+  position: relative;
+  margin: auto 1.042vw;
+}
+
+#actionFormStages .action-form-stages-container .fa {
+  position: absolute;
+  cursor: not-allowed;
+  font-weight: bold;
+  color: #b9b9b9;
+  font-size: 1.563vw;
+  top: 1.6vh;
+}
+
+#actionFormStages .action-form-stages-container .viewMoreAngle {
+  color: #4d94ff;
+  cursor: pointer;
+}
+
+#actionFormStages .action-form-stages-container .fa.fa-angle-left {
+  left: -0.521vw;
+}
+
+#actionFormStages .action-form-stages-container .fa.fa-angle-right {
+  right: -0.521vw;
+}
+
+#actionFormStages .action-form-stages-label {
+  font-size: 0.885vw;
+  font-weight: bold;
+  color: #b9b9b9;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  > div
+  > div
+  > div:not(.action-form-stages-tooltip) {
+  width: 0.677vw;
+  height: 1.387vh;
+  border-radius: 0;
+  background: #ffffff;
+  border: 2px solid #b9b9b9;
+}
+
+.navigate-tabs-panel #actionFormStages > div > div:not(.all-stages-link) {
+  padding-left: 0.781vw;
+  padding-right: 0.781vw;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+#actionFormStages .action-form-stages-container > div > div {
+  width: 2.083vw;
+  height: 4.268vh;
+  display: flex;
+  align-items: center;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  > div
+  > div:last-of-type:not(.action-form-stages-in-progress) {
+  width: 0.729vw;
+}
+
+#actionFormStages .action-form-stages-container > div > div:nth-child(n + 6) {
+  display: none;
+}
+
+.action-form-stages-container
+  > div
+  > div.action-form-stages-in-progress
+  > div
+  > div.before,
+.action-form-stages-container
+  > div
+  > div.action-form-stages-in-progress
+  > div.action-form-stages-first
+  > div.before {
+  left: auto;
+  right: -1.563vw;
+}
+
+.action-form-stages-container
+  > div
+  > div.action-form-stages-in-progress
+  > div:before,
+.action-form-stages-container
+  > div
+  > div.action-form-stages-in-progress
+  > div.action-form-stages-first:before {
+  left: auto;
+  right: -1.563vw;
+}
+
+.action-form-stages-container
+  > div
+  > div.action-form-stages-single
+  > div:before {
+  display: none;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  .action-form-stages-in-progress {
+  width: 17.188vw;
+  height: 4.268vh;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  .action-form-stages-in-progress
+  span {
+  font-size: 0.885vw;
+  line-height: 1.814vh;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  .action-form-stages-in-progress
+  > div:first-child {
+  width: 93%;
+  height: 100%;
+  border: 2px solid #4d94ff;
+  background: #ffffff;
+  padding: 0 0.625vw;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  .action-form-stages-in-progress
+  > div.action-form-stages-last {
+  width: 100%;
+}
+
+#actionFormStages
+  .action-form-stages-container
+  .action-form-stages-complete
+  > div:first-child {
+  background: #b9b9b9;
+}
+
+#actionFormCommentHistory {
+  max-height: 70vh;
+}
+
+.printPageHeader {
+  display: none;
+}
+
+@media (max-width: 1366px) and (max-height: 768px) {
+  .submitFormButton,
+  .reviewFormButton {
+    padding: 0;
+  }
+
+  #DueList_Task .badge,
+  #OverdueList_Task .badge,
+  #UpcomingList_Task .badge,
+  #CompletedList_Task .badge,
+  #DraftList_Task .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 0.365vw;
+  }
+
+  #approvalHistoryModal #stages-details .stage-detail .stages-action {
+    padding-left: 0;
+  }
+
+  #approvalHistoryModal #stages-details .stage-detail .stages-username-date {
+    max-width: 25%;
+    width: 25%;
+  }
+  #approvalHistoryModal #stages-details .stage-detail .historyUserNameEllipse {
+    max-width: 37%;
+    width: 37%;
+    display: flex;
+  }
+  #myModal .navigate-tabs-panel .tabs-list {
+    overflow: visible;
+  }
+
+  #actionFormStages {
+    transform: scale(0.9);
+  }
+
+  #actionFormStages .action-form-stages-container .fa {
+    top: 1.8vh;
+  }
+
+  #actionFormStages .all-stages-link,
+  #actionFormStages .action-form-stages-label {
+    font-size: 0.83vw;
+  }
+}
+@media (min-width: 250px) and (max-width: 995px) {
+  .ManageTable {
+    width: calc(100% - 1.667vw);
+  }
+}

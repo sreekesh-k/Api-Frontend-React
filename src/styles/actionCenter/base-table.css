@@ -1,0 +1,295 @@
+.base-table.base-table table {
+  padding: 0 !important;
+  margin: 0 !important;
+  table-layout: fixed;
+  word-wrap: break-word;
+  width: 100% !important;
+  max-width: none !important;
+  clear: both;
+}
+
+.base-table * {
+  box-sizing: border-box !important;
+}
+
+.base-table div.dataTables_scrollHead table.dataTable {
+  margin-top: 0 !important;
+}
+
+.base-table .action {
+  color: #ffc35e;
+  font-size: inherit;
+  margin-right: 0;
+  height: auto;
+  width: auto;
+  display: inline-block;
+}
+
+.base-table .action svg {
+  height: calc(25 * 100vh / 910);
+  width: calc(25 * 100vw / 1920);
+  overflow: visible;
+}
+
+.base-table .action.editForm {
+  color: #4caf50;
+}
+
+.base-table .action.deleteForm {
+  color: #ff525a;
+}
+
+.base-table .dataTable tbody tr {
+  height: calc(55 * 100vh / 910) !important;
+}
+
+.base-table .dataTable tbody tr:nth-child(odd) {
+  background-color: #fff !important;
+}
+
+.base-table .dataTable tbody tr:nth-child(even) {
+  background-color: #f5f5f5 !important;
+}
+
+.base-table .dataTables_scrollBody::-webkit-scrollbar-track {
+  background-color: #bec2d6;
+}
+
+.base-table .dataTables_scrollBody::-webkit-scrollbar-thumb {
+  background-color: #fff;
+  border: calc(5 * (50vh + 23.5vw) / 910) solid #bec2d6;
+  border-radius: calc(20 * (50vh + 23.5vw) / 910);
+}
+
+.base-table div.dataTables_wrapper div.dataTables_info {
+  float: left;
+  width: 20%;
+  display: flex;
+  padding: calc(16 * 100vh / 910) calc(20 * 100vw / 1920);
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+}
+
+.base-table div.dataTables_wrapper div.dataTables_paginate {
+  width: -1%;
+  display: flex;
+  padding: calc(16 * 100vh / 910) calc(20 * 100vw / 1920);
+  float: right;
+  text-align: center;
+}
+
+.base-table div.dataTables_wrapper div.dataTables_paginate {
+  justify-content: center;
+}
+
+.base-table div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+  margin: 0 0;
+  margin-left: auto;
+}
+
+.base-table .DTFC_Cloned.table.dataTable,
+.base-table .DTFC_Cloned.table.dataTable {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.base-table .DTFC_LeftBodyLiner,
+.base-table .DTFC_RightBodyLiner {
+  overflow: hidden;
+}
+
+/* Hide sorting for clones */
+.base-table .DTFC_LeftBodyLiner table.dataTable thead th:after,
+.base-table .DTFC_RihgtBodyLiner table.dataTable thead th:after {
+  content: none;
+  display: none;
+}
+
+.base-table .DTFC_LeftBodyLiner table.dataTable thead th,
+.base-table .DTFC_RightBodyLiner table.dataTable thead th {
+  padding: 0 !important;
+}
+
+.base-table .DTFC_LeftBodyWrapper,
+.base-table .DTFC_LeftHeadWrapper {
+  border-right: 1px solid #ddd;
+}
+
+.base-table .DTFC_RightBodyWrapper table.dataTable > tbody > tr > td {
+  text-align: left;
+}
+
+.base-table .table-with-tooltip td > div {
+  height: auto;
+}
+
+.base-table .DTFC_RightBodyWrapper,
+.base-table .DTFC_RightHeadWrapper {
+  border-left: 1px solid #ddd;
+}
+
+.base-table
+  .DTFC_LeftHeadWrapper
+  .table
+  > thead:first-child
+  > tr:first-child
+  > th,
+.base-table
+  .DTFC_RightHeadWrapper
+  .table
+  > thead:first-child
+  > tr:first-child
+  > th {
+  text-align: left;
+}
+
+.base-table .DTFC_LeftBodyLiner table tr,
+.base-table .DTFC_RightBodyLiner table tr,
+.base-table .table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+.base-table .dataTables_scrollBody {
+  -ms-overflow-style: scrollbar;
+}
+.base-table .dataTables_scrollBody,
+.base-table .dataTables_scrollHead {
+  width: 100% !important;
+}
+
+.base-table table.dataTable > thead > tr > th,
+.base-table table.dataTable > tbody > tr > th,
+.base-table table.dataTable > tfoot > tr > th {
+  background-color: #fff;
+}
+
+.base-table table.dataTable > thead > tr > th,
+.base-table table.dataTable > tbody > tr > th,
+.base-table table.dataTable > tfoot > tr > th,
+.base-table table.dataTable > thead > tr > td,
+.base-table table.dataTable > tbody > tr > td,
+.base-table table.dataTable > tfoot > tr > td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-top: none !important;
+  border-bottom: 1px solid #ddd;
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  padding: 0 calc(5 * 100vw / 1920) !important;
+  line-height: calc(19 * 100vh / 910);
+  height: calc(55 * 100vh / 910);
+}
+
+.base-table table.dataTable > thead > tr > th,
+.base-table table.dataTable > tbody > tr > th,
+.base-table table.dataTable > tfoot > tr > th {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #4e4e4e;
+  text-overflow: unset;
+}
+
+.base-table div.dataTables_scrollBody table tbody tr:first-child th,
+.base-table div.dataTables_scrollBody table tbody tr:first-child td {
+  border-top: 1px solid #ddd;
+}
+
+.base-table #riskList2 table * {
+  box-sizing: border-box;
+}
+
+.base-table #riskList2 tbody tr {
+  overflow: hidden;
+}
+
+.base-table .pagination > li > a {
+  padding: 0 0;
+  margin: 0 calc(3 * 100vw / 1920);
+  min-width: calc(20 * 100vh / 910);
+  width: calc(20 * 100vh / 910);
+  height: calc(20 * 100vh / 910);
+  font-size: calc(12 * (50vh + 23.5vw) / 910);
+  line-height: calc(22 * 100vh / 910);
+}
+
+.base-table .pagination > .active > a,
+.base-table .pagination > .active > a:focus,
+.base-table .pagination > .active > a:hover,
+.base-table .pagination > .active > span,
+.base-table .pagination > .active > span:focus,
+.base-table .pagination > .active > span:hover {
+  background-color: #7fe17f;
+  border-color: #7fe17f;
+  min-width: calc(20 * 100vh / 910);
+  border-radius: 50% !important;
+}
+
+.base-table .pagination > li.next > a,
+.base-table .pagination > li.next > span,
+.base-table .pagination > li.previous > a,
+.base-table .pagination > li.previous > span {
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: transparent;
+}
+
+.base-table .pagination > li.next.disabled > a,
+.base-table .pagination > li.next.disabled > span,
+.base-table .pagination > li.previous.disabled > a,
+.base-table .pagination > li.previous.disabled > span {
+  color: #dcdcdc;
+  cursor: default;
+}
+
+.base-table .pagination > li.next > a:before,
+.base-table .pagination > li.next > span:before,
+.base-table .pagination > li.previous > a:before,
+.base-table .pagination > li.previous > span:before {
+  content: "";
+  display: block;
+  border-width: 0;
+  border-color: currentColor;
+  border-style: solid;
+  width: calc(10 * 100vh / 910);
+  height: calc(10 * 100vh / 910);
+  transform: rotate(45deg);
+}
+
+.base-table .pagination > li.previous > a:before,
+.base-table .pagination > li.previous > span:before {
+  border-left-width: calc(2 * (50vh + 23.5vw) / 910);
+  border-bottom-width: calc(2 * (50vh + 23.5vw) / 910);
+}
+
+.base-table .pagination > li.next > a:before,
+.base-table .pagination > li.next > span:before {
+  border-right-width: calc(2 * (50vh + 23.5vw) / 910);
+  border-top-width: calc(2 * (50vh + 23.5vw) / 910);
+}
+
+/* inner tooltip */
+.base-table .inner-tooltip {
+  display: none;
+  position: absolute;
+  min-width: calc(50 * 100vw / 1920);
+  max-width: calc(300 * 100vw / 1920);
+  overflow: visible;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background: #fff;
+  color: #4e4e4e;
+  line-height: calc(21 * 100vh / 910);
+  font-size: calc(14 * (50vh + 23.5vw) / 910);
+  border: 1px solid #ddd;
+  border-radius: calc(3 * (50vh + 23.5vw) / 910);
+  box-shadow: 2px -1px 5px -1px rgba(0, 0, 0, 0.14);
+  padding: calc(16 * 100vh / 910) calc(16 * 100vw / 1920);
+  pointer-events: none;
+}
+
+.base-table .table-with-tooltip td {
+  min-width: calc(10 * 100vw / 1920);
+  max-width: calc(150 * 100vw / 1920);
+}

@@ -1,0 +1,116 @@
+@import url("../../styles/vendors/form-renderer-deps.css");
+@import url("../../styles/vendors/form-renderer-deps.overwrites.css");
+@import url("../../styles/vendors/react-layout.css");
+@import url("../../styles/vendors/react-select.css");
+@import url("../../styles/vendors/vendor_styles.css");
+@import url("../../styles/vendors/vendorReview.css");
+@import url("../../styles/vendors/Loader.css");
+
+/* @import url("../../styles/vendors/SearchSort_style.css"); */
+@import url("../../styles/vendors/sharedcomponents_style.css");
+@import url("../../styles/vendors/StageList.css");
+@import url("../../styles/vendors/workflow.css");
+@import url("../../styles/vendors/Cards.css");
+@import url("../../styles/vendors/jquery-ui-1.11.4.custom.css");
+@import url("../../styles/vendors/newtheme.css");
+@import url("../../styles/vendors/material-dashboard.css");
+@import url("../../styles/vendors/Main.css");
+/* @import url("../../styles/vendors/select2.min.css"); */
+
+#file1 {
+  min-width: 18vw;
+  margin: auto;
+  margin-left: 40px;
+}
+
+.submitButton {
+  background-color: limegreen;
+  border: none;
+  border-radius: 4px;
+  padding: 4px;
+  width: 8vw;
+  color: white;
+  margin-left: 1vw;
+  margin-right: 1vw;
+}
+
+#download-template-button {
+  width: 14vw;
+  border: none;
+  background-color: mediumpurple;
+  border-radius: 4px;
+  color: white;
+}
+
+#downloadlink {
+  color: white;
+}
+
+#export-button {
+  width: 10vw;
+  border: none;
+  background-color: mediumpurple;
+  border-radius: 4px;
+  color: white;
+  height: 4.5vh;
+  margin-left: 1vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#vendorTableWrapper table .odd {
+  background-color: #f5f5f5 !important;
+}
+
+#vendorTableWrapper table .even {
+  background-color: #ffffff !important;
+}
+
+#vendorTableWrapper {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+}
+#vendorTableWrapper table .ant-table-column-sort {
+  background-color: transparent !important;
+}
+.table-col-heading {
+  font-size: 0.9rem !important;
+}
+#vendorTableWrapper table .ant-table-column-sort {
+  background-color: transparent !important;
+  color: rgb(77, 148, 255) !important;
+}
+.vendor-grid-table td {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+}
+.vendor-grid-table th {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+}
+
+.new-design-theme .navigate-tabs-panel .action-tabs > li.active > a {
+  width: 16vw;
+}
+
+.new-design-theme .navigate-tabs-panel .action-tabs > li > a {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 7vw;
+}
+
+.new-design-theme footer div.container-fluid {
+  margin-top: 0.5vh !important;
+  margin-bottom: 0.5vh !important;
+}
+
+.new-design-theme .panel-header .navbar .navbar-header .header-buttons .btn {
+  background-color: #4e4e4e !important;
+}
+.DcButton.disabled {
+  background-color: #e7e8ee !important;
+  cursor: not-allowed;
+}
+
+#csroot {
+  overflow: hidden;
+}

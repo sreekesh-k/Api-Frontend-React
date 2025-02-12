@@ -1,0 +1,85 @@
+.nav-tab-container,
+.page-container {
+  margin: 0 calc(25 * 100vw / 1920);
+  background-color: #f2f3fa;
+  min-width: calc(640 * 100vw / 1920);
+}
+
+.nav-tab-container .min-height-500 {
+  min-height: calc(500 * 100vh / 910);
+}
+
+.nav-tab-container .incDecContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: calc(10 * 100vh / 910) 0;
+  width: calc(130 * 100vw / 1920);
+  background: #f2f3fa;
+  border-radius: calc(5 * (50vh + 23.5vw) * 0.00109890109);
+}
+
+.nav-tab-container .incDecContainer span {
+  margin-top: calc(2 * 100vh / 910);
+}
+
+.nav-tab-container .incDecContainer input {
+  background-color: unset;
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-width: 0;
+  border: none;
+  text-align: center;
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+}
+
+.nav-tab-container .full-width-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: calc(10 * 100vh / 910) calc(10 * 100vw / 1920);
+  padding: calc(20 * 100vh / 910) calc(20 * 100vw / 1920);
+  border-radius: calc(5 * (50vh + 23.5vw) / 910);
+  background-color: #f2f3fa;
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+}
+
+.nav-tab-container .full-width-button .col-sm-8,
+.nav-tab-container .full-width-button .col-sm-4 {
+  padding: 0 !important;
+}
+
+.nav-tab-container .full-width-button.add-button {
+  background-color: #4d94ff;
+  padding: 0;
+  height: calc(61 * 100vh / 910);
+}
+
+.nav-tab-container .add-button a {
+  color: #fff;
+  width: 100%;
+  padding: calc(20 * 100vh / 910) calc(20 * 100vw / 1920);
+}
+
+.nav-tab-container .add-button i {
+  float: right;
+  font-size: calc(20 * (50vh + 23.5vw) / 910);
+  font-weight: normal;
+  margin-top: calc(-2 * 100vh / 910);
+}
+
+.nav-tab-container .bold {
+  font-weight: bold;
+}
+
+.nav-tab-container .stage-item-title {
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+  font-weight: bold;
+}
+
+.nav-tab-container .card .tab-content {
+  margin-top: calc(20 * 100vh / 910);
+}

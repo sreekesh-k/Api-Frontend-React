@@ -1,0 +1,1501 @@
+@import url("../../styles/actionCenter/base-table.css");
+@import url("../../styles/actionCenter/containers.css");
+@import url("../../styles/actionCenter/edit-form.css");
+@import url("../../styles/actionCenter/ManageV2.css");
+@import url("../../styles/vendors/workflow.css");
+/* @import url("../../styles/vendors/newtheme.css"); */
+/* @import url("../../styles/vendors/material-dashboard.css"); */
+/* @import url("../../styles/actionCenter/ManageV2Print.css"); */
+/* @import url("../../styles/actionCenter/MembershipPage.css"); */
+
+.dataTables_scrollHeadInner {
+  width: 100% !important;
+}
+
+.stage-form-edit {
+  filter: invert(100%) sepia(32%) saturate(544%) hue-rotate(222deg)
+    brightness(111%) contrast(100%);
+}
+
+#formDesignerAreaStage .LayoutPagesScroller div {
+  line-height: 1.5em !important;
+}
+.menu-item {
+  display: none;
+}
+#formDesignerAreaStage .tab-base-btn {
+  font-size: 1rem !important;
+}
+#formDesignerAreaStage .tab-conditional-btn {
+  font-size: 1rem !important;
+}
+#formDesignerAreaStage .close-field {
+  font-size: 1rem !important;
+  line-height: 4.5vh;
+}
+#formDesignerAreaStage .tab-elements {
+  height: 4.5rem;
+}
+.remediation-form > .form-wrap > .stage-wrap {
+  width: 98% !important;
+  height: 66vh;
+  overflow-y: auto;
+}
+.remediation-form
+  > .form-wrap
+  > .stage-wrap
+  > .form-field
+  > .field-actions
+  > .del-button {
+  display: none !important;
+}
+.remediation-form .LayoutPagesScroller div {
+  pointer-events: visible !important;
+}
+#formDesignerAreaStage
+  > .form-wrap
+  > .stage-wrap
+  > .form-field
+  > .field-actions
+  > .del-button {
+  display: none !important;
+}
+#formDesignerAreaStage
+  > .form-wrap
+  > .stage-wrap
+  > .form-field
+  > .field-actions
+  > .copy-button {
+  display: none !important;
+}
+
+#formDesignerAreaStage .LayoutPagesScroller div {
+  pointer-events: visible !important;
+}
+#formDesignerAreaStage
+  > .form-wrap
+  > .stage-wrap
+  > .page-field
+  > .prev-holder
+  > .fb-page {
+  height: 81vh !important;
+  overflow-y: auto !important;
+  padding: 0 !important;
+  background: #eee !important;
+}
+
+#formDesignerAreaStage
+  > .form-wrap
+  > .stage-wrap
+  > .page-field
+  > .prev-holder
+  > .fb-page
+  > .LayoutPage
+  > .LayoutPageBody
+  > .LayoutPages
+  > .LayoutPagesScroller {
+  font-size: 2vh;
+}
+
+#formDesignerAreaStage > .form-wrap > .cb-wrap > .frmb-control > li {
+  font-size: 1rem !important;
+  line-height: 1rem !important;
+}
+
+#formDesignerAreaStage
+  > .form-wrap
+  > .stage-wrap
+  > .page-field
+  > .prev-holder
+  > .fb-page
+  > .LayoutPage
+  > .LayoutPageBody
+  > .LayoutPageThumbnails
+  > .PageIcons {
+  display: none !important;
+}
+#formDesignerAreaStage {
+  padding: 0 2rem;
+  height: 81vh !important;
+  overflow-y: hidden !important;
+}
+
+#formBuilder-stages {
+  margin-left: -1.65vw !important;
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+  position: absolute;
+  top: 0;
+  background: white;
+  width: 100%;
+  height: 92% !important;
+}
+
+.r-navcrossRem {
+  border: none;
+  font-size: 10px;
+  color: red;
+  background-color: transparent;
+}
+.ajax-loader {
+  visibility: hidden;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  z-index: +1000 !important;
+  width: 100%;
+  height: 100%;
+}
+
+.ajax-loader img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+}
+.r-navbar-crossimgRem {
+  height: 3vh;
+  position: absolute;
+  top: -1vh;
+  left: 1vw;
+}
+
+.selectnavbar-finish {
+  font-weight: bold;
+  border: none;
+  width: 16%;
+  margin-left: 1vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-right: 0vw;
+  background-color: #32cd32 !important;
+  color: white;
+}
+.stageFlex {
+  margin: -2.3rem 0rem !important;
+}
+div.ant-col.displayFlex > input {
+  width: 49vw;
+  border: none;
+  border-bottom: 1px solid gray !important;
+  background: transparent;
+  margin-left: -12vw;
+  margin-top: -1vh;
+}
+#formBuilder-stages {
+  margin-left: -1vw;
+}
+div.stageBackground > div > div > div > div > div > div {
+  background-color: #f2f3fa !important;
+}
+div.stageBackground > div > div > button {
+  margin-top: 2vh;
+}
+div.stageBackground
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div
+  > div
+  > div
+  > div
+  > label
+  > span {
+  font-weight: bold;
+  color: black;
+}
+div.stageBackground
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div.ant-collapse-content.ant-collapse-content-active
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > div
+  > table
+  > thead
+  > tr
+  > th {
+  font-weight: bold;
+  color: black;
+}
+.selectnavbar-finish:hover {
+  border: none;
+  margin-top: 3vh;
+  width: 16%;
+  margin-left: 1vh;
+  margin-right: 0vw;
+  border-radius: 4px;
+  font-size: 2vh;
+  height: 4.6vh;
+  background-color: #32cd32 !important;
+  color: white;
+}
+.selectnavbar-finish:focus {
+  border: none;
+  margin-top: 3vh;
+  width: 16%;
+  margin-left: 1vh;
+  border-radius: 4px;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-right: 0vw;
+  background-color: #32cd32 !important;
+  color: white;
+}
+.selectnavbar-fadebutton {
+  margin-left: 1vw;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
+  border: none;
+  font-weight: bold;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  background-color: lightgray !important;
+  color: white !important;
+}
+
+.selectnavbar-fadebutton:hover {
+  margin-left: 1vw;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
+  border: none;
+  font-weight: bold;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  background-color: lightgray !important;
+  color: white !important;
+}
+
+.selectnavbar-fadebutton:focus {
+  margin-left: 1vw;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
+  border: none;
+  font-weight: bold;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  background-color: lightgray !important;
+  color: white !important;
+}
+.selectnavbar-button {
+  transform: rotate(0deg);
+  margin-left: 1vw;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
+  border: none;
+  font-weight: bold;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  background-color: #4e4e4e !important;
+  color: white !important;
+}
+.selectnavbar-button:hover {
+  transform: rotate(0deg);
+  margin-left: 1vw;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
+  border: none;
+  font-weight: bold;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  background-color: #4e4e4e !important;
+  color: white !important;
+}
+.selectnavbar-button :focus {
+  transform: rotate(0deg);
+  margin-left: 1vw;
+  padding-left: 1vh !important;
+  padding-right: 1vh !important;
+  border: none;
+  font-weight: bold;
+  font-size: 2vh;
+  height: 4.6vh;
+  margin-top: 3vh;
+  border-radius: 4px;
+  background-color: #4e4e4e !important;
+  color: white !important;
+}
+
+.selectnavbar-button-cancel {
+  border: none;
+  font-weight: bold;
+  margin-top: 3vh;
+  border-radius: 4px;
+  font-size: 2vh;
+  height: 4.6vh;
+  background-color: #4e4e4e !important;
+  color: white;
+}
+.selectnavbar-button-cancel:hover {
+  border: none;
+  font-weight: bold;
+  margin-top: 3vh;
+  border-radius: 4px;
+  font-size: 2vh;
+  height: 4.6vh;
+  background-color: #4e4e4e !important;
+  color: white;
+}
+
+.selectnavbar-button-cancel:focus {
+  border: none;
+  font-weight: bold;
+  margin-top: 3vh;
+  border-radius: 3px;
+  font-size: 2vh;
+  height: 4.6vh;
+  background-color: #4e4e4e !important;
+  color: white;
+}
+.p-selectnavbar {
+  color: #b9b9b9 !important;
+  line-height: 0 !important;
+  font-size: calc(17 * (50vh + 23.5vw) / 910);
+  font-weight: bold !important;
+  padding-bottom: 3vh !important;
+  margin-left: 0vw;
+  margin-right: 0vw;
+  padding-left: 0vw;
+  padding-right: 0vw;
+}
+.p-selectnavbar-clicked {
+  line-height: 0 !important;
+  font-size: calc(17 * (50vh + 23.5vw) / 910);
+  font-weight: bold !important;
+  border: none;
+  border-bottom: 3px solid #4286ee;
+  color: black !important;
+  padding-bottom: 3vh !important;
+  margin-left: 0vw;
+  margin-right: 0vw;
+  padding-left: 0vw;
+  padding-right: 0vw;
+}
+.selectnavbar-div {
+  width: 100% !important;
+  margin-left: 1vw;
+  display: flex;
+}
+#myModal {
+  z-index: 1000 !important;
+}
+
+.modal1 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 10%; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+.membershipAdd {
+  width: 95%;
+  border-radius: 8px;
+  border: 3px solid #4286ee;
+  height: 6vh;
+  margin-left: 4vh;
+}
+.rolemodalForRemediation {
+  position: relative !important;
+  z-index: 1000 !important;
+}
+.selection-navbar {
+  height: 9vh;
+  margin-top: 7vh;
+  margin-left: 2.5vw;
+  background-color: white;
+}
+.MainRem-div {
+  background-color: white !important;
+  height: 100% !important;
+}
+.mainform-init {
+  height: 17vh !important;
+  background-color: white;
+  border-radius: 5px !important;
+  overflow-y: hidden;
+  padding: 3vh 2vh 1vh 3vh;
+}
+#initiativeformid {
+  margin-bottom: 1vh !important;
+  padding-bottom: 1vh !important;
+}
+.r-checktext {
+  font: normal normal bold 2.2vh Montserrat;
+  color: #4e4e4e;
+  opacity: 1;
+}
+.r-owner-dd > .ant-select-selector {
+  border-radius: 5px !important;
+  height: 6.3vh !important;
+  margin-bottom: 1.1vh !important;
+  padding-top: 1.1vh !important;
+  font-size: 2vh !important;
+  font-weight: lighter !important;
+  background-color: #f2f3fa !important;
+}
+.r-form-name {
+  border-radius: 5px;
+  height: 6.3vh;
+  margin-bottom: 1.1vh;
+  font-size: 2vh;
+  font-weight: lighter;
+}
+
+
+
+.bootstrap-datetimepicker-widget.dropdown-menu {
+  height: 48vh !important;
+  width: 20vw !important;
+}
+.new-design-theme .navigate-tabs-panel .nav > li > a {
+  color: #b9b9b9 !important;
+  font-size: calc(17 * (50vh + 23.5vw) / 910);
+  font-weight: bold !important;
+}
+
+.nav > li > a {
+  padding: 10px 15px !important;
+}
+
+.item p {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/*        #InprogressList_Task_wrapper > div:nth-child(2) > div > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:last-child,
+#CompletedList_Task_wrapper > div:nth-child(2) > div > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:last-child,
+#OverdueList_Task_wrapper > div:nth-child(2) > div > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:last-child,
+#UpcomingList_Task_wrapper > div:nth-child(2) > div > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:last-child,
+#DueList_Task_wrapper > div:nth-child(2) > div > div.dataTables_scroll > div.dataTables_scrollHead > div > table > thead > tr > th:last-child {
+    width: 135px !important
+}*/
+
+#DraftList_Task_wrapper
+  > div:nth-child(2)
+  > div
+  > div.dataTables_scroll
+  > div.dataTables_scrollHead
+  > div
+  > table
+  > thead
+  > tr
+  > th:last-child {
+  width: 165px !important;
+}
+
+#myModal #actionFormStages {
+  justify-content: normal !important;
+}
+
+#myModal .navigate-tabs-panel .tabs-list {
+  position: relative;
+}
+
+#amendment_history_button {
+  background-color: #4d94ff;
+  height: calc(40 * 100vh / 910);
+  margin: 0 0 calc(13 * 100vw / 1920) calc(14 * 100vw / 1920);
+}
+.navbar-stageform {
+  height: calc(70 * 100vh / 910);
+  background-color: #2c2f48;
+  color: #fff;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#amendment_history_popup .head_container {
+  background-color: #4d94ff;
+  border-radius: 10px 10px 0px 0px;
+  padding: 16px;
+  color: white;
+  font-size: 18px;
+}
+
+#amendment_history_popup .history_content {
+  background: white;
+  width: 50vw;
+  margin: auto;
+  height: 50vh;
+  margin-top: 25vh;
+  border-radius: 10px 10px 10px 10px;
+}
+
+#amendment_history_popup {
+  background: rgba(0, 0, 0, 0.7);
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+}
+
+#amendment_history_popup .history_data {
+  background: #4d94ff;
+  list-style: none;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+#amendment_history_popup .history_data li {
+  color: white;
+  display: inline-block;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
+}
+
+#amendment_history_popup .history_data li a {
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 38px;
+}
+
+.currencyBody .Select--single > .Select-control .Select-value {
+  text-overflow: unset;
+}
+
+.currencyBody span.Select-arrow-zone > span {
+  display: none;
+}
+
+.LayoutPagesScroller div {
+  -ms-overflow-style: scrollbar;
+  pointer-events: none;
+}
+
+.disabledTab {
+  pointer-events: all;
+  overflow: hidden !important;
+}
+
+.pageBreakMenu {
+  z-index: 10000;
+}
+
+.pageBreakElementActive {
+  box-shadow: 0 0 3px 0 #000;
+}
+
+.pageBreak {
+  box-shadow: 0 4px 0 0 #333;
+}
+
+#formDesignerArea .form-wrap.form-builder .field-actions .btn {
+  opacity: 1 !important;
+  cursor: pointer !important;
+  display: inline-block;
+  pointer-events: visible !important;
+}
+#formDesignerArea #toggleMainDiv {
+  display: none;
+  visibility: hidden;
+}
+#formDesignerAreaStage .form-wrap.form-builder .field-actions .btn {
+  opacity: 1 !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+  pointer-events: visible !important;
+}
+
+#formDesignerAreaStage #toggleMainDiv {
+  display: none;
+  visibility: hidden;
+}
+/*    #formDesignerArea > div > div {
+    display:none;
+}
+
+#formDesignerArea .frmb.stage-wrap.pull-left {
+    width: 100%;
+}
+
+#formDesignerArea .delete-button {
+    display: none;
+}
+
+#formDesignerArea .field-actions {
+    display: none;
+}
+
+#formDesignerArea .LayoutPageThumbnails {
+    pointer-events: all;
+}
+
+#formDesignerArea .LayoutPageHeader {
+    display: none !important;
+}
+
+[id^=stageActions_] > div > div.actionSelect.checkbox {
+    pointer-events: none;
+}*/
+/*[id^=stageActions_] > div > div > label[for^=Abort] {
+    visibility: hidden !important;
+    display: none !important;
+}*/
+#formDesignerArea {
+  padding: 0 2rem;
+}
+#formDesignerArea > .page-field .form-field {
+  background: #ffffff;
+}
+#formDesignerAreaStage {
+  padding: 0 2rem;
+}
+#formDesignerAreaStage > .page-field .form-field {
+  background: #ffffff;
+}
+
+#frmb-1671190423992-fld-1 .LayoutPage {
+  height: calc(100vh - 15vh);
+}
+
+.navigate-tabs-panel {
+  height: 5vh !important;
+  position: relative;
+  top: 1px;
+}
+
+.currencyBody .Select-value {
+  text-overflow: unset;
+}
+
+[id^="stageForm_"] span.select2.select2-container.select2-container--material {
+  top: -10px;
+}
+
+#formDesignerArea .frmb.stage-wrap.pull-left {
+  width: 100%;
+}
+
+.LayoutPagesScroller,
+.LayoutPages > div {
+  -ms-overflow-style: scrollbar;
+}
+
+#stageWrapper > div > div.new-design-theme.workflow-stages-card {
+  /*display: none;*/
+}
+
+label.mandatoryCheck_label {
+  visibility: hidden !important;
+}
+
+#select2-referencecListRCSA-container {
+  width: 100%;
+}
+
+#OverdueList_Task tbody tr.selectedRow,
+#InprogressList_Task tbody tr.selectedRow {
+  background-color: #4d94ff !important;
+  color: white;
+}
+
+tbody tr.selectedRow .submitFormButton {
+  color: white;
+  border-color: white;
+}
+
+tbody tr.selectedRow .reviewFormButton {
+  color: white;
+  border-color: white;
+}
+
+tbody tr.selectedRow .badge.cursor {
+  color: #4d94ff;
+  background-color: white !important;
+}
+
+tbody tr.selectedRow .SubmitApprovalHistory .appproval-history-icon button {
+  background-color: white;
+  background: white;
+  color: #4d94ff;
+}
+
+tbody tr.selectedRow .ReviewApprovalHistory .appproval-history-icon button {
+  background-color: white;
+  background: white;
+  color: #4d94ff;
+}
+
+#OverdueList_Task tbody tr.selectedRow td,
+#InprogressList_Task tbody tr.selectedRow td {
+  background: transparent;
+}
+
+#DueList_Task tbody tr.selectedRow {
+  background-color: #4d94ff !important;
+  color: white;
+}
+
+#DueList_Task tbody tr.selectedRow td {
+  background: transparent;
+}
+
+#DraftList_Task tbody tr.selectedRow {
+  background-color: #4d94ff !important;
+  color: white;
+}
+
+#DraftList_Task tbody tr.selectedRow td {
+  background: transparent;
+}
+
+#UpcomingList_Task tbody tr.selectedRow {
+  background-color: #4d94ff !important;
+  color: white;
+}
+
+#UpcomingList_Task tbody tr.selectedRow td {
+  background: transparent;
+}
+
+#CompletedList_Task tbody tr.selectedRow {
+  background-color: #4d94ff !important;
+  color: white;
+}
+
+#CompletedList_Task tbody tr.selectedRow td {
+  background: transparent;
+}
+
+/*.glyphicon-trash.delete {
+        display: none !important;
+        visibility: hidden !important;
+    }*/
+
+#actionBody
+  > div:nth-child(8)
+  > span.select2.select2-container.select2-container--material
+  > span.selection
+  > span,
+#actionBody
+  > div:nth-child(8)
+  > span.select2.select2-container.select2-container--material.select2-container--focus
+  > span.selection
+  > span,
+#actionBody
+  > div:nth-child(8)
+  > span.select2.select2-container.select2-container--material.select2-container--below
+  > span.selection
+  > span {
+  border: 0;
+  background: #f2f3fa;
+  text-indent: 1vw;
+  border-radius: 0.5vw;
+  padding: calc(24px * 100vh / 910) 1vw;
+  padding: 3vh;
+  position: relative;
+  top: -3px;
+}
+
+#select2-referencecListRCSA-container {
+  position: relative;
+  top: -9px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #c9c4c4;
+  opacity: 0.8; /* Firefox */
+}
+
+textarea:-moz-read-only {
+  /* For Firefox */
+  white-space: pre-line !important;
+}
+
+textarea:read-only {
+  white-space: pre-line !important;
+}
+
+#formStagesModal > div {
+  right: unset !important;
+  left: 0;
+}
+
+#stage_container2 > div {
+  height: 83.3vh;
+  width: 100%;
+  overflow-y: scroll;
+  margin: 0px;
+}
+
+.base-table .dataTables_scrollBody {
+  max-height: 62.5vh !important;
+}
+
+#stageWrapper > div > ul {
+  background: transparent !important;
+}
+
+#DueList_Task_wrapper th.active,
+#OverdueList_Task_wrapper th.active,
+#UpcomingList_Task_wrapper th.active,
+#CompletedList_Task_wrapper th.active,
+#DraftList_Task_wrapper th.active {
+  color: #4d94ff;
+}
+
+.amendmentFeild {
+  border: 0;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.ReviewApprovalHistory .appproval-history-icon button {
+  font-family: cursive;
+}
+
+.LayoutPageHeader {
+  background: transparent !important;
+}
+
+#divAction .radio label input[type="radio"]:checked ~ span.check {
+  left: 4px;
+  top: 6px;
+  height: 14px;
+  width: 14px;
+}
+
+[id^="stageForm_"] > span > span.selection > span {
+  background: transparent;
+}
+
+#stageWrapper > div > div.workflow-stages-card.supervisor {
+  display: block;
+  margin-bottom: 40px;
+}
+
+#supervisorApproval:before {
+  height: calc(28 * 100vw / 1920);
+  border: 1px solid black;
+}
+
+#approvalNotNeeded:before {
+  height: calc(28 * 100vw / 1920);
+  border: 1px solid black;
+}
+
+.edit-form .simple-check-box input[type="checkbox"]:checked:after {
+  top: calc(-1 * 100vh / 910) !important;
+}
+
+#stage_container {
+  margin: 0px !important;
+}
+
+#stage_container > div {
+  height: 83.3vh;
+  width: 100%;
+  overflow-y: scroll;
+  margin: 0px;
+}
+
+#stageWrapper > div > ul {
+  position: relative;
+  top: 52px;
+}
+
+.nav-tab-container .incDecContainer {
+  padding: calc(13 * 100vh / 910) 0;
+  width: calc(130 * 100vw / 1920);
+}
+
+/*#stagedrag_1 {
+    position: relative;
+    top: -22vh;
+}*/
+
+#stageWrapper > div > div.new-design-theme.workflow-stages-card {
+  position: relative;
+  top: 33px;
+}
+
+
+.togglebutton input:checked + label {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  background: #3974ce !important;
+}
+
+.togglebutton input + label {
+  position: absolute;
+  right: 15px;
+  top: 13px;
+}
+#file1 {
+  min-width: 18vw;
+  margin: auto;
+}
+#main-div-import {
+  display: flex;
+  width: 25vw;
+}
+
+#formStagesModal .modal-content {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+}
+
+.fileInput {
+  margin-top: 1%;
+}
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 1%;
+  border: 1px solid #888;
+  width: 50%;
+  height: 70%;
+}
+#btnAddtoFormStage {
+  margin: 0;
+  padding: 5px 10px;
+  position: absolute;
+  right: 0;
+  top: 4px;
+}
+
+#formStagesModal > div > div > div.modal-header > div:nth-child(2) {
+  position: absolute;
+  right: 56px;
+  top: 5px;
+}
+
+#stageWrapper > div > div.new-design-theme.workflow-stages-card > div {
+  width: auto;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.number_stages {
+  margin-right: 40px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.flex-row div[id^="stageActions"] {
+  width: 48% !important;
+}
+
+[id^="stageActions"] > div > div > label {
+  display: inline-block !important;
+}
+
+#minus {
+  position: static;
+}
+
+.new-design-theme .workflow-stages-card.supervisor {
+  display: block;
+  padding-left: 15px;
+}
+
+.fix.fixed {
+  color: lightgrey;
+  top: 13px !important;
+  transform: rotate(-46deg);
+  -ms-transform: rotate(-46deg);
+  -webkit-transform: rotate(-46deg);
+  display: none !important;
+}
+
+.edit-form .simple-check-box .mandatoryCheck:before {
+  width: 23px !important;
+  height: 23px !important;
+  left: 0px !important;
+  top: -5px !important;
+}
+
+.opened .fix {
+  color: black;
+}
+
+#divAction .radio label input[type="radio"]:checked ~ span.check {
+  left: 0.48465266558966075vh !important;
+  top: 0.6462035541195477vh !important;
+  height: 12px !important;
+  width: 12px !important;
+}
+
+.opened .fix.fixed {
+  color: lightgrey;
+}
+
+.fix {
+  display: none !important;
+  color: white;
+  position: absolute !important;
+  right: 63px !important;
+  top: 18px !important;
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  -ms-transition: -ms-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+
+.list-item-header {
+  position: relative;
+}
+
+.workflow-stages-container .edit-form .form-group > span {
+  height: unset !important;
+}
+
+#pageSecondLast th,
+#pageThirdLast th {
+  background-color: #4d94ff;
+  color: white;
+  padding: 1vw;
+}
+
+#pageSecondLast td,
+#pageThirdLast td {
+  padding: 14px 0px;
+  font-size: 12px;
+  padding-left: 16px;
+  border: 1px solid lightgrey;
+}
+
+.drop-div {
+  height: auto;
+  min-height: 5px;
+  width: 100%;
+  border: 0px;
+  -webkit-transition: height 10s; /* Safari prior 6.1 */
+  transition: height 10s;
+}
+
+.drop-div.drop-active {
+  height: auto;
+  min-height: 80px;
+  margin: 5px 0px 13px 0px;
+  border: 4px dashed lightgrey;
+}
+
+.opened .mandatoryCheck_label {
+  color: black !important;
+}
+
+.opened .mandatoryCheck::after {
+  top: -4px !important;
+  left: 6px !important;
+}
+
+.tab-pane .table tbody > tr > td:first-child {
+  width: unset;
+}
+
+#numberOfStages {
+  border: 0px !important;
+}
+
+#plus {
+  position: static !important;
+}
+
+.SubmitApprovalHistory .appproval-history-icon button {
+  font-family: cursive;
+}
+
+td.details-control {
+  background: url("../../Images/details_open.png") no-repeat center center;
+  cursor: pointer;
+}
+
+.new-design-theme .radio label input[type="radio"]:checked ~ span.check {
+  left: 1.08%;
+  top: 24%;
+}
+
+#radioGroups span.check {
+  left: 13.08%;
+}
+
+#history_Div {
+  height: auto !important;
+}
+
+.Grid td input {
+  border: 0px !important;
+}
+
+tr.shown td.details-control {
+  background: url("../../Images/details_close.png") no-repeat center center;
+}
+
+i.fa.fa-spinner.fa-spin.fa-3x.fa-fw {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+}
+
+div.currencyBody
+  > div.col-md-2.current-body
+  > div
+  > div
+  > span.Select-arrow-zone
+  > span {
+  right: 11%;
+}
+#frmb-1674542078130-form-wrap {
+  overflow-x: hidden !important;
+}
+
+div.currencyBody
+  > div.col-md-2.current-body
+  > div
+  > div
+  > span.Select-multi-value-wrapper
+  > div.Select-value
+  > .Select-value-label {
+  right: 0.5vw;
+  top: -0.4vh;
+}
+.save-stages-form {
+  font-size: 2vh;
+  font-weight: bold;
+  background: #4caf50;
+  border-radius: 3px;
+  opacity: 1;
+  color: white;
+  position: absolute;
+  border: none;
+  top: -1.4vh;
+  padding: 2%;
+  min-width: 92%;
+}
+
+.save-stages-form:hover {
+  background: #4caf50 !important;
+  color: white !important;
+}
+
+div.currencyBody > div.col-md-2.current-body > div > div {
+  height: 6vh;
+}
+
+.glyphicon.glyphicon-eye-open {
+  position: absolute;
+  top: 29px;
+  right: 26px;
+}
+
+.loadingOverlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(225, 225, 225, 0.3);
+  z-index: 100;
+}
+
+.quickview-wrapper {
+  box-shadow: none;
+}
+
+.ManageLeftPanel .checkbox {
+  margin: 2vh auto;
+}
+
+.ManageLeftPanel .checkbox label {
+  font-size: 0.8vw;
+  padding: 0;
+}
+
+li.presentation.hidden {
+  display: none;
+}
+
+.grey::before {
+  color: lightgrey !important;
+}
+
+.LayoutPages {
+  overflow-x: hidden;
+}
+
+#SaveCommentBtn {
+  border: inherit;
+  position: absolute;
+  top: 50%;
+  right: calc(44 * 100vw / 1920);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: calc(22 * 100vw / 1920);
+  height: calc(16 * 100vh / 910);
+  background-color: #fff;
+}
+
+#SaveCommentBtn svg {
+  width: calc(22 * 100vw / 1920);
+  height: calc(16 * 100vh / 910);
+}
+
+.new-design-theme .panel-header .navbar > div.container-fluid .navbar-header {
+  height: 40px !important;
+}
+#actionFormStages .action-form-stages-tooltip {
+  top: -5px !important;
+  margin-left: 15px !important;
+}
+
+#approvalHistoryModal #stages-details .stages-remarks {
+  height: auto !important;
+}
+
+/*#actionBody > div:nth-child(9){
+    pointer-events:none !important;
+}
+
+#actionBody > div:nth-child(8){
+    pointer-events:none !important;
+
+}*/
+.r-navbar1Form {
+  position: fixed;
+  top: 0vh;
+  left: 4vw;
+  width: 96% !important;
+  height: 7% !important;
+  background-color: #4286ee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.r-data-modalForm {
+  position: fixed;
+  top: 7vh;
+  left: 4vw;
+  width: 96% !important;
+  height: 93%;
+  background-color: #f2f3fa;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: none !important;
+  z-index: 0 !important;
+  padding-top: 1vh;
+  overflow-y: auto;
+}
+.policy-process
+  > .select2-container--default
+  > .selection
+  > .select2-selection--multiple
+  > .select2-selection__rendered {
+  overflow-y: auto;
+  height: 30px;
+}
+
+.textValuesPolicyProcess {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1%;
+}
+
+.textValuesPolicyProcess > p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  width: 50%;
+}
+
+.new-design-theme ul.leftside-nav {
+  margin: 0;
+  overflow: hidden;
+}
+.stageBackground {
+  margin: 2rem;
+  height: 74vh !important;
+  overflow: auto;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #UpcomingList_Task_wrapper
+    > div:nth-child(2)
+    > div
+    > div.dataTables_scroll
+    > div.dataTables_scrollHead
+    > div
+    > table
+    > thead
+    > tr
+    > th:nth-child(7) {
+    width: 78px !important;
+  }
+
+  #OverdueList_Task_wrapper
+    > div:nth-child(2)
+    > div
+    > div.dataTables_scroll
+    > div.dataTables_scrollHead
+    > div
+    > table
+    > thead
+    > tr
+    > th:nth-child(7) {
+    width: 78px !important;
+  }
+
+  #DueList_Task_wrapper
+    > div:nth-child(2)
+    > div
+    > div.dataTables_scroll
+    > div.dataTables_scrollHead
+    > div
+    > table
+    > thead
+    > tr
+    > th:nth-child(7) {
+    width: 78px !important;
+  }
+
+  .control-panel {
+    flex: 3 !important ;
+  }
+}
+
+#multiplestages > div > div {
+  width: calc(197 * 100vw / 1920) !important;
+}
+
+#multiplestages > label {
+  color: #aaaaaa;
+}
+
+.flexcontainer {
+  display: flex;
+  margin-top: 5px;
+}
+.flexchild {
+  flex: 1;
+}
+
+.new-design-theme .navigate-tabs-panel .action-tabs > li > a {
+  color: #b9b9b9 !important;
+  line-height: 1 !important;
+  font-size: calc(17 * (50vh + 23.5vw) / 910);
+  font-weight: bold !important;
+  padding-bottom: calc(29 * 100vh / 910);
+}
+
+.new-design-theme .navigate-tabs-panel div.control-panel a.btn {
+  border-radius: calc(5 * (50vh + 23.5vw) / 910);
+  height: calc(40 * 100vh / 910);
+  line-height: calc(40 * 100vh / 910);
+  padding: 0 calc(16 * 100vw / 1920);
+  margin: 0 0 calc(13 * 100vw / 1920) calc(14 * 100vw / 1920);
+  font-size: calc(16 * (50vh + 23.5vw) / 910);
+}
+
+.radio input[type="radio"][disabled] ~ .check {
+  background-color: transparent !important;
+}
+.radio input[type="radio"][checked] ~ .check {
+}
+a.btn.btn-print {
+  background-color: transparent !important;
+}
+
+.new-design-theme {
+  height: auto !important;
+}
+#print-icon {
+  padding: 0px !important;
+}
+#print-icon > i {
+  font-size: 2.5vh !important;
+  color: #4e4e4e !important;
+  margin-right: 0.2vw !important;
+}
+#stageWrapper .stageMain ul {
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+.select2-container--material .select2-selection .select2-selection__rendered {
+  padding-left: 6px !important;
+}
+.noStagesAddedDiv {
+  text-align: center;
+  padding: 100px;
+}
+.Select--multi .Select-value-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 75vh;
+}
+
+.Select-value {
+  padding-right: 5px !important;
+}
+.noStagesAddedDiv h2 {
+  color: #bec2d6;
+}
+#amendment_history_popup .amendment_history_popup_scrollableDiv {
+  overflow: auto;
+  height: 39vh;
+}
+.close {
+  display: inline-block;
+}
+.dataTables_scrollHeadInner {
+  width: 100% !important;
+}
+
+.glyphicon-download-alt {
+  color: #fff !important;
+}
+.material-confirmation-popup {
+  font-size: 1.7rem !important;
+  line-height: 0px !important;
+}
+.material-confirmation-container h2 {
+  line-height: 40px !important;
+  margin-top: -3vh;
+}
