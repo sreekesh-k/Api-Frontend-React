@@ -3,7 +3,7 @@ import LeftPlane from "./LeftPlane";
 import Footer from "./Footer";
 import Header from "./Header";
 
-function Layout({ children }) {
+function ThemeLayout({ children }) {
   return (
     <>
       <LeftPlane />
@@ -20,4 +20,4 @@ function Layout({ children }) {
   );
 }
 
-export default Layout;
+export default ThemeLayout;

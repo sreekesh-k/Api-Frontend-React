@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import VendorApp from "../../components/vendorsEntry/VendorApp";
 import { useSelector } from "react-redux";
+import ThemeLayout from "../../common/layouts/ThemeLayout";
 
 function VendorEntry() {
   const navigate = useNavigate();
@@ -16,9 +17,11 @@ function VendorEntry() {
   return (
     <>
       {vendorId && (
-        <div id="csroot">
-          <VendorApp />
-        </div>
+        <ThemeLayout>
+          <div id="csroot">
+            <VendorApp />
+          </div>
+        </ThemeLayout>
       )}
     </>
   );
