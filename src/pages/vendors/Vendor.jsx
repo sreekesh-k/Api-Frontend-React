@@ -1,5 +1,5 @@
 import React from "react";
-import VendorTable from "../components/vendors/VendorTable";
+import VendorTable from "../../components/vendors/VendorTable";
 
 function Vendor() {
   return (

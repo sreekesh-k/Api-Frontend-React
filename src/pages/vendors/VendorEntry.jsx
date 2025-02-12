@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import VendorApp from "../components/vendorsEntry/VendorApp";
+import VendorApp from "../../components/vendorsEntry/VendorApp";
 import { useSelector } from "react-redux";
 
 function VendorEntry() {

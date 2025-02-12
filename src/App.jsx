@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import VendorEntry from "./pages/VendorEntry";
-import Vendor from "./pages/Vendor";
+import VendorEntry from "./pages/vendors/VendorEntry";
+import Vendor from "./pages/vendors/Vendor";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/Store";
-import Layout from "./layouts/vendors/Layout";
+import Layout from "./common/layouts/Layout";
 
 const App = () => {
   return (

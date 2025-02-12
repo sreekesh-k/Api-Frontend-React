@@ -1,21 +1,21 @@
-@import url("./styles/vendor/form-renderer-deps.css");
-@import url("./styles/vendor/form-renderer-deps.overwrites.css");
-@import url("./styles/vendor/react-layout.css");
-@import url("./styles/vendor/react-select.css");
-@import url("./styles/vendor/vendor_styles.css");
-@import url("./styles/vendor/vendorReview.css");
-@import url("./styles/vendor/Loader.css");
+@import url("./styles/vendors/form-renderer-deps.css");
+@import url("./styles/vendors/form-renderer-deps.overwrites.css");
+@import url("./styles/vendors/react-layout.css");
+@import url("./styles/vendors/react-select.css");
+@import url("./styles/vendors/vendor_styles.css");
+@import url("./styles/vendors/vendorReview.css");
+@import url("./styles/vendors/Loader.css");
 
-/* @import url("./styles/vendor/SearchSort_style.css"); */
-@import url("./styles/vendor/sharedcomponents_style.css");
-@import url("./styles/vendor/StageList.css");
-@import url("./styles/vendor/workflow.css");
-@import url("./styles/vendor/Cards.css");
-@import url("./styles/vendor/jquery-ui-1.11.4.custom.css");
-@import url("./styles/vendor/newtheme.css");
-@import url("./styles/vendor/material-dashboard.css");
-@import url("./styles/vendor/Main.css");
-/* @import url("./styles/vendor/select2.min.css"); */
+/* @import url("./styles/vendors/SearchSort_style.css"); */
+@import url("./styles/vendors/sharedcomponents_style.css");
+@import url("./styles/vendors/StageList.css");
+@import url("./styles/vendors/workflow.css");
+@import url("./styles/vendors/Cards.css");
+@import url("./styles/vendors/jquery-ui-1.11.4.custom.css");
+@import url("./styles/vendors/newtheme.css");
+@import url("./styles/vendors/material-dashboard.css");
+@import url("./styles/vendors/Main.css");
+/* @import url("./styles/vendors/select2.min.css"); */
 
 #file1 {
   min-width: 18vw;
