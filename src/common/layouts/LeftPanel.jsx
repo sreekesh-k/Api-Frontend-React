@@ -47,13 +47,13 @@ function LeftPanel() {
                 </a>
               </li>
 
-              <li className="active">
-                <a href="#">
+              <li className="">
+                <Link to="/actioncenter">
                   <svg>
                     <use xlinkHref="#action-center" />
                   </svg>
                   <p>Action Center</p>
-                </a>
+                </Link>
               </li>
 
               <li className=" ">

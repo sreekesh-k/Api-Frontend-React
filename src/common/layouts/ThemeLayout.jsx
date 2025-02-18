@@ -1,12 +1,12 @@
 import React from "react";
-import LeftPlane from "./LeftPlane";
+import LeftPanel from "./LeftPanel";
 import Footer from "./Footer";
 import Header from "./Header";
 
 function ThemeLayout({ children }) {
   return (
     <>
-      <LeftPlane />
+      <LeftPanel />
       <div className="main-panel">
         <div className="panel-header">
           <Header />
