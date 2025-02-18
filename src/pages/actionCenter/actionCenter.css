@@ -8,6 +8,41 @@
 /* @import url("../../styles/actionCenter/ManageV2Print.css"); */
 /* @import url("../../styles/actionCenter/MembershipPage.css"); */
 
+#amendment_popup {
+  width: 95.7%;
+  height: 100vh;
+  background: white;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  right: 0;
+  display: none;
+}
+
+#amendment_popup.open {
+  display: block;
+}
+
+#top_menu {
+  background: #2c2f48;
+}
+
+#show_form {
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 0.5vw 0 0 0.5vw;
+}
+
+#show_stages {
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 0 0.5vw 0.5vw 0;
+  border-left: 0;
+}
+
+#approvalHistoryModal .modal-dialog {
+  width: 100% !important;
+}
 .dataTables_scrollHeadInner {
   width: 100% !important;
 }
@@ -470,8 +505,6 @@ div.stageBackground
   font-size: 2vh;
   font-weight: lighter;
 }
-
-
 
 .bootstrap-datetimepicker-widget.dropdown-menu {
   height: 48vh !important;
@@ -950,7 +983,6 @@ textarea:read-only {
   position: relative;
   top: 33px;
 }
-
 
 .togglebutton input:checked + label {
   position: absolute;
